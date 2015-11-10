@@ -1,0 +1,31 @@
+<script language="javascript">
+
+/**
+* We prefabricate an artificial set of flashvars on the window object such that the
+* loader can do things more naturally. It doesn't seem to be the case that the window
+* object contains all these variables naturally and they have to be replaced by the
+* python script when the full final XBlock html page is generated.
+*/
+
+window.href="{self.href}";
+window.module="{self.module}";
+window.problem="{self.problem}";
+window.src ="{self.src}";
+window.problem ="{self.problem}";
+window.dataset ="{self.dataset}";
+window.level1 ="{self.level1}";
+window.type1 ="{self.type1}";
+window.level2 ="{self.level2}";
+window.type2 ="{self.type2}";
+window.logurl ="{self.logurl}";
+window.name ="{self.name}";
+window.logtype ="{self.logtype}";
+window.diskdir ="{self.diskdir}";
+window.port ="{self.port}";
+window.remoteurl ="{self.remoteurl}";
+window.connection ="{self.connection}";
+
+window.saveandrestore="{self.saveandrestore}";
+window.skillstring="{self.skillstring}";
+
+</script>

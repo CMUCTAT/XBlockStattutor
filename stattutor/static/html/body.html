@@ -1,0 +1,214 @@
+<div class="easyui-layout"
+	style="width:100%; max-width: 800px; height:100%; max-height: 700px;  margin: 0 auto;">
+	<div data-options="region:'west'" style="width: 200px; background: #f5f5f2">
+		<div class="easyui-layout" style="width:100%;height:100%;">
+			<div data-options="region:'north',border:false" style="background:#f5f5f2;">
+				<img src="images/logo.png" alt="CTAT StatTutor Work Plan" width="198px" height="154px"/>
+			</div>
+			<div data-options="region:'center',border:false" style="background:#f5f5f2;">
+				<ul id="work_plan"></ul>
+			</div>
+		</div>
+	</div>
+	<div data-options="region:'center'">
+		<div class="easyui-layout" data-options="fit:true">
+			<div data-options="region:'north'"
+				style="height: 202px; padding: 5px;">
+				<div id="description_tabs" class="easyui-tabs"
+					style="height: 190px">
+					<div title="Problem" style="padding:5px;">
+						<h3 id="problem_data_title"></h3>
+						<p id="problem_data_background"></p>
+						<p>
+							Click the <a class="easyui-linkbutton tab-button" onclick="javascript:StatTutor.goto_tab('Questions')">Questions</a> tab to see the questions about this
+							problem that we will try to answer, and the <a class="easyui-linkbutton tab-button" onclick="javascript:StatTutor.goto_tab('Variables')">Variables</a> tab
+							to see the variables in our dataset.
+						</p>
+					</div>
+					<div id="problem_data_questions" title="Questions" style="padding: 5px;">
+					</div>
+					<div title="Variables" style="padding: 5px;">
+						<dl id="problem_data_variables">
+						</dl>
+					</div>
+					<div title="Data">
+						<table id="data-display"></table>
+					</div>
+					<div title="About" style="padding:5px;" data-options="iconCls:'icon-help'">
+					<!-- Static -->
+						<p>StatTutor is a learning tool that provides you with a data
+							analysis problem, supports you as you attempt to solve it, and
+							gives you hints and feedback along the way. It assumes that the
+							relevant data set is open in the background.</p>
+						<p>One of the main ideas behind StatTutor is to demonstrate
+							that when solving data analysis problems we always go through
+							the same set of steps. Those steps are shown on the left side of
+							StatTutor, and you will click on them in sequence as you
+							progress through the lab. Clicking on each step will cause a new
+							worksheet to appear below for you to complete.</p>
+						<p>If you get stuck along the way, you can ask for hints by
+							clicking on the hint button.</p>
+					</div>
+				</div>
+			</div>
+			<div id="main" data-options="region:'center'" style="padding: 5px;">
+				<div id="BlankPanel" class="easyui-panel work_area" title=" "
+					data-options="closed:true, fit:true"></div>
+				<div id="Welcome" class="easyui-panel work_area"
+					title="Welcome to StatTutor!"
+					data-options="closed:false, fit:true, onOpen:stattutor_highlight_q0">
+					<!-- Static -->
+					<p>StatTutor is a learning tool that provides you with a data
+						analysis problem, supports you as you attempt to solve it, and
+						gives you hints and feedback along the way. It assumes that the
+						relevant data set is open in the background.</p>
+					<p>One of the main ideas behind StatTutor is to demonstrate
+						that when solving data analysis problems we always go through the
+						same set of steps. Those steps are shown on the left side of
+						StatTutor, and you will click on them in sequence as you progress
+						through the lab. Clicking on each step will cause a new worksheet
+						to appear in this box for you to complete.</p>
+					<p>If you get stuck along the way, you can ask for hints by
+						clicking on the hint button below.</p>
+					<p>
+						To begin, read the <a class="easyui-linkbutton tab-button" onclick="javascript:StatTutor.goto_tab('Problem')">Problem</a> description at the top of the
+						screen to find out the context of this StatTutor exercise. Then
+						click the <a class="easyui-linkbutton tab-button" onclick="javascript:StatTutor.goto_tab('Questions')">Questions</a> tab and take a look at the questions
+						you're going to answer. Finally, click the <a class="easyui-linkbutton tab-button" onclick="javascript:StatTutor.goto_tab('Variables')">Variables</a> tab
+						to see the variables in this study. Once you've done that, click
+						on <a class="easyui-linkbutton"
+							onclick="javascript:StatTutor.goto_panel('UnderstandTheProblem')">Understand
+							the Problem</a> under Work Plan on the left to continue.
+					</p>
+				</div>
+				<div id="UnderstandTheProblem" class="easyui-panel work_area"
+					title="Understand the Problem"
+					data-options="closed:true, fit:true, onOpen:stattutor_highlight_q0">
+					<!-- Static -->
+					<p>Before we begin looking at specific questions, we examine
+						some general features of the problem, such as the data structure,
+						how the data were collected, and the overall study design.</p>
+					<p>
+						If you have not done so already, read the <a class="easyui-linkbutton tab-button" onclick="javascript:StatTutor.goto_tab('Problem')">Problem</a>
+						description at the top of the screen, and take a look at the <a class="easyui-linkbutton tab-button" onclick="javascript:StatTutor.goto_tab('Questions')">Questions</a>
+						and <a class="easyui-linkbutton tab-button" onclick="javascript:StatTutor.goto_tab('Variables')">Variables</a> as well.
+					</p>
+					<p>
+						When you are ready, click on <a class="easyui-linkbutton" onclick="javascript:StatTutor.goto_panel('CheckDataFormat')">Check Data Format</a> to
+						continue.
+					</p>
+				</div>
+
+				<div id="CheckDataFormat" class="easyui-panel work_area"
+					title="Check Data Format" data-options="closed:true, fit:true, onBeforeOpen:stattutor_highlight_q0, onOpen:package_options">
+					<p>We'll start by answering some questions about the data.
+						First, choose the statistics package you wish to use and then
+						download the dataset:</p>
+					Statistics Package:<select id="package_select">
+						<option>select one</option>
+						<!-- other options are added based on available datasets and instructions -->
+					</select>
+					<button onclick="download_data()">Download</button>
+
+					<div id="cdf"></div>
+					<div id="CheckDataFormat_Thought" class="ThoughtArea"></div>
+					<p>
+						When you are done, click on <a id="UnderstandTheProblem_next" class="easyui-linkbutton" onclick="javascript:StatTutor.goto_panel('Question1')">Question 1</a> to
+						continue.
+					</p>
+				</div>
+
+				<div id="ConsiderStudyDesign" class="easyui-panel work_area"
+					title="Consider Study Design" data-options="closed:true, fit:true, onOpen:stattutor_highlight_q0">
+					<p id="ConsiderStudyDesign_disabled">This node is not active for this lab exercise.</p>
+					<div id="ConsiderStudyDesign_enabled">
+						<p>The next step in understanding the problem is addressing the issues of
+						sampling and study design, which have implications on
+						the generalizability of the results and the type of
+						conclusions you can draw from them.</p>
+						<div id="ConsiderStudyDesign_design">
+							<h3>Design:</h3>
+							This study is an
+							<div id="design_classify" class="CTATComboBox" style="width:auto; display:inline-block;">
+								<option>----</option>
+								<option>observational study</option>
+								<option>experiment</option>
+							</div>
+						</div>
+						<div id="ConsiderStudyDesign_sampling">
+							<h3>Sampling:</h3>
+							Briefly describe what the problem statement tells
+							us about how the individuals in the dataset were
+							selected to be in the sample.
+							<h3 class="your_answer">Your Answer:</h3>
+							<div id="design_sampling" class="CTATTextArea" data-ctat-tutor="false" data-ctat-show-feedback="false" data-ctat-tab-on-enter="false"></div>
+							<div id="design_sampling_submit" class="CTATSubmitButton Submit_and_Reveal" data-ctat-target="design_sampling" data-ctat-show-feedback="false">Submit and Reveal Our Answer</div>
+							<h3 class="our_answer">Our Answer:</h3>
+							<div id="our_design_sampling" class="CTATTextField" data-ctat-tutor="false" data-ctat-enabled="false"></div>
+						</div>
+						<div id="ConsiderStudyDesign_Thought" class="ThoughtArea">
+							<!-- Only in depression, but it has package dependent instructions. -->
+						</div>
+					</div>
+					<p>
+						Click on <a class="easyui-linkbutton" onclick="javascript:StatTutor.goto_panel('Question1')">Question 1</a> to continue.
+					</p>
+				</div>
+
+				<div id="Summarize" class="easyui-panel work_area"
+					title="Summarize" data-options="closed:true, fit:true, onOpen:stattutor_highlight_q0">
+				  <p>In this final part of out data analysis process, we summarize our work and
+				  consider possible implications and limitations of our conclusions.</p>
+				  <p>Click on <a class="easyui-linkbutton" onclick="javascript:StatTutor.goto_panel('SummarizeFindings')">Summarize Findings</a> to continue.</p>
+				</div>
+				<div id="SummarizeFindings" class="easyui-panel work_area"
+					title="Summarize Findings" data-options="closed:true, fit:true, onBeforeOpen:stattutor_highlight_q0, onOpen:populate_summary">
+				  <p><em>Remember...<br/>What you wrote in <b>Consider what results mean</b>
+				  for each of the questions is pasted in the textbox below.</em></p>
+				  <p>Now that you have addressed all the questions individually,
+				  write a short summary report of the main findings that you discovered using the
+				  data.  For your convenience, your individual conclusions are provided below.
+				  You may edit them to create your summary.</p>
+				  <p class="EvaluateStudy_disabled"><em>After you write your summary, you are done</em></p>
+				  <h3 class="your_answer">Your Answer:</h3>
+				  <div id="Summary" class="CTATTextArea" data-ctat-tutor="false" data-ctat-show-feedback="false" data-ctat-tab-on-enter="false"></div>
+				  <div id="Summary_submit" class="CTATSubmitButton Submit_and_Reveal" data-ctat-target="Summary" data-ctat-show-feedback="false">Submit and Reveal Our Answer</div>
+				  <h3 class="our_answer">Our Answer:</h3>
+				  <div id="our_Summary" class="CTATTextField" data-ctat-tutor="false" data-ctat-enabled="false"></div>
+				  <p class="EvaluateStudy_enabled">Click on <a class="easyui-linkbutton" onclick="javascript:StatTutor.goto_panel('EvaluateStudy')">Evaluate Study</a> to continue.</p>
+				</div>
+				<div id="EvaluateStudy" class="easyui-panel work_area"
+					title="Evaluate Study" data-options="closed:true, fit:true, onOpen:stattutor_highlight_q0">
+					<div class="EvaluateStudy_enabled">
+						<p><i>Remember...</i><br/>What you wrote in
+						<a class="easyui-linkbutton" onclick="javascript:StatTutor.goto_panel('ConsiderStudyDesign')">Consider study Design</a>
+						is pasted in the textbox below.</p>
+						<p>Now that you have completed your analysis, discuss the strengths
+						and weaknesses of you conclusions. In particular, address <b>each</b>
+						of the following:</p>
+						<ul>
+							<li>Does the study design allow you to make causal conclusions?
+							Why or why not?</li>
+							<li>To what population does the sampling design allow you to generalize the results?</li>
+						</ul>
+						<p><i>After you answer these questions, you are done!</i></p>
+						<h3 class="your_answer">Your Answer:</h3>
+						<div id="evaluate_validity" class="CTATTextArea" data-ctat-tutor="false" data-ctat-show-feedback="false" data-ctat-tab-on-enter="false"></div>
+						<div id="evaluate_validity_submit" class="CTATSubmitButton Submit_and_Reveal" data-ctat-target="evaluate_validity" data-ctat-show-feedback="false">Submit and Reveal Our Answer</div>
+						<h3 class="our_answer">Our Answer:</h3>
+						<div id="our_evaluate_validity" class="CTATTextField" data-ctat-tutor="false" data-ctat-enabled="false"></div>
+					</div>
+					<p class="EvaluateStudy_disabled">This node is not active for this lab exercise.  You are done!</p>
+				</div>
+				
+			</div>
+			<div data-options="region:'south'"
+				style="height: 157px; padding: 5px;">
+				<div id="hint-button" class="CTATHintButton"
+					style="margin: 0 5px 5px 5px; display: inline-block"></div>
+				<div id="HintWindow" class="CTATHintWindow"
+					style="display: inline-block; width: 400px;"></div>
+			</div>
+		</div>
+	</div>
+</div>

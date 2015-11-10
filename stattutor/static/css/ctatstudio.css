@@ -1,0 +1,103 @@
+body 
+{
+	margin: 0;
+	padding: 0;
+	text-align: center; /* !!! */
+	background-color:#cccccc;
+}
+
+.container 
+{ 
+	width: 320px; 
+	height: 200px; 		  
+	box-shadow: 10px 10px 5px #888888;
+	z-index: 0;
+	position: relative;
+}
+
+canvas
+{
+	width: 320px; 
+	height: 200px; 	
+	border: 1px solid black; 
+	background-color: #ffffff;
+	z-index: 1;
+	position: relative;		
+}	
+
+.console 
+{ 
+	background-color: #ffffff;
+	width: 600px;  		  
+	height: 0px;
+	box-shadow: 10px 10px 5px #888888;
+	text-align: left;
+	overflow: auto;
+	font-family: courier; 
+	font-size: 11px;
+	border: 1px solid black;
+	/*white-space: nowrap;*/
+}	
+
+.classname 
+{
+	/*-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;*/
+	/*-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;*/
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	/*background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf) );*/
+	/*background:-moz-linear-gradient( center top, #ededed 5%, #dfdfdf 100% );*/
+	/*filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf');*/
+	background-color:#ededed;
+	/*-moz-border-radius:6px;*/
+	/*-webkit-border-radius:6px;*/
+	border-radius:6px;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	color:#777777;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #ffffff;
+}
+
+.classname:hover 
+{
+	/*
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed) );
+	background:-moz-linear-gradient( center top, #dfdfdf 5%, #ededed 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed');
+	*/
+	background-color:#dfdfdf;
+}
+
+.classname:active 
+{
+	position:relative;
+	top:1px;
+}	
+
+.shadow
+{
+	box-shadow: 5px 5px 5px #888888;	
+}
+
+.highlightdiv
+{
+	background-color:#b0c4de;
+}
+
+.mainborder
+{
+	border-style:solid;
+	border-width:3px;
+	
+	-webkit-box-shadow: 10px 10px 5px -4px rgba(0,0,0,0.75);
+	-moz-box-shadow: 10px 10px 5px -4px rgba(0,0,0,0.75);
+	box-shadow: 10px 10px 5px -4px rgba(0,0,0,0.75);		
+}
+
+td
+{
+	font-family: Verdana;
+	font-size: 10pt;	
+}
