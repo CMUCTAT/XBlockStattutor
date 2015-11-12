@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     height="15" width="15" viewBox="0 0 15 15" preserveAspectRatio="none">
+   <desc>Empty checkbox</desc>
+   <defs>
+    <style type="text/css">
+     <![CDATA[ .shadow{ filter: url(#shadow); } ]]>
+    </style>
+   <filter id="box_shadow" x="0" y="0" width="200%" height="200%">
+    <feoffset in="SourceAlpha" result="offsetOut" dx="3" dy="3"></feoffset>
+   	<fegaussianblur in="offsetOut" result="blurOut" stdDeviation="4"></fegaussianblur>
+   	<feblend in="SourceGraphic" in2="blurOut" mode="normal"></feblend>
+   </filter>
+   </defs>
+   <g class="">
+   <rect x="1" y="1" width="12" height="12" stroke="black" stroke-width="1px" fill="none" rx="1" ry="1"/>
+   </g>
+</svg>

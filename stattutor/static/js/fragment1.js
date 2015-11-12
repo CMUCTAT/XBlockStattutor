@@ -3,7 +3,10 @@
 // problem so all that this does is make blank questions from the template to
 // be filled in when more information is loaded.  There is some contingent
 // things built into the template that end up getting controled by classes/css.
-$(function() {
+$(function() 
+{
+	console.log ("Executing fragment1.js...");
+	
 	var MAX_NUMBER_QUESTIONS = 3;
 	$.views.converters("word", function(val) { return ['Zero','One','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten'][parseInt(val)];});
 	var template = $.templates("#question_template");

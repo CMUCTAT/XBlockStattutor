@@ -8,8 +8,8 @@ div.work_area {
 .CTATComboBox { display:inline-block;width:auto; height:auto;}
 .CTATTextArea { margin: 5px; width: 90%; height: 8em; }
 .CTATTextField { margin: 5px; width: 90%; min-height: 5em; border: 1px solid darkgrey; padding: 3px;}
-.icon-box { background:url('images/icons/box.svg') no-repeat center center; }
-.icon-partial { background:url('images/icons/box_partial.svg') no-repeat center center; }
+.icon-box { background:url('http://augustus.pslc.cs.cmu.edu/stattutor/images/icons/box.svg') no-repeat center center; }
+.icon-partial { background:url('http://augustus.pslc.cs.cmu.edu/stattutor/images/icons/box_partial.svg') no-repeat center center; }
 .CTAT-text {overflow: auto; }
 
 .WorkPlanLevel0 { font-size: 1.2em; font-weight: bold; }
@@ -215,27 +215,4 @@ canvas
 	border-bottom-left-radius: 6px; 
 	margin: 0px; 
 	padding:4px;
-}
-
-div.work_area 
-{
-	width: 97%;
-	height: 350px;
-	background: #f5f5f2;
-	padding: 5px;
-}
-
-.CTATRadioButton
-{ 
-	width: auto; 
-}
-
-.icon-box
-{ 
-	background:url('images/icons/box.svg') no-repeat center center; 
-}
-
-.icon-partial
-{ 
-	background:url('images/icons/box_partial.svg') no-repeat center center; 
 }

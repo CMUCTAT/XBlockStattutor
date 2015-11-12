@@ -14,7 +14,7 @@ class StattutorXBlock(XBlock):
     href = String(help="URL to a BRD file", default="http://augustus.pslc.cs.cmu.edu/stattutor/problem_files", scope=Scope.settings)
     module = String(help="The learning module to load from", default="m1_survey", scope=Scope.settings)
     name = String(help="Problem name to log", default="CTATEdXProblem", scope=Scope.settings)
-    problem = String(help="The name of a BRD file", default="1416-worked.brd", scope=Scope.settings)
+    problem = String(help="The name of a BRD file", default="survey.brd", scope=Scope.settings)
     dataset = String(help="Dataset name to log", default="edxdataset", scope=Scope.settings)
     level1 = String(help="Level name to log", default="unit1", scope=Scope.settings)
     type1 = String(help="Level type to log", default="unit", scope=Scope.settings)
@@ -42,21 +42,23 @@ class StattutorXBlock(XBlock):
 
     def student_view(self, context=None):
         html = self.resource_string("static/html/ctatxblock.html")
-        frag = Fragment(html.format(self=self))
-        frag.add_css(self.resource_string("static/css/ctat.css"))
-        frag.add_css(self.resource_string("static/css/ctatxblock.css"))
-        frag.add_css(self.resource_string("static/css/stattutor.css"))
-        frag.add_css(self.resource_string("static/css/icon.css"))
-        frag.add_css(self.resource_string("static/css/easyui.css"))
-        frag.add_javascript(self.resource_string("static/js/jsrender.min.js"))
-        frag.add_javascript(self.resource_string("static/js/ctat.min.js"))
-        frag.add_javascript(self.resource_string("static/js/fragment1.js"))
-        frag.add_javascript(self.resource_string("static/js/fragment2.js"))
-        frag.add_javascript(self.resource_string("static/js/ctatloader.js"))
-        frag.add_javascript(self.resource_string("static/js/stattutor.js"))
-        frag.add_javascript(self.resource_string("static/js/jsrenderbody.js"))
+        frag = Fragment (html.format(self=self))
+        frag.add_css (self.resource_string("static/css/ctat.css"))
+        frag.add_css (self.resource_string("static/css/ctatxblock.css"))
+        frag.add_css (self.resource_string("static/css/stattutor.css"))
+        frag.add_css (self.resource_string("static/css/icon.css"))
+        frag.add_css (self.resource_string("static/css/easyui.css"))
+        frag.add_javascript_url ("http://augustus.pslc.cs.cmu.edu/stattutor/jquery/jquery.easyui.min.js");
+        frag.add_javascript (self.resource_string("static/js/jsrender.min.js"))
+        frag.add_javascript (self.resource_string("static/js/ctat.min.js"))
+        frag.add_javascript (self.resource_string("static/js/fragment1.js"))
+        frag.add_javascript (self.resource_string("static/js/fragment2.js"))
+        frag.add_javascript (self.resource_string("static/js/ctatloader.js"))
+        frag.add_javascript (self.resource_string("static/js/stattutor.js"))
+        #frag.add_javascript (self.resource_string("static/js/jquery.easyui.min.js"))
+        #frag.add_content (self.resource_string("static/html/jsrenderbody.html"))
         frag.add_content (self.resource_string("static/html/body.html"));
-        frag.initialize_js('')
+        frag.initialize_js('CTATXBlock')
         return frag
     
     # -------------------------------------------------------------------
@@ -86,7 +88,7 @@ class StattutorXBlock(XBlock):
         for key in data:
             #value = base64.b64decode(data[key])
             value = data[key]
-            print("Setting ({}) to ({})".format(key, value))
+            #print("Setting ({}) to ({})".format(key, value))
             if (key=="href"):
                self.href = value
             if (key=="module"):

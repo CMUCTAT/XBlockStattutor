@@ -1,1 +1,1 @@
-from .ctatxblock import CTATXBlock
+from .stattutor import StattutorXBlock
