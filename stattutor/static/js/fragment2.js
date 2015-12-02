@@ -4,10 +4,18 @@ CTATTarget="OLI";
 /**
  *
  */
-function ctatPreload() {
-	StatTutor.assign_dataset((flashVars.getRawFlashVars())["resource_spec"]);  // content of module-specific ctat_m?_stattutor.xml
-	var pfile = oliDriver.translateOLIResourceFile (StatTutor.dataset["problem_description.xml"]);
-	$.get(pfile, function(data) {
+function ctatPreload() 
+{
+	var tempCommLibrary=new CTATCommLibrary (null,false,null);
+	
+	//StatTutor.assign_dataset((flashVars.getRawFlashVars())["resource_spec"]);  // content of module-specific ctat_m?_stattutor.xml
+	//var pfile = translateResourceFile (StatTutor.dataset["problem_description.xml"]);
+	var pfile = translateResourceFile ("survey.xml");
+	
+	//$.get(pfile, function(data)
+	
+	tempCommLibrary.retrieveFile (pfile, function(data) 
+	{	
 		StatTutor.process_problem_data(data);
 		StatTutor.setup();
 		initTutor (flashVars.getRawFlashVars());
@@ -36,24 +44,35 @@ function ctatPreload() {
 function ctatOnload()
 {
 	console.log ("ctatOnload ()");
+	
+	var tempCommLibrary=new CTATCommLibrary (null,false,null);
 
-	var instructionsLocation=oliDriver.translateOLIResourceFile (StatTutor.dataset["instructions.xml"]);
+	//var instructionsLocation=translateResourceFile (StatTutor.dataset["instructions.xml"]);
+	var instructionsLocation = translateResourceFile ("instructions.xml");
 	
-	console.log ("Example OLI Resource location translation: "  + instructionsLocation);		
+	console.log ("Example LMS specific resource location translation: "  + instructionsLocation);
 	
-	StatTutor.set_data_tab(oliDriver.translateOLIResourceFile (StatTutor.dataset["json"]));
+	//StatTutor.set_data_tab(translateResourceFile (StatTutor.dataset["json"]));
+	StatTutor.set_data_tab(translateResourceFile ("Survey.json"));
 	
-	$.get(instructionsLocation, function(data) 
+	//$.get(instructionsLocation, function(data) 
+	tempCommLibrary.retrieveFile (instructionsLocation, function(data) 
 	{
-		console.log('Loading instructions ...',data);
+		//console.log('Loading instructions ...',data);
 		StatTutor.process_instructions(data);
 	});
 }
 
-function download_data() {
+/**
+*
+*/
+function download_data() 
+{
 	var selection = $('#package_select').val();
-	console.log(selection,StatTutor.dataset[selection]);
-	if (StatTutor.dataset.hasOwnProperty(selection)) {
-		window.open(oliDriver.translateOLIResourceFile(StatTutor.dataset[selection]));
+	
+	//console.log(selection,StatTutor.dataset[selection]);
+	if (StatTutor.dataset.hasOwnProperty(selection)) 
+	{
+		window.open(translateResourceFile(StatTutor.dataset[selection]));
 	}
 }

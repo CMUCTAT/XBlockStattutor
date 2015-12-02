@@ -1,4 +1,5 @@
-var StatTutor = {
+var StatTutor = 
+{
 		/** Values from dataset elements of ctat_m?_stattutor.xml; property names from package attributes */
 		dataset: {},
 
@@ -386,9 +387,24 @@ var StatTutor = {
 				rownumbers: true});
 		},
 		
-		set_data_tab: function (data_file) {
-			if (data_file.length>0) {
-				$.getJSON(data_file, function(data) {
+		set_data_tab: function (data_file) 
+		{
+			if (data_file.length>0) 
+			{
+				console.log ("Calling $.getJSON ("+data_file+") ...");
+				
+				/*
+				$.getJSON(data_file, function(data) 
+				{
+					// json must be well formed or this will silently fail.
+					// Use something like http://jsonlint.com/ to check files before making them live.
+					$('#data-display').datagrid({data: data});					
+				});
+				*/
+				
+				var tempCommLibrary=new CTATCommLibrary (null,false,null);
+				tempCommLibrary.retrieveJSONFile (data_file, function(data) 
+				{
 					// json must be well formed or this will silently fail.
 					// Use something like http://jsonlint.com/ to check files before making them live.
 					$('#data-display').datagrid({data: data});					

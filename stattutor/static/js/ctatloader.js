@@ -15,6 +15,7 @@
 
 var CTATTarget="CTAT";
 
+var Tutor = {}; // For XBlock (for now)
 var FlashVars =
 {
 	admit_code: "ies",
@@ -202,6 +203,28 @@ function loadCTAT ()
 		FlashVars ['baseUrl']=window.self.baseUrl;
 		FlashVars ['handlerBaseUrl']=window.self.handlerBaseUrl;
 		FlashVars ['question_file']=window.self.href + "/" + window.self.module + "/" + window.self.problem;
+		
+		FlashVars ['href']=window.href;
+		FlashVars ['module']=window.module;		
+	
+		FlashVars ['resource_spec']=window.name;
+		FlashVars ['problem']=window.problem;
+		FlashVars ['src']=window.src;
+		FlashVars ['dataset']=window.dataset;
+		FlashVars ['level1']=window.level1;
+		FlashVars ['type1']=window.type1;
+		FlashVars ['level2']=window.level2;
+		FlashVars ['type2']=window.type2;
+		FlashVars ['logurl']=window.logurl;
+		FlashVars ['name']=window.name;
+		FlashVars ['logtype']=window.logtype;
+		FlashVars ['diskdir']=window.diskdir;
+		FlashVars ['port']=window.port;
+		FlashVars ['remoteurl']=window.remoteurl;
+		FlashVars ['connection']=window.connection;
+
+		FlashVars ['saveandrestore']=window.saveandrestore;
+		FlashVars ['skillstring']=window.skillstring;
 				
 		ctatdebug ("XBlock windows.self.studentId: " + window.self.studentId);
 		ctatdebug ("XBlock windows.self.handlerBaseUrl: " + window.self.handlerBaseUrl);
@@ -211,6 +234,16 @@ function loadCTAT ()
 		ctatdebug ("Generated question_file: " + FlashVars ['question_file']);
 		
 		initOnload ();
+		
+		if (window ['ctatOnload'])
+		{
+			ctatdebug ("Calling client provided ctatOnload ...");
+			window ['ctatOnload']();
+		}
+		else
+		{
+			ctatdebug ("No ctatOnload defined in the main window object");
+		}
 		
 		return;
 	}	
@@ -335,13 +368,31 @@ function initOnload ()
 		}
 					
 			return;
-		}		
+	}		
 	
 	if (CTATTarget=="XBlock")
 	{
 		// We should aready be done here, no interaction with the server needed
-				
-		initTutor ();		
+		
+		var tempFlashVars=tutorPrep (FlashVars);
+
+		if (tempFlashVars ["session_id"]=="none")
+		{	
+			tempFlashVars ["session_id"]=("qa-test_"+guid());		
+		}
+		
+		flashVars=new CTATFlashVars ();
+		flashVars.assignRawFlashVars(tempFlashVars);
+		
+		Tutor.name = window.name;
+		Tutor.webcontent = "problem_files/"+window.module+"/";
+		Tutor.data = Tutor.webcontent+window.name;
+		Tutor.problem_description = Tutor.name+".xml";
+		Tutor.brd = Tutor.name+".brd";
+		
+		ctatPreload();
+
+		initTutor ();
 
 		return;	
 	}	
@@ -360,7 +411,7 @@ function initOnload ()
 		
 		if (window.hasOwnProperty('ctatOnload'))
 		{
-			window ['ctatOnload']();	
+			window ['ctatOnload']();
 		}
 		else
 		{
@@ -450,3 +501,18 @@ $(window).load(function()
 		initOnload ();
 	}	
 });
+
+function translateResourceFile (aURL)
+{
+	if (CTATTarget=="OLI")
+	{
+		return (oliDriver.translateOLIResourceFile (aURL));
+	}
+
+	if (CTATTarget=="XBlock")
+	{
+		return (xblockpointer.translateResourceFile (aURL));
+	}	
+	
+	return (aURL);
+}

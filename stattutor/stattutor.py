@@ -13,7 +13,7 @@ class StattutorXBlock(XBlock):
     # self.<fieldname>.
     href = String(help="URL to a BRD file", default="http://augustus.pslc.cs.cmu.edu/stattutor/problem_files", scope=Scope.settings)
     module = String(help="The learning module to load from", default="m1_survey", scope=Scope.settings)
-    name = String(help="Problem name to log", default="CTATEdXProblem", scope=Scope.settings)
+    name = String(help="Problem name to log", default="survey", scope=Scope.settings)
     problem = String(help="The name of a BRD file", default="survey.brd", scope=Scope.settings)
     dataset = String(help="Dataset name to log", default="edxdataset", scope=Scope.settings)
     level1 = String(help="Level name to log", default="unit1", scope=Scope.settings)
@@ -37,7 +37,23 @@ class StattutorXBlock(XBlock):
         return data.decode("utf8")
 
     # -------------------------------------------------------------------
-    # TO-DO: change this view to display your data your own way.
+    # Here we construct the tutor html page from various resources. This 
+    # is where all things go to hell. We can't use jsrender because the
+    # XBlock API call add_resource doesn't support non-registered mime-
+    # types and it doesn't support the addition of an id for the script
+    # tag.
+    # More information on this poor excuse for an API at:
+    #
+    # http://edx.readthedocs.org/projects/xblock/en/latest/fragment.html
+    #
+    # The XBlock developers seem to be confused as to what a relative url
+    # is but have no problem accusing outside developers of not 
+    # understanding the concept. Also of course major documentation missing
+    # or unclear on how to add static resources to XBLock html pages and
+    # CSS files:
+    #
+    # https://groups.google.com/forum/#!topic/edx-code/MXWBNkE6gjU
+    #
     # -------------------------------------------------------------------
 
     def student_view(self, context=None):
@@ -48,15 +64,18 @@ class StattutorXBlock(XBlock):
         frag.add_css (self.resource_string("static/css/stattutor.css"))
         frag.add_css (self.resource_string("static/css/icon.css"))
         frag.add_css (self.resource_string("static/css/easyui.css"))
-        frag.add_javascript_url ("http://augustus.pslc.cs.cmu.edu/stattutor/jquery/jquery.easyui.min.js");
-        frag.add_javascript (self.resource_string("static/js/jsrender.min.js"))
+        frag.add_javascript_url ("http://augustus.pslc.cs.cmu.edu/stattutor/jquery/jsrender.min.js")
+        #frag.add_javascript (self.resource_string("static/js/jsrender.min.js"))
         frag.add_javascript (self.resource_string("static/js/ctat.min.js"))
         frag.add_javascript (self.resource_string("static/js/fragment1.js"))
         frag.add_javascript (self.resource_string("static/js/fragment2.js"))
+        frag.add_javascript (self.resource_string("static/js/jquery.easyui.min.js"))
+        #frag.add_javascript_url ("http://augustus.pslc.cs.cmu.edu/stattutor/jquery/jquery.easyui.min.js")
         frag.add_javascript (self.resource_string("static/js/ctatloader.js"))
         frag.add_javascript (self.resource_string("static/js/stattutor.js"))
-        #frag.add_javascript (self.resource_string("static/js/jquery.easyui.min.js"))
-        #frag.add_content (self.resource_string("static/html/jsrenderbody.html"))
+        raw = self.resource_string("static/html/jsrenderbody.html")
+        #frag.add_resource (raw,"text/x-jsrender","head");
+        frag.add_javascript (raw)
         frag.add_content (self.resource_string("static/html/body.html"));
         frag.initialize_js('CTATXBlock')
         return frag

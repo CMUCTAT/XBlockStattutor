@@ -5,15 +5,20 @@
 // things built into the template that end up getting controled by classes/css.
 $(function() 
 {
-	console.log ("Executing fragment1.js...");
+	console.log ("Setting up fragment1.js...");
 	
 	var MAX_NUMBER_QUESTIONS = 3;
 	$.views.converters("word", function(val) { return ['Zero','One','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten'][parseInt(val)];});
 	var template = $.templates("#question_template");
 	var question_init_data = [];
-	for (var i=0; i<MAX_NUMBER_QUESTIONS; i++) {
+	
+	for (var i=0; i<MAX_NUMBER_QUESTIONS; i++) 
+	{
 		question_init_data.push({});
 	}
 	var question_panels = template.render(question_init_data);
+	
+	console.log ("Executing fragment1.js...");
+	
 	$('#main').append(question_panels);
 });
