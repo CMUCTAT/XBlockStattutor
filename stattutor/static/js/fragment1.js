@@ -6,6 +6,8 @@
 $(function() 
 {
 	console.log ("Setting up fragment1.js...");
+		
+	//CTATTarget="XBlock";
 	
 	var MAX_NUMBER_QUESTIONS = 3;
 	$.views.converters("word", function(val) { return ['Zero','One','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten'][parseInt(val)];});

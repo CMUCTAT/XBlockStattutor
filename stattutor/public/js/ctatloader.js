@@ -71,6 +71,8 @@ var FlashVars =
 */
 function loadjscssfile(filename, filetype)
 {
+	console.log ("loadjscssfile ("+filename+","+filetype+")");
+
     if (filetype=="js")
 	{ 
 		//if filename is a external JavaScript file
@@ -117,9 +119,7 @@ function dumpOLIEnvironment ()
 function loadCTAT ()
 {
 	console.log ("loadCTAT () Loading for target: " + CTATTarget);	
-	
-	console.log ("XBlock base url: " + baseURL );
-	
+		
 	var win = window.frameElement;
 
 	/*
@@ -199,6 +199,8 @@ function loadCTAT ()
 	*/		 
 	if (CTATTarget=="XBlock")
 	{	
+		console.log ("XBlock base url: " + baseURL );
+		
 		FlashVars ['DeliverUsingOLI']='true';
 		FlashVars ['tutoring_service_communication']='javascript';
 		FlashVars ['user_guid']=window.self.studentId;
@@ -266,7 +268,7 @@ function loadCTAT ()
 */
 function initOnload ()
 {
-	useDebugging=true;
+	//useDebugging=true;
 
 	console.log ("initOnload ()");
 
@@ -392,7 +394,14 @@ function initOnload ()
 		Tutor.problem_description = Tutor.name+".xml";
 		Tutor.brd = Tutor.name+".brd";
 		
-		ctatPreload();
+		if (window.ctatPreload)
+		{
+			ctatPreload();
+		}
+		else
+		{
+			console.log ("ctatPreload () not defined, only used in ctat stattutor");
+		}
 
 		initTutor ();
 
