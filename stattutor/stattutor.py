@@ -36,6 +36,11 @@ class StattutorXBlock(XBlock):
         data = pkg_resources.resource_string(__name__, path)        
         return data.decode("utf8")
 
+    def bind_path (self, text):
+        tbase=self.runtime.local_resource_url (self,"public/ref.css")
+        base=tbase[:-7]
+        return (text.replace ("[xblockbase]",base))
+
     # -------------------------------------------------------------------
     # Here we construct the tutor html page from various resources. This 
     # is where all things go to hell. We can't use jsrender because the
@@ -57,26 +62,27 @@ class StattutorXBlock(XBlock):
     # -------------------------------------------------------------------
 
     def student_view(self, context=None):
+        baseURL=self.runtime.local_resource_url (self,"public/problem_files/ref.css");
         html = self.resource_string("static/html/ctatxblock.html")
         frag = Fragment (html.format(self=self))
-        frag.add_css (self.resource_string("static/css/ctat.css"))
-        frag.add_css (self.resource_string("static/css/ctatxblock.css"))
-        frag.add_css (self.resource_string("static/css/stattutor.css"))
-        frag.add_css (self.resource_string("static/css/icon.css"))
-        frag.add_css (self.resource_string("static/css/easyui.css"))
-        frag.add_javascript_url ("http://augustus.pslc.cs.cmu.edu/stattutor/jquery/jsrender.min.js")
-        #frag.add_javascript (self.resource_string("static/js/jsrender.min.js"))
-        frag.add_javascript (self.resource_string("static/js/ctat.min.js"))
+        frag.add_css_url (self.runtime.local_resource_url (self,"public/css/ctat.css"))
+        frag.add_css_url (self.runtime.local_resource_url (self,"public/css/ctatxblock.css"))
+        frag.add_css_url (self.runtime.local_resource_url (self,"public/css/stattutor.css"))
+        frag.add_css_url (self.runtime.local_resource_url (self,"public/css/icon.css"))
+        frag.add_css_url (self.runtime.local_resource_url (self,"public/css/easyui.css"))        
+        frag.add_javascript ("var baseURL=\""+(baseURL [:-7])+"\";")
+        frag.add_javascript_url (self.runtime.local_resource_url(self,"public/js/jsrender.min.js"))
+        frag.add_javascript_url (self.runtime.local_resource_url(self,"public/js/ctat.min.js"))
         frag.add_javascript (self.resource_string("static/js/fragment1.js"))
+        frag.add_javascript_url (self.runtime.local_resource_url(self,"public/js/jquery.easyui.min.js"))
+        frag.add_javascript_url (self.runtime.local_resource_url(self,"public/js/ctatloader.js"))
+        frag.add_javascript_url (self.runtime.local_resource_url(self,"public/js/stattutor.js"))
         frag.add_javascript (self.resource_string("static/js/fragment2.js"))
-        frag.add_javascript (self.resource_string("static/js/jquery.easyui.min.js"))
-        #frag.add_javascript_url ("http://augustus.pslc.cs.cmu.edu/stattutor/jquery/jquery.easyui.min.js")
-        frag.add_javascript (self.resource_string("static/js/ctatloader.js"))
-        frag.add_javascript (self.resource_string("static/js/stattutor.js"))
         raw = self.resource_string("static/html/jsrenderbody.html")
         #frag.add_resource (raw,"text/x-jsrender","head");
         frag.add_javascript (raw)
-        frag.add_content (self.resource_string("static/html/body.html"));
+        body = self.resource_string("static/html/body.html")
+        frag.add_content (self.bind_path (body))
         frag.initialize_js('CTATXBlock')
         return frag
     

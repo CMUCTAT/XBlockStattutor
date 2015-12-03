@@ -1,0 +1,811 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE stattutor_problem
+    PUBLIC "-//Carnegie Mellon University//DTD Stattutor 3.1//EN"
+	"http://oli.web.cmu.edu/dtd/cmu_stat_stattutor_3_1.dtd">
+<stattutor_problem id="depression">
+  <title>Treating Depression: A Randomized Clinical Trial</title>
+  <dataset package="Minitab">problem_files/m3_depression/depression.mtw</dataset>
+  <dataset package="StatCrunch">problem_files/m3_depression/depression.xls</dataset>
+  <dataset package="Excel">problem_files/m3_depression/depression.xls</dataset>
+  <dataset package="R">problem_files/m3_depression/depression.RData</dataset>
+  <dataset package="TI Calculator">problem_files/m3_depression/depression.8xg</dataset>
+  <dataset package="json">problem_files/m3_depression/depression.json</dataset>
+  <attempts>1</attempts>
+  <background>&lt;b&gt;Background:&lt;/b&gt; Clinical depression is
+  a recurrent illness requiring treatment and often
+  hospitalization. Nearly 50% of people who have an episode of
+  major depression will have a recurrence within 2-3 years. Being
+  able to prevent the recurrence of depression in people who are at
+  risk for the disease would go a long way to alleviate the pain
+  and suffering of patients and would also save society many
+  thousands of dollars in medical expenses and lost wages due to an
+  inability to work.&lt;br&gt;&lt;br&gt;&lt;b&gt;The
+  Study:&lt;/b&gt; During the 1980's the federal government,
+  through the National Institutes of Health (NIH), sponsored a
+  multi-centered, randomized, controlled, clinical trial to
+  evaluate two drugs to prevent the recurrence of depression in
+  patients who have had at least one previous episode of the
+  illness (Prien et al., &lt;i&gt; Archives of General
+  Psychiatry&lt;/i&gt;, 1984). &lt;br&gt;&lt;br&gt; &lt;b&gt;The
+  Study Design:&lt;/b&gt; The study was multi-centered. There were
+  5 medical clinics in major metropolitan areas across the country
+  that participated in this trial. Using many clinics enabled the
+  investigators to enroll many more patients into the study and
+  allowed for more diversity in the patients who participated.
+  There were 3 treatment groups. Patients received either
+  Imipramine (Imip), Lithium (Li), or a Placebo (Pl) where Imip and
+  Li are active drugs. Patients were randomly assigned to one of
+  the 3 treatment groups. Like most other medical studies where
+  new, unexplored treatments are evaluated, patients chose
+  themselves to participate in the study by signing a consent form.
+  Patients were followed for 2-4 years to see whether or not they
+  had a recurrence of depression. If they did not have a recurrence
+  within this time frame, then their treatment was considered a
+  Success. If they did have a recurrence, it was considered a
+  Failure. The study was double-blinded. A number of additional
+  background variables were measured for each patient.</background>
+  <variable>
+    <name>Hospt</name>
+    <description>Which hospital the patient was from: Labeled 1, 2, 3, 5 or 6</description>
+    <type>categorical</type>
+  </variable>
+  <variable>
+    <name>Treat</name>
+    <description>0=Lithium; 1=Imipramine; 2=Placebo</description>
+    <type>categorical</type>
+  </variable>
+  <variable>
+    <name>Outcome</name>
+    <description>0=Success 1=Failure (recurrence of depression)</description>
+    <type>categorical</type>
+  </variable>
+  <variable>
+    <name>Time</name>
+    <description>Number of weeks until a recurrence (if outcome=1) or until study ended (if outcome=0)</description>
+    <type>quantitative</type>
+  </variable>
+  <variable>
+    <name>AcuteT</name>
+    <description>How long the patient was depressed before the start of the current study, measured in days</description>
+    <type>quantitative</type>
+  </variable>
+  <variable>
+    <name>Age</name>
+    <description>Age in years</description>
+    <type>quantitative</type>
+  </variable>
+  <variable>
+    <name>Gender</name>
+    <description>1=Female 2=Male</description>
+    <type>categorical</type>
+  </variable>
+  <understand_the_problem>
+    <check_data_format>
+      <cdf_question>
+        <text>Out of the first ten individuals in the datafile, how
+        many had a recurrence of depression during the
+        study?</text>
+        <answers>
+          <answer>5</answer>
+          <answer>five</answer>
+          <answer>5 individuals</answer>
+          <answer>five individuals</answer>
+        </answers>
+        <hints>
+          <hint>To answer each of the questions in this step,
+          you'll need to look at the dataset you opened at the
+          beginning of your StatTutor session, and examine the
+          first few cases (rows).</hint>
+          <hint>In this dataset, each row represents a single
+          patient, so the first ten rows represent the first ten
+          patients. Look at the "Outcome" column and count how many
+          of the first ten patients had a recurrence of depression
+          (coded as 1).</hint>
+          <hint>If you look at the "Outcome" column, you'll see
+          that five of the first ten patients had a recurrence of
+          depression (coded as 1). These are patients 1, 4, 6, 8,
+          and 10.</hint>
+        </hints>
+      </cdf_question>
+      <cdf_question>
+        <text>Out of the first ten individuals in the datafile who
+        were assigned to the Lithium treatment group, how many had
+        a recurrence of depression during the study?</text>
+        <answers>
+          <answer>5</answer>
+          <answer>five</answer>
+          <answer>5 individuals</answer>
+          <answer>five individuals</answer>
+        </answers>
+        <hints>
+          <hint>To answer each of the questions in this step,
+          you'll need to look at the dataset you opened at the
+          beginning of your StatTutor session, and examine the
+          first few cases (rows).</hint>
+          <hint>In this dataset, each row represents a single
+          patient. Look at the "Treatment" column and identify the
+          first ten patients who were assigned to the Lithium group
+          (i.e., the first ten patients for whom Treatment=0). Now
+          count how many of them had a recurrence of depression
+          (Outcome = 1).</hint>
+          <hint>The first ten patients in the dataset that were
+          assigned to the Lithium group are patients 1, 4, 5, 7,
+          15, 16, 18, 19, 20, and 23. Out of those ten patients, 5
+          had a recurrence of depression (Outcome=1). These are
+          patients 1, 4, 16, 19, and 23.</hint>
+        </hints>
+      </cdf_question>
+      <cdf_question>
+        <text>How many days was the first male in the datafile
+        depressed before the start of the study?</text>
+        <answers>
+          <answer>206</answer>
+          <answer>206 days</answer>
+          <answer>two hundred six</answer>
+          <answer>two hundred and six</answer>
+          <answer>two hundred six days</answer>
+          <answer>two hundred and six days</answer>
+        </answers>
+        <hints>
+          <hint>To answer each of the questions in this step,
+          you'll need to look at the dataset you opened at the
+          beginning of your StatTutor session, and examine the
+          first few cases (rows).</hint>
+          <hint>In this dataset, each row represents a single
+          patient. Identify the first male patient in the dataset
+          (Gender=2), and see how many days this patient was
+          depressed prior to the start of the study (represented by
+          the variable AcuteT)</hint>
+          <hint>The first male in the dataset (Gender=2) is patient
+          4, who was depressed for 206 days prior to the
+          study.</hint>
+        </hints>
+      </cdf_question>
+    </check_data_format>
+    <consider_study_design>
+      <sampling>
+        <our_answer>
+          <text>The patients that were recruited to this study all
+          had at least one prior episode of depression and
+          volunteered to participate in the study by signing a
+          consent form.</text>
+        </our_answer>
+      </sampling>
+      <design>
+        <answer>experiment</answer>
+      </design>
+      <thought_question>
+        <question package="Minitab">Subjects were randomly assigned
+        to the different treatments. Randomization is supposed to
+        assign approximately equal numbers of subjects to each
+        treatment group as well as "balance" variables that we did
+        not control for (such as AcuteT, Age, Gender) among the 3
+        treatment groups. Now we'll check whether the randomization
+        in this case was effective in achieving these
+        goals.&lt;br&gt;&lt;br&gt;&lt;b&gt;(a)&lt;/b&gt; Was the
+        randomization effective in assigning an approximately equal
+        number of patients to each treatment group? Explain. You
+        can use the Tally command in Minitab:&lt;br&gt;Choose: Stat
+        -&gt; Tables -&gt; Tally Individual Variables to get a
+        frequency breakdown of the variable Treat. &lt;i&gt;(write
+        your answer in the textbox
+        below)&lt;/i&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;(b)&lt;/b&gt;
+        Was the randomization successful in balancing other
+        variables such as AcuteT? Answer by comparing the
+        distributions (boxplots) of AcuteT in the three treatment
+        groups.&lt;br&gt;In Minitab:&lt;br&gt;Choose Graph -&gt;
+        Boxplot -&gt; With Groups (top right). Under Graph
+        Variables, enter AcuteT, and under Categorical variables
+        for grouping, enter Treat. Click OK.&lt;i&gt;(write your
+        answer in the textbox below)&lt;/i&gt;</question>
+        <question package="StatCrunch">Subjects were randomly
+        assigned to the different treatments. Randomization is
+        supposed to assign approximately equal numbers of subjects
+        to each treatment group as well as "balance" variables that
+        we did not control for (such as AcuteT, Age, Gender) among
+        the 3 treatment groups. Now we'll check whether the
+        randomization in this case was effective in achieving these
+        goals.&lt;br&gt;&lt;br&gt;&lt;b&gt;(a)&lt;/b&gt; Was the
+        randomization effective in assigning an approximately equal
+        number of patients to each treatment group? Explain. You
+        can use StatCrunch to get a count of the number of people
+        assigned to each treatment group: &lt;br&gt;Choose: Stat
+        -&gt; Tables -&gt; Frequency &lt;br&gt;For the Column
+        Variable select Treat &lt;br&gt;Press Calculate
+        &lt;i&gt;(write your answer in the textbox
+        below)&lt;/i&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;(b)&lt;/b&gt;
+        Was the randomization successful in balancing other
+        variables such as AcuteT? Answer by comparing the
+        distributions (boxplots) of AcuteT in the three treatment
+        groups.&lt;br&gt;In StatCrunch:&lt;br&gt;Choose Graphics
+        -&gt; Boxplot &lt;br&gt;Select the column AcuteT
+        &lt;br&gt;Group by Treat &lt;br&gt;Select "Plot groups for
+        each column" &lt;br&gt;Press Create Graph! &lt;i&gt;(write
+        your answer in the textbox below)&lt;/i&gt;</question>
+        <question package="Excel">Subjects were randomly assigned
+        to the different treatments. Randomization is supposed to
+        assign approximately equal numbers of subjects to each
+        treatment group as well as "balance" variables that we did
+        not control for (such as AcuteT, Age, Gender) among the 3
+        treatment groups. Now we'll check whether the randomization
+        in this case was effective in achieving these
+        goals.&lt;br&gt;&lt;br&gt;&lt;b&gt;(a)&lt;/b&gt; Was the
+        randomization effective in assigning an approximately equal
+        number of patients to each treatment group? Explain. You
+        can use Excel to get a count of the number of people
+        assigned to each treatment group &lt;i&gt;(write your
+        answer in the textbox
+        below)&lt;/i&gt;.&lt;br&gt;&lt;br&gt;&lt;b&gt;Count:&lt;/b&gt;&lt;br&gt;&lt;ul&gt;&lt;li&gt;First
+        we need to sort our data to make it easier to
+        tabulate:&lt;/li&gt;&lt;li&gt;Type Control-A to select all
+        of the data in the worksheet&lt;/li&gt;&lt;li&gt;Choose
+        Data --&gt; Sort from the menubar&lt;/li&gt;&lt;li&gt;In
+        the pop-up window, make sure 'Header row' is selected
+        towards the bottom of the window, and then under 'Sort by'
+        choose 'Treat' and click 'OK'&lt;/li&gt;&lt;li&gt;Now that
+        the data are sorted, pick an empty cell in your worksheet
+        and create a table where the column headers are 'Treatment
+        0 (Lithium)', 'Treatment 1 (Imipramine)', and 'Treatment 2
+        (Placebo)'&lt;/li&gt;&lt;li&gt;Now under each of those
+        headers, enter the formula to calculate the statistic
+        'count' and the range of data that corresponds to that
+        column header. For example, for Treatment 0, you would
+        enter '=count([range])' where [range] represents the range
+        of cells that have zeroes in the 'Treat'
+        column.&lt;/li&gt;&lt;/ul&gt;&lt;br&gt;&lt;b&gt;(b)&lt;/b&gt;
+        Was the randomization successful in balancing other
+        variables such as AcuteT? Use the Excel instructions below
+        to compare the distributions (boxplots) of AcuteT in the
+        three treatment groups &lt;i&gt;(write your answer in the
+        textbox
+        below)&lt;/i&gt;.&lt;br&gt;&lt;br&gt;&lt;b&gt;Descriptive
+        Statistics:&lt;/b&gt;&lt;br&gt;&lt;ul&gt;&lt;li&gt;To
+        calculate the descriptive statistics, we're going to create
+        a table that will list each statistical measure and the
+        value for each treatment group.&lt;/li&gt;&lt;li&gt;Make
+        sure that the data are sorted by 'Treat' as described
+        above.&lt;/li&gt;&lt;li&gt;Once the data are sorted, pick
+        an empty cell in your worksheet and create a table where
+        the row headers are 'Q1', 'min', 'Median', 'Max', and 'Q3'
+        and the column headers are 'Treatment 0 (Lithium)',
+        'Treatment 1 (Imipramine)', and 'Treatment 2
+        (Placebo)'.&lt;/li&gt;&lt;li&gt;Now for each cell in the
+        table, enter the formula to calculate the statistic
+        represented by the row header and the range of data in the
+        'AcuteT' column of your worksheet that corresponds to the
+        treatment group in the column header. For example, after
+        you sort your worksheet, say that you have the value '0' in
+        rows 2-10 of the 'Treat' column - in your table next to
+        'Q1' and under 'Treatment 0 (Lithium)', you would enter
+        '=quartile(E2:E10, 1)', since column E is the 'AcuteT'
+        column, and rows 2-10 correspond to the data for Treatment
+        0.&lt;/li&gt;&lt;li&gt;Here are all of the formulas you'll
+        need:&lt;/li&gt;&lt;li&gt;&lt;b&gt;Q1:
+        &lt;/b&gt;'=quartile([range],1)'
+        &lt;/li&gt;&lt;li&gt;&lt;b&gt;min:
+        &lt;/b&gt;'=min([range])'&lt;/li&gt;&lt;li&gt;&lt;b&gt;Median:
+        &lt;/b&gt;'=median([range])'&lt;/li&gt;&lt;li&gt;&lt;b&gt;Max:
+        &lt;/b&gt;'=max([range])'&lt;/li&gt;&lt;li&gt;&lt;b&gt;Q3:
+        &lt;/b&gt;'=quartile([range],3)'&lt;/li&gt;&lt;/ul&gt;&lt;br&gt;&lt;b&gt;Side
+        by Side
+        Boxplots:&lt;/b&gt;&lt;br&gt;&lt;ul&gt;&lt;li&gt;Highlight
+        the table you just created, including the row and column
+        labels, and then select Insert --&gt; Chart from the top
+        menubar.&lt;/li&gt;&lt;li&gt;When the Chart Wizard window
+        opens, select 'Line' under 'Chart Type', and then click
+        'Next'. In Step 2, make sure 'Rows' is selected, and then
+        click 'Finish'. &lt;/li&gt;&lt;li&gt;What we have now is a
+        line chart, because Excel can't generate boxplots directly,
+        but we're going to make boxplots from this line chart.
+        &lt;/li&gt;&lt;li&gt;Right click on any line on the graph
+        and choose 'Format Data Series' from the pop-up menu. Then
+        select the 'Options' tab and check the boxes next to
+        'High-low lines' and 'Up/down bars' and click
+        'OK'.&lt;/li&gt;&lt;li&gt;Now to get rid of the lines,
+        right click on each line in the graph in turn, choose
+        'Format Data Series' from the pop-up menu, select the
+        'Patterns' tab and select 'None' under 'Line' and then
+        click 'OK'.&lt;/li&gt;&lt;/ul&gt;</question>
+        <question package="R">Subjects were randomly assigned to
+        the different treatments. Randomization is supposed to
+        assign approximately equal numbers of subjects to each
+        treatment group as well as "balance" variables that we did
+        not control for (such as AcuteT, Age, Gender) among the 3
+        treatment groups. Now we'll check whether the randomization
+        in this case was effective in achieving these
+        goals.&lt;br&gt;&lt;br&gt;&lt;b&gt;(a)&lt;/b&gt; Was the
+        randomization effective in assigning an approximately equal
+        number of patients to each treatment group? Explain. You
+        can use the table command in
+        R:&lt;b&gt;table(data$Treat)&lt;/b&gt; to get a frequency
+        breakdown of the variable Treat. &lt;i&gt;(write your
+        answer in the textbox
+        below)&lt;/i&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;(b)&lt;/b&gt;
+        Was the randomization successful in balancing other
+        variables such as AcuteT? Answer by comparing the
+        distributions (boxplots) of AcuteT in the three treatment
+        groups.&lt;br&gt;In R, enter the
+        command:&lt;b&gt;plot(factor(data$Treat),
+        data$AcuteT)&lt;/b&gt;</question>
+        <question package="TI Calculator">Subjects were randomly
+        assigned to the different treatments. Randomization is
+        supposed to assign approximately equal numbers of subjects
+        to each treatment group as well as "balance" variables that
+        we did not control for (such as AcuteT, Age, Gender) among
+        the 3 treatment groups. Now we'll check whether the
+        randomization in this case was effective in achieving these
+        goals.&lt;br&gt;&lt;br&gt;&lt;b&gt;(a)&lt;/b&gt; Was the
+        randomization effective in assigning an approximately equal
+        number of patients to each treatment group? Explain.
+        &lt;br&gt;&lt;br&gt;&lt;b&gt;Counts&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;ul&gt;&lt;li&gt;TI
+        83/84 calculators do not have the built-in capability to
+        count the number of data values in each category for a
+        categorical variable.&lt;/li&gt;&lt;li&gt;This could be a
+        good opportunity to try one of the other technologies
+        available in OLI.&lt;/li&gt;&lt;li&gt;You can produce a
+        table of counts by hand using your TI to
+        help.&lt;/li&gt;&lt;li&gt;Sort L2, the list that contains
+        the coded data for the treatment (0=Lithium; 1=Imipramine;
+        2=Placebo) in ascending order.&lt;/li&gt;&lt;li&gt;Choose
+        STAT/EDIT/2:SortA(&lt;/li&gt;&lt;li&gt;Before pressing
+        ENTER, choose list L2 (2ND/2)&lt;/li&gt;&lt;li&gt;Press the
+        right parenthesis, then ENTER.&lt;/li&gt;&lt;li&gt;Check
+        out the sorted list by choosing
+        STAT/EDIT.&lt;/li&gt;&lt;li&gt;Counting:&lt;/li&gt;&lt;li&gt;Count
+        the number of values for each category of treatment
+        (0=Lithium; 1=Imipramine;
+        2=Placebo).&lt;/li&gt;&lt;/ul&gt;&lt;br&gt;&lt;b&gt;(b)&lt;/b&gt;
+        Was the randomization successful in balancing other
+        variables such as AcuteT? Answer by comparing the
+        distributions (boxplots) of AcuteT in the three treatment
+        groups.&lt;br&gt;&lt;br&gt;&lt;b&gt;Descriptive Statistics
+        including 5-number
+        summary&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;ul&gt;&lt;li&gt;Choose
+        STAT/CALC/1:1-Var Stats. Specify which list the data is in.
+        For example, since data is in ACUT0, use the LIST menu.
+        Press 2nd/LIST/NAMES/ choose
+        ACUT0.&lt;/li&gt;&lt;li&gt;Press
+        ENTER.&lt;/li&gt;&lt;/ul&gt;&lt;br&gt;&lt;b&gt;Boxplot&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;ul&gt;&lt;li&gt;Either
+        clear any equations you may have in your calculator by
+        choosing Y=/CLEAR, or else toggle them off by choosing Y=
+        and then pressing the left arrow until = is selected and
+        pressing ENTER.&lt;/li&gt;&lt;li&gt;Choose STAT PLOT
+        (2ND/Y=).&lt;/li&gt;&lt;li&gt;Choose 4:PlotsOff. Hit
+        ENTER.&lt;/li&gt;&lt;li&gt;Again, choose STAT PLOT
+        (2ND/Y=).&lt;/li&gt;&lt;li&gt;Choose
+        1:Plot1Off&lt;/li&gt;&lt;li&gt;Turn the plot ON by using
+        arrows to highlight the word ON, then press
+        ENTER.&lt;/li&gt;&lt;li&gt;Choose the Type: second row,
+        first graph is a modified boxplot. Note: to get to the
+        second row, keep using the right arrow. Using the down
+        arrow will move down to Xlist.&lt;/li&gt;&lt;li&gt;Choose
+        Xlist:ACUT0 (2ND/LIST/NAMES/choose
+        ACUT0.&lt;/li&gt;&lt;li&gt;Choose Freq: 1 (the number
+        one)&lt;/li&gt;&lt;li&gt;Choose the Mark you
+        prefer.&lt;/li&gt;&lt;li&gt;To view the boxplot, choose
+        ZOOM/9: ZoomStat.&lt;/li&gt;&lt;li&gt;If you want to change
+        the viewing window, choose WINDOW and set Xmin, Xmax, Xscl
+        (distance between tick marks on x-axis), Ymin, Ymax, Yscl
+        (distance between tick marks on y-scale), Xres (leave Xres
+        at 1).&lt;/li&gt;&lt;li&gt;You can choose TRACE and then
+        use the left/right arrows to display minX, Q1, Med, Q3,
+        maxX.&lt;/li&gt;&lt;/ul&gt;&lt;br&gt;&lt;b&gt;Side-by-side
+        Boxplots&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;ul&gt;&lt;li&gt;You
+        can display the 3 boxplots for acute time by treatment
+        (0=Lithium; 1=Imipramine; 2=Placebo) on one screen by
+        turning on three Stat Plots. Set up the second STAT PLOT
+        for ACUT1, and the third STAT PLOT for ACUT2. Once
+        you&#226;&#8364;&#8482;ve got all the boxplots turned on,
+        you can ZOOM/9:ZoomStat to see all boxplots on the same
+        screen.&lt;/li&gt;&lt;li&gt;Choose TRACE, then use the
+        up/down arrows to choose one of the boxplots and the
+        left/right arrows to display
+        minX,Q1,Med,Q3,maxX.&lt;/li&gt;&lt;/ul&gt;&lt;br&gt;&lt;br&gt;</question>
+        <our_answer package="Minitab">
+          <image>depression_consider_study_design_thought_question_minitab.jpg</image>
+          <text>&lt;b&gt;(a)&lt;/b&gt; We see in the output that
+          the randomization was effective in assigning roughly the
+          same number of patients to each of the three treatment
+          groups (37, 38, and
+          34).&lt;br&gt;&lt;br&gt;&lt;b&gt;(b)&lt;/b&gt; The
+          side-by-side boxplots reveal that the distributions of
+          the variable AcuteT within each of the three treatment
+          groups are very similar. All have a median of roughly
+          170, and no unusual or systematic differences in spread.
+          Thus, the randomization was effective in balancing AcuteT
+          among the three treatment groups.</text>
+        </our_answer>
+        <our_answer package="StatCrunch">
+          <image>depression_consider_study_design_thought_question_statcrunch.jpg</image>
+          <text>&lt;b&gt;(a)&lt;/b&gt; We see in the output that
+          the randomization was effective in assigning roughly the
+          same number of patients to each of the three treatment
+          groups (37, 38, and
+          34).&lt;br&gt;&lt;br&gt;&lt;b&gt;(b)&lt;/b&gt; The
+          side-by-side boxplots reveal that the distributions of
+          the variable AcuteT within each of the three treatment
+          groups are very similar. All have a median of roughly
+          170, and no unusual or systematic differences in spread.
+          Thus, the randomization was effective in balancing AcuteT
+          among the three treatment groups.</text>
+        </our_answer>
+        <our_answer package="Excel">
+          <text>Here is the Excel output:</text>
+          <image>depression_consider_study_design_thought_question_excel.jpg</image>
+          <text>&lt;b&gt;(a)&lt;/b&gt; We see in the output that
+          the randomization was effective in assigning roughly the
+          same number of patients to each of the three treatment
+          groups (37, 38, and
+          34).&lt;br&gt;&lt;br&gt;&lt;b&gt;(b)&lt;/b&gt; The
+          side-by-side boxplots reveal that the distributions of
+          the variable AcuteT within each of the three treatment
+          groups are very similar. All have a median of roughly
+          170, and no unusual or systematic differences in spread.
+          Thus, the randomization was effective in balancing AcuteT
+          among the three treatment groups.</text>
+        </our_answer>
+        <our_answer package="R">
+          <image>depression_consider_study_design_thought_question_r.jpg</image>
+          <text>&lt;b&gt;(a)&lt;/b&gt; We see in the output that
+          the randomization was effective in assigning roughly the
+          same number of patients to each of the three treatment
+          groups (37, 38, and
+          34).&lt;br&gt;&lt;br&gt;&lt;b&gt;(b)&lt;/b&gt; The
+          side-by-side boxplots reveal that the distributions of
+          the variable AcuteT within each of the three treatment
+          groups are very similar. All have a median of roughly
+          170, and no unusual or systematic differences in spread.
+          Thus, the randomization was effective in balancing AcuteT
+          among the three treatment groups.</text>
+        </our_answer>
+        <our_answer package="TI Calculator">
+          <image>depression_consider_study_design_thought_question_ti.jpg</image>
+          <text>&lt;b&gt;(a)&lt;/b&gt; We see in the output that
+          the randomization was effective in assigning roughly the
+          same number of patients to each of the three treatment
+          groups (37, 38, and
+          34).&lt;br&gt;&lt;br&gt;&lt;b&gt;(b)&lt;/b&gt; The
+          side-by-side boxplots reveal that the distributions of
+          the variable AcuteT within each of the three treatment
+          groups are very similar. All have a median of roughly
+          170, and no unusual or systematic differences in spread.
+          Thus, the randomization was effective in balancing AcuteT
+          among the three treatment groups.</text>
+        </our_answer>
+        <hint>Look at the output. Were roughly the same number of
+        patients assigned to each treatment group? Are the
+        distributions of AcuteT within each treatment group very
+        different?</hint>
+      </thought_question>
+    </consider_study_design>
+  </understand_the_problem>
+  <main_question>
+    <text>Which of the drugs (if either) was more successful in
+    preventing the recurrence of depression relative to the
+    placebo?</text>
+    <reflect_on_question>
+      <consider_question>
+        <question>Before analyzing the data and discovering which
+        of the drugs was more effective, how do you think the
+        results could be used in practice once they are
+        obtained?</question>
+        <our_answer>
+          <text>The results can be used by the FDA (Food and Drug
+          Administration) to make an informed decision about the
+          usage and safety of medicines.</text>
+        </our_answer>
+      </consider_question>
+    </reflect_on_question>
+    <analyze_data>
+      <plan_analyses>
+        <relevant_variables>
+          <relevant_variable>
+            <name>Outcome</name>
+            <role>response</role>
+          </relevant_variable>
+          <relevant_variable>
+            <name>Treat</name>
+            <role>explanatory</role>
+          </relevant_variable>
+        </relevant_variables>
+      </plan_analyses>
+      <exploratory_analyses>
+        <report_results>
+          <our_answer package="Minitab">
+            <image>depression_q1_ea_report_results_minitab.jpg</image>
+            <text>The percentage of patients that had a recurrence
+            of depression is: 62.16% in the Lithium treatment
+            group, 28.95% in the Imipramine treatment group, and
+            67.65% in the Placebo group.</text>
+          </our_answer>
+          <our_answer package="StatCrunch">
+            <image>depression_q1_ea_report_results_statcrunch.jpg</image>
+            <text>The percentage of patients that had a recurrence
+            of depression is: 62.16% in the Lithium treatment
+            group, 28.95% in the Imipramine treatment group, and
+            67.65% in the Placebo group.</text>
+          </our_answer>
+          <our_answer package="Excel">
+            <text>Here is the Excel output:</text>
+            <image>depression_q1_ea_report_results_excel.jpg</image>
+            <text>The percentage of patients that had a recurrence
+            of depression is: 62.16% in the Lithium treatment
+            group, 28.95% in the Imipramine treatment group, and
+            67.65% in the Placebo group.</text>
+          </our_answer>
+          <our_answer package="R">
+            <image>depression_q1_ea_report_results_r.jpg</image>
+            <text>The percentage of patients that had a recurrence
+            of depression is: 62.16% in the Lithium treatment
+            group, 28.95% in the Imipramine treatment group, and
+            67.65% in the Placebo group.</text>
+          </our_answer>
+          <our_answer package="TI Calculator">
+            <image>depression_q1_ea_report_results_ti.jpg</image>
+            <text>The percentage of patients that had a recurrence
+            of depression is: 62.16% in the Lithium treatment
+            group, 28.95% in the Imipramine treatment group, and
+            67.65% in the Placebo group.</text>
+          </our_answer>
+        </report_results>
+      </exploratory_analyses>
+      <more_formal_analyses>
+        <determine_mfa>
+          <focus></focus>
+          <test></test>
+          <ho>
+            <first></first>
+            <second></second>
+            <third></third>
+          </ho>
+          <ha>
+            <first></first>
+            <second></second>
+            <third></third>
+          </ha>
+        </determine_mfa>
+        <report_results>
+          <our_answer></our_answer>
+        </report_results>
+      </more_formal_analyses>
+    </analyze_data>
+    <draw_conclusions>
+      <consider_results>
+        <question>What do the results indicate about which of the
+        drugs has been most effective in preventing the recurrence
+        of depression?</question>
+        <our_answer>
+          <text>The results clearly reveal that Imipramine is by
+          far more effective than Lithium in preventing the
+          recurrence of depression. 62.16% of the patients taking
+          Lithium had a recurrence of depression which is more than
+          twice that of patients who took Imipramine (28.95%).
+          &lt;br&gt;&lt;br&gt;The results also question the
+          effectiveness of Lithium in general since the percentage
+          of patients who had a recurrence of depression in the
+          Placebo group (67.65%) is only slightly higher than that
+          of the Lithium group (62.16%).</text>
+        </our_answer>
+      </consider_results>
+      <reflect_on_conclusions>
+        <our_answer>
+          <text>&lt;ul&gt;&lt;li&gt;Since it is impossible for us
+          to know which drug is better before conducting the
+          experiment, we did not make a prediction for this
+          question.&lt;/li&gt; &lt;br&gt;&lt;li&gt;These kind of
+          results could definitely lead to some change in FDA
+          policy, because one of the drugs was more effective than
+          the other.&lt;/li&gt;&lt;/ul&gt;</text>
+        </our_answer>
+      </reflect_on_conclusions>
+    </draw_conclusions>
+  </main_question>
+  <main_question>
+    <text>Which of the drugs (if either) delayed the recurrence of
+    depression longer relative to the placebo?</text>
+    <reflect_on_question>
+      <consider_question>
+        <question>Before analyzing the data and discovering which
+        of the drugs was more effective in delaying the recurrence
+        of depression, try to predict what the data will show
+        (given your conclusions in question 1).</question>
+        <our_answer>
+          <text>Given the results of the first question, we can
+          expect that Imipramine would be the most effective drug
+          in delaying the recurrence of depression.</text>
+        </our_answer>
+      </consider_question>
+    </reflect_on_question>
+    <analyze_data>
+      <plan_analyses>
+        <relevant_variables>
+          <relevant_variable>
+            <name>Treat</name>
+            <role>explanatory</role>
+          </relevant_variable>
+          <relevant_variable>
+            <name>Time</name>
+            <role>response</role>
+          </relevant_variable>
+        </relevant_variables>
+      </plan_analyses>
+      <exploratory_analyses>
+        <report_results>
+          <our_answer package="Minitab">
+            <image>depression_q2_ea_report_results_minitab.jpg</image>
+            <text>&lt;b&gt;Center:&lt;/b&gt; The distribution of
+            Time in the Imipramine group (coded as 1) has a
+            substantially larger median (70.71) compared to the
+            other two groups, whose medians are not very different
+            (22, and 17.79). In fact the median of the Imipramine
+            group (70.71) is even larger than the third quartile of
+            the two other groups (both roughly 67).
+            &lt;br&gt;&lt;br&gt;&lt;b&gt;Spread:&lt;/b&gt; The
+            distribution of Time in the Imipramine group displays
+            the largest spread (IQR is roughly 82 vs. 63 and 62 in
+            the two other groups). Note that the larger spread in
+            the Imipramine group is in the "positive" direction.
+            &lt;br&gt;&lt;br&gt;&lt;b&gt;Outliers:&lt;/b&gt; There
+            is one outlier in the Lithium group.</text>
+          </our_answer>
+          <our_answer package="StatCrunch">
+            <image>depression_q2_ea_report_results_statcrunch.jpg</image>
+            <text>&lt;b&gt;Center:&lt;/b&gt; The distribution of
+            Time in the Imipramine group (coded as 1) has a
+            substantially larger median (70.71) compared to the
+            other two groups, whose medians are not very different
+            (22, and 17.79). In fact the median of the Imipramine
+            group (70.71) is even larger than the third quartile of
+            the two other groups (67 and 63.7).
+            &lt;br&gt;&lt;br&gt;&lt;b&gt;Spread:&lt;/b&gt; The
+            distribution of Time in the Imipramine group displays
+            the largest spread (IQR is roughly 80 vs. 62 and 59 in
+            the two other groups). Note that the larger spread in
+            the Imipramine group is in the "positive"
+            direction.</text>
+          </our_answer>
+          <our_answer package="Excel">
+            <text>Here is the Excel output:</text>
+            <image>depression_q2_ea_report_results_excel.jpg</image>
+            <text>&lt;b&gt;Center:&lt;/b&gt; The distribution of
+            Time in the Imipramine group (coded as 1) has a
+            substantially larger median (70.714) compared to the
+            other two groups, whose medians are not very different
+            (22, and 17.786). In fact the median of the Imipramine
+            group (70.714) is even larger than the third quartile
+            of the two other groups (67 and 61.714).
+            &lt;br&gt;&lt;br&gt;&lt;b&gt;Spread:&lt;/b&gt; The
+            distribution of Time in the Imipramine group displays
+            the largest spread (IQR is roughly 79 vs. 62 and 56 in
+            the two other groups). Note that the larger spread in
+            the Imipramine group is in the "positive"
+            direction.</text>
+          </our_answer>
+          <our_answer package="R">
+            <image>depression_q2_ea_report_results_r.jpg</image>
+            <text>&lt;b&gt;Center:&lt;/b&gt; The distribution of
+            Time in the Imipramine group (coded as 1) has a
+            substantially larger median (70.71) compared to the
+            other two groups, whose medians are not very different
+            (22 and 17.79). In fact the median of the Imipramine
+            group (70.71) is even larger than the third quartile of
+            the two other groups (67 and 61.71).
+            &lt;br&gt;&lt;br&gt;&lt;b&gt;Spread:&lt;/b&gt; The
+            distribution of Time in the Imipramine group displays
+            the largest spread (IQR is roughly 79 vs. 62 and 56 in
+            the two other groups). Note that the larger spread in
+            the Imipramine group is in the "positive" direction.
+            &lt;br&gt;&lt;br&gt;&lt;b&gt;Outliers:&lt;/b&gt; There
+            is one outlier in the Lithium group.</text>
+          </our_answer>
+          <our_answer package="TI Calculator">
+            <image>depression_q2_ea_report_results_ti.jpg</image>
+            <text>&lt;b&gt;Center:&lt;/b&gt; The distribution of
+            Time in the Imipramine group (coded as 1) has a
+            substantially larger median (70.71) compared to the
+            other two groups, whose medians are not very different
+            (22, and 17.79). In fact the median of the Imipramine
+            group (70.71) is even larger than the third quartile of
+            the two other groups (67.5 and 63.7).
+            &lt;br&gt;&lt;br&gt;&lt;b&gt;Spread:&lt;/b&gt; The
+            distribution of Time in the Imipramine group displays
+            the largest spread (IQR is roughly 80 vs. 63 and 59 in
+            the two other groups). Note that the larger spread in
+            the Imipramine group is in the "positive" direction.
+            &lt;br&gt;&lt;br&gt;&lt;b&gt;Outliers:&lt;/b&gt; There
+            is one outlier in the Lithium group.</text>
+          </our_answer>
+        </report_results>
+      </exploratory_analyses>
+      <more_formal_analyses>
+        <determine_mfa>
+          <focus></focus>
+          <test></test>
+          <ho>
+            <first></first>
+            <second></second>
+            <third></third>
+          </ho>
+          <ha>
+            <first></first>
+            <second></second>
+            <third></third>
+          </ha>
+        </determine_mfa>
+        <report_results>
+          <our_answer></our_answer>
+        </report_results>
+      </more_formal_analyses>
+    </analyze_data>
+    <draw_conclusions>
+      <consider_results>
+        <question>What do the results indicate about which of the
+        drugs has been most effective in delaying the recurrence of
+        depression?</question>
+        <our_answer>
+          <text>The results show that overall, Imipramine is more
+          effective in delaying the recurrence of depression
+          compared to Lithium. It should be noted, however, that
+          the large spread in the distribution of the variable
+          "Time" among patients who were treated with Imipramine
+          indicates that being treated with this drug does not
+          guarantee a long delay in the recurrence of depression.
+          In addition, the similarity in the distribution of time
+          until recurrence of depression between the Lithium and
+          Placebo groups suggests that Lithium may not really be an
+          effective treatment for depression.</text>
+        </our_answer>
+      </consider_results>
+      <reflect_on_conclusions>
+        <our_answer>
+          <text>&lt;ul&gt;&lt;li&gt;The results we got are
+          consistent with what we found in the first question.
+          &lt;/li&gt;&lt;br&gt; &lt;li&gt;Imipramine is superior to
+          Lithium as a treatment for depression so doctors should
+          consider prescribing it instead of
+          Lithium.&lt;/li&gt;&lt;/ul&gt;</text>
+        </our_answer>
+      </reflect_on_conclusions>
+    </draw_conclusions>
+  </main_question>
+  <summarize>
+    <summarize_findings>
+      <our_answer>
+        <text>In this exercise we assessed the effectiveness of
+        Lithium and Imipramine as treatments for depression. The
+        two measures of effectiveness were whether or not
+        recurrence of depression occurred, and the time until
+        recurrence of depression. Using both measures we found that
+        Imipramine is more effective than Lithium. More
+        specifically, patients who were treated with Imipramine
+        were less likely to have a recurrence of depression, and if
+        they did, it took longer for recurrence to occur compared
+        to patients who were treated with
+        Lithium.&lt;br&gt;&lt;br&gt;The results we found also
+        called into question the effectiveness of Lithium since the
+        patients who were treated with it did not display any
+        substantial differences compared to patients who did not
+        receive any treatment, both in terms of an occurrence of
+        depression, and in terms of the time until a
+        recurrence.</text>
+      </our_answer>
+    </summarize_findings>
+    <evaluate_validity>
+      <our_answer>
+        <text>&lt;ul&gt;&lt;li&gt;This study was a randomized
+        experiment and therefore we can make causal conclusions. In
+        other words, any differences in outcomes between the three
+        groups can be attributed to the different treatments they
+        received rather than any other possible confounding
+        variables. &lt;/li&gt;&lt;br&gt; &lt;li&gt;Since this study
+        was not about characteristics of depression patients, but
+        rather about comparing different treatments for it, even if
+        the patients who volunteered for this study are not
+        representative of all depression patients, it should not
+        weaken the strength of the results. Thus, we can generalize
+        these results to the population of patients who have
+        experienced depression.&lt;/li&gt;&lt;/ul&gt;</text>
+      </our_answer>
+    </evaluate_validity>
+  </summarize>
+</stattutor_problem>

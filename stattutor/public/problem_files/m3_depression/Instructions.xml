@@ -1,0 +1,799 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<instructions>
+	<system id="R"><!-- FIXME: basic R reminder:
+								Note that the data in the file you downloaded
+								has been saved in a variable named <b>data</b>.
+								To see the data, simply enter the command <code>data</code>.
+								To see a summary of the data, enter <code>summary(data)</code>.-->
+		<task id="TwoQuant"><![CDATA[<h4>Scatterplot:</h4>
+        	<ul><li>Enter the command: <code>plot(data$x, data$y)</code>, where <code>x</code> is the explanatory variable and <code>y</code> is the response variable.</li></ul>
+        	<h4>Correlation: </h4>
+        	<ul><li>To calculate the correlation coeffient, enter the command: <code>cor(data$x, data$y, use="c")</code>, where <code>x</code> is the explanatory variable and <code>y</code> is the response variable.</li></ul>]]></task>
+		<task id="TwoCat"><![CDATA[<h4>Table of Counts and Percents:</h4>
+        	<ul><li>Enter the command: <code>tbl = table(data.frame(data$x,data$y)); tbl</code>, where <code>x</code> is the explanatory variable and <code>y</code> is the response variable. You will see a table of counts with the values of the explanatory variable on the left and the values of the response variable across the top. </li>
+	        <li>To see the row percentages, enter the command: <code>100*tbl/rowSums(tbl)</code></li></ul>]]></task>
+		<task id="TwoMixed"><![CDATA[<h4>Side by Side Boxplots:</h4>
+        	<ul><li>Enter the command: <code>plot(factor(data$x), data$y)</code>, where <code>x</code> is the explanatory variable and <code>y</code> is the response variable.</li></ul>
+        	<h4>Descriptive Statistics:</h4>
+        	<ul><li>Enter the command: <code>tapply(data$y, factor(data$x), summary)</code>, where <code>x</code> is the explanatory variable and <code>y</code> is the response variable.</li></ul>]]></task>
+		<task id="OneCat"><![CDATA[<h4>Table of counts and percents:</h4>
+            <li>Enter the command: <code>tbl = table(data$x); tbl</code>, where <code>x</code> is the variable you want to analyze.  You will see a table of counts. </li>
+            <li>Enter the command: <code>100*tbl/sum(tbl)</code>. You will see a table of percents.</li></ul>
+            <h4>PieChart:</h4>
+            <ul><li>To see a pie chart of your data, enter the command <code>pie(tbl)</code>.</li></ul>]]></task>
+		<task id="OneQuant"><![CDATA[<h4>Histogram:</h4>
+             <ul><li>Create the histogram with the command <code>hist(data$x)</code>, where <code>x</code> is the variable you want to analyze.</li></ul>
+             <h4>Descriptive Statistics:</h4>
+             <ul><li>To find the five-number summary of your data (plus the mean), enter <code>summary(data$x)</code>, where <code>x</code> is the variable you want to analyze.</li></ul>]]></task>
+		<task id="OneZOneMean"><![CDATA[<ul><li>Let <b>&#963;</b> stand for the population standard deviation and <b>&mu;o</b> stand for the the value in the null hypothesis Ho: &mu;=&mu;o. You will replace <b>&#963;</b> and <b>&mu;o</b> with numbers in the command below.</li>
+            <li>Calculate the z-value of the data with the command: <b>z = (mean(na.omit(data$x)) - &mu;o) / (&#963;/sqrt(length(na.omit(data$x)))); z</b>, where <b>x</b> is the variable you want to analyze.</li>
+            <li>If the alternate hypothesis is Ha: &mu; &lt; &mu;o, then the p-value of the test is calculated with the command: <b>pnorm(z)</b></li>
+            <li>If the alternate hypothesis is Ha: &mu; > &mu;o, then the p-value of the test is calculated with the command: <b>pnorm(z, lower.tail=FALSE)</b></li>
+            <li>If the alternate hypothesis is Ha: &mu; &ne; &mu;o, then the p-value of the test is calculated with the command: <b>2*pnorm(abs(z), lower.tail=FALSE)</b></li></ul>]]></task>
+		<task id="OneTOneMean"><![CDATA[<ul><li>Let <b>&mu;o</b> stand for the the value in the null hypothesis H0: &mu;=&mu;o. You will replace <b>&mu;o</b> with a number in the commands below.</li>
+            <li>If the alternate hypothesis is Ha: &mu; &lt; &mu;o, then the p-value of the test is calculated with the command: <b>t.test(data$x, alternative="less", mu=&mu;o)</b>, where <b>x</b> is the variable you want to analyze.</li>
+            <li>If the alternate hypothesis is Ha: &mu; &gt; &mu;o, then the p-value of the test is calculated with the command: <b>t.test(data$x, alternative="greater", mu=&mu;o)</b>, where <b>x</b> is the variable you want to analyze.</li>
+            <li>If the alternate hypothesis is Ha: &mu; &ne; &mu;o, then the p-value of the test is calculated with the command: <b>t.test(data$x, alternative="two.sided", mu=&mu;o)</b>, where <b>x</b> is the variable you want to analyze.</li></ul>]]></task>
+		<task id="OneZOneProportion"><![CDATA[<p>Here we are interested in the proportion <i>p</i> of the data for variable <code>x</code> where the value is equal to some name <code>a</code>.</p>
+            <h4>Calculating the p-value</h4>
+            <ul><li>Let <code>p0</code> stand for the the value in the null hypothesis Ho: p=p0. You will replace <code>p0</code> with a number in the commands below.</li>
+            <li>Create variables holding the total data count and the count of entries equal to <code>a</code> with the commands:
+             <ul><li><code>n = length(na.omit(data$x)); n</code>, where <code>x</code> is the variable you want to analyze.</li>
+             <li><code>np = length(na.omit(data$x[data$x == "a"])); np</code>, where <code>x</code> is the variable you want to analyze and <code>a</code> is the value of that variable you want to examine.</li></ul></li>
+            <li>If the alternate hypothesis is Ha: p &lt; p0, then the p-value of the test is calculated with the command: <code>prop.test(np, n, p0, alternative = "less", correct=FALSE)</code></li>
+            <li>If the alternate hypothesis is Ha: p &gt; p0, then the p-value of the test is calculated with the command: <code>prop.test(np, n, p0, alternative = "greater", correct=FALSE)</code></li>
+            <li>If the alternate hypothesis is Ha: p &ne; p0, then the p-value of the test is calculated with the command: <code>prop.test(np, n, p0, alternative = "two.sided", correct=FALSE)</code></li></ul>
+            <h4>Calculating the test statistic z</h4>
+            <ul><li>Now we can find the test statistic <code>z</code> using the command <code>z = (p - p0)/sqrt(p0*(1-p0)/n); z</code>, where <code>p</code> is the value given in the R output from the prop.test command above (under "sample estimates: p").</li></ul>]]></task>
+		<task id="TwoTTwoMeans"><![CDATA[<p>There are two options here (select one or the other).  Remember that you can see your data in R by entering the command <code>data</code>.</p>
+            <ol><li>The two samples are stored as two numerical columns:<br/>
+            In this case, the data must consist of two columns of numbers headed by column labels. We will use <code>x</code> and <code>y</code> as the column labels; change these names to your own names in the instructions below.
+            <ul><li>If the alternate hypothesis is Ha: &mu;1 &lt; &mu;2, then the p-value of the test is calculated with the command: <b>t.test(data$x, data$y, alternative="less")</b></li>
+            <li>If the alternate hypothesis is Ha: &mu;1 &gt; &mu;2, then the p-value of the test is calculated with the command: <b>t.test(data$x, data$y, alternative="greater")</b></li>
+            <li>If the alternate hypothesis is Ha: &mu;1 &ne; &mu;2, then the p-value of the test is calculated with the command: <b>t.test(data$x, data$y, alternative="two.sided")</b></li></ul></li>
+            <li>The numerical data are stored in one column, while the second column contains labels indicating which data belong to which of the two samples:<br/>
+            In this case, the data must include two columns headed by column labels. The words in the first column are the values of the explanatory variable; the numbers in the second column are the corresponding values of the response variable.  We will assume that the label on top of the explanatory column is <b>x</b> and the label on top of the response column is <b>y</b>. Substitute your own names in the commands below.
+            <ul><li>The t-test will compare the means of the two datasets corresponding to the two values of the explanatory variable. Dataset 1 corresponds to the label lower in alphabetic order.</li>
+            <li>If the alternate hypothesis is Ha: &mu;1 &lt; &mu;2, then the p-value of the test is calculated with the command: <b>t.test(data$y~data$x, alternative="less")</b></li>
+            <li>If the alternate hypothesis is Ha: &mu;1 &gt; &mu;2, then the p-value of the test is calculated with the command: <b>t.test(data$y~data$x, alternative="greater")</b></li>
+            <li>If the alternate hypothesis is Ha: &mu;1 &ne; &mu;2, then the p-value of the test is calculated with the command: <b>t.test(data$y~data$x)</b></li></ul></li></ol>]]></task>
+		<task id="TwoZTwoProportions"><![CDATA[<ul></li><li>You are interested if the proportion <i>p1</i> of entries in column <b>x</b> equal to some name <b>a</b> is equal to the proportion <i>p2</i> of entries in column <b>y</b> equal to some name <b>b</b>.</li>
+            <li>Create variables holding the total data counts and the counts of entries equal to <b>a</b> and <b>b</b> with the commands: <br><b>nx = length(na.omit(data$x)); nx</b> <br> <b>nxa = length(na.omit(data$x[data$x == "a"])); nxa</b><br><b>ny = length(na.omit(data$y)); ny</b><br><b>nyb = length(na.omit(data$y[data$y == "b"])); nyb</b></li>
+            <li>If the alternate hypothesis is Ha: p1 &lt; p2, then the p-value of the test is calculated with the command: <b>prop.test(c(nxa,nyb), c(nx,ny), alternative = "less")</b></li>
+            <li>If the alternate hypothesis is Ha: p1 &gt; p2, then the p-value of the test is calculated with the command: <b>prop.test(c(nxa,nyb), c(nx,ny), alternative = "greater")</b></li>
+            <li>If the alternate hypothesis is Ha: p1 &ne; p2, then the p-value of the test is calculated with the command: <b>prop.test(c(nxa,nyb), c(nx,ny))</b></li></ul>]]></task>
+		<task id="PairedT"><![CDATA[<ul><li>If the alternate hypothesis is Ha: &mu;1 &lt; &mu;2, then the p-value of the test is calculated with the command: <b>t.test(data$x - data$y, alternative="less")</b>, where <b>x</b> and <b>y</b> are the two quantitative variables whose difference we are studying.</li>
+            <li>If the alternate hypothesis is Ha: &mu;1 &gt; &mu;2, then the p-value of the test is calculated with the command: <b>t.test(data$x - data$y, alternative="greater")</b>, where <b>x</b> and <b>y</b> are the two quantitative variables whose difference we are studying.</li>
+            <li>If the alternate hypothesis is Ha: &mu;1 &ne; &mu;2, then the p-value of the test is calculated with the command: <b>t.test(data$x - data$y, alternative="two.sided")</b>, where <b>x</b> and <b>y</b> are the two quantitative variables whose difference we are studying.</li></ul>]]></task>
+		<task id="ChiSquare"><![CDATA[<ul><li>If you have not already done so, you must create a table containing the counts for the different values of your variables. Enter the command: <b>tbl = table(data.frame(data$x,data$y)); tbl</b>, where <b>x</b> is the explanatory variable and <b>y</b> is the response variable. You will see a table of counts with the values of the explanatory variable on the left and the values of the response variable across the top. </li>
+            <li>To carry out the chi-square test on your data, enter the command <b>chisq.test(tbl, correct=FALSE)</b></li></ul>]]></task>
+		<task id="AnovaF"><![CDATA[<ul><li>Enter the command: <b>anova(lm(data$y ~ factor(data$x)))</b>, where <b>x</b> is the explanatory variable and <b>y</b> is the response variable. The p-value of the test is labeled "Pr(&gt;F)".</li></ul>]]></task>
+		<task id="RegressionT"><![CDATA[<ul><li>Enter the command: <b>summary(lm(data$y ~ data$x))</b>, where <b>x</b> is the explanatory variable and <b>y</b> is the response variable. </li>
+            <li>The regression equation is y = a+bx where a is the first number in the left-hand column under "Coefficients" and b is the second number in the same column.  The test statistic t is the second number in the "t value" column, and the p value is the second number in the "Pr(&gt;|t|)" column.</li></ul>]]></task>
+	</system>
+	<system id="StatCrunch">
+		<task id="TwoQuant"><![CDATA[
+			<h4>Scatterplot:</h4><ul>
+			<li>Choose Graphics &rarr; Scatter Plot</li>
+			<li>For the X variable select the explanatory variable</li>
+			<li>For the Y variable select the response variable</li>
+			<li>Press Create Graph!</li></ul>
+			<h4>Correlation:</h4><ul>
+			<li>Choose Stat &rarr; Summary Stats &rarr; Correlation</li>
+			<li>Select the columns for the explanatory and response variables</li>
+			<li>Press Calculate</li></ul>]]></task>
+		<task id="TwoCat"><![CDATA[
+			<ul><li>Choose Stat &rarr; Tables &rarr; Contingency &rarr; with data</li>
+			<li>Next to 'Row variable' select the explanatory variable</li>
+			<li>Next to 'Column variable' select the response variable</li>
+			<li>Press Next</li>
+			<li>Check: Row percent</li>
+			<li>Uncheck: Chi-Square</li><li>Press Calculate</li></ul>
+			<p><i>Note: To better understand the output, it will be useful to first look at the legend that is provided above the table.</i></p>
+			]]></task>
+		<task id="TwoMixed"><![CDATA[
+			<H4>Side by Side Boxplots:</H4><ul>
+			<li>Choose Graphics &rarr; Boxplot</li>
+			<li>Under 'Select Columns', choose the relevant variable</li>
+			<li>Group by the explanatory variable</li>
+			<li>Select "Plot groups for each column"</li>
+			<li>Press Create Graph!</li></ul>
+			<h4>Descriptive Statistics:</h4><ul>
+			<li>Choose Stat &rarr; Summary Stats &rarr; Columns</li>
+			<li>Under 'Select Columns', choose the relevant variable</li>
+			<li>Group by the explanatory variable</li><li>Select "Table groups for each column"</li>
+			<li>Press Calculate</li></ul>
+			]]></task>
+		<task id="OneCat"><![CDATA[
+			<ul><li>Choose Graphics &rarr; Pie Chart &rarr; with data</li>
+			<li>Under 'Select Columns', choose the relevant variable</li>
+			<li>Press Create Graph!  The pie chart will appear in a pop-up window.</li></ul>
+			<!-- FIXME: no Table of counts and percents instructions -->]]>
+		</task>
+		<task id="OneQuant"><![CDATA[
+			<h4>Histogram:</h4><ul><li>Choose Graphics &rarr; Histogram</li>
+			<li>Under 'Select Columns', choose the relevant variable</li>
+			<li>Press Create Graph!</li></ul>
+			<h4>Descriptive Statistics:</h4><ul>
+			<li>Choose Stat &rarr; Summary Stats &rarr; Columns</li>
+			<li>Under 'Select Columns', choose the relevant variable</li>
+			<li>Press Calculate</li></ul>]]>
+		</task>
+		<task id="OneZOneMean"><![CDATA[<ul><li>Choose Stat &rarr; Z statistics &rarr; One sample &rarr; with data.</li><li>Under 'Select Columns', choose the relevant variable.</li><li>Next to 'Std. Dev.', enter the value of the standard deviation.</li><li>Press Next</li><li>Select Hypothesis Test</li><li>Next to 'Null: mean=', enter the value of mu that you are testing for (i.e. the value specified in Ho).</li><li>Next to 'Alternative:', choose the relevant alternative.</li><li>Press Calculate</li></ul>]]></task>
+		<task id="OneTOneMean"><![CDATA[<ul><li>Choose Stat &rarr; T statistics &rarr; One sample &rarr; with data.</li><li>Under 'Select Columns', choose the relevant variable.</li><li>Press Next.</li><li>Choose 'Hypothesis Test'.</li><li>Next to 'Null: mean', enter the value of the null hypothesis.</li><li>Next to 'Alternative', choose the relevant alternative</li><li>Press Calculate</li></ul>]]></task>
+		<task id="OneZOneProportion"><![CDATA[<ul><li>Choose Stat &rarr; Proportions &rarr; One Sample &rarr; with data.</li><li>Select the column containing the outcomes for the sample.</li><li>Specify the outcome that denotes a success.</li><li>Click the Next button to select between a hypothesis test and confidence interval computation.  The hypothesis test option is selected by default using a null success proportion of 0.5 and a not equal alternative hypothesis.</li><li>Enter a null value for the proportion of successes.</li><li>Choose from the options of not equal, less than and greater than for the alternative hypothesis.</li></ul>]]></task>
+		<task id="TwoTTwoMeans"><![CDATA[<ul><li>Choose: Stat &rarr; T statistics &rarr; Two sample &rarr; with data.</li><li>Choose among the following two options, depending on what format the data is given in:</li><li>     (1) Samples in one column - select this column for both Sample 1 and Sample 2.  Then use the Where option to limit which values are being grouped.   For example, if the grouping is based on the value (0 or 1) of another variable, var1, then the Where statements should be var1=0 and var1=1.</li><li>     (2) Samples in different columns - enter the data columns.</li><li>Uncheck: Pool variances.</li><li>Then press Next</li><li>Select appropriate form of hypothesis test</li><li>Press Calculate</li></ul>]]></task>
+		<task id="TwoZTwoProportions"><![CDATA[StatCrunch instructions are not available yet.]]></task>
+		<task id="PairedT"><![CDATA[There are two options here (select one or the other):<br><b>1) If the two samples are available as two columns in the worksheet:</b><br><ul><li>Choose Stat &rarr; T statistics &rarr; Paired</li><li>Select the relevant variables for Sample 1 and Sample 2</li><li>Press Next</li><li>Choose alternative hypothesis</li><li>Press Calculate</li></ul><b>2) If only the column of differences is available:<br></b><ul><li>Choose Stat &rarr; T statistics &rarr; One Sample &rarr; with data</li><li>Select column of differences.</li><li>Press Next</li><li>Enter 0 for Null mean</li><li>Choose alternative hypothesis (be sure to consider how the differences were calculated).</li><li>Press Calculate.</li></ul>]]></task>
+		<task id="ChiSquare"><![CDATA[<ul><li>Choose Stat &rarr; Tables &rarr; Contingency &rarr; with data.</li><li>Next to 'Row variable' select the explanatory variable.</li><li>Next to 'Column variable' select the response variable.</li><li>Press Next.</li><li>Check Chi-Square.</li><li>Press Calculate.</li></ul>]]></task>
+		<task id="AnovaF"><![CDATA[<ul><li>Choose Stat &rarr; ANOVA &rarr; One Way.</li><li>Depending on the format of the data, select one of the following options:<ul><li>For stacked data: select the compare values in a single column option, and then specify the column containing the samples (Responses In) and the column containing the population identifiers (Factors).</li><li>For unstacked data: select the compare selected columns option and then select the columns containing the samples.</li></ul></li></ul>]]></task>
+		<task id="RegressionT"><![CDATA[<ul><li>Choose: Stat &rarr; Regression &rarr; Simple Linear.</li><li>Select the explanatory and response variables.</li><li>Press Calculate.</li></ul>]]></task>
+	</system>
+	<system id="Minitab">
+		<task id="TwoQuant"><![CDATA[
+			<h4>Scatterplot:</h4>
+			<ul><li>Choose Graph &rarr; Scatterplot &rarr; Simple, and click OK</li>
+			<li>Under 'Y', put the response variable (or double click on it in the left panel)</li>
+			<li>Under 'X', put the explanatory variable (or double click on it)</li>
+			<li>Click OK</li></ul>
+			<h4>Correlation:</h4><ul>
+			<li>Choose Stat &rarr; Basic Statistics &rarr; Correlation</li>
+			<li>Under 'Variables' put the response and explanatory variables (or double click on them one at a time)</li>
+			<li>Click OK</li></ul>]]></task>
+		<task id="TwoCat"><![CDATA[
+			<ul><li>Choose Stat &rarr; Tables &rarr; Cross Tabulation and chi-square (this makes a two-way table)</li>
+			<li>Under 'Categorical Variables', enter the name of the explanatory variable next to 'For rows' and then the response variable next to 'For Columns'</li>
+			<li>Under 'Display', check 'Counts' and 'Row percents'</li>
+			<li>Click OK</li></ul>
+			<p><i>Note: To better understand the output, it will be useful to first look at the 'Cell Contents' explanation at the bottom of the table.</i></p>
+			]]></task>
+		<task id="TwoMixed"><![CDATA[<h4>Side by Side Boxplots:</h4><ul>
+			<li>Choose Graph &rarr; Boxplot</li>
+			<li>Under 'One Y', select 'With groups' and click OK</li>
+			<li>Put the response variable under 'Graph variables', and the explanatory under 'Categorical variables for grouping'</li>
+			<li>Click OK</li></ul>
+			<h4>Descriptive Statistics:</h4><ul>
+			<li>Choose Stat &rarr; Basic Statistics &rarr; Display Descriptive Statistics</li>
+			<li>Put the name of the response variable in the 'Variables' box</li>
+			<li>Check 'By variable', and put the name of the explanatory variable in the adjacent field</li>
+			<li>Click OK</li></ul>]]></task>
+		<task id="OneCat"><![CDATA[<ul><li>Choose Graph &rarr; Pie Chart</li>
+			<li>Under 'Categorical Variables', enter the name of the relevant variable (or just double click on it in the variables list on the left)</li>
+			<li>Click on 'Labels', choose the 'Slice Labels' tab, and check 'Frequency' and 'Percent'</li>
+			<li>Click OK twice</li></ul>]]></task>
+		<task id="OneQuant"><![CDATA[<h4>Histogram:</h4><ul><li>Choose Graph &rarr; Histogram &rarr; Simple, and click OK</li>
+			<li>Under 'Graph Variables', put the name of the relevant variable (or double click on it in the left panel)</li>
+			<li>Click OK</li></ul>
+			<h4>Descriptive Statistics:</h4><ul>
+			<li>Choose Stat &rarr; Basic Statistics &rarr; Display Descriptive Statistics</li>
+			<li>Put the name of the relevant variable in the 'Variables' box</li>
+			<li>Click OK</li></ul>]]></task>
+		<task id="OneZOneMean"><![CDATA[<ul><li>Choose Stat &rarr; Basic Statistics &rarr; 1-sample Z...</li><li>Use the 'Samples in one column' option, and enter the relevant variables.</li><li>Enter the value of Standard deviation.</li><li>Next to 'Test Mean' enter the value of mu that you are testing for (i.e., the value specified in H<font size='9'>o</font>)</li><li>Click on 'Options' and set your alternative to the relevant one.</li><li>Click OK twice.</li></ul>]]></task>
+		<task id="OneTOneMean"><![CDATA[<ul><li>Choose Stat &rarr; Basic Statistics &rarr; 1-sample t...</li><li>Enter the variable name under 'Samples in columns'</li><li>Next to 'Test Mean' enter the value of mu that you are testing for.<br>(i.e., the value specified in H<font size='9'>o</font>)</li><li>Click on 'Options' and set your alternative to the relevant one.</li><li>Click OK twice.</li></ul>]]></task>
+		<task id="OneZOneProportion"><![CDATA[<ul><li>Choose Stat &rarr; Basic Statistics &rarr; 1 Proportion...</li><li>Specify the relevant variable for 'Samples in columns'.</li><li>Click on 'Options' to test for a proportion value other than the default, 0.5, and to specify the relevant alternative.</li><li>Check the box to 'Use test and interval based on the normal distribution.'</li><li>Click OK twice.</li></ul>]]></task>
+		<task id="TwoTTwoMeans"><![CDATA[<ul><li>Choose Stat &rarr; Basic Statistic &rarr; 2-Sample t</li><li>Use the 'Samples in one column' option, and enter the right variables (the response next to 'Samples' and the explanatory next to 'Subscripts') <b>or</b> the 'Samples in different columns' option (if relevant)</li><li>Click on 'Options' and set the 'Alternative' to the relevant one</li><li>Click OK twice</li></ul>]]></task>
+		<task id="TwoZTwoProportions"><![CDATA[<ul><li>Choose Stat &rarr; Basic Statistic &rarr; 2-Sample t.</li><li>Use the 'Samples in one column' option, and enter the right variables (the response next to 'Samples' and the explanatory next to 'Subscripts')<br><b>or</b> the 'Samples in different columns' option (if relevant).</li><li>Click on 'Options' and set the 'Alternative' to the relevant one.</li><li>Click OK twice.</li></ul>]]></task>
+		<task id="PairedT"><![CDATA[<p>There are two options here (select one or the other):</p><ol>
+			<li>If the two samples are available as two columns in the worksheet:
+			  <ul><li>Choose Stat &rarr; Basic Statistic &rarr; Paired t</li>
+			  <li>Enter the relevant variable's names next to 'First sample' and 'Second sample'.</li>
+			  <li>Click on 'Options' and set the 'Alternative' to the relevant one.<br/>[Bear in mind that Minitab evaluates (first sample)-(second sample).]</li>
+			  <li>Click OK twice.</li></ul></li>
+			<li>If only the column of differences is available:
+			  <ul><li>Choose Stat &rarr; Basic Statistic &rarr; 1-Sample t</li>
+			  <li>Under 'Variables', enter the column of differences.</li>
+			  <li>Next to 'Test mean' enter 0.</li>
+			  <li>Click on 'Options' and set the 'Alternative' to the relevant one.<br/>(be sure to consider how the differences were calculated).</li>
+			  <li>Click OK twice.</li></ul></li></ol>]]></task>
+		<task id="ChiSquare"><![CDATA[<ul><li>Choose Stat &rarr; Tables &rarr; Cross Tabulation and chi-square</li><li>Specify the relevant variables under 'Categorical variables'<br>(The explanatory next to 'For Rows' and the response next to 'For columns').</li><li>Click on 'Chi-Square'.  Check the Chi-Square analysis box.</li><li>Click OK twice.</li></ul>]]></task>
+		<task id="AnovaF"><![CDATA[<ul><li>Choose Stat &rarr; ANOVA &rarr; One-way...</li><li>Specify the response variable as 'Response', and the explanatory variable as 'Factor'.</li><li>Click OK.</li></ul>]]></task>
+		<task id="RegressionT"><![CDATA[<ul><li>Choose: Stat &rarr; Regression &rarr; Regression...</li><li>Specify the response variable next to 'Response'.</li><li>Specify the explanatory variable next to 'Predictors'.</li><li>Click OK.</li></ul>The output appears in the session window (you might need to scroll up) and contains all the relevant information.]]></task>
+	</system>
+	<system id="Excel 2007/2010">
+		<task id="TwoQuant"><![CDATA[<h4>Scatterplot:</h4>
+        	<ul><li>If your data contain empty cells or cells with non-numerical data (e.g., asterisks), you should sort the data first so that all of the numerical data are grouped together - Excel can't create a scatterplot with non-numerical data.  To sort your data, type Control-A to select all of the data, and then choose <b>Sort & Filter &rarr; Custom Sort</b> from the <b>Editing</b> group in the <b>Home</b> tab.</li>
+        	<li>Once your data are sorted, click in an empty cell somewhere in the worksheet.</li>
+        	<li>Choose <b>Scatter</b> in the <b>Charts</b> group on the <b>Insert</b> tab.</li>
+        	<li>Choose the first scatterplot option (Scatter with only Markers).</li>
+        	<li>You should now have a blank chart.  Right-click on the chart and choose <b>Select Data</b> from the pop-up menu.</li>
+        	<li>Click <b>Add</b>.</li>
+        	<li>Now, in the box under <b>Series X values</b>, enter the range representing the explanatory variable data (you can also select the data range using your mouse).  Make sure you exclude any non-numerical data (e.g. asterisks).</li>
+        	<li>In the box under <b>Series Y values</b>, enter the range representing the response variable data (you can also select the data range using your mouse).  Again, make sure you exclude any non-numerical data (e.g. asterisks).</li>
+        	<li>Click <b>OK</b> twice.</li>
+        	<li>You should now have a scatterplot with points representing the data in your worksheet.  If there are lines connecting the points, right-click on the chart and choose <b>Change Chart Type</b> from the pop-up menu.  Choose <b>X Y (Scatter)</b> on the left, and then choose the first option under <b>X Y (Scatter)</b> on the right (Scatter with only Markers).</li>
+        	<li>If you want to add a chart title and axes titles, you can do so by using the buttons in the <b>Labels</b> group on the <b>Layout (Chart Tools)</b> tab.  The <b>Value (X) axis</b> title should be the name of the explanatory variable, and the <b>Value(Y) axis</b> title should be the name of the response variable.</li></ul>
+        	<h4>Correlation:</h4>
+        	<ul><li>Click in an empty cell in the worksheet.</li>
+        	<li>Type <b>=correl([range1],[range2])</b>, where [range1] is the range of explanatory data and [range2] is the range of response data.</li></ul>]]></task>
+		<task id="TwoCat"><![CDATA[<ul><li>In the worksheet containing your data, click in one of the cells that has data in it</li>
+        	<li>Click on the arrow under <b>Pivot Table</b> in the <b>Tables</b> group in the <b>Insert</b> tab, and choose <b>Pivot Table</b> from the drop-down menu.</li>
+        	<li>Click <b>OK</b>.</li>
+        	<li>Excel will create a new worksheet with a blank table.  We have to tell Excel how to construct the table:</li>
+        	<li>You should see a window titled <b>PivotTable Field List</b> with a list that includes all of the variables from our spreadsheet.</li>
+        	<li>Drag the response variable to the table where it says <b>Drop Column Fields Here</b></li>
+        	<li>Now go back to the <b>PivotTable Field List</b> and drag the explanatory variable to the table where it says <b>Drop Row Fields Here</b>.</li>
+        	<li>Finally, go back to the <b>PivotTable Field List</b> and drag the explanatory variable to the table where it says <b>Drop Data Items Here</b>.</li>
+        	<li>Right-click on any of the cells in the main body of the table (i.e. not the row or column headers), and choose <b>Value Field Settings</b> from the pop-up menu.</li>
+        	<li>Make sure that under <b>Summarize value field by</b>, Count is selected.</li></ul>
+            <p>You should now have a two-way table that shows the count of the response variable.  To see the percents, we can use Excel to show percents instead of counts:</p>
+        	<ul><li>Right-click on any of the cells in the main body of the table (i.e. not the row or column headers), and choose <b>Value Field Settings</b> from the pop-up menu.</li>
+        	<li>Click the tab labeled <b>Show values as</b>.</li>
+        	<li>Now use the drop-down menu labeled <b>Show values as</b> to select <b>% of row</b> and click <b>OK</b>.</li></ul>]]></task>
+		<task id="TwoMixed"><![CDATA[<h4>Descriptive Statistics:</h4>
+        	<ul><li>To calculate the descriptive statistics, we're going to create a table that will list each statistical measure.</li>
+        	<li>First we need to sort our data to make it easier to tabulate:</li>
+        	<li>Type <b>Control-A</b> to select all of the data in the worksheet.</li>
+        	<li>Choose <b>Sort & Filter &rarr; Custom Sort</b> from the <b>Editing</b> group in the <b>Home</b> tab.</li>
+        	<li>In the pop-up window, make sure that <b>My data has headers</b> is checked and then choose the categorical variable from the pull-down menu next to <b>Sort by</b> and click <b>OK</b>.</li>
+        	<li>Now that the data are sorted, pick an empty cell in your worksheet and create a table where the row headers are <b>min</b>, <b>Q1</b>, <b>Median</b>, <b>Q3</b>, and <b>Max</b> and the column headers are the different values that the categorical variable can take.</li>
+        	<li>Now for each cell in the table, enter the formula to calculate the statistic represented by the row header.  The range will be the range of data in the quantitative variable column of your worksheet that corresponds to the categorical variable value in the column header of your table.  Here are all of the formulas you'll need:</li>
+        	<li><b>min: </b><code>=min([range])</code></li>
+        	<li><b>Q1: </b><code>=quartile([range],1)</code> </li>
+        	<li><b>Median: </b><code>=median([range])</code></li>
+        	<li><b>Q3: </b><code>=quartile([range],3)</code></li>
+        	<li><b>Max: </b><code>=max([range])</code></li></ul>
+			<h4>Side by Side Boxplots:</h4>
+        	<p>Unfortunately, Excel can't create boxplots directly, so we have to create a column graph and alter it so that we get boxplots.  We start by using our Descriptive Statistics to create a new table that will be the basis for our column graph.</p>
+        	<ul><li>To create this table, pick an empty cell in your worksheet and create a table where the row headers are <b>25th Percentile</b>, <b>50th Percentile</b>, <b>75th Percentile</b>, <b>Lower limit</b>, and <b>Upper limit</b> and the column headers are the different values that the categorical variable can take.</li>
+        	<li>Now for each cell in the table, enter the formula to calculate the statistic represented by the row header.  The values in this table are calculated from the values in the Descriptive Statistics table you made above.  So, for example, for a given column in your table (which represents a certain value of the categorical variable), if the value for Median is in cell M4, and the value for Q1 is in cell M3, the correct formula for calculating the 50th Percentile would be =M4-M3.  Here are all of the formulas you'll need:</li>
+        	<li><b>25th Percentile: </b><code>=Q1</code></li>
+        	<li><b>50th Percentile: </b><code>=Median - Q1</code> </li>
+        	<li><b>75th Percentile: </b><code>=Q3 - Median</code></li>
+        	<li><b>Lower limit: </b><code>=Q1 - min</code></li>
+        	<li><b>Upper limit: </b><code>=Max - Q3</code></li></ul>
+        	<p>Now we can finally create our boxplots:</p>
+        	<ul><li>Highlight the values in the <b>25th Percentile</b> , <b>50th Percentile</b> , and <b>75th Percentile</b> rows, and then choose <b>Column</b> in the <b>Charts</b> group on the <b>Insert</b> tab.</li>
+        	<li>In the pull-down menu, choose the second option under <b>2-D Column</b> (labeled <b>Stacked Column</b> if you hover your mouse over it).</li>
+        	<li>Excel will create a stacked column graph for you.  The idea here is that the top two boxes in each column will make up our boxplots.  We'll add error bars for the min and Max values, and simply remove the bottom box.</li>
+        	<ul><li>Click on the top box in one of the columns to select it, and then choose <b>Error Bars &rarr; More Error Bars Options</b> in the <b>Analysis</b> group on the <b>Layout (Chart Tools)</b> tab.
+        	 <li>In the pop-up window, choose <b>Vertical Error Bars</b> on the left and then choose <b>Plus</b> on the right.</li>
+        	 <li>Choose <b>Custom</b> under <b>Error Amount</b> and then click the <b>Specify Value</b> button.</li>
+        	 <li>In the pop-up window, in the <b>Positive Error Value</b> box, enter the range of values in the <b>Upper limit</b> row in the table we created (or click and drag to select those values).  Click <b>OK</b> and then <b>Close</b> .</li>
+        	 <li>Now repeat this error bar exercise for the bottom box in the columns, except choose <b>Minus</b> error bars, and enter the range of values in the <b>Lower limit</b> row of our table into the <b>Negative Error Value</b> box.</li>
+        	 <li>Right-click on the top box in one of the columns and choose <b>Format Data Series</b>.  In the pop-up window, choose <b>Fill</b> on the left, and specify <b>No fill</b>.  Then choose <b>Border Color</b> on the left and specify <b>Solid Line</b>.</li>
+        	 <li>Repeat for the middle box in the columns.</li>
+        	 <li>Repeat for the bottom box in the columns, except this time specify <b>No fill</b> and <b>No line</b>.  This will cause the bottom box to simply disappear.</li>
+        	 <li>Click on the legend and hit the Delete key to remove it.</li>
+        	 <li>Click on the horizontal lines in the background of the graph and hit the Delete key to remove them.</li></ul></li></ul>]]></task>
+		<task id="OneCat"><![CDATA[<h4>Table of counts and percents:</h4>
+        	<ul><li>Click on one of the cells in the column of data you want to use.</li>
+        	<li>Click on the arrow under <b>Pivot Table</b> in the <b>Tables</b> group in the <b>Insert</b> tab, and choose <b>Pivot Table</b> from the drop-down menu.</li>
+        	<li>Click <b>OK</b>.</li>
+        	<li>Excel will create a new worksheet with a blank table.  We have to tell Excel how to construct the table:</li>
+        	<li>You should see a window titled <b>PivotTable Field List</b> with a list of the variables in our dataset.</li>
+        	<li>Drag the relevant variable to the table where it says <b>Drop Column Fields Here</b>.</li>
+        	<li>Now go back to the PivotTable Field List and drag the relevant variable to the table where it says <b>Drop Data Items Here</b>.</li>
+        	<li>Right-click in one of the cells in the table (not the column or row headers) and choose <b>Value Field Settings</b>.  Then make sure that <b>Count</b> is selected under <b>Summarize by:</b>.</li>
+        	</li></ul>
+        	<p>You should now have a table that shows the number of each type of data entry along with a total.  This is the <b>count</b> of each of these entries.  To see the percents for each entry, we can ask Excel to show percents instead of counts:</p>      
+        	<ul><li>Right-click on any of the cells containing the counts and choose <b>Value Field Settings</b> from the pop-up menu.</li>
+        	<li>Click the tab that says <b>Show values as</b>.</li>
+        	<li>Now use the drop-down menu labeled <b>Show data as:</b> to select <b>% of total</b> and click <b>OK</b>.</li></ul>
+        	<h4>PieChart:</h4>
+        	<ul><li>First, if your table is showing percents, you need to change it back to counts:</li>
+        	<li>Right-click on any of the cells containing the percents and choose <b>Value Field Settings</b> from the pop-up menu.</li>
+        	<li>Click the tab that says <b>Show values as</b>.</li>
+        	<li>Now use the drop-down menu labeled <b>Show data as:</b> to select <b>Normal</b> and click <b>OK</b>.</li>
+        	<li>Now click on one of the cells in your table and then click the <b>PivotChart</b> button in the <b>Tools</b> group on the <b>Options (PivotTable Tools)</b> tab.</li>
+        	<li>In the <b>Insert Chart</b> window that appears, choose the first pie chart option and click <b>OK</b>.</li>
+        	<li>To label the sections of the pie, right click the pie and choose <b>Add Data Labels</b> from the pop-up menu.</li>
+        	<li>To see percentages as well as absolute values, right-click one of the data labels and choose <b>Format Data Labels</b>.  Then make sure that <b>Label Options</b> is selected on the left and check the box next to <b>Percentage</b> and click <b>OK</b>.</li></ul>]]></task>
+		<task id="OneQuant"><![CDATA[<p>Note: These instructions require that you have installed the Analysis Toolpak Add-in from your Microsoft Office CD.</p>
+        	<h4>Descriptive Statistics:</h4>
+        	<ul><li>To calculate the descriptive statistics, we're going to create a table that will list each statistical measure.</li>
+        	<li>First we need to sort our data to make it easier to tabulate:</li>
+        	<li class='sub'>Type Control-A twice to select all of the data in the worksheet</li>
+        	<li class='sub'>Choose <b>Sort & Filter &rarr; Custom Sort</b> from the <b>Editing</b> group in the <b>Home</b> tab.</li>
+        	<li class='sub'>In the pop-up window, make sure that <b>My data has headers</b> is checked, then under <b>Sort by</b> choose the relevant variable and click <b>OK</b>.</li>
+        	<li>Now that the data are sorted, let's make the table.  First we will make the row and column labels: pick an empty cell in your worksheet, and type <b>Statistic</b>.  Then move one cell to the right and type the name of the relevant variable.  Now, in the cell underneath <b>Statistic</b>, type <b>Mean</b>.  Move down one cell and type <b>Standard Deviation</b>, then underneath that <b>Q1</b>, then <b>min</b>, then <b>Median</b>, then <b>Max</b>, and finally <b>Q3</b>.</li>
+        	<li>Now for each statistic, we'll enter the formula to calculate that statistic and the range of data that corresponds to the relevant variable.  When you enter the range of data, be sure to exclude the cells with asterisks (*) that indicate missing values.
+        	<ul>
+        	 <li><b>Mean: </b>In the cell to the right of <b>Mean</b>, type <code>=average([range])</code></li>
+        	 <li><b>Standard Deviation: </b>In the cell to the right of <b>Standard Deviation</b>, type <code>=stdev([range])</code></li>
+        	 <li><b>min: </b>In the cell to the right of <b>min</b>, type <code>=min([range])</code></li>
+        	 <li><b>Q1: </b>In the cell to the right of <b>Q1</b>, type <code>=quartile([range],1)</code></li>
+        	 <li><b>Median: </b>In the cell to the right of <b>Median</b>, type <code>=median([range])</code></li>
+        	 <li><b>Q3: </b>In the cell to the right of <b>Q3</b>, type <code>=quartile([range],3)</code></li>
+        	 <li><b>Max: </b>In the cell to the right of <b>Max</b>, type <code>=max([range])</code></li></ul></li></ul>
+        	<h4>Create a Histogram:</h4>
+        	<ul><li>First we need to define the bins that Excel will use to create the histogram:</li>
+        	<li class='sub'>Decide on an appropriate bin width, and then in one of the columns near the data, make a list of the bins that your histogram will use (for example, if the data range from 3 to 86, you might choose a bin width of 10, and then your bins would start at 10, then 20, 30, ... , 90).  In general, it's good to choose your bin width so that there are between 5 and 15 bins.  Don't include 0, since the numbers you're specifying are the high end of the bin.</li>
+        	<li>Now click the <b>Data Analysis</b> in the <b>Analysis</b> group on the <b>Data</b> tab.  Then choose <b>Histogram</b> in the resulting pop-up window and click <b>OK</b>.</li>
+        	<li>In the next window, click in the box next to <b>Input Range</b> and then select the cells containing your data (excluding the cells with asterisks).</li>
+        	<li>Now click in the box next to <b>Bin Range</b> and then select the cells containing your bin information.</li>
+        	<li>Finally, check the box at the bottom of this window marked <b>Chart Output</b>, and then click <b>OK</b>.</li>
+        	<li>Excel will create a new worksheet containing the histogram and a table with the frequency counts.   The histogram is usually pretty small; you can click on it and then drag one of the handles on the outside to enlarge it.</li>
+        	<li>Histograms should not have spaces between the bars, so right-click on one of the bars and choose <b>Format Data Series</b>.  Then set the gap width to 0% (No Gap).</li>
+        	<li>Before closing the Format Data Series window, click on <b>Border Color</b> on the left, choose <b>Solid line</b>, and set the color to black.</li>
+        	<li>You can also change the labels on the horizontal axis so that they are a little more meaningful (for example, '0-5' instead of just '5').  To do this, just edit the labels in the <b>Bins</b> column of the table that Excel produced for you along with the chart.</li></ul>]]></task>
+		<task id="OneZOneMean"><![CDATA[<ul><li>To calculate the z-statistic, we use the formula <b>z = (sample mean - &mu;0)/(standard deviation/sqrt(n))</b>.</li>
+            <li>Once you have calculated the z-statistic, you can calculate the p-value using the Excel formula NORMSDIST.  In this case, the p-value we want is <b>2*(1-NORMSDIST(z-statistic))</b>.</li></ul>]]></task>
+		<task id="OneTOneMean"><![CDATA[<ul><li>We need to find the value of the test statistic t, which we calculate using <b>t = (x-bar - &mu;0)/(s/sqrt(n))</b>.  Before we can do this, we first have to calculate the values for each of the variables in the equation:</li>
+            <li>First, we need to calculate x-bar, the sample mean.  To do this, we use the <b>AVERAGE</b> function in Excel.</li>
+            <li>Next, we calculate s, the sample standard deviation using the <b>STDEV</b> function in Excel over the same range of data.</li>
+            <li>We know &mu;0 and n, so we can now calculate a value for t.</li><li>Finally, we find our p-value using the Excel function <b>TDIST(t, n-1, 2)</b>.</li></ul>]]></task>
+		<task id="OneZOneProportion"><![CDATA[<ul><li>To conduct the z-test for the population proportion p in Excel, we will use the equation <b>z = (p-hat - p0)/sqrt(p0(1-p0)/n)</b>.</li>
+            <li>First, we need to calculate p-hat, and to do this we use the equation <b>p-hat = X/n</b>.</li>
+            <li>Note that n, or the total number of data points in the sample, can be found using the formula <b>=COUNTA([range])</b>.</li>
+            <li>X, which is the number of data points corresponding to the value we're testing for, can be found using the formula <b>=COUNTIF([range], value)</b>.</li>
+            <li>Now we can calculate the test statistic z using the above equation.</li>
+            <li>Finally, we find the probability that p is less than or equal to the test statistic z using the Excel formula <b>=NORMSDIST(z)</b>.</li></ul>]]></task>
+		<task id="TwoTTwoMeans"><![CDATA[<ul><li>First we need to sort our data to make it easier to tabulate:</li>
+            <li>Type <b>Control-A</b> to select all of the data in the worksheet.</li>
+            <li>Choose <b>Sort & Filter &rarr; Custom Sort</b> from the <b>Editing</b> group in the <b>Home</b> tab.</li>
+            <li>In the pop-up window, make sure that <b>My data has headers</b> is checked and then choose the categorical variable from the pull-down menu next to <b>Sort by</b> and click <b>OK</b>.</li>
+            <li>To conduct the two sample t-test for two means in Excel, we will use the Excel formula <b>p=TTEST([range1], [range2], tails, type)</b>.</li>
+            <li>[range1] and [range2] represent the ranges of data of our quantitative variable that correspond to the two values of our categorical variable.  Since our data is sorted by the categorical variable, these ranges are now easy to select:</li>
+            <li>For [range1], select the cells in the quantitative variable column that correspond to the first value in the categorical variable column.</li>
+            <li>Then for [range2], select the cells in the quantitative variable column that correspond to the second value in the categorical variable column.</li>
+            <li>If the alternative hypothesis is u1-u2 &lt; 0 or u1-u2 &gt; 0, set tails = 1 (one-tailed distribution).  If the alternative hypothesis is u1-u2 &#8800; 0, set tails = 2 (two-tailed distribution).</li>
+            <li>Finally, set type = 3 (in Excel, type = 3 corresponds to "two-sample unequal variance").</li></ul>]]></task>
+		<task id="TwoZTwoProportions"><![CDATA[]]></task>
+		<task id="PairedT"><![CDATA[<ul><li>To conduct the two sample t-test for two means in Excel, we will use the Excel formula <b>p=TTEST([range1], [range2], tails, type)</b>.</li>
+            <li>[range1] and [range2] represent the two columns of data for the two quantitative variables whose difference we are studying.</li>
+            <li>In this case we let tails = 1 and type = 1 (in Excel, tails = 1 corresponds to "one-tailed distribution" and type = 1 corresponds to "paired").</li></ul>]]></task>
+
+		<task id="ChiSquare"><![CDATA[<ul><li>To conduct the chi-square test, we need two tables: one of actual counts, and one of expected counts.  We've already created the table of actual counts, so we'll start there.  </li>
+            <li>Make sure that the table you created in the <b>Exploratory Analysis</b> part of this question is showing counts, not percents:</li>
+            <li>Right-click on any of the cells in the main section of the table and choose <b>Value Field Settings</b> from the pop-up menu.</li>
+            <li>Click the tab labeled <b>Show values as</b>.</li>
+            <li>Now use the drop-down menu labeled <b>Show values as:</b> to select <b>Normal</b> and click <b>OK</b>.</li>
+            <li>Once the table of actual counts is showing counts instead of percents, use the table of actual counts along with the formula <b>Expected Count = (Column Total * Row Total)/Table Total</b> to make a new table of expected counts. </li>
+            <li>Now we'll use the formula <b>p=CHITEST([actual range], [expected range])</b> to calculate the p-value given the data in our tables:</li>
+            <li>Pick an empty cell and type <b>=CHITEST([actual range], [expected range])</b>, where [actual range] is the range of data in our table of actual counts (without row/column headers or totals), and [expected range] is the range of data in our table of expected counts (again without row/column headers or totals).</li></ul>]]></task>
+		<task id="AnovaF"><![CDATA[<ul><li>First we need to sort our data to make it easier to tabulate:</li>
+            <li>Type <b>Control-A</b> to select all of the data in the worksheet.</li>
+            <li>Choose <b>Sort & Filter &rarr; Custom Sort</b> from the <b>Editing</b> group in the <b>Home</b> tab.</li>
+            <li>In the pop-up window, make sure that <b>My data has headers</b> is checked and then choose the categorical variable from the pull-down menu next to <b>Sort by</b> and click <b>OK</b>.</li>
+            <li>Now that the data are sorted, pick an empty cell in your worksheet and create a table where the column headers are the different values that the categorical variable can take.</li>
+            <li>For each column in your table, copy the data for the quantitative variable that corresponds to the categorical variable value represented in that column.  Repeat this for the other categorical variables.</li>
+            <li>Now choose <b>Data Analysis</b> from the <b>Analysis</b> group in the <b>Data</b> tab.  In the pop-up window, choose <b>Anova: Single Factor</b>.</li>
+            <li>In the next window, enter the range of data in your table, including the column labels, next to <b>Input Range</b>.</li>
+            <li>Make sure that <b>Labels in First Row</b> is checked, and click <b>OK</b>.</li></ul>]]></task>
+		<task id="RegressionT"><![CDATA[<ul><li>Choose <b>Data Analysis</b> from the <b>Analysis</b> group in the <b>Data</b> tab.</li>
+            <li>In the pop-up window, choose <b>Regression</b> and click <b>OK</b>.</li>
+            <li>In the next window, next to <b>Input Y Range</b>, enter the range of data for the response variable.  Next to <b>Input X Range</b>, enter the range of data for the explanatory variable.</li>
+            <li>Click <b>OK</b>.</li></ul>]]></task>
+	</system>
+<system id="Excel 2003">
+		<task id="TwoQuant"><![CDATA[<h4>Scatterplot:</h4>
+        	<ul><li>If your data contain empty cells or cells with non-numerical data (e.g., asterisks), you should sort the data first so that all of the numerical data are grouped together - Excel can't create a scatterplot with non-numerical data.  To sort your data, type Control-A to select all of the data, and then choose <b>Data &rarr; Sort</b> from the top menubar.</li>
+        	<li>Once your data are sorted, click in an empty cell somewhere in the worksheet.</li>
+        	<li>Choose <b>Insert &rarr; Chart</b> from the top menubar.</li>
+        	<li>In the Chart Wizard window that pops up, choose <b>XY (Scatter)</b> and then click <b>Next</b>.</li>
+        	<li>In the <b>Series</b> tab, click <b>Add</b>.</li>
+        	<li>Now, in the box next to <b>X Values</b>, enter the range representing the explanatory variable data (you can also select the data range using your mouse).  Make sure you exclude any non-numerical data (e.g. asterisks).</li>
+        	<li>In the box next to <b>Y Values</b>, enter the range representing the response variable data (you can also select the data range using your mouse).  Again, make sure you exclude any non-numerical data (e.g. asterisks).</li>
+        	<li>Click <b>Next</b>.</li>
+        	<li>In the <b>Titles</b> tab, enter a title for your chart.  Enter the name of the explanatory variable as the <b>Value (X) axis</b> title, and the name of the response variable as the <b>Value(Y) axis</b> title.</li>
+        	<li>Click <b>Finish</b>.</li></ul>
+        	<h4>Correlation:</h4>
+        	<ul><li>Click in an empty cell in the worksheet.</li>
+        	<li>Type <b>=correl([range1],[range2])</b>, where [range1] is the range of explanatory data and [range2] is the range of response data.</li></ul>]]></task>
+		<task id="TwoCat"><![CDATA[<ul><li>In the worksheet containing your data, click in one of the cells that has data in it and then choose: <b>Data &rarr; Pivot Table and Pivot Chart Report</b>.</li>
+        	<li>Click <b>Finish</b>.</li>
+        	<li>Excel will create a new worksheet with a blank table.  We have to tell Excel how to construct the table:</li>
+        	<li>You should see a window titled <b>PivotTable Field List</b> with a list that includes all of the variables from our spreadsheet.</li>
+        	<li>Drag the response variable to the table where it says <b>Drop Column Fields Here</b></li>
+        	<li>Now go back to the <b>PivotTable Field List</b> and drag the explanatory variable to the table where it says <b>Drop Row Fields Here</b>.</li>
+        	<li>Finally, go back to the <b>PivotTable Field List</b> and drag the explanatory variable to the table where it says <b>Drop Data Items Here</b>.</li>
+        	<li>Right-click on any of the cells in the main body of the table (i.e. not the row or column headers), and choose <b>Field Settings</b> from the pop-up menu.</li>
+        	<li>Make sure that under <b>Summarize by</b>, Count is selected.</li></ul>
+        	<p>You should now have a two-way table that shows the count of the response variable.  To see the percents, we can ask Excel to show percents instead of counts:</p>
+        	<ul><li>Right-click on any of the cells in the main body of the table (i.e. not the row or column headers), and choose <b>Field Settings</b> from the pop-up menu.</li>
+        	<li>Click the button that says <b>Options &gt;&gt;</b>.</li>
+        	<li>Now use the drop-down menu labeled <b>Show data as:</b> to select <b>% of row</b> and click <b>OK</b>.</li></ul>]]></task>
+		<task id="TwoMixed"><![CDATA[<h4>Descriptive Statistics:</h4>
+        	<ul><li>To calculate the descriptive statistics, we're going to create a table that will list each statistical measure.</li>
+        	<li>First we need to sort our data to make it easier to tabulate:</li>
+        	<li>Type <b>Control-A</b> to select all of the data in the worksheet.</li>
+        	<li>Choose <b>Data &rarr; Sort</b> from the menubar.</li>
+        	<li>In the pop-up window, make sure <b>Header row</b> is selected towards the bottom of the window, and then under <b>Sort by</b> choose the categorical variable and click <b>OK</b>.</li>
+        	<li>Now that the data are sorted, pick an empty cell in your worksheet and create a table where the row headers are <b>Q1</b>, <b>min</b>, <b>Median</b>, <b>Max</b>, and <b>Q3</b> and the column headers are the different values that the categorical variable can take.</li>
+        	<li>Now for each cell in the table, enter the formula to calculate the statistic represented by the row header.  The range will be the range of data in the quantitative variable column of your worksheet that corresponds to the categorical variable value in the column header of your table.  Here are all of the formulas you'll need:</li>
+        	<li><b>Q1: </b><b>=quartile([range],1)</b> </li>
+        	<li><b>min: </b><b>=min([range])</b></li>
+        	<li><b>Median: </b><b>=median([range])</b></li>
+        	<li><b>Max: </b><b>=max([range])</b></li>
+        	<li><b>Q3: </b><b>=quartile([range],3)</b></li></ul>
+	        <h4>Side by Side Boxplots:</h4>
+        	<ul><li>Highlight the table you just created, including the row and column labels, and then select <b>Insert &rarr; Chart</b> from the top menubar.</li>
+        	<li>When the Chart Wizard window opens, select <b>Line</b> under <b>Chart Type</b>, and then click <b>Next</b>.  In Step 2, make sure <b>Rows</b> is selected, and then click <b>Finish</b>. </li>
+        	<li>What we have now is a line chart, because Excel can't generate boxplots directly, but we're going to make boxplots from this line chart. </li>
+        	<li>Right click on any line on the graph and choose <b>Format Data Series</b> from the pop-up menu.  Then select the <b>Options</b> tab and check the boxes next to <b>High-low lines</b> and <b>Up/down bars</b> and click <b>OK</b>.</li>
+        	<li>Now to get rid of the lines, right click on each line in the graph in turn, choose <b>Format Data Series</b> from the pop-up menu, select the <b>Patterns</b> tab and select <b>None</b> under <b>Line</b> and then click <b>OK</b>.</li>
+        	<li>Finally, right click somewhere on the chart and choose <b>Chart Options</b>.  Under the <b>Titles</b> tab, add a title for your chart and labels for the x and y axes.</li>
+        	</ul>]]></task>
+		<task id="OneCat"><![CDATA[<h4>Table of counts and percents:</h4>
+        	<ul><li>Click on one of the cells in the column of data you want to use.</li>
+        	<li>Choose: <b>Data &rarr; Pivot Table and Pivot Chart Report</b>.</li>
+        	<li>Click <b>Finish</b>.</li>
+        	<li>Excel will create a new worksheet with a blank table.  We have to tell Excel how to construct the table:</li>
+        	<li>You should see a window titled <b>PivotTable Field List</b> with a list of the variables in our dataset. </li>
+        	<li>Drag the relevant variable to the table where it says <b>Drop Column Fields Here</b>.</li>
+        	<li>Now go back to the PivotTable Field List and drag the relevant variable to the table where it says <b>Drop Data Items Here</b>.</li>
+        	<li>Right-click in one of the cells in the table (not the column or row headers) and choose <b>Field Settings</b>.  Then under <b>Summarize by:</b> choose <b>Count</b>.</li>
+        	</li></ul>
+        	<p>You should now have a table that shows the number of each type of data entry along with a total.  This is the <b>count</b> of each of these entries.  To see the percents for each entry, we can ask Excel to show percents instead of counts:</p>      
+	        <ul><li>Right-click on any of the cells containing the counts and choose <b>Field Settings</b> from the pop-up menu.</li>
+        	<li>Click the button that says <b>Options &gt;&gt;</b>.</li>
+        	<li>Now use the drop-down menu labeled <b>Show data as:</b> to select <b>% of row</b> and click <b>OK</b>.</li></ul>
+        	<h4>PieChart:</h4>
+        	<ul><li>First, if your table is showing percents, you need to change it back to counts:</li>
+        	<li>Right-click on any of the cells containing the percents and choose <b>Field Settings</b> from the pop-up menu.</li>
+        	<li>Now use the drop-down menu labeled <b>Show data as:</b> to select <b>Normal</b> and click <b>OK</b>.</li>
+        	<li>Now right-click one of the cells in your table and choose <b>PivotChart</b> from the pop-up menu.</li>
+        	<li>Excel will create a new chart with a bar graph.  We want to change this to a pie chart:</li>
+        	<li>Right-click somewhere in the graph <b>outside of the bar</b>.</li>
+        	<li>Choose <b>Chart Type</b> from the pop-up menu.</li>
+        	<li>Now select  <b>Pie</b> from the <b>Chart type</b> list on the left and then click <b>OK</b>.</li>
+        	<li>To complete the pie chart, drag the relevant variable from the <b>PivotTable Field List</b> to the legend where it says <b>Drop Category Fields Here</b>.  Note: if you don't see the legend, the PivotTable Field list window may be covering it.</li>
+        	<li>To label the sections of the pie, right click one of the sections of the pie and choose <b>Format Data Series</b> from the pop-up menu, select the tab marked <b>Data Labels</b>, and then check the boxes next to <b>Value</b> and <b>Percentage</b> and click <b>OK</b>.</li></ul>]]></task>
+		<task id="OneQuant"><![CDATA[<p>Note: These instructions require that you have installed the Analysis Toolpak Add-in from your Microsoft Office CD.</p>
+        	<h4>Descriptive Statistics:</h4>
+        	<ul><li>To calculate the descriptive statistics, we're going to create a table that will list each statistical measure.</li>
+        	<li>First we need to sort our data to make it easier to tabulate:</li>
+        	<li class='sub'>Type Control-A to select all of the data in the worksheet.</li>
+        	<li class='sub'>Choose <b>Data &rarr; Sort</b> from the menubar.</li>
+        	<li class='sub'>In the pop-up window, make sure <b>Header row</b> is selected towards the bottom of the window, then under <b>Sort by</b> choose the relevant variable and click <b>OK</b>.</li>
+        	<li>Now that the data are sorted, let's make the table.  First we will make the row and column labels: pick an empty cell in your worksheet, and type <b>Statistic</b>.  Then move one cell to the right and type the name of the relevant variable.  Now, in the cell underneath <b>Statistic</b>, type <b>Mean</b>.  Move down one cell and type <b>Standard Deviation</b>, then underneath that <b>Q1</b>, then <b>min</b>, then <b>Median</b>, then <b>Max</b>, and finally <b>Q3</b>.</li>
+        	<li>Now for each statistic, we'll enter the formula to calculate that statistic and the range of data that corresponds to the relevant variable.  When you enter the range of data, be sure to exclude the cells with asterisks (*) that indicate missing values.
+        	<ul><li><b>Mean: </b>In the cell to the right of <b>Mean</b>, type <code>=average([range])</code></li>
+        	<li><b>Standard Deviation: </b>In the cell to the right of <b>Standard Deviation</b>, type <code>=stdev([range])</code></li>
+        	<li><b>Q1: </b>In the cell to the right of <b>Q1</b>, type <code>=quartile([range],1)</code></li>
+        	<li><b>min: </b>In the cell to the right of <b>min</b>, type <code>=min([range])</code></li>
+        	<li><b>Median: </b>In the cell to the right of <b>Median</b>, type <code>=median([range])</code></li>
+        	<li><b>Max: </b>In the cell to the right of <b>Max</b>, type <code>=max([range])</code></li>
+        	<li><b>Q3: </b>In the cell to the right of <b>Q3</b>, type <code>=quartile([range],3)</code></li></ul></li></ul>
+			<h4>Create a Histogram:</h4>
+        	<ul><li>First we need to define the bins that Excel will use to create the histogram:</li>
+        	<li class='sub'>Decide on an appropriate bin width, and then in one of the columns near the data, make a list of the bins that your histogram will use (for example, if the data range from 3 to 86, you might choose a bin width of 10, and then your bins would start at 10, then 20, 30, ... , 90).  In general, it's good to choose your bin width so that there are between 5 and 15 bins.  Don't include 0, since the numbers you're specifying are the high end of the bin.</li>
+        	<li>Now choose <b>Tools &rarr; Data Analysis</b> from the top menu.  Then choose Histogram in the resulting pop-up window and click <b>OK</b>.</li>
+        	<li>In the next window, click in the box next to <b>Input Range</b> and then select the cells containing your data (excluding the cells with asterisks).</li>
+        	<li>Now click in the box next to <b>Bin Range</b> and then select the cells containing your bin information.</li>
+        	<li>Finally, check the box at the bottom of this window marked <b>Chart Output</b>, and then click <b>OK</b>.</li>
+        	<li>Excel will create a new worksheet containing the histogram and a table with the frequency counts.   The histogram is usually pretty small; you can click on it and then drag one of the handles on the outside to enlarge it.</li>
+        	<li>Histograms shouldn't have spaces between the bars, so right-click on one of the bars and choose <b>Format Data Series</b>.  Then choose the tab marked <b>Options</b> and set the gap width to 0.</li>
+        	<li>You can also change the labels on the horizontal axis so that they are a little more meaningful (for example, '0-5' instead of just '5').  To do this, just edit the labels in the <b>Bins</b> column of the table that Excel produced for you along with the chart.</li></ul>]]></task>
+		<task id="OneZOneMean"><![CDATA[<ul><li>To calculate the z-statistic, we use the formula <b>z = (sample mean - &mu;0)/(standard deviation/sqrt(n))</b>.</li>
+        	<li>Once you have calculated the z-statistic, you can calculate the p-value using the Excel formula NORMSDIST.  In this case, the p-value we want is <b>2*(1-NORMSDIST(z-statistic))</b>.</li></ul>]]></task>
+		<task id="OneTOneMean"><![CDATA[<ul><li>We need to find the value of the test statistic t, which we calculate using <b>t = (x-bar - &mu;0)/(s/sqrt(n))</b>.  Before we can do this, we first have to calculate the values for each of the variables in the equation:</li>
+            <li>First, we need to calculate x-bar, the sample mean.  To do this, we use the <b>AVERAGE</b> function in Excel.</li>
+            <li>Next, we calculate s, the sample standard deviation using the <b>STDEV</b> function in Excel over the same range of data.</li>
+            <li>We know &mu;0 and n, so we can now calculate a value for t.</li><li>Finally, we find our p-value using the Excel function <b>TDIST(t, n-1, 2)</b>.</li></ul>]]></task>
+		<task id="OneZOneProportion"><![CDATA[<ul><li>To conduct the z-test for the population proportion p in Excel, we will use the equation <b>z = (p-hat - p0)/sqrt(p0(1-p0)/n)</b>.</li>
+            <li>First, we need to calculate p-hat, and to do this we use the equation <b>p-hat = X/n</b>.</li>
+            <li>Note that n, or the total number of data points in the sample, can be found using the formula <b>=COUNTA([range])</b>.</li>
+            <li>X, which is the number of data points corresponding to the value we're testing for, can be found using the formula <b>=COUNTIF([range], value)</b>.</li>
+            <li>Now we can calculate the test statistic z using the above equation.</li>
+            <li>Finally, we find the probability that p is less than or equal to the test statistic z using the Excel formula <b>=NORMSDIST(z)</b>.</li></ul>]]></task>
+		<task id="TwoTTwoMeans"><![CDATA[<ul><li>First we need to sort our data to make it easier to tabulate:</li>
+            <li>Type <b>Control-A</b> to select all of the data in the worksheet.</li>
+            <li>Choose <b>Data &rarr; Sort</b> from the menubar.</li>
+            <li>In the pop-up window, make sure </b>Header row</b> is selected towards the bottom of the window, then under </b>Sort by</b> choose the categorical variable and click </b>OK</b>.</li>
+            <li>To conduct the two sample t-test for two means in Excel, we will use the Excel formula <b>p=TTEST([range1], [range2], tails, type)</b>.</li>
+            <li>[range1] and [range2] represent the ranges of data of our quantitative variable that correspond to the two values of our categorical variable.  Since our data is sorted by the categorical variable, these ranges are now easy to select:</li>
+            <li>For [range1], select the cells in the quantitative variable column that correspond to the first value in the categorical variable column.</li>
+            <li>Then for [range2], select the cells in the quantitative variable column that correspond to the second value in the categorical variable column.</li>
+            <li>If the alternative hypothesis is u1-u2 &lt; 0 or u1-u2 &gt; 0, set tails = 1 (one-tailed distribution).  If the alternative hypothesis is u1-u2 &#8800; 0, set tails = 2 (two-tailed distribution).</li>
+            <li>Finally, set type = 3 (in Excel, type = 3 corresponds to "two-sample unequal variance").</li></ul>]]></task>
+		<task id="TwoZTwoProportions"><![CDATA[]]></task>
+		<task id="PairedT"><![CDATA[<ul><li>To conduct the two sample t-test for two means in Excel, we will use the Excel formula <b>p=TTEST([range1], [range2], tails, type)</b>.</li>
+            <li>[range1] and [range2] represent the two columns of data for the two quantitative variables whose difference we are studying.</li>
+            <li>In this case we let tails = 1 and type = 1 (in Excel, tails = 1 corresponds to "one-tailed distribution" and type = 1 corresponds to "paired").</li></ul>]]></task>
+		<task id="ChiSquare"><![CDATA[<ul><li>To conduct the chi-square test, we need two tables: one of actual counts, and one of expected counts.  We've already created the table of actual counts, so we'll start there.</li>
+            <li>Make sure that the table you created in the <b>Exploratory Analysis</b> part of this question is showing counts, not percents:</li>
+            <li>Right-click on any of the cells in the main section of the table and choose <b>Field Settings</b> from the pop-up menu.</li>
+            <li>Click the button that says <b>Options &gt;&gt;</b>.</li>
+            <li>Now use the drop-down menu labeled <b>Show data as:</b> to select <b>Normal</b> and click <b>OK</b>.</li>
+            <li>Once the table of actual counts is showing counts instead of percents, use the table of actual counts along with the formula <b>Expected Count = (Column Total * Row Total)/Table Total</b> to make a new table of expected counts. </li>
+            <li>Now we'll use the formula <b>p=CHITEST([actual range], [expected range])</b> to calculate the p-value given the data in our tables:</li>
+            <li>Pick an empty cell and type <b>=CHITEST([actual range], [expected range])</b>, where [actual range] is the range of data in our table of actual counts (without row/column headers or totals), and [expected range] is the range of data in our table of expected counts (again without row/column headers or totals).</li></ul>]]></task>
+		<task id="AnovaF"><![CDATA[<ul><li>First we need to sort our data to make it easier to tabulate:</li>
+            <li>Type <b>Control-A</b> to select all of the data in the worksheet.</li>
+            <li>Choose <b>Data &rarr; Sort</b> from the menubar.</li>
+            <li>In the pop-up window, make sure <b>Header row</b> is selected towards the bottom of the window, and then under <b>Sort by</b> choose the categorical variable and click <b>OK</b>.</li>
+            <li>Now that the data are sorted, pick an empty cell in your worksheet and create a table where the column headers are the different values that the categorical variable can take.</li>
+            <li>For each column in your table, copy the data for the quantitative variable that corresponds to the categorical variable value represented in that column.  Repeat this for the other categorical variables.</li>
+            <li>Now choose <b>Tools &rarr; Data Analysis</b> from the menubar.  In the pop-up window, choose <b>Anova: Single Factor</b>.</li>
+            <li>In the next window, enter the range of data in your table, including the column labels, next to <b>Input Range</b>.</li>
+            <li>Make sure that <b>Labels in First Row</b> is checked, and click <b>OK</b>.</li></ul>]]></task>
+		<task id="RegressionT"><![CDATA[<ul><li>Choose <b>Tools &rarr; Data Analysis</b> from the menubar.</li>
+            <li>In the pop-up window, choose <b>Regression</b> and click <b>OK</b>.</li>
+            <li>In the next window, next to <b>Input Y Range</b>, enter the range of data for the response variable.  Next to <b>Input X Range</b>, enter the range of data for the explanatory variable.</li>
+            <li>Click <b>OK</b>.</li></ul>]]></task>
+	</system>
+	<system id="TI Calculator">
+		<task id="TwoQuant"><![CDATA[<h4>Scatterplot: </h4>
+        	<ul><li>Either clear any equations you may have in your calculator by choosing <b>Y=/CLEAR</b>, or else toggle them off by choosing <b>Y=</b> and then pressing the left arrow until <b>=</b> is selected and pressing <b>ENTER</b>.</li>
+        	<li>Choose <b>STATPLOT (2nd/Y=)</b>.</li>
+        	<li>Choose <b>4:PlotsOff</b>. Hit <b>ENTER</b>.</li>
+        	<li>Again, choose <b>STAT PLOT (2ND/Y=)</b>.</li>
+        	<li>Choose one of the available <b>STAT PLOTS</b>, for example, <b>1:Plot1Off</b></li>
+        	<li>Turn the plot <b>ON</b> by using arrows to highlight the word <b>ON</b>, then press <b>ENTER</b>.</li>
+        	<li>Choose the <b>Type:</b> first row, first graph is a scatterplot.</li>
+        	<li>Choose the appropriate <b>Xlist:</b></li>
+        	<li>Choose the appropriate <b>Ylist:</b></li>
+        	<li>Choose the <b>Mark</b> you prefer.</li>
+        	<li>To view the scatterplot, choose <b>ZOOM/9: ZoomStat</b>.</li>
+        	<li>If you prefer to set the viewing window yourself, choose <b>WINDOW</b> and set the values yourself for <b>Xmin</b>, <b>Xmax</b>, <b>Xscl</b>, <b>Ymin</b>, <b>Ymax</b>, <b>Yscl</b>. If the x-axis/y-axis show as a dark line, you can make <b>Xscl/Yscl</b> larger.</li>
+        	</ul>
+        	<h4>Correlation: </h4>
+        	<ul><li>Choose <b>STAT/CALC/8:LinReg(a+bx)</b>.</li>
+        	<li>You'll see: <b>LinReg(a+bx)</b></li>
+        	<li>Before hitting the <b>ENTER</b> key, choose the <b>Xlist</b> and <b>Ylist</b>. For example, if the x data is in <b>L1</b> and the y data is in <b>L2</b>, enter <b>L1,L2</b> after <b>LinReg(a+bx)</b>. The comma (,) button is just above the 7 button.  Note: if you don't enter any lists, then <b>L1,L2</b> is the default.  Press <b>ENTER</b></li>
+        	<li>You should now see:<ul><li>LinReg</li><li>y=a+bx</li><li>a=</li><li>b=</li><li>r2=</li><li>r=</li></ul></li>
+        	<li>If you don't see r&#178; and r, you need to turn <b>DiagnosticOn:</b>
+        	<ul><li>Choose <b>CATALOG (2ND/0)</b></li><li>Arrow down to choose <b>DiagnosticOn</b> (list is alphabetical).</li><li>Hit <b>ENTER</b> and the screen will display <b>Done</b>.</li><li>You will only have to do this once unless the TI's memory gets reset.</li></ul></li>
+        	<li>If you just turned DiagnosticOn, repeat steps above to now see r&#178; and r.</li>
+        	</ul>]]></task>
+		<task id="TwoCat"><![CDATA[<p><b>Important Note:</b> TI 83/84 calculators do not have the built-in capability to create a table of counts and percents.  While it is still possible to complete this activity using the TI calculator and generating the table by hand, we strongly suggest making use of another one of the available technologies to complete this activity.</p>
+        	<p>To use a different technology, just go back to the 'Understand the Problem' node on the left and then click 'Check Data Format' and select a different dataset.  This will also change all of the instructions to the correct ones for that technology.</p>
+        	<p>In case you would still like to complete the activity using the TI Calculator, we have included the instructions below for completeness.</p>
+        	<h4>Table of Counts and Percents</h4>
+        	<ul><li>First, sort the list in ascending order that contains the coded data for the categorical variable.</li>
+        	<li>Choose STAT/EDIT/2:SortA(</li>
+        	<li>Before pressing ENTER, choose the list that you want to sort.</li>
+        	<li>To access one of the built-in lists, such as L3, press 2ND/ 3.</li>
+        	<li>To access a non-built-in list, use the <b>LIST</b> menu <b>(2ND/STAT)</b>.  Press <b>LIST/NAMES</b> to choose the appropriate list.</li>
+        	<li>Then press the right parenthesis, then ENTER.</li>
+        	<li>Check out the sorted list by choosing STAT/EDIT.</li>
+        	<li>Count the number of values for each category.</li>
+        	<li>Once you have counted each category, you will need to create the table by hand.  Module 2, Case C-&gt;C (2 of 2) describes how to create a table with counts and percentages.</li> 
+        	</ul>]]></task>
+		<task id="TwoMixed"><![CDATA[<h4>Side by Side Boxplots:</h4>
+        	<ul><li>Either clear any equations you may have in your calculator by choosing <b>Y=/CLEAR</b>, or else toggle them off by choosing <b>Y=</b> and then pressing the left arrow until <b>=</b> is selected and pressing <b>ENTER</b>.</li>
+        	<li>Choose <b>STATPLOT (2nd/Y=)</b>.</li>
+        	<li>Choose <b>4:PlotsOff</b>. Hit <b>ENTER</b>.</li>
+        	<li>Again, choose <b>STAT PLOT (2ND/Y=)</b>.</li>
+        	<li>Choose one of the available plots. For example, choose <b>1:Plot1Off</b>. </li>
+        	<li>Turn the plot <b>ON</b> by using arrows to highlight the word <b>ON</b>, then press <b>ENTER</b>.</li>
+        	<li>Choose the <b>Type:</b> second row, first graph is a modified boxplot.  Note: to get to the second row, keep using the right arrow.  Using the down arrow will move down to Xlist.</li>
+        	<li>Choose the appropriate <b>Xlist:</b></li>
+        	<li>For ungrouped data, choose <b>Freq:</b> 1 (the number 1)</li>
+        	<li>For grouped data, choose the list that contains the frequencies.  For example, if frequency is stored in <b>L2</b>, choose <b>Freq:L2</b>.</li>
+        	<li>Choose the <b>Mark</b> you prefer.</li>
+        	<li>To view the boxplot, choose <b>ZOOM/9: ZoomStat</b>.</li>
+        	<li>If you want to change the viewing window, choose WINDOW and set Xmin, Xmax, Xscl (distance between tick marks on x-axis), Ymin, Ymax, Yscl (distance between tick marks on y-axis), Xres (leave Xres at 1).</li>
+        	<li>You can display up to 3 boxplots on one screen by turning on three Stat Plots. Once you’ve got all the boxplots turned on, you can <b>ZOOM/9:ZoomStat</b> to see all boxplots on the same screen.</li>
+        	<li>If you have more than 3 boxplots to compare, you should display 2 or 3 at a time on the TI and sketch them on paper. Once you’re happy with the Window for the boxplot(s), just hit Graph to display remaining boxplots (Don’t Zoom or use Window - that way, all boxplots will be displayed on the same scale. Compare all boxplots which you have recorded.</li>
+        	<li>Choose <b>TRACE</b> and then use the left/right arrows to display minX,Q1,Med,Q3,maxX.</li>
+        	<li>If you have side-by-side boxplots displayed, choose <b>TRACE</b>, then use the up/down arrows to choose one of the boxplots.</li>
+        	</ul>
+        	<h4>Descriptive Statistics:</h4>
+        	<ul><li>Choose <b>STAT/CALC/1:1-Var Stats</b>.  Specify which list the data are in.  For example, if the data are in L1, enter <b>2ND/1</b> to choose L1.  Note: if you don't specify any particular list, the default list is L1.</li>
+        	<li>To access one of the built-in lists, such as L3, press <b>2ND/3</b>.</li>
+        	<li>To access a non-built-in list, use the <b>LIST</b> menu <b>(2ND/STAT)</b>.Press <b>LIST/NAMES</b> to choose the appropriate list.</li>
+        	<li>The calculator will display:
+        	<ul><li>x-bar - sample mean: this value is also the population mean if the data in the list are population data</li>
+        	<li>&#931;x - sum of the x-values</li>
+        	<li>&#931;x&#178; - sum of the squared x-values</li>
+        	<li>Sx - sample standard deviation</li>
+        	<li>&#963;x - population standard deviation</li>
+        	<li>&#8595;n - sample size.  The down arrow indicates that you can use the down arrow to view the remaining statistics</li>
+        	<li>minX - minimum data value</li>
+        	<li>Q1 - first quartile</li>
+        	<li>Med - median</li>
+        	<li>Q3 - third quartile</li>
+        	<li>maxX - maximum data value</li>
+        	</ul></li>
+        	</ul>]]></task>
+	<task id="OneCat"><![CDATA[<p><b>Important Note:</b> TI 83/84 calculators do not have the built-in capability to create a table of counts and percents or to generate a piechart.  While it is still technically possible to complete this activity using the TI calculator, we strongly suggest making use of another one of the available technologies to complete this activity.</p>
+        	<p>To use a different technology, just go back to the 'Understand the Problem' node on the left and then click 'Check Data Format' and select a different dataset.  This will also change all of the instructions to the correct ones for that technology.</p>
+        	<p>In case you would still like to complete the activity using the TI Calculator, we have included the instructions below for completeness.</p>
+        	<h4>Table of Counts and Percents</h4>
+        	<ul><li>First, sort the list in ascending order that contains the coded data for the categorical variable.</li>
+        	<li>Choose STAT/EDIT/2:SortA(</li>
+        	<li>Before pressing ENTER, choose the list that you want to sort.</li>
+        	<li>To access one of the built-in lists, such as L3, press 2ND/ 3.</li>
+        	<li>To access a non-built-in list, use the <b>LIST</b> menu <b>(2ND/STAT)</b>.Press <b>LIST/NAMES</b> to choose the appropriate list.</li>
+        	<li>Then press the right parenthesis, then ENTER.</li>
+        	<li>Check out the sorted list by choosing STAT/EDIT.</li>
+        	<li>Count the number of values for each category.</li>
+        	<li>Once you have counted each category, you will need to create the table by hand.  Module 1, One Categorical Variable (1 of 3) describes how to create a table with counts and percentages.</li> 
+        	</ul>
+        	<h4>PieChart</h4>
+        	<ul><li>If you are using a TI83 Plus, TI83 Plus SE, TI84 Plus, or TI84 Plus SE, you can use CellSheet App to create a pie chart on the TI.</li>
+        	<li>Some TI calculators have CellSheet App preloaded.</li>
+        	<li>Check APPS on your TI to see if CellSheet App is already loaded.</li>
+        	<li>If not, download a free version <a href="http://education.ti.com/educationportal/sites/US/productDetail/us_cellsheet_83_84.html">here</a></li>
+        	<li>Look for the Download Instructions link on the right menu of this page. Instructions for downloading apps to your TI can be found <a href="http://education.ti.com/educationportal/sites/US/nonProductSingle/download.html">here</a>.</li>
+        	<li>See an example of creating a pie chart using Cell Sheet App <a href="http://education.ti.com/educationportal/activityexchange/download_file.jsp?cid=US&fileurl=Math%2FProbabilityStatistics%2F2974%2F2-02_goodtofair_MT_TG_FINAL.pdf">here</a></li>
+        	<li>Press APPS.</li>
+        	<li>Choose Celsheet.</li>
+        	<li>Press any key twice to get to the spreadsheet screen. </li>
+        	<li>Press GRAPH to access the CellSheet menu.</li>
+        	<li>Choose 1:File</li>
+        	<li>Choose 3:New</li>
+        	<li>Name the spreadsheet and press ENTER.</li>
+        	<li>Press ENTER.</li>
+        	<li>Enter the labels for the pie chart in row 1, starting in column A.</li>
+        	<li>Use arrow keys to position the cursor in A1.</li>
+        	<li>Choose A-LOCK (2ND/ALPHA)</li>
+        	<li>Press " (found over the + key), then continue pressing the letters for a name for the first category. Press ENTER when finished.</li>
+        	<li>Your cursor should be in A2.</li>
+        	<li>Enter the percentage for the first category.</li>
+        	<li>Repeat for each category of the categorical variable.</li>
+        	<li>Choose the Menu by pressing GRAPH.</li>
+        	<li>Choose 4: Charts.</li>
+        	<li>Choose 7:Pie</li>
+        	<li>For Categories: enter the range for the category labels, ex. A1:B1</li>
+        	<li>Ex., to enter A1:B1</li>
+        	<li>Press ALPHA/MATH for the A, then press the number 1.</li>
+        	<li>Press ALPHA/. for the :</li>
+        	<li>Press ALPHA/APPS for the B, then press the number 1.</li>
+        	<li>Press ENTER or down arrow to move to next line.</li>
+        	<li>For Series: enter the range of the percentages of each category, ex. A2:B2</li>
+        	<li>Choose Percent by highlighting Percent and pressing ENTER.</li>
+        	<li>Enter a Title: alpha-lock is automatically on, so press up to 10 letters for a title.</li>
+        	<li>Choose DRAW and press ENTER.</li>
+        	<li>Note: you can enter counts instead of percentages.</li>
+        	</ul>]]></task>
+	<task id="OneQuant"><![CDATA[<h4>Histogram:</h4>
+            <ul><li>For ungrouped data, enter the data value in any list (we'll use L1 for this example).</li>
+            <li>For grouped data, enter the data value (or class midpoint/mark) in any list and the frequency of that data value (or class) in any other list (we'll use L1 for the data and L2 for the frequency for this example).</li>
+            <li>Either clear any equations you may have in your calculator by choosing <b>Y=/CLEAR</b>, or else toggle them off by choosing <b>Y=</b> and then pressing the left arrow until <b>=</b> is selected and pressing <b>ENTER</b>.</li>
+            <li>Choose <b>STATPLOT (2ND/Y=)</b>.</li>
+            <li>Choose <b>4:PlotsOff</b>. Hit <b>ENTER</b>.</li>
+            <li>Again, choose <b>STAT PLOT (2ND/Y=)</b>.</li>
+            <li>Choose one of the available plots. For example, choose <b>1:Plot1Off</b>.</li>
+            <li>Turn the plot <b>ON</b> by using arrows to highlight the word <b>ON</b>, then press <b>ENTER</b>.</li>
+            <li>Choose the <b>Type:</b> 1st row third graph is a histogram.</li>
+            <li>Choose the appropriate <b>Xlist:</b>.</li>
+            <li>For ungrouped data, choose <b>Freq:</b> 1 (the number one).</li>
+            <li>For grouped data, choose the list that contains the frequencies.  For example, if frequency is stored in L2, choose Freq:L2.</li>
+            <li>To view the histogram, choose <b>ZOOM/9: ZoomStat</b>.</li>
+            <li>If you want to change the viewing window, choose <b>WINDOW</b> and set Xmin, Xmax, Xscl (distance between tick marks on x-scale; this determines how wide each class is), Ymin, Ymax, Yscl (distance between tick marks on y-scale), Xres (leave Xres at 1).</li>
+            <li>Note: You can quickly change the class width by changing the Xscl. This gives you a chance to find a good balance between too few classes (with all data lumped together) and too many classes (with the data spread out too much).</li>
+            </ul><br>
+            <h4>Descriptive Statistics:</h4>
+            <ul><li>Choose <b>STAT/CALC/1:1-Var Stats</b>.  Specify which list the data are in.  For example, if the data are in L1, enter <b>2ND/1</b> to choose L1.  Note: if you don't specify any particular list, the default list is L1.</li>
+            <li>To access one of the built-in lists, such as L3, press <b>2ND/3</b>.</li>
+            <li>To access a non-built-in list, use the <b>LIST</b> menu <b>(2ND/STAT)</b>.Press <b>LIST/NAMES</b> to choose the appropriate list.</li>
+            <li>The calculator will display:
+            <ul><li>x-bar - sample mean: this value is also the population mean if the data in the list are population data</li>
+            <li>&#931;x - sum of the x-values</li>
+            <li>&#931;x&#178; - sum of the squared x-values</li>
+            <li>Sx - sample standard deviation</li>
+            <li>&#963;x - population standard deviation</li>
+            <li>&#8595;n - sample size.  The down arrow indicates that you can use the down arrow to view the remaining statistics</li>
+            <li>minX - minimum data value</li>
+            <li>Q1 - first quartile</li>
+            <li>Med - median</li>
+            <li>Q3 - third quartile</li>
+            <li>maxX - maximum data value</li>
+            </ul></li>
+            </ul>]]></task>
+		<task id="OneZOneMean"><![CDATA[<ul><li>Choose <b>STAT/TESTS/1:Z-Test</b>.</li>
+            <li>Note: Use arrows to navigate through the menu.</li>
+            <li>Choose <b>Data</b> by using arrows to highlight <b>Data</b> and then pressing <b>ENTER</b>.</li>
+            <li>&#956;0: Enter the null value for population mean from the null hypothesis.</li>
+            <li>&#963;: Enter the value of the population standard deviation.</li>
+            <li>Choose the appropriate <b>List</b>:</li>
+            <li>To access one of the built-in lists, such as L3, press 2ND/3.</li>
+            <li>To access a non-built-in list, use the <b>LIST</b> menu <b>(2ND/STAT)</b>.Press <b>LIST/NAMES</b> to choose the appropriate list.</li>
+            <li>Enter 1 for Freq.</li>
+            <li>Choose the relevant form of the alternative hypothesis (&#8800;, &lt;, &gt;).</li>
+            <li>Arrow down and choose <b>Calculate</b>, then press <b>ENTER</b>.</li>
+            </ul>]]></task>
+		<task id="OneTOneMean"><![CDATA[<ul><li>Choose <b>STAT/TESTS/2:T-Test</b>.</li>
+            <li>Note: Use arrows to navigate through the menu.</li>
+            <li>Choose <b>Data</b> by using arrows to highlight <b>Data</b> and then pressing <b>ENTER</b>.</li>
+            <li>&#956;0: Enter the null value for population mean from the null hypothesis.</li>
+            <li>&#963;: Enter the value of the population standard deviation.</li>
+            <li>Choose the appropriate <b>List</b>:</li>
+            <li>To access one of the built-in lists, such as L3, press 2ND/3.</li>
+            <li>To access a non-built-in list, use the <b>LIST</b> menu <b>(2ND/STAT)</b>.Press <b>LIST/NAMES</b> to choose the appropriate list.</li>
+            <li>Enter 1 for Freq.</li>
+            <li>Choose the relevant form of the alternative hypothesis (&#8800;, &lt;, &gt;).</li>
+            <li>Arrow down and choose <b>Calculate</b>, then press <b>ENTER</b>.</li>
+            </ul>]]></task>
+		<task id="OneZOneProportion"><![CDATA[<ul><li>Choose <b>STAT/TESTS/5:1-PropZTest</b>.</li>
+            <li>Note: Use arrows to navigate through the menu.</li>
+            <li>p0: Enter the null value for population proportion from the null hypothesis.</li>
+            <li>x: Enter the number of successes. This must be a whole number. If you're given the sample proportion and sample size (rather than the number of successes), you can enter: sample proportion as a decimal * sample size ENTER. Now round this value to the nearest whole number.</li>
+            <li>n: Enter sample size.</li>
+            <li>Choose the relevant form of the alternative hypothesis (&#8800;, &lt;, &gt;).</li>
+            <li>Arrow down and choose <b>Calculate</b>, then press <b>ENTER</b>.</li>
+            </ul>]]></task>
+		<task id="TwoTTwoMeans"><![CDATA[<ul><li>Choose <b>STAT/TESTS/4:2-SampTTest</b></li>
+            <li>If you are given the sample data, choose <b>Data</b>.  Then enter the lists where the sample data are stored.</li>
+            <li>If you have ungrouped data, be sure <b>Freq1</b> and <b>Freq2</b> are both set to 1.</li>
+            <li>If you have grouped data, enter the lists that contain the frequencies in <b>Freq1</b> and <b>Freq2</b>.</li>
+            <li>If you are given statistics (sample size, mean, and standard deviation), choose <b>Stats</b>.  Then enter x-bar1, Sx1, n1, x-bar2, Sx2, n2.</li>
+            <li>For either <b>Data</b> or <b>Stats</b>:</li>
+            <li>Choose the relevant form of the alternative hypothesis (&#8800;, &lt;, &gt;).</li>
+            <li>Choose <b>Pooled: No</b> since we are assuming unequal variances.</li>
+            <li>Arrow down and choose <b>Calculate</b>, then press <b>ENTER</b>.</li>
+            </ul>]]></task>
+		<task id="TwoZTwoProportions"><![CDATA[<ul><li>TI instructions go here.</li></ul>]]></task>
+		<task id="PairedT"><![CDATA[<h4>Create a list of differences.</h4>
+            <ul><li>Calculate the difference between each pair of values.</li>
+            <li>Store these differences in a list.</li>
+            <li>For example, if your pairs are stored in L1 and L2, and you want to store the differences in L3.</li>
+            <li>Go to the Home Screen by pressing QUIT (2ND/MODE)</li>
+            <li>Enter L1-L2 STO> L3, using these steps:</li>
+            <li>Choose L1 (2ND/1).</li>
+            <li>Press – (the subtraction key) </li>
+            <li>Choose L2 (2ND/2) </li>
+            <li>Press STO> (the store key above the ON key) </li>
+            <li>Choose L3 (2ND/3) </li>
+            <li>Press ENTER</li>
+            <li>Carry out the paired t-test.</li>
+            </ul>
+            <h4>T-Test</h4>
+            <ul><li>Choose <b>STAT/TESTS/2:T-Test</b>.</li>
+            <li>Choose <b>Data</b>.</li>
+            <li>Enter 0 for &#956;0, the null value from the null hypothesis.</li>
+            <li>Then enter the <b>List:</b> where the differences are stored.</li>
+            <li>To access one of the built-in lists, such as L3, press 2ND/3.</li>
+            <li>To access a non-built-in list, use the <b>LIST</b> menu <b>(2ND/STAT)</b>.Press <b>LIST/NAMES</b> to choose the appropriate list.</li>
+            <li>Enter 1 for Freq.</li>
+            <li>Choose the relevant form of the alternative hypothesis (&#8800;, &lt;, &gt;).</li>
+            <li>Arrow down and choose <b>Calculate</b>, then press <b>ENTER</b>.</li>
+            </ul>]]></task>
+		<task id="ChiSquare"><![CDATA[<ul>
+            <li>Enter the data in Matrix A:</li>
+            <li>Press MATRIX (2ND/x-1 on TI 84; MATRIX button on old TI83)</li>
+            <li>Press the right arrow twice to choose EDIT.</li>
+            <li>Choose 1:[A].</li>
+            <li>You need to enter: # of rows X # of columns.</li>
+            <li>The rows entry will be highlighted. Enter the # of categories for the explanatory variable.</li>
+            <li>Use right arrow (or ENTER) to move to columns entry. </li>
+            <li>Note that the correct number of rows is now displayed.</li>
+            <li>Enter the # of categories for the response variable.</li>
+            <li>Use down arrow (or ENTER) to move to entry for first row, first column.</li>
+            <li>Note that the correct number of columns is now displayed.</li>
+            <li>Enter counts (no totals) from your two-way table.</li>
+            <li>Choose STAT/TESTS/C: X&#178;-Test.</li>
+            <li>Enter the correct matrix for the Observed values (the values you just entered from the two-way table) and any matrix for the Expected values calculated by the TI.</li>
+            <li>Note:You can always use the default values of [A] for Observed and [B] for Expected.</li>
+            <li>To use matrices other than [A] or [B], position the cursor to the right of Observed: (or Expected) and press MATRIX/NAMES/ choose a matrix name.</li>
+            <li>You should see:</li>
+            <li>X&#178; -Test</li>
+            <li>Observed:[A]</li>
+            <li>Expected:[B] </li>
+            <li>Calculate    Draw </li>
+            <li>Choose Calculate, then ENTER.</li>
+            <li>Note: degrees of freedom df = (# of rows - 1)(# of columns - 1)</li>
+            <li>To see the expected values calculated by your TI:</li>
+            <li>Choose MATRIX (2ND/x-1 on TI 84; MATRIX button on old TI83)</li>
+            <li>Press the right arrow twice to choose EDIT.</li>
+            <li>Choose 2:[B].</li>
+            </ul>]]></task>
+		<task id="AnovaF"><![CDATA[<ul><li>TI83: Choose <b>STAT/TESTS/F:ANOVA</b>.</li>
+            <li>TI84: Choose <b>STAT/TESTS/H:ANOVA</b>.</li>
+            <li>Enter the lists separated by commas.</li>
+            <li>To access one of the built-in lists, such as L3, press 2ND/3.</li>
+            <li>To access a non-built-in list, use the <b>LIST</b> menu <b>(2ND/STAT)</b>.Press <b>LIST/NAMES</b> to choose the appropriate list.</li>
+            <li>Note: the comma key is located over the 7 key.</li>
+            <li>Finish with a right parenthesis.</li>
+            <li>For example, you could see: <b>ANOVA(L1,L2,L3)</b></li>
+            <li>Press <b>ENTER</b>.</li>
+            </ul>]]></task>
+		<task id="RegressionT"><![CDATA[<ul><li>For TI-83: Choose <b>STAT/TESTS/E:LinRegTTest</b>.</li>
+            <li>For TI-84: Choose <b>STAT/TESTS/F:LinRegTTest</b>.</li>
+            <li>Choose the appropriate <b>Xlist</b> and <b>Ylist</b>.</li>
+            <li>Set <b>Freq:1</b> (the number one)</li>
+            <li>Choose the relevant form of the alternative hypothesis (&#8800;, &lt;, &gt;).</li>
+            <li>You can leave <b>RegEQ:</b> blank.</li>
+            <li>Arrow down and choose <b>Calculate</b>, then press <b>ENTER</b>.</li>
+            </ul>]]></task>
+	</system>
+	<system id="SPSS">
+		<task id="TwoQuant"><![CDATA[]]></task>
+		<task id="TwoCat"><![CDATA[]]></task>
+		<task id="TwoMixed"><![CDATA[]]></task>
+		<task id="OneCat"><![CDATA[]]></task>
+		<task id="OneQuant"><![CDATA[]]></task>
+		<task id="OneZOneMean"><![CDATA[]]></task>
+		<task id="OneTOneMean"><![CDATA[]]></task>
+		<task id="OneZOneProportion"><![CDATA[]]></task>
+		<task id="TwoTTwoMeans"><![CDATA[]]></task>
+		<task id="TwoZTwoProportions"><![CDATA[]]></task>
+		<task id="PairedT"><![CDATA[]]></task>
+		<task id="ChiSquare"><![CDATA[]]></task>
+		<task id="AnovaF"><![CDATA[]]></task>
+		<task id="RegressionT"><![CDATA[]]></task>
+	</system>
+</instructions>

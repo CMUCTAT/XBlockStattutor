@@ -1,0 +1,515 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE stattutor_problem
+    PUBLIC "-//Carnegie Mellon University//DTD Stattutor 3.1//EN"
+	"http://oli.web.cmu.edu/dtd/cmu_stat_stattutor_3_1.dtd">
+<stattutor_problem id="auto_premiums">
+  <title>Monthly Premiums of Auto Insurance</title>
+  <dataset package="Minitab">problem_files/m7_auto_premiums/auto_premiums.mtw</dataset>
+  <dataset package="StatCrunch">problem_files/m7_auto_premiums/auto_premiums.xls</dataset>
+  <dataset package="Excel">problem_files/m7_auto_premiums/auto_premiums.xls</dataset>
+  <dataset package="R">problem_files/m7_auto_premiums/auto_premiums.RData</dataset>
+  <dataset package="TI Calculator">problem_files/m7_auto_premiums/auto_premiums.8xg</dataset>
+  <dataset package="json">problem_files/m7_auto_premiums/auto_premiums.json</dataset>
+  <attempts>1</attempts>
+  <background>It is very unlikely that two drivers who have the
+  same auto insurance with the same insurance company will have the
+  same monthly premium since there are many factors (other than the
+  type of insurance) that are taken into account when the monthly
+  premium is calculated. &lt;br&gt;&lt;br&gt;In this exercise we
+  will explore some of those factors by analyzing data that were
+  collected from a random sample of 50 drivers insured with a
+  certain company and having similar auto insurance coverage. For
+  each driver the monthly premium was recorded along with other
+  relevant information such as gender, age, driving experience,
+  history of auto accidents, model and age of the car. Note that
+  the data set for this exercise contains only a subset of the
+  variables.</background>
+  <variable>
+    <name>Experience</name>
+    <description>Driving experience (in years)</description>
+    <type>quantitative</type>
+  </variable>
+  <variable>
+    <name>Gender</name>
+    <description>0=male, 1=female</description>
+    <type>categorical</type>
+  </variable>
+  <variable>
+    <name>Premium</name>
+    <description>The monthly premium (in dollars)</description>
+    <type>quantitative</type>
+  </variable>
+  <understand_the_problem>
+    <check_data_format>
+      <cdf_question>
+        <text>What is the monthly premium of the most experienced 
+        driver among the first ten drivers?</text>
+        <answers>
+          <answer>45</answer>
+          <answer>45.00</answer>
+          <answer>$45</answer>
+          <answer>$45.00</answer>
+          <answer>45 dollars</answer>
+          <answer>fortyfive</answer>
+          <answer>forty five</answer>
+          <answer>forty-five</answer>
+          <answer>fortyfive dollars</answer>
+          <answer>forty five dollars</answer>
+          <answer>forty-five dollars</answer>
+        </answers>
+        <hints>
+          <hint>To answer each of the questions in this step,
+          you'll need to look at the dataset you opened at the
+          beginning of your StatTutor session, and examine the
+          first few cases (rows).</hint>
+          <hint>In this dataset, each row represents a single
+          driver, so the first ten rows represent the first ten
+          drivers. Find the row representing the most experienced
+          driver, and then look to see what his or her monthly
+          premium is.</hint>
+          <hint>Out of the first ten drivers, the most experienced
+          one is a male with 20 years of driving experience who
+          pays 45 dollars per month.</hint>
+        </hints>
+      </cdf_question>
+      <cdf_question>
+        <text>What is the monthly premium of the least experienced
+        female driver among the first ten drivers?</text>
+        <answers>
+          <answer>73</answer>
+          <answer>73.00</answer>
+          <answer>$73</answer>
+          <answer>$73.00</answer>
+          <answer>73 dollars</answer>
+          <answer>seventythree</answer>
+          <answer>seventy three</answer>
+          <answer>seventy-three</answer>
+          <answer>seventythree dollars</answer>
+          <answer>seventy three dollars</answer>
+          <answer>seventy-three dollars</answer>
+        </answers>
+        <hints>
+          <hint>To answer each of the questions in this step,
+          you'll need to look at the dataset you opened at the
+          beginning of your StatTutor session, and examine the
+          first few cases (rows).</hint>
+          <hint>In this dataset, each row represents a single
+          driver, so the first ten rows represent the first ten
+          drivers. Find the row representing the least experienced
+          female driver, and then look to see what her monthly
+          premium is.</hint>
+          <hint>Out of the first ten drivers, the least experienced
+          female has 1 year of driving experience and pays 73
+          dollars per month.</hint>
+        </hints>
+      </cdf_question>
+      <cdf_question>
+        <text>For the driver who pays the highest monthly premium
+        among the first ten, what is the number of years that
+        driver has been driving?</text>
+        <answers>
+          <answer>6</answer>
+          <answer>six</answer>
+          <answer>6 years</answer>
+          <answer>six years</answer>
+        </answers>
+        <hints>
+          <hint>To answer each of the questions in this step,
+          you'll need to look at the dataset you opened at the
+          beginning of your StatTutor session, and examine the
+          first few cases (rows).</hint>
+          <hint>In this dataset, each row represents a single
+          driver, so the first ten rows represent the first ten
+          drivers. Find the row representing the driver who pays
+          the highest monthly premium, and then look to see how
+          long that driver has been driving.</hint>
+          <hint>Out of the first ten drivers, the one who pays the
+          highest premium is a male with 6 years of driving
+          experience who pays 74 dollars per month.</hint>
+        </hints>
+      </cdf_question>
+    </check_data_format>
+    <consider_study_design>
+      <sampling>
+        <our_answer>
+          <text>The 50 drivers in this study were selected randomly
+          from drivers insured at an unnamed insurance
+          company.</text>
+        </our_answer>
+      </sampling>
+      <design>
+        <answer>observational study</answer>
+      </design>
+    </consider_study_design>
+  </understand_the_problem>
+  <main_question>
+    <text>Is the monthly premium related to the driver's
+    experience?</text>
+    <reflect_on_question>
+      <consider_question>
+        <question>Before analyzing the data and discovering whether
+        the monthly premium is related to driving experience, try
+        to predict what the data will show (use your own experience
+        and intuition).</question>
+        <our_answer>
+          <text>In general, one's driving ability improves with
+          driving experience. Therefore, we expect the results of
+          the study will show that the monthly premium will
+          decrease as driving experience increases.</text>
+        </our_answer>
+      </consider_question>
+    </reflect_on_question>
+    <analyze_data>
+      <plan_analyses>
+        <relevant_variables>
+          <relevant_variable>
+            <name>Premium</name>
+            <role>response</role>
+          </relevant_variable>
+          <relevant_variable>
+            <name>Experience</name>
+            <role>explanatory</role>
+          </relevant_variable>
+        </relevant_variables>
+      </plan_analyses>
+      <exploratory_analyses>
+        <report_results>
+          <our_answer package="Minitab">
+            <image>auto_premiums_q2_ea_report_results_minitab.jpg</image>
+            <text>The scatterplot displays a negative linear
+            relationship between monthly premiums and years of
+            driving experience. The correlation between monthly
+            premium and driving experience is r = -0.523 indicating
+            a moderate linear relationship.</text>
+          </our_answer>
+          <our_answer package="StatCrunch">
+            <image>auto_premiums_q2_ea_report_results_statcrunch.jpg</image>
+            <text>The scatterplot displays a negative linear
+            relationship between monthly premiums and years of
+            driving experience. The correlation between monthly
+            premium and driving experience is r = -0.523 indicating
+            a moderate linear relationship.</text>
+          </our_answer>
+          <our_answer package="Excel">
+            <text>Here is the Excel output:</text>
+            <image>auto_premiums_q2_ea_report_results_excel.jpg</image>
+            <text>The scatterplot displays a negative linear
+            relationship between monthly premiums and years of
+            driving experience. The correlation between monthly
+            premium and driving experience is r = -0.523 indicating
+            a moderate linear relationship.</text>
+          </our_answer>
+          <our_answer package="R">
+            <image>auto_premiums_q2_ea_report_results_r.jpg</image>
+            <text>The scatterplot displays a negative linear
+            relationship between monthly premiums and years of
+            driving experience. The correlation between monthly
+            premium and driving experience is r = -0.523 indicating
+            a moderate linear relationship.</text>
+          </our_answer>
+          <our_answer package="TI Calculator">
+            <text>Here is the TI output:</text>
+            <image>auto_premiums_q2_ea_report_results_ti.jpg</image>
+            <text>The scatterplot displays a negative linear
+            relationship between monthly premiums and years of
+            driving experience. The correlation between monthly
+            premium and driving experience is r = -0.523 indicating
+            a moderate linear relationship.</text>
+          </our_answer>
+        </report_results>
+      </exploratory_analyses>
+      <more_formal_analyses>
+        <determine_mfa>
+          <focus>examining the relationship between two
+          quantitative variables</focus>
+          <test>regression t-test</test>
+          <ho>
+            <first>no linear relationship exists</first>
+            <second></second>
+            <third></third>
+          </ho>
+          <ha>
+            <first>a linear relationship exists</first>
+            <second></second>
+            <third></third>
+          </ha>
+        </determine_mfa>
+        <report_results>
+          <our_answer package="Minitab">
+            <text>Here is the output of the test:</text>
+            <image>auto_premiums_q2_mfa_report_results_minitab.jpg</image>
+            <text>The test statistic is T = -4.25 and the p-value
+            is so small that Minitab reports that it is essentially
+            0, indicating that we would reject Ho.</text>
+          </our_answer>
+          <our_answer package="StatCrunch">
+            <text>Here is the output of the test:</text>
+            <image>auto_premiums_q2_mfa_report_results_statcrunch.jpg</image>
+            <text>The test statistic is T = -4.25 and the p-value
+            is so small that Minitab reports that it is essentially
+            0, indicating that we would reject Ho.</text>
+          </our_answer>
+          <our_answer package="Excel">
+            <text>Here is the Excel output (the right half of the
+            table that Excel generates is not shown):</text>
+            <image>auto_premiums_q2_mfa_report_results_excel.jpg</image>
+            <text>The p-value, highlighted in red, is 9.8E-05, or
+            essentially 0, indicating that we would reject
+            Ho.</text>
+          </our_answer>
+          <our_answer package="R">
+            <image>auto_premiums_q2_mfa_report_results_r.jpg</image>
+            <text>The test statistic is t = -4.25 and the p-value
+            is 9.8e-05, or essentially 0, indicating that we would
+            reject Ho.</text>
+          </our_answer>
+          <our_answer package="TI Calculator">
+            <text>Here is the output of the test:</text>
+            <image>
+            auto_premiums_q2_mfa_report_results_ti.jpg</image>
+            <text>The test statistic is t = -4.25 and the p-value
+            is 9.8E-5, or essentially 0, indicating that we would
+            reject Ho.</text>
+          </our_answer>
+        </report_results>
+      </more_formal_analyses>
+    </analyze_data>
+    <draw_conclusions>
+      <consider_results>
+        <question>What do the results you got indicate about the
+        relationship between driving experience and the monthly
+        premium?</question>
+        <our_answer>
+          <text>&lt;ul&gt;&lt;li&gt;The exploratory data analysis
+          suggests that as the driving experience increases the
+          monthly premium decreases and that this negative
+          relationship is moderately
+          linear.&lt;/li&gt;&lt;br&gt;&lt;li&gt;Since the p-value
+          of the test is so small that it is reported to be
+          essentially 0, we can conclude that these results are
+          significant and that, indeed, there is a (moderate)
+          linear relationship between monthly premium and driving
+          experience.&lt;/li&gt;&lt;/ul&gt;</text>
+        </our_answer>
+        <thought_question>
+          <question>The least squares regression line in this case
+          is: Premium = 77.3 - 1.45 * Experience. Interpret the
+          value of the slope (-1.45) in context.</question>
+          <our_answer>
+            <text>For each additional year of driving experience,
+            the monthly premium decreases, on average by
+            $1.45.</text>
+          </our_answer>
+          <hint>Recall that in general the slope is the change in Y
+          for 1 unit increase in X.</hint>
+        </thought_question>
+      </consider_results>
+      <reflect_on_conclusions>
+        <our_answer>
+          <text>&lt;ul&gt;&lt;li&gt;The results are consistent with
+          what we expected.&lt;/li&gt;&lt;br&gt;&lt;li&gt;We have
+          seen that insurance companies use experience as a factor
+          in deciding insurance premiums, but there is no practical
+          use for this information.&lt;/li&gt;&lt;/ul&gt;</text>
+        </our_answer>
+      </reflect_on_conclusions>
+    </draw_conclusions>
+  </main_question>
+  <main_question>
+    <text>It is well known that premiums of males (group 1) are
+    generally higher than that of females (group 2). Do the data
+    provide significant evidence to support that?</text>
+    <reflect_on_question>
+      <consider_question>
+        <question>Before analyzing the data and discovering whether
+        the gender of the driver has an effect on auto insurance
+        premiums, try to predict what the data will show (use your
+        own experience and intuition)</question>
+        <our_answer>
+          <text>In general, it is common knowledge that male
+          drivers have higher premiums than female drivers. It can
+          therefore be expected that the results of this study will
+          be consistent with that.</text>
+        </our_answer>
+      </consider_question>
+    </reflect_on_question>
+    <analyze_data>
+      <plan_analyses>
+        <relevant_variables>
+          <relevant_variable>
+            <name>Gender</name>
+            <role>explanatory</role>
+          </relevant_variable>
+          <relevant_variable>
+            <name>Premium</name>
+            <role>response</role>
+          </relevant_variable>
+        </relevant_variables>
+      </plan_analyses>
+      <exploratory_analyses>
+        <report_results>
+          <our_answer package="Minitab">
+            <image>auto_premiums_q1_ea_report_results_minitab.jpg</image>
+            <text>&lt;b&gt;Center:&lt;/b&gt; The side-by-side
+            boxplots suggest that in general, male drivers have
+            higher premiums than female drivers (median 68 vs.
+            50).&lt;br&gt;&lt;br&gt;&lt;b&gt;Spread:&lt;/b&gt; The
+            spread of the two distributions is roughly the same
+            (the IQRs are 19 and
+            18.5).&lt;br&gt;&lt;br&gt;&lt;b&gt;Outliers:&lt;/b&gt;
+            Neither of the distributions have outliers.</text>
+          </our_answer>
+          <our_answer package="StatCrunch">
+            <image>auto_premiums_q1_ea_report_results_statcrunch.jpg</image>
+            <text>&lt;b&gt;Center:&lt;/b&gt; The side-by-side
+            boxplots suggest that in general, male drivers have
+            higher premiums than female drivers (median 68 vs.
+            50).&lt;br&gt;&lt;br&gt;&lt;b&gt;Spread:&lt;/b&gt; The
+            spread of the two distributions is roughly the same
+            (the IQRs are 19 and
+            18.5).&lt;br&gt;&lt;br&gt;&lt;b&gt;Outliers:&lt;/b&gt;
+            Neither of the distributions have outliers.</text>
+          </our_answer>
+          <our_answer package="Excel">
+            <text>Here is the Excel output:</text>
+            <image>auto_premiums_q1_ea_report_results_excel.jpg</image>
+            <text>&lt;b&gt;Center:&lt;/b&gt; The side-by-side
+            boxplots suggest that in general, male drivers have
+            higher premiums than female drivers (median 68 vs.
+            50).&lt;br&gt;&lt;br&gt;&lt;b&gt;Spread:&lt;/b&gt; The
+            spread of the two distributions is roughly the same
+            (the IQRs are 18 and 15).</text>
+          </our_answer>
+          <our_answer package="R">
+            <image>auto_premiums_q1_ea_report_results_r.jpg</image>
+            <text>&lt;b&gt;Center:&lt;/b&gt; The side-by-side
+            boxplots suggest that in general, male drivers have
+            higher premiums than female drivers (median 68 vs.
+            50).&lt;br&gt;&lt;br&gt;&lt;b&gt;Spread:&lt;/b&gt; The
+            spread of the two distributions is roughly the same
+            (the IQRs are 18 and
+            15).&lt;br&gt;&lt;br&gt;&lt;b&gt;Outliers:&lt;/b&gt;
+            The distribution for females has two outliers.</text>
+          </our_answer>
+          <our_answer package="TI Calculator">
+            <text>Here is the TI output:</text>
+            <image>auto_premiums_q1_ea_report_results_ti.jpg</image>
+            <text>&lt;b&gt;Center:&lt;/b&gt; The side-by-side
+            boxplots suggest that in general, male drivers have
+            higher premiums than female drivers (median 68 vs.
+            50).&lt;br&gt;&lt;br&gt;&lt;b&gt;Spread:&lt;/b&gt; The
+            spread of the two distributions is roughly the same
+            (the IQRs are 19 and
+            18.5).&lt;br&gt;&lt;br&gt;&lt;b&gt;Outliers:&lt;/b&gt;
+            Neither of the distributions have outliers.</text>
+          </our_answer>
+        </report_results>
+      </exploratory_analyses>
+      <more_formal_analyses>
+        <determine_mfa>
+          <focus>comparing two population means</focus>
+          <test>two sample t-test for two means</test>
+          <ho>
+            <first>mu1 - mu2</first>
+            <second>=</second>
+            <third>0</third>
+          </ho>
+          <ha>
+            <first>mu1 - mu2</first>
+            <second>gt</second>
+            <third>0</third>
+          </ha>
+        </determine_mfa>
+        <report_results>
+          <our_answer package="Minitab">
+            <text>Here is the output of the test</text>
+            <image>auto_premiums_q1_mfa_report_results_minitab.jpg</image>
+            <text>The test statistic is t = 3.57 and the p-value is
+            0.001, indicating that we would reject Ho.</text>
+          </our_answer>
+          <our_answer package="StatCrunch">
+            <text>Here is the output of the test</text>
+            <image>auto_premiums_q1_mfa_report_results_statcrunch.jpg</image>
+            <text>The test statistic is t = 3.57 and the p-value is
+            0.001, indicating that we would reject Ho.</text>
+          </our_answer>
+          <our_answer package="Excel">
+            <text>Here is the Excel output:</text>
+            <image>auto_premiums_q1_mfa_report_results_excel.jpg</image>
+            <text>The p-value is 0.0005, indicating that we would
+            reject Ho.</text>
+          </our_answer>
+          <our_answer package="R">
+            <image>auto_premiums_q1_mfa_report_results_r.jpg</image>
+            <text>The test statistic is t = 3.57 and the p-value is
+            0.0005, indicating that we would reject Ho.</text>
+          </our_answer>
+          <our_answer package="TI Calculator">
+            <text>Here is the TI output:</text>
+            <image>auto_premiums_q1_mfa_report_results_ti.jpg</image>
+            <text>The test statistic is t = 3.57 and the p-value is
+            5.08E-4 = 0.0005, indicating that we would reject
+            Ho.</text>
+          </our_answer>
+        </report_results>
+      </more_formal_analyses>
+    </analyze_data>
+    <draw_conclusions>
+      <consider_results>
+        <question>What do the results you got indicate about
+        whether gender has an effect on the monthly
+        premium?</question>
+        <our_answer>
+          <text>&lt;ul&gt;&lt;li&gt;The exploratory data analysis
+          suggests that the premiums of male drivers are higher
+          than the premiums of female
+          drivers.&lt;/li&gt;&lt;br&gt;&lt;li&gt;Since the p-value
+          of the two-sample t-test is small (in particular, it is
+          &amp;lt; .05) we can conclude that the data provide
+          significant evidence that the mean monthly premium of
+          males is higher than that of
+          females.&lt;/li&gt;&lt;/ul&gt;</text>
+        </our_answer>
+      </consider_results>
+      <reflect_on_conclusions>
+        <our_answer>
+          <text>&lt;ul&gt;&lt;li&gt;The results are consistent with
+          what we expected.&lt;/li&gt;&lt;br&gt;&lt;li&gt;We have
+          seen that insurance companies use gender as a factor in
+          deciding insurance premiums, but there is no practical
+          use for this information.&lt;/li&gt;&lt;/ul&gt;</text>
+        </our_answer>
+      </reflect_on_conclusions>
+    </draw_conclusions>
+  </main_question>
+  <summarize>
+    <summarize_findings>
+      <our_answer>
+        <text>We found that both gender and driving experience are
+        factors in determining the monthly premium of auto
+        insurance. In particular, the monthly premium for males is
+        significantly higher than that for females, and the monthly
+        premium generally decreases as the driver gains more
+        experience. &lt;br&gt;&lt;br&gt;It should be mentioned that
+        there are other factors that affect the monthly premium
+        that were not investigated in this exercise (for example:
+        number of accidents and car model).</text>
+      </our_answer>
+    </summarize_findings>
+    <evaluate_validity>
+      <our_answer>
+        <text>&lt;ul&gt;&lt;li&gt;Since this was an observational
+        study we cannot make any causal
+        conclusions.&lt;/li&gt;&lt;br&gt;&lt;li&gt;Since the sample
+        for this study was random, we certainly can generalize the
+        results to the population of drivers with similar coverage
+        from this insurance company. In addition, there is no
+        reason to believe that the drivers insured by this company
+        are systematically different from the drivers insured by
+        other companies. Therefore, we would be safe in
+        generalizing these results to all
+        drivers.&lt;/li&gt;&lt;/ul&gt;</text>
+      </our_answer>
+    </evaluate_validity>
+  </summarize>
+</stattutor_problem>

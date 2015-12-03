@@ -1,0 +1,962 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE stattutor_problem
+    PUBLIC "-//Carnegie Mellon University//DTD Stattutor 3.1//EN"
+	"http://oli.web.cmu.edu/dtd/cmu_stat_stattutor_3_1.dtd">
+<stattutor_problem id="cell_phones">
+  <title>Cell Phones</title>
+  <dataset package="Minitab">problem_files/m4_cell_phones/cell_phones.mtw</dataset>
+  <dataset package="StatCrunch">problem_files/m4_cell_phones/cell_phones.xls</dataset>
+  <dataset package="Excel">problem_files/m4_cell_phones/cell_phones.xls</dataset>
+  <dataset package="R">problem_files/m4_cell_phones/cell_phones.RData</dataset>
+  <dataset package="TI Calculator">problem_files/m4_cell_phones/cell_phones.8xg</dataset>
+  <dataset package="json">problem_files/m4_cell_phones/cell_phones.json</dataset>
+  <attempts>1</attempts>
+  <background>College students at a large state university
+  completed a survey about their academic and personal life.
+  Questions ranged from "How many credits are you registered for
+  this semester?" to "Would you define yourself as a vegetarian?"
+  Four sections of an introductory statistics course were chosen at
+  random from all the sections of introductory statistics courses
+  offered at the university in the semester when the survey was
+  conducted, and the 312 students who completed the survey were
+  students registered in one of the four chosen
+  sections.&lt;br&gt;&lt;br&gt;In this exercise, we will use a
+  subset of variables from the survey and use the collected data to
+  answer three questions. Note that (1) these are real data, and
+  (2) the symbol * in the worksheet means that this observation is
+  not available (this is known as a "missing
+  value").</background>
+  <variable>
+    <name>Math</name>
+    <description>Math SAT score</description>
+    <type>quantitative</type>
+  </variable>
+  <variable>
+    <name>Verbal</name>
+    <description>Verbal SAT score</description>
+    <type>quantitative</type>
+  </variable>
+  <variable>
+    <name>Credits</name>
+    <description>Number of credits the student is registered for</description>
+    <type>quantitative</type>
+  </variable>
+  <variable>
+    <name>Year</name>
+    <description>Year in college (1=Freshman, 2=Sophomore, 3=Junior, 4=Senior)</description>
+    <type>categorical</type>
+  </variable>
+  <variable>
+    <name>Exer</name>
+    <description>Time (in minutes) spent exercising in a typical day</description>
+    <type>quantitative</type>
+  </variable>
+  <variable>
+    <name>Sleep</name>
+    <description>Time (in hours) spent sleeping in a typical day</description>
+    <type>quantitative</type>
+  </variable>
+  <variable>
+    <name>Veg</name>
+    <description>Are you a vegetarian (yes, no, some)</description>
+    <type>categorical</type>
+  </variable>
+  <variable>
+    <name>Cell</name>
+    <description>Do you own a cell phone (yes, no)</description>
+    <type>categorical</type>
+  </variable>
+  <understand_the_problem>
+    <check_data_format>
+      <cdf_question>
+        <text>Out of the first ten students in the datafile, how
+        many did better on the verbal portion of the SAT compared
+        to the math portion?</text>
+        <answers>
+          <answer>6</answer>
+          <answer>six</answer>
+          <answer>6 students</answer>
+          <answer>six students</answer>
+        </answers>
+        <hints>
+          <hint>To answer each of the questions in this step,
+          you'll need to look at the dataset you opened at the
+          beginning of your StatTutor session, and examine the
+          first few cases (rows).</hint>
+          <hint>In this dataset, each row represents a single
+          student, so the first ten rows represent the first ten
+          students. Look at the Math and Verbal columns and count
+          how many of the first ten students did better on the
+          verbal portion of the SAT</hint>
+          <hint>If you look at the first ten students (rows) in the
+          dataset, you'll see that six of the students did better
+          on the verbal portion of the SAT than on the math
+          portion. These are students 3, 4, 5, 6, 7, and 9.</hint>
+        </hints>
+      </cdf_question>
+      <cdf_question>
+        <text>Out of the first ten students in the datafile, how
+        many are at least somewhat vegetarian?</text>
+        <answers>
+          <answer>3</answer>
+          <answer>three</answer>
+          <answer>3 students</answer>
+          <answer>three students</answer>
+        </answers>
+        <hints>
+          <hint>To answer each of the questions in this step,
+          you'll need to look at the dataset you opened at the
+          beginning of your StatTutor session, and examine the
+          first few cases (rows).</hint>
+          <hint>In this dataset, each row represents a single
+          student, so the first ten rows represent the first ten
+          students. Look at the Veg column and count how many of
+          the first ten students are at least somewhat
+          vegetarian.</hint>
+          <hint>If you look at the first ten students (rows) in the
+          dataset, you'll see that three of the students reported
+          being at least somewhat vegetarian. These are students 5,
+          6, and 8.</hint>
+        </hints>
+      </cdf_question>
+      <cdf_question>
+        <text>How many hours does the first junior in the datafile
+        who does not own a cell phone spend sleeping in a typical
+        day?</text>
+        <answers>
+          <answer>6.5</answer>
+          <answer>6.5 hrs</answer>
+          <answer>6.5 hours</answer>
+        </answers>
+        <hints>
+          <hint>To answer each of the questions in this step,
+          you'll need to look at the dataset you opened at the
+          beginning of your StatTutor session, and examine the
+          first few cases (rows).</hint>
+          <hint>In this dataset, each row represents a single
+          student. Scroll down the dataset and look for the first
+          junior (Year=3) who does not own a cell phone (Cell=no),
+          and report the number of hours this student spends
+          sleeping in a typical day.</hint>
+          <hint>If you look at the first ten students (rows) in the
+          dataset, you'll see that the first junior who does not
+          own a cell phone is student #18. This student sleeps 6.5
+          hours in a typical day.</hint>
+        </hints>
+      </cdf_question>
+    </check_data_format>
+    <consider_study_design>
+      <sampling>
+        <our_answer>
+          <text>The 312 students who participated in the study were
+          chosen via cluster sampling, where 4 clusters of students
+          were chosen at random, and all the students in these four
+          clusters are the sample. The resulting sample can be
+          considered to be a random sample of the entire
+          "population" of students who take the statistics course
+          at this university.</text>
+        </our_answer>
+      </sampling>
+      <design>
+        <answer>observational study</answer>
+      </design>
+    </consider_study_design>
+  </understand_the_problem>
+  <main_question>
+    <text>The mean verbal SAT score of all the students in this
+    university is 580. Is this also the case for all stat students
+    at this university? Note that verbal SAT scores in the U.S.
+    have a standard deviation of 111.</text>
+    <reflect_on_question>
+      <consider_question>
+        <question>Before analyzing the data and discovering how the
+        verbal SAT scores of stat students compare with the
+        university mean, try to predict what the data will show
+        (use your own experience and intuition).</question>
+        <our_answer>
+          <text>Since students from a variety of majors are
+          required to take a statistics course, there is no reason
+          to believe that the students who participated in this
+          study have different verbal skills (as measured by verbal
+          SAT scores) than the general population at this
+          university.</text>
+        </our_answer>
+      </consider_question>
+    </reflect_on_question>
+    <analyze_data>
+      <plan_analyses>
+        <relevant_variables>
+          <relevant_variable>
+            <name>Verbal</name>
+            <role></role>
+          </relevant_variable>
+        </relevant_variables>
+      </plan_analyses>
+      <exploratory_analyses>
+        <report_results>
+          <our_answer package="Minitab">
+            <image>
+            cell_phones_q1_ea_report_results_minitab.jpg</image>
+            <text>The distribution of the verbal SAT scores is
+            roughly symmetric, has a mean of roughly 597, and
+            standard deviation of about 78.</text>
+          </our_answer>
+          <our_answer package="StatCrunch">
+            <image>
+            cell_phones_q1_ea_report_results_statcrunch.jpg</image>
+            <text>The distribution of the verbal SAT scores is
+            roughly symmetric, has a mean of roughly 597, and
+            standard deviation of about 78.</text>
+          </our_answer>
+          <our_answer package="Excel">
+            <text>Here is the Excel output:</text>
+            <image>
+            cell_phones_q1_ea_report_results_excel.jpg</image>
+            <text>The distribution of the verbal SAT scores is
+            roughly symmetric, has a mean of roughly 597, and
+            standard deviation of about 78.</text>
+          </our_answer>
+          <our_answer package="R">
+            <image>cell_phones_q1_ea_report_results_r.jpg</image>
+            <text>The distribution of the verbal SAT scores is
+            roughly symmetric and has a mean of roughly 597.</text>
+          </our_answer>
+          <our_answer package="TI Calculator">
+            <image>cell_phones_q1_ea_report_results_ti.jpg</image>
+            <text>The distribution of the verbal SAT scores is
+            roughly symmetric, has a mean of roughly 597, and
+            standard deviation of about 78.</text>
+          </our_answer>
+        </report_results>
+      </exploratory_analyses>
+      <more_formal_analyses>
+        <determine_mfa>
+          <focus>exploring the population mean</focus>
+          <test>one sample z-test for the mean</test>
+          <ho>
+            <first>mu</first>
+            <second>=</second>
+            <third>580</third>
+          </ho>
+          <ha>
+            <first>mu</first>
+            <second>ne</second>
+            <third>580</third>
+          </ha>
+        </determine_mfa>
+        <report_results>
+          <our_answer package="Minitab">
+            <image>
+            cell_phones_q1_mf_report_results_minitab.jpg</image>
+            <text>The test statistic is z = 2.55 and the p-value is
+            .011 &amp;lt; .05, indicating that Ho can be
+            rejected.</text>
+          </our_answer>
+          <our_answer package="StatCrunch">
+            <image>
+            cell_phones_q1_mf_report_results_statcrunch.jpg</image>
+            <text>The test statistic is z = 2.55 and the p-value is
+            .011 &amp;lt; .05, indicating that Ho can be
+            rejected.</text>
+          </our_answer>
+          <our_answer package="Excel">
+            <text>Here is the Excel output:</text>
+            <image>
+            cell_phones_q1_mf_report_results_excel.jpg</image>
+            <text>The test statistic is z = 2.55 and the p-value is
+            .011 &amp;lt; .05, indicating that Ho can be
+            rejected.</text>
+          </our_answer>
+          <our_answer package="R">
+            <image>cell_phones_q1_mf_report_results_r.jpg</image>
+            <text>The test statistic is z = 2.55 and the p-value is
+            .011 &amp;lt; .05, indicating that Ho can be
+            rejected.</text>
+          </our_answer>
+          <our_answer package="TI Calculator">
+            <image>cell_phones_q1_mf_report_results_ti.jpg</image>
+            <text>The test statistic is z = 2.55 and the p-value is
+            .011 &amp;lt; .05, indicating that Ho can be
+            rejected.</text>
+          </our_answer>
+        </report_results>
+      </more_formal_analyses>
+    </analyze_data>
+    <draw_conclusions>
+      <consider_results>
+        <question>What do the results you got indicate about
+        whether the verbal SAT scores of stat students differ from
+        the scores of students of the entire student body at this
+        university?</question>
+        <our_answer>
+          <text>&lt;ul&gt;&lt;li&gt;In the exploratory analysis we
+          found that the mean verbal SAT score in the sample of
+          stat students is 597, which is quite different from 580.
+          The question is: Are the results significantly different
+          from 580?&lt;/li&gt;&lt;br&gt;&lt;li&gt;Indeed, the
+          formal statistical test produced a p-value of .011,
+          indicating that the data provide sufficient evidence to
+          reject Ho and to conclude that the mean verbal SAT score
+          of stat students is significantly different than 580, the
+          mean score for the entire student body in this
+          university.&lt;/li&gt;&lt;/ul&gt;</text>
+        </our_answer>
+        <thought_question>
+          <question package="Minitab">Since H&lt;sub&gt;0&lt;/sub&gt; was rejected in this
+          case, all we can conclude is that the mean verbal SAT
+          score of stat students is not 580. It would be
+          worthwhile, then to supplement this conclusion by using a
+          95% confidence interval. Using the output, state the 95%
+          confidence interval for the mean verbal SAT score of stat
+          students, and interpret it in context.</question>
+          <question package="StatCrunch">Since H&lt;sub&gt;0&lt;/sub&gt; was rejected in
+          this case, all we can conclude is that the mean verbal
+          SAT score of stat students is not 580. It would be
+          worthwhile, then to supplement this conclusion by using a
+          95% confidence interval. Using the output, state the 95%
+          confidence interval for the mean verbal SAT score of stat
+          students, and interpret it in
+          context.&lt;br&gt;&lt;br&gt;To do this in
+          StatCrunch:&lt;br&gt;&lt;br&gt;&lt;ul&gt;&lt;li&gt;Choose
+          Stat -&amp;gt; Z statistics -&amp;gt; One sample
+          -&amp;gt; with data.&lt;/li&gt;&lt;li&gt;Under 'Select
+          Columns', choose the relevant
+          variable.&lt;/li&gt;&lt;li&gt;Next to 'Std. Dev.', enter
+          the value of the standard
+          deviation.&lt;/li&gt;&lt;li&gt;Press
+          Next.&lt;/li&gt;&lt;li&gt;Select Confidence
+          Interval.&lt;/li&gt;&lt;li&gt;Next to 'Level', enter
+          0.95.&lt;/li&gt;&lt;li&gt;Press
+          Calculate.&lt;/li&gt;&lt;/ul&gt;</question>
+          <question package="Excel">Since H&lt;sub&gt;0&lt;/sub&gt; was rejected in this
+          case, all we can conclude is that the mean verbal SAT
+          score of stat students is not 580. It would be
+          worthwhile, then to supplement this conclusion by using a
+          95% confidence interval. Calculate the 95% confidence
+          interval for the mean verbal SAT score of stat students,
+          and interpret it in context.&lt;br&gt;&lt;br&gt;To do
+          this in Excel:&lt;br&gt;&lt;br&gt;&lt;ul&gt;&lt;li&gt;To
+          calculate the confidence interval, we use the Excel
+          formula CONFIDENCE(alpha, standard deviation,
+          n).&lt;/li&gt;&lt;li&gt;Since we want to find the 95%
+          confidence interval, we use 0.05 for alpha. We already
+          know that the standard deviation is 111 and n is
+          286.&lt;/li&gt;&lt;li&gt;Confidence intervals are
+          typically reported as a range, where the range is (the
+          sample mean minus confidence interval value we just
+          calculated) to (the sample mean plus the confidence
+          interval value we just
+          calculated).&lt;/li&gt;&lt;/ul&gt;</question>
+          <question package="R">Since H&lt;sub&gt;0&lt;/sub&gt; was rejected in this case,
+          all we can conclude is that the mean verbal SAT score of
+          stat students is not 580. It would be worthwhile, then to
+          supplement this conclusion by using 95% confidence
+          interval. Calculate the 95% confidence interval for the
+          mean verbal SAT score of stat students, and interpret it
+          in context.&lt;br&gt;&lt;br&gt;To do this in R, use the
+          following commands for the upper and lower bounds of the
+          confidence
+          interval:&lt;br&gt;&lt;ul&gt;&lt;li&gt;&lt;b&gt;lower=qnorm(0.025,
+          mean=596.7, sd=111/sqrt(286));
+          lower&lt;/b&gt;&lt;/li&gt;&lt;li&gt;&lt;b&gt;upper=qnorm(0.975,
+          mean=596.7, sd=111/sqrt(286));
+          upper&lt;/b&gt;&lt;/li&gt;&lt;/ul&gt;</question>
+          <question package="TI Calculator">Since H&lt;sub&gt;0&lt;/sub&gt; was rejected
+          in this case, all we can conclude is that the mean verbal
+          SAT score of stat students is not 580. It would be
+          worthwhile, then to supplement this conclusion by using
+          95% confidence interval. Calculate the 95% confidence
+          interval for the mean verbal SAT score of stat students,
+          and interpret it in
+          context.&lt;br&gt;&lt;br&gt;&lt;b&gt;Create a confidence
+          interval for the population mean (sigma
+          known)&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;ul&gt;&lt;li&gt;Choose
+          STAT/TESTS/7:ZInterval&lt;/li&gt;&lt;li&gt;Choose DATA by
+          using arrows to highlight DATA, then pressing
+          ENTER.&lt;/li&gt;&lt;li&gt;s: 111 (population standard
+          deviation is given in the
+          problem)&lt;/li&gt;&lt;li&gt;List: Choose L2 (2ND/2) for
+          verbal SAT
+          scores&lt;/li&gt;&lt;li&gt;Freq:1&lt;/li&gt;&lt;li&gt;C-Level:0.95
+          (confidence level is given in the
+          problem)&lt;/li&gt;&lt;li&gt;Choose CALCULATE, then press
+          ENTER.&lt;/li&gt;&lt;/ul&gt;</question>
+          <our_answer package="Minitab">
+            <image>cell_phones_q1_consider_results_thought_question_minitab.jpg</image>
+            <text>The 95% confidence interval for the mean verbal
+            SAT score of stat students at this university is
+            roughly (584, 610). We are therefore 95% confident that
+            the mean verbal SAT score of stat students at this
+            university is between 584 and 610. Note that the entire
+            confidence interval (representing the plausible values
+            for the mean verbal SAT score of stats students at this
+            university) does not include 580, which is consistent
+            with the fact that the Ho was rejected.</text>
+          </our_answer>
+          <our_answer package="StatCrunch">
+            <image>cell_phones_q1_consider_results_thought_question_statcrunch.jpg</image>
+            <text>The 95% confidence interval for the mean verbal
+            SAT score of stat students at this university is
+            roughly (584, 610). We are therefore 95% confident that
+            the mean verbal SAT score of stat students at this
+            university is between 584 and 610. Note that the entire
+            confidence interval (representing the plausible values
+            for the mean verbal SAT score of stats students at this
+            university) does not include 580, which is consistent
+            with the fact that the Ho was rejected.</text>
+          </our_answer>
+          <our_answer package="Excel">
+            <text>Here is the Excel output:</text>
+            <image>cell_phones_q1_consider_results_thought_question_excel.jpg</image>
+            <text>The 95% confidence interval for the mean verbal
+            SAT score of stat students at this university is
+            roughly (584, 610). We are therefore 95% confident that
+            the mean verbal SAT score of stat students at this
+            university is between 584 and 610. Note that the entire
+            confidence interval (representing the plausible values
+            for the mean verbal SAT score of stats students at this
+            university) does not include 580, which is consistent
+            with the fact that the Ho was rejected.</text>
+          </our_answer>
+          <our_answer package="R">
+            <image>cell_phones_q1_consider_results_thought_question_r.jpg</image>
+            <text>The 95% confidence interval for the mean verbal
+            SAT score of stat students at this university is
+            roughly (584, 610). We are therefore 95% confident that
+            the mean verbal SAT score of stat students at this
+            university is between 584 and 610. Note that the entire
+            confidence interval (representing the plausible values
+            for the mean verbal SAT score of stats students at this
+            university) does not include 580, which is consistent
+            with the fact that the Ho was rejected.</text>
+          </our_answer>
+          <our_answer package="TI Calculator">
+            <image>cell_phones_q1_consider_results_thought_question_ti.jpg</image>
+            <text>The 95% confidence interval for the mean verbal
+            SAT score of stat students at this university is
+            roughly (584, 610). We are therefore 95% confident that
+            the mean verbal SAT score of stat students at this
+            university is between 584 and 610. Note that the entire
+            confidence interval (representing the plausible values
+            for the mean verbal SAT score of stats students at this
+            university) does not include 580, which is consistent
+            with the fact that the Ho was rejected.</text>
+          </our_answer>
+          <hint>Find the 95% CI in the output, and recall that it
+          represents an interval for which we are 95% sure that it
+          contains the population mean of interest.</hint>
+        </thought_question>
+      </consider_results>
+      <reflect_on_conclusions>
+        <our_answer>
+          <text>&lt;ul&gt;&lt;li&gt;The results are different from
+          what we had originally expected. A possible explanation
+          is that students who are required to take this stat class
+          are from certain majors which are more
+          competitive.&lt;/li&gt;&lt;br&gt;&lt;li&gt;These results
+          might be useful to the university for future admission
+          purposes.&lt;/li&gt;&lt;/ul&gt;</text>
+        </our_answer>
+      </reflect_on_conclusions>
+    </draw_conclusions>
+  </main_question>
+  <main_question>
+    <text>Based on a recent study, roughly 80% of college students
+    in the U.S. own a cell phone. Do the data provide evidence that
+    the proportion of students who own cell phones in this
+    university is lower than the national figure?</text>
+    <reflect_on_question>
+      <consider_question>
+        <question>Before analyzing the data and exploring how cell
+        phone ownership among college students at this university
+        compares with college students in general, try to predict
+        what the data will show (use your own experience and
+        intuition).</question>
+        <our_answer>
+          <text>There is no reason to believe that students at this
+          university are different from the entire population of
+          students in the U.S. with respect to whether or not they
+          own a cell phone.</text>
+        </our_answer>
+      </consider_question>
+    </reflect_on_question>
+    <analyze_data>
+      <plan_analyses>
+        <relevant_variables>
+          <relevant_variable>
+            <name>Cell</name>
+            <role></role>
+          </relevant_variable>
+        </relevant_variables>
+      </plan_analyses>
+      <exploratory_analyses>
+        <report_results>
+          <our_answer package="Minitab">
+            <image>cell_phones_q2_ea_report_results_minitab2.jpg</image>
+            <text>Roughly 78% of the students in the sample own a
+            cell phone.</text>
+          </our_answer>
+          <our_answer package="StatCrunch">
+            <image>cell_phones_q2_ea_report_results_statcrunch.jpg</image>
+            <text>Roughly 78% of the students in the sample own a
+            cell phone.</text>
+          </our_answer>
+          <our_answer package="Excel">
+            <text>Here is the Excel output:</text>
+            <image>cell_phones_q2_ea_report_results_excel.jpg</image>
+            <text>Roughly 78% of the students in the sample own a
+            cell phone. Note that we did not include the 2 students
+            who failed to respond to this question, and took our
+            percentages out of the 310 who responded.</text>
+          </our_answer>
+          <our_answer package="R">
+            <image>cell_phones_q2_ea_report_results_r.jpg</image>
+            <text>Roughly 78% of the students in the sample own a
+            cell phone.</text>
+          </our_answer>
+          <our_answer package="TI Calculator">
+            <image>cell_phones_q2_ea_report_results_ti.jpg</image>
+            <text>Roughly 78% of the students in the sample own a
+            cell phone. Note that we had 310 out of the 312
+            students in our sample respond to this question.</text>
+          </our_answer>
+        </report_results>
+      </exploratory_analyses>
+      <more_formal_analyses>
+        <determine_mfa>
+          <focus>exploring the population proportion</focus>
+          <test>one sample z-test for the proportion</test>
+          <ho>
+            <first>p</first>
+            <second>=</second>
+            <third>0.8</third>
+          </ho>
+          <ha>
+            <first>p</first>
+            <second>lt</second>
+            <third>0.8</third>
+          </ha>
+          <thought_question>
+            <question>Explain why the relevant test for this
+            question (which you chose above) can be reliably
+            used?</question>
+            <our_answer>
+              <text>Both conditions under which we can reliably use
+              the z-test for the population proportion are met:(i)
+              The sample is random (recall that the sampling method
+              used is cluster sampling)(ii) n = 312, and Po = .8
+              and so 312(.8) = 249.6 &#226;&#8240;&#165; 10 and
+              also 312(1-.8) = 62.4 &#226;&#8240;&#165; 10.</text>
+            </our_answer>
+            <hint>Recall that the two conditions that need to be
+            satisfied are (i) Having a random sample and (ii) n*Po
+            and n*(1-Po) both need to be at least 10</hint>
+          </thought_question>
+        </determine_mfa>
+        <report_results>
+          <our_answer package="Minitab">
+            <image>cell_phones_q2_mf_report_results_minitab.jpg</image>
+            <text>The test statistic is z = -.71, and the p-value
+            is .239 &amp;gt; .05, indicating that Ho cannot be
+            rejected.</text>
+          </our_answer>
+          <our_answer package="StatCrunch">
+            <image>cell_phones_q2_mf_report_results_statcrunch.jpg</image>
+            <text>The test statistic is z = -.71, and the p-value
+            is .239 &amp;gt; .05, indicating that Ho cannot be
+            rejected.</text>
+          </our_answer>
+          <our_answer package="Excel">
+            <text>Here is the Excel output:</text>
+            <image>cell_phones_q2_mf_report_results_excel.jpg</image>
+            <text>The test statistic is z = -.71, and the p-value
+            is .239 &amp;gt; .05, indicating that Ho cannot be
+            rejected.</text>
+          </our_answer>
+          <our_answer package="R">
+            <image>cell_phones_q2_mf_report_results_r.jpg</image>
+            <text>The test statistic is z = -.71, and the p-value
+            is .239 &amp;gt; .05, indicating that Ho cannot be
+            rejected.</text>
+          </our_answer>
+          <our_answer package="TI Calculator">
+            <image>cell_phones_q2_mf_report_results_ti.jpg</image>
+            <text>The test statistic is z = -.71, and the p-value
+            is .239 &amp;gt; .05, indicating that Ho cannot be
+            rejected.</text>
+          </our_answer>
+        </report_results>
+      </more_formal_analyses>
+    </analyze_data>
+    <draw_conclusions>
+      <consider_results>
+        <question>What do the results you got indicate about the
+        proportion of students at this university who own cell
+        phones?</question>
+        <our_answer>
+          <text>&lt;ul&gt;&lt;li&gt;In the exploratory analysis we
+          found that roughly 78% of the sampled students own a cell
+          phone.&lt;/li&gt;&lt;br&gt;&lt;li&gt;The formal
+          statistical test assessed that even though 78% is less
+          than 80%, this does not provide enough evidence to
+          conclude that the proportion of students at this
+          university who own a cell phone is less than .8 (which is
+          the national proportion).&lt;/li&gt;&lt;/ul&gt;</text>
+        </our_answer>
+      </consider_results>
+      <reflect_on_conclusions>
+        <our_answer>
+          <text>&lt;ul&gt;&lt;li&gt;The results are consistent with
+          what we initially
+          expected.&lt;/li&gt;&lt;br&gt;&lt;li&gt;We found no
+          relevant or meaningful way to use this information for a
+          practical purpose. It is merely interesting
+          information.&lt;/li&gt;&lt;/ul&gt;</text>
+        </our_answer>
+      </reflect_on_conclusions>
+    </draw_conclusions>
+  </main_question>
+  <main_question>
+    <text>Adults in the U.S. average 7 hours of sleep a night. Is
+    this also the mean for all stat students at this
+    university?</text>
+    <reflect_on_question>
+      <consider_question>
+        <question>Before analyzing the data and exploring the
+        sleeping habits of stat students at this university
+        compared to adults in general, try to predict what the data
+        will show (use your own experience and
+        intuition).</question>
+        <our_answer>
+          <text>It would be reasonable to expect that the mean
+          number of sleep hours of students will be lower due to
+          studying or partying...</text>
+        </our_answer>
+      </consider_question>
+    </reflect_on_question>
+    <analyze_data>
+      <plan_analyses>
+        <relevant_variables>
+          <relevant_variable>
+            <name>Sleep</name>
+            <role></role>
+          </relevant_variable>
+        </relevant_variables>
+      </plan_analyses>
+      <exploratory_analyses>
+        <report_results>
+          <our_answer package="Minitab">
+            <image>cell_phones_q3_ea_report_results_minitab.jpg</image>
+            <text>The distribution of the number of sleep hours is
+            roughly symmetric but has some low and high outliers.
+            The distribution is centered at around 7 (median = 7),
+            has a range of 12, and an IQR of 1.5. Even though it's
+            the case that when outliers are present we focus on the
+            median as a measure of center, it should be mentioned
+            that the mean is roughly 7.2, which is larger than the
+            national mean of U.S. adults (7).</text>
+          </our_answer>
+          <our_answer package="StatCrunch">
+            <image>cell_phones_q3_ea_report_results_statcrunch.jpg</image>
+            <text>The distribution of the number of sleep hours is
+            roughly symmetric but has some low and high outliers.
+            The distribution is centered at around 7 (median = 7),
+            has a range of 12, and an IQR of 1.5. Even though it's
+            the case that when outliers are present we focus on the
+            median as a measure of center, it should be mentioned
+            that the mean is roughly 7.2, which is larger than the
+            national mean of U.S. adults (7).</text>
+          </our_answer>
+          <our_answer package="Excel">
+            <text>Here is the Excel output:</text>
+            <image>cell_phones_q3_ea_report_results_excel.jpg</image>
+            <text>The distribution of the number of sleep hours is
+            roughly symmetric but has some outliers. The
+            distribution is centered at around 7 (median = 7), has
+            a range of 12, and an IQR of 1.5. Even though it's the
+            case that when outliers are present we focus on the
+            median as a measure of center, it should be mentioned
+            that the mean is roughly 7.2, which is larger than the
+            national mean of U.S. adults (7).</text>
+          </our_answer>
+          <our_answer package="R">
+            <image>cell_phones_q3_ea_report_results_r.jpg</image>
+            <text>The distribution of the number of sleep hours is
+            roughly symmetric but has some low and high outliers.
+            The distribution is centered at around 7 (median = 7),
+            has a range of 12, and an IQR of 1.5. Even though it's
+            the case that when outliers are present we focus on the
+            median as a measure of center, it should be mentioned
+            that the mean is roughly 7.2, which is larger than the
+            national mean of U.S. adults (7).</text>
+          </our_answer>
+          <our_answer package="TI Calculator">
+            <image>cell_phones_q3_ea_report_results_ti.jpg</image>
+            <text>The distribution of the number of sleep hours is
+            roughly symmetric but has some low and high outliers.
+            The distribution is centered at around 7 (median = 7),
+            has a range of 12, and an IQR of 1.5. Even though it's
+            the case that when outliers are present we focus on the
+            median as a measure of center, it should be mentioned
+            that the mean is roughly 7.2, which is larger than the
+            national mean of U.S. adults (7).</text>
+          </our_answer>
+        </report_results>
+      </exploratory_analyses>
+      <more_formal_analyses>
+        <determine_mfa>
+          <focus>exploring the population mean</focus>
+          <test>one sample t-test for the mean</test>
+          <ho>
+            <first>mu</first>
+            <second>=</second>
+            <third>7</third>
+          </ho>
+          <ha>
+            <first>mu</first>
+            <second>ne</second>
+            <third>7</third>
+          </ha>
+          <thought_question>
+            <question>Explain why the relevant test for this
+            question (which you chose above) can be reliably used
+            even though the histogram of our variable (hours of
+            sleep in a typical day) does not follow a normal
+            distribution.</question>
+            <our_answer>
+              <text>The reason that we can use the t-test reliably
+              is the fact the sample size of n = 312 &gt; 30 is
+              large enough.</text>
+            </our_answer>
+            <hint>What is the sample size?</hint>
+          </thought_question>
+        </determine_mfa>
+        <report_results>
+          <our_answer package="Minitab">
+            <image>cell_phones_q3_mf_report_results_minitab.jpg</image>
+            <text>The test statistic is t = 2.41 and the p-value is
+            .017 &amp;lt; .05, indicating that Ho can be
+            rejected.</text>
+          </our_answer>
+          <our_answer package="StatCrunch">
+            <image>cell_phones_q3_mf_report_results_statcrunch.jpg</image>
+            <text>The test statistic is t = 2.41 and the p-value is
+            .017 &amp;lt; .05, indicating that Ho can be
+            rejected.</text>
+          </our_answer>
+          <our_answer package="Excel">
+            <text>Here is the Excel output:</text>
+            <image>cell_phones_q3_mf_report_results_excel.jpg</image>
+            <text>The test statistic is t = 2.41 and the p-value is
+            .017 &amp;lt; .05, indicating that Ho can be
+            rejected.</text>
+          </our_answer>
+          <our_answer package="R">
+            <image>cell_phones_q3_mf_report_results_r.jpg</image>
+            <text>The test statistic is t = 2.41 and the p-value is
+            .017 &amp;lt; .05, indicating that Ho can be
+            rejected.</text>
+          </our_answer>
+          <our_answer package="TI Calculator">
+            <image>cell_phones_q3_mf_report_results_ti.jpg</image>
+            <text>The test statistic is t = 2.41 and the p-value is
+            .017 &amp;lt; .05, indicating that Ho can be
+            rejected.</text>
+          </our_answer>
+        </report_results>
+      </more_formal_analyses>
+    </analyze_data>
+    <draw_conclusions>
+      <consider_results>
+        <question>What do the results indicate about the mean
+        number of sleep hours of stats students relative to the
+        national mean of U.S. adults which is 7?</question>
+        <our_answer>
+          <text>&lt;ul&gt;&lt;li&gt;The mean number sleep hours in
+          our sample was found to be roughly 7.2, which is slightly
+          higher than the national
+          average.&lt;/li&gt;&lt;br&gt;&lt;li&gt;The formal
+          statistical test produced a p-value of .017 indicating
+          that this sample result provides enough evidence to
+          reject Ho and conclude that the mean number of sleep
+          hours of stat students is significantly different from
+          the national mean for U.S. adults, which is 7 hours of
+          sleep.&lt;/li&gt;&lt;/ul&gt;</text>
+        </our_answer>
+        <thought_question>
+          <question package="Minitab">Since H&lt;sub&gt;0&lt;/sub&gt; was rejected in this
+          case, estimate the mean number of hours a stat student
+          sleeps in a typical night with a 95% confidence interval
+          (see output), and interpret the interval in
+          context.</question>
+          <question package="StatCrunch">Since H&lt;sub&gt;0&lt;/sub&gt; was rejected in
+          this case, estimate the mean number of hours a stat
+          student sleeps in a typical night with a 95% confidence
+          interval (see output), and interpret the interval in
+          context.&lt;br&gt;&lt;br&gt;To do this in
+          StatCrunch:&lt;br&gt;&lt;br&gt;&lt;ul&gt;&lt;li&gt;Choose
+          Stat -&amp;gt; T statistics -&amp;gt; One sample
+          -&amp;gt; with data.&lt;/li&gt;&lt;li&gt;Under 'Select
+          Columns', choose the relevant
+          variable.&lt;/li&gt;&lt;li&gt;Press
+          Next.&lt;/li&gt;&lt;li&gt;Select Confidence
+          Interval.&lt;/li&gt;&lt;li&gt;Next to 'Level', enter
+          0.95.&lt;/li&gt;&lt;li&gt;Press
+          Calculate.&lt;/li&gt;&lt;/ul&gt;</question>
+          <question package="Excel">Since Ho was rejected in this
+          case, estimate the mean number of hours a stat student
+          sleeps in a typical night with a 95% confidence interval,
+          and interpret the interval in
+          context.&lt;br&gt;&lt;br&gt;To do this in
+          Excel:&lt;br&gt;&lt;br&gt;&lt;ul&gt;&lt;li&gt;To
+          calculate the confidence interval, we use the Excel
+          formula CONFIDENCE(alpha, standard deviation,
+          n).&lt;/li&gt;&lt;li&gt;Since we want to find the 95%
+          confidence interval, we use 0.05 for alpha. We already
+          know that the standard deviation is 1.42 and n is
+          312.&lt;/li&gt;&lt;li&gt;Confidence intervals are
+          typically reported as a range, where the range is (the
+          sample mean minus the confidence interval value we just
+          calculated) to (the sample mean plus the confidence
+          interval value we just
+          calculated).&lt;/li&gt;&lt;/ul&gt;</question>
+          <question package="R">Since H&lt;sub&gt;0&lt;/sub&gt; was rejected in this case,
+          estimate the mean number of hours a stat student sleeps
+          in a typical night with a 95% confidence interval (see
+          output), and interpret the interval in
+          context.&lt;br&gt;&lt;br&gt;To do this in R, use the
+          command
+          &lt;b&gt;t.test(data$Sleep)$conf.int&lt;/b&gt;</question>
+          <question package="TI Calculator">Since H&lt;sub&gt;0&lt;/sub&gt; was rejected
+          in this case, estimate the mean number of hours a stat
+          student sleeps in a typical night with a 95% confidence
+          interval (see output), and interpret the interval in
+          context.&lt;br&gt;&lt;br&gt;&lt;b&gt;Create a confidence
+          interval for population mean (sigma
+          unknown)&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;ul&gt;&lt;li&gt;Choose
+          STAT/TESTS/7:&lt;/li&gt;&lt;li&gt;Choose DATA by using
+          arrows to highlight DATA, then pressing
+          ENTER.&lt;/li&gt;&lt;li&gt;List: Choose L3 (2ND/3) for
+          hours
+          slept&lt;/li&gt;&lt;li&gt;Freq:1&lt;/li&gt;&lt;li&gt;C-Level:0.95
+          (confidence level given in
+          problem)&lt;/li&gt;&lt;li&gt;Choose CALCULATE, then press
+          ENTER.&lt;/li&gt;&lt;/ul&gt;</question>
+          <our_answer package="Minitab">
+            <image>cell_phones_q3_consider_results_thought_question_minitab.jpg</image>
+            <text>The 95% confidence interval for the mean number
+            of sleep hours of stat students at this university is
+            roughly (7.04, 7.35). We are therefore 95% confident
+            that the mean number of sleep hours of stat students at
+            this university is between 7.04 and 7.35. Note that the
+            entire confidence interval (representing the plausible
+            values for the mean number of sleep hours of stats
+            students at this university) does not include 7, which
+            is consistent with the fact that H&lt;sub&gt;0&lt;/sub&gt; was
+            rejected.</text>
+          </our_answer>
+          <our_answer package="StatCrunch">
+            <image>cell_phones_q3_consider_results_thought_question_statcrunch.jpg</image>
+            <text>The 95% confidence interval for the mean number
+            of sleep hours of stat students at this university is
+            roughly (7.04, 7.35). We are therefore 95% confident
+            that the mean number of sleep hours of stat students at
+            this university is between 7.04 and 7.35. Note that the
+            entire confidence interval (representing the plausible
+            values for the mean number of sleep hours of stats
+            students at this university) does not include 7, which
+            is consistent with the fact that H&lt;sub&gt;0&lt;/sub&gt; was
+            rejected.</text>
+          </our_answer>
+          <our_answer package="Excel">
+            <text>Here is the Excel output:</text>
+            <image>cell_phones_q3_consider_results_thought_question_excel.jpg</image>
+            <text>The 95% confidence interval for the mean number
+            of sleep hours of stat students at this university is
+            roughly (7.04, 7.35). We are therefore 95% confident
+            that the mean number of sleep hours of stat students at
+            this university is between 7.04 and 7.35. Note that the
+            entire confidence interval (representing the plausible
+            values for the mean number of sleep hours of stats
+            students at this university) does not include 7, which
+            is consistent with the fact that H&lt;sub&gt;0&lt;/sub&gt; was
+            rejected.</text>
+          </our_answer>
+          <our_answer package="R">
+            <image>cell_phones_q3_consider_results_thought_question_r.jpg</image>
+            <text>The 95% confidence interval for the mean number
+            of sleep hours of stat students at this university is
+            roughly (7.04, 7.35). We are therefore 95% confident
+            that the mean number of sleep hours of stat students at
+            this university is between 7.04 and 7.35. Note that the
+            entire confidence interval (representing the plausible
+            values for the mean number of sleep hours of stats
+            students at this university) does not include 7, which
+            is consistent with the fact that H&lt;sub&gt;0&lt;/sub&gt; was
+            rejected.</text>
+          </our_answer>
+          <our_answer package="TI Calculator">
+            <image>cell_phones_q3_consider_results_thought_question_ti.jpg</image>
+            <text>The 95% confidence interval for the mean number
+            of sleep hours of stat students at this university is
+            roughly (7.04, 7.35). We are therefore 95% confident
+            that the mean number of sleep hours of stat students at
+            this university is between 7.04 and 7.35. Note that the
+            entire confidence interval (representing the plausible
+            values for the mean number of sleep hours of stats
+            students at this university) does not include 7, which
+            is consistent with the fact that H&lt;sub&gt;0&lt;/sub&gt; was
+            rejected.</text>
+          </our_answer>
+          <hint>Find the 95% CI in the output, and recall that it
+          represents an interval for which we are 95% sure that it
+          contains the population mean of interest.</hint>
+        </thought_question>
+      </consider_results>
+      <reflect_on_conclusions>
+        <our_answer>
+          <text>&lt;ul&gt;&lt;li&gt;The results are actually very
+          different from what we initially expected.
+          Interesting...&lt;/li&gt;&lt;br&gt;&lt;li&gt;Since many
+          stats students are teenagers and teenagers need more
+          sleep than adults, students should be advised to make
+          sure they are getting enough sleep to be able to do their
+          best at the university.&lt;/li&gt;&lt;/ul&gt;</text>
+        </our_answer>
+      </reflect_on_conclusions>
+    </draw_conclusions>
+  </main_question>
+  <summarize>
+    <summarize_findings>
+      <our_answer>
+        <text>The three questions we answered in this exercise have
+        to do with evaluating some characteristics of stats
+        students at the university where the study was done
+        relative to some other larger groups of students. We found
+        that the mean verbal SAT score of the stats students is
+        significantly different from that of the entire student
+        body at the university, and that the proportion of stats
+        students who own a cell phone is not significantly lower
+        than the proportion for all college students in the nation.
+        In addition we found that the mean number of sleep hours of
+        stats students at this university is significantly
+        different from that of U.S. adults.</text>
+      </our_answer>
+    </summarize_findings>
+    <evaluate_validity>
+      <our_answer>
+        <text>&lt;ul&gt;&lt;li&gt;The questions in this StatTutor
+        only dealt with one variable rather than how one variable
+        affected another. Thus, making causal conclusions is not
+        appropriate.&lt;/li&gt;&lt;br&gt;&lt;li&gt;The cluster
+        sampling design produces a random sample, and therefore we
+        can generalize our results to the entire "population" of
+        students at this university who are taking this stats
+        class. Again, since stats students have many different
+        majors, we can probably generalize the results to the
+        entire student body at &lt;b&gt;this&lt;/b&gt;
+        university.&lt;/li&gt;&lt;/ul&gt;</text>
+      </our_answer>
+    </evaluate_validity>
+  </summarize>
+</stattutor_problem>

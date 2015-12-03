@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE stattutor_problem
+    PUBLIC "-//Carnegie Mellon University//DTD Stattutor 3.1//EN"
+           "http://oli.web.cmu.edu/dtd/cmu_stat_stattutor_3_1.dtd">
+<stattutor_problem id="survey">
+  <title>Drinking Habits and Integrity of College Students</title>
+  <dataset package="Minitab">problem_files/m1_survey/drinking.mtw</dataset>
+  <dataset package="Excel">problem_files/m1_survey/drinking.xls</dataset>
+  <dataset package="StatCrunch">problem_files/m1_survey/drinking.xls</dataset>
+  <dataset package="R">problem_files/m1_survey/drinking.RData</dataset>
+  <dataset package="TI Calculator">problem_files/m1_survey/drinking.8xg</dataset>
+  <dataset package="json">problem_files/m1_survey/Survey.json</dataset>
+  <attempts>1</attempts>
+  <background>A student survey was conducted at a major university.
+  Data were collected from a random sample of 236 undergraduate
+  students, and the information that was collected included
+  physical characteristics (such as height and handedness), study
+  habits, academic performance and attitudes, and social behaviors.
+  In this exercise we will focus on exploring relationships between
+  some of those variables. Note that (a) these are
+  &lt;b&gt;real&lt;/b&gt; data, and (b) the symbol * in the
+  worksheet means that this observation is not available (this is
+  known as a 'missing value').</background>
+  <variable>
+    <name>Gender</name>
+    <description>Male or Female</description>
+    <type>categorical</type>
+  </variable>
+  <variable>
+    <name>Alcohol</name>
+    <description>Number of alcoholic beverages consumed in a
+    typical week</description>
+    <type>quantitative</type>
+  </variable>
+  <variable>
+    <name>Height</name>
+    <description>Self-reported height (in inches)</description>
+    <type>quantitative</type>
+  </variable>
+  <variable>
+    <name>Cheat</name>
+    <description>Would you tell the instructor if you saw somebody
+    cheating on an exam? (0=No, 1=Yes)</description>
+    <type>categorical</type>
+  </variable>
+  <understand_the_problem>
+    <check_data_format>
+      <cdf_question>
+        <text>Out of the first ten students in the datafile, how
+        many drink 15 or more alcoholic beverages per week?</text>
+        <answers>
+          <answer>5</answer>
+          <answer>5.0</answer>
+          <answer>5.00</answer>
+          <answer>five</answer>
+          <answer>5 students</answer>
+          <answer>five students</answer>
+        </answers>
+        <hints>
+          <hint>To answer each of the questions in this step,
+          you'll need to look at the dataset you opened at the
+          beginning of your StatTutor session, and examine the
+          first few cases (rows).</hint>
+          <hint>In this dataset, each row represents a single
+          student, so the first ten rows represent the first ten
+          students. Look at the alcohol column and count how many
+          of the first ten students consume 15 or more alcoholic
+          beverages in a typical week.</hint>
+          <hint>If you look at the first ten students (rows) in the
+          dataset, you'll see that five of the students reported
+          drinking at least 15 alcoholic beverages in a typical
+          week. These are students 1, 5, 6, 7 and 8.</hint>
+        </hints>
+      </cdf_question>
+      <cdf_question>
+        <text>Out of the first ten students in the datafile, how
+        many alcoholic beverages per week does the tallest student
+        drink?</text>
+        <answers>
+          <answer>15</answer>
+          <answer>15.0</answer>
+          <answer>15.00</answer>
+          <answer>fifteen</answer>
+          <answer>15 drinks</answer>
+          <answer>fifteen drinks</answer>
+        </answers>
+        <hints>
+          <hint>To answer each of the questions in this step,
+          you'll need to look at the dataset you opened at the
+          beginning of your StatTutor session, and examine the
+          first few cases (rows).</hint>
+          <hint>In this dataset, each row represents a single
+          student, so the first ten rows represent the first ten
+          students. Look at the Height column, look for the tallest
+          student among the first ten students, and then see how
+          many alcoholic beverages this student consumes in a
+          typical week.</hint>
+          <hint>Out of the first ten students, the tallest student
+          is student #8, who is 74 inches tall. This students
+          consumes 15 alcoholic beverages in a typical week.</hint>
+        </hints>
+      </cdf_question>
+      <cdf_question>
+        <text>What is the height of the first male in the datafile
+        who would report on cheating?</text>
+        <answers>
+          <answer>64</answer>
+          <answer>64.0</answer>
+          <answer>64.00</answer>
+          <answer>sixtyfour</answer>
+          <answer>sixty four</answer>
+          <answer>sixty-four</answer>
+          <answer>64 inches</answer>
+          <answer>sixtyfour inches</answer>
+          <answer>sixty four inches</answer>
+          <answer>sixty-four inches</answer>
+        </answers>
+        <hints>
+          <hint>To answer each of the questions in this step,
+          you'll need to look at the dataset you opened at the
+          beginning of your StatTutor session, and examine the
+          first few cases (rows).</hint>
+          <hint>In this dataset, each row represents a single
+          student. Look at the Gender and Cheat columns and find
+          the first student in the dataset that is a male and that
+          would report on cheating (coded as 1). What is the height
+          of this student?</hint>
+          <hint>The first student in the dataset that is a male who
+          would report on cheating (coded as 1) is student #47,
+          whose height is 64 inches.</hint>
+        </hints>
+      </cdf_question>
+    </check_data_format>
+    <consider_study_design>
+      <sampling>
+        <our_answer></our_answer>
+      </sampling>
+      <design>
+        <answer></answer>
+      </design>
+    </consider_study_design>
+  </understand_the_problem>
+  <main_question>
+    <text>What are the drinking habits of students at this
+    university? In particular, what is the typical number of drinks
+    a student has during a week? Do the data suggest that drinking
+    is a problem in this university?</text>
+    <reflect_on_question>
+      <consider_question>
+        <question>Before analyzing the data and discovering the
+        actual drinking habits of the students, try to predict what
+        the data will show (use your own experience and
+        intuition).</question>
+        <our_answer>
+          <text>Answers here can vary quite a bit. It would be
+          reasonable to predict that typically, students have no
+          more than 5 alcoholic drinks in a week.</text>
+        </our_answer>
+      </consider_question>
+    </reflect_on_question>
+    <analyze_data>
+      <plan_analyses>
+        <relevant_variables>
+          <relevant_variable>
+            <name>Alcohol</name>
+            <role></role>
+          </relevant_variable>
+        </relevant_variables>
+      </plan_analyses>
+      <exploratory_analyses>
+        <report_results>
+          <our_answer package="Minitab">
+            <image>problem_files/survey_q1_ea_report_results_minitab.jpg</image>
+            <text>The histogram is heavily skewed to the right with
+            a few large outliers. The appropriate measure of center
+            is the median, which is 1, and the appropriate measure
+            of spread is the IQR, which is 7.25. Recall that all
+            this numerical information is captured by the "Five
+            Number Summary," (Min, Q1, M, Q3, Max), which in this
+            case is 0, 0, 1, 7.25, 36.</text>
+          </our_answer>
+          <our_answer package="StatCrunch">
+            <image>survey_q1_ea_report_results_statcrunch.jpg</image>
+            <text>The histogram is heavily skewed to the right with
+            a few large outliers. The appropriate measure of center
+            is the median, which is 1, and the appropriate measure
+            of spread is the IQR, which is 7. Recall that all this
+            numerical information is captured by the "Five Number
+            Summary," (Min, Q1, M, Q3, Max), which in this case is
+            0, 0, 1, 7, 36.</text>
+          </our_answer>
+          <our_answer package="Excel">
+            <image>problem_files/survey_q1_ea_report_results_excel.jpg</image>
+            <text>The histogram is heavily skewed to the right with
+            a few large outliers. The appropriate measure of center
+            is the median, which is 1, and the appropriate measure
+            of spread is the IQR, which is 7. Recall that all this
+            numerical information is captured by the "Five Number
+            Summary," (Min, Q1, M, Q3, Max), which in this case is
+            0, 0, 1, 7, 36.</text>
+          </our_answer>
+          <our_answer package="R">
+            <image>problem_files/survey_q1_ea_report_results_r.jpg</image>
+            <text>The histogram is heavily skewed to the right with
+            a few large outliers. The appropriate measure of center
+            is the median, which is 1, and the appropriate measure
+            of spread is the IQR, which is 7. Recall that all this
+            numerical information is captured by the "Five Number
+            Summary," (min, Q1, M, Q3, Max), which in this case is
+            0, 0, 1, 7, 36.</text>
+          </our_answer>
+          <our_answer package="TI Calculator">
+            <image>problem_files/survey_q1_ea_report_results_ti.jpg</image>
+            <text>The histogram is heavily skewed to the right with
+            a few large outliers. The appropriate measure of center
+            is the median which is 1, and the appropriate measure
+            of spread is the IQR which is 7 (or the range which is
+            36). Recall that all this numerical information is
+            captured by the "Five Number Summary," (Min, Q1, M, Q3,
+            Max), which in this case is 0, 0, 1, 7, 36.</text>
+          </our_answer>
+        </report_results>
+      </exploratory_analyses>
+      <more_formal_analyses>
+        <determine_mfa>
+          <focus></focus>
+          <test></test>
+          <ho>
+            <first></first>
+            <second></second>
+            <third></third>
+          </ho>
+          <ha>
+            <first></first>
+            <second></second>
+            <third></third>
+          </ha>
+        </determine_mfa>
+        <report_results>
+          <our_answer></our_answer>
+        </report_results>
+      </more_formal_analyses>
+    </analyze_data>
+    <draw_conclusions>
+      <consider_results>
+        <question>What do the results you got indicate about the
+        typical number of alcoholic beverages a student drinks per
+        week? Do your results suggest that drinking is a problem at
+        this university?</question>
+        <our_answer package="Minitab">
+          <text>Typically, students drink about one drink a week,
+          with 50% of the students drinking one or fewer and 50%
+          drinking one or more. A closer look at the data reveals
+          that drinking is a problem in this university. More
+          specifically, Q3 = 7.25 which means that 25% of the
+          students consume more than 7 alcoholic beverages a week,
+          which is quite a serious problem.</text>
+        </our_answer>
+        <our_answer package="StatCrunch">
+          <text>Typically, students drink about one drink a week,
+          with 50% of the students drinking one or fewer and 50%
+          drinking one or more. A closer look at the data reveals
+          that drinking is a problem in this university. More
+          specifically, Q3 = 7 which means that 25% of the students
+          consume more than 7 alcoholic beverages a week, which is
+          quite a serious problem.</text>
+        </our_answer>
+        <our_answer package="Exel">
+          <text>Typically, students drink about one drink a week,
+          with 50% of the students drinking one or fewer and 50%
+          drinking one or more. A closer look at the data reveals
+          that drinking is a problem in this university. More
+          specifically, Q3 = 7 which means that 25% of the students
+          consume more than 7 alcoholic beverages a week, which is
+          quite a serious problem.</text>
+        </our_answer>
+        <our_answer package="R">
+          <text>Typically, students drink about one drink a week,
+          with 50% of the students drinking one or fewer and 50%
+          drinking one or more. A closer look at the data reveals
+          that drinking is a problem in this university. More
+          specifically, Q3 = 7 which means that 25% of the students
+          consume more than 7 alcoholic beverages a week, which is
+          quite a serious problem.</text>
+        </our_answer>
+        <our_answer package="TI Calculator">
+          <text>Typically, students drink about one drink a week,
+          with 50% of the students drinking one or fewer and 50%
+          drinking one or more. A closer look at the data reveals
+          that drinking is a problem in this university. More
+          specifically, Q3 = 7 which means that 25% of the students
+          consume more than 7 alcoholic beverages a week, which is
+          quite a serious problem.</text>
+        </our_answer>
+        <thought_question>
+          <question>What other information would be helpful to know
+          about the students' drinking habits in order to help you
+          better address the drinking problems at this
+          university?</question>
+          <our_answer>
+            <text>Some possible information to
+            consider:&lt;ul&gt;&lt;li&gt;The age of the students:
+            Are they legally able to
+            drink?&lt;/li&gt;&lt;br&gt;&lt;li&gt;What days of the
+            week are students drinking and how is the drinking
+            spread out over the
+            week?&lt;/li&gt;&lt;br&gt;&lt;li&gt;Are students
+            missing class, coming to class drunk, driving drunk,
+            etc. ?&lt;/li&gt;&lt;/ul&gt;</text>
+          </our_answer>
+          <hint>Think of some additional information that would
+          help you decide if a student has a problem with
+          drinking.</hint>
+          <hint>For example: Consider one student who has 5 drinks
+          over an entire weekend (Friday night, Saturday, and
+          Sunday) vs. another student who has 5 drinks on a Friday
+          night.</hint>
+        </thought_question>
+      </consider_results>
+      <reflect_on_conclusions>
+        <our_answer>
+          <text>&lt;ul&gt;&lt;li&gt;Most of the students had fewer
+          drinks/week than we thought, but many drank far more than
+          we predicted.&lt;/li&gt;&lt;br&gt;&lt;li&gt;Since the
+          results suggest that drinking is a problem at this
+          university and it may be affecting students' health,
+          safety, or academic performance, the administration
+          should consider what actions need to be taken to solve
+          the problem.&lt;/li&gt;&lt;/ul&gt;</text>
+        </our_answer>
+      </reflect_on_conclusions>
+    </draw_conclusions>
+  </main_question>
+  <main_question>
+    <text>One of the statistics professors at this university uses
+    the honor system when giving exams. If there were cheating
+    going on during her exams, would the professor be likely to
+    know about it?</text>
+    <reflect_on_question>
+      <consider_question>
+        <question>Before analyzing the data and discovering how the
+        students will react if they witness cheating during an
+        exam, try to predict what the data will show (use your own
+        experience and intuition).</question>
+        <our_answer>
+          <text>Most universities do not have an "honor code," so
+          it would make sense to expect that most students answered
+          that they would not report on cheating.</text>
+        </our_answer>
+      </consider_question>
+    </reflect_on_question>
+    <analyze_data>
+      <plan_analyses>
+        <relevant_variables>
+          <relevant_variable>
+            <name>Cheat</name>
+            <role></role>
+          </relevant_variable>
+        </relevant_variables>
+      </plan_analyses>
+      <exploratory_analyses>
+        <report_results>
+          <our_answer package="Minitab">
+            <image>problem_files/survey_q2_ea_report_results_minitab.jpg</image>
+            <text>The vast majority of students (91.5%) answered
+            that they would not report on cheating, and the other
+            8.5% answered that they would.</text>
+          </our_answer>
+          <our_answer package="StatCrunch">
+            <image>survey_q2_ea_report_results_statcrunch.jpg</image>
+            <text>The vast majority of students (91.5%) answered
+            that they would not report on cheating, and the other
+            8.5% answered that they would.</text>
+          </our_answer>
+          <our_answer package="Excel">
+            <image>problem_files/survey_q2_ea_report_results_excel.jpg</image>
+            <text>The vast majority of students (91.5%) answered
+            that they would not report on cheating, and the other
+            8.5% answered that they would.</text>
+          </our_answer>
+          <our_answer package="R">
+            <image>problem_files/survey_q2_ea_report_results_r.jpg</image>
+            <text>The vast majority of students (92%) answered that
+            they would not report on cheating, and the other 8%
+            answered that they would.</text>
+          </our_answer>
+          <our_answer package="TI Calculator">
+            <image>problem_files/survey_q2_ea_report_results_ti.jpg</image>
+            <text>The vast majority of students (91.5%) answered
+            that they would not report on cheating, and the other
+            8.5% answered that they will.</text>
+          </our_answer>
+        </report_results>
+      </exploratory_analyses>
+      <more_formal_analyses>
+        <determine_mfa>
+          <focus></focus>
+          <test></test>
+          <ho>
+            <first></first>
+            <second></second>
+            <third></third>
+          </ho>
+          <ha>
+            <first></first>
+            <second></second>
+            <third></third>
+          </ha>
+        </determine_mfa>
+        <report_results>
+          <our_answer></our_answer>
+        </report_results>
+      </more_formal_analyses>
+    </analyze_data>
+    <draw_conclusions>
+      <consider_results>
+        <question>What do the results you got indicate about the
+        question highlighted above (i.e., about the likelihood of
+        the statistics professor knowing about the
+        cheating)?</question>
+        <our_answer>
+          <text>Since the vast majority would not report on
+          cheating, it is most likely that if there was cheating
+          going on during an exam, the instructor would not know
+          about it. On the other hand, even if one of the 8.5% of
+          students who answered that they would report on cheating
+          witnessed it, then the instructor would be
+          informed.</text>
+        </our_answer>
+      </consider_results>
+      <reflect_on_conclusions>
+        <our_answer>
+          <text>&lt;ul&gt;&lt;li&gt;The results we got are
+          consistent with what we predicted that they would
+          be.&lt;/li&gt;&lt;br&gt;&lt;li&gt;The instructor might
+          want to reconsider using the honor code and should
+          definitely be on the lookout for cheating
+          herself/himself.&lt;/li&gt;&lt;/ul&gt;</text>
+        </our_answer>
+      </reflect_on_conclusions>
+    </draw_conclusions>
+  </main_question>
+  <summarize>
+    <summarize_findings>
+      <our_answer>
+        <text>We considered two aspects of student life. The social
+        aspect of drinking and the more academic aspect of
+        cheating. We are concerned about some students drinking too
+        much and that most students would not report cheating if
+        they saw it.</text>
+      </our_answer>
+    </summarize_findings>
+    <evaluate_validity>
+      <our_answer></our_answer>
+    </evaluate_validity>
+  </summarize>
+</stattutor_problem>

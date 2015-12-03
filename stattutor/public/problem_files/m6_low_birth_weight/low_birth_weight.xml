@@ -1,0 +1,689 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE stattutor_problem
+    PUBLIC "-//Carnegie Mellon University//DTD Stattutor 3.1//EN"
+	"http://oli.web.cmu.edu/dtd/cmu_stat_stattutor_3_1.dtd">
+<stattutor_problem id="low_birth_weight">
+  <title>Risk Factors for Low Birth Weight</title>
+  <dataset package="Minitab">problem_files/m6_low_birth_weight/low_birth_weight.mtw</dataset>
+  <dataset package="StatCrunch">problem_files/m6_low_birth_weight/low_birth_weight.xls</dataset>
+  <dataset package="Excel">problem_files/m6_low_birth_weight/low_birth_weight.xls</dataset>
+  <dataset package="R">problem_files/m6_low_birth_weight/low_birth_weight.RData</dataset>
+  <dataset package="TI Calculator">problem_files/m6_low_birth_weight/low_birth_weight.8xg</dataset>
+  <dataset package="json">problem_files/m6_low_birth_weight/low_birth_weight.json</dataset>
+  <attempts>1</attempts>
+  <background>Low birth weight is an outcome that has been of
+  concern to physicians for years. This is due to the fact that
+  infant mortality rates and birth defect rates are very high for
+  babies with low birth weight. A woman's behavior during pregnancy
+  (including diet, smoking habits, and obtaining prenatal care) can
+  greatly alter her chances of carrying the baby to term and,
+  consequently, of delivering a baby of normal birth weight.
+  &lt;br&gt;&lt;br&gt;In this exercise, we will use a 1986 study
+  (Hosmer and Lemeshow (2000), &lt;i&gt;Applied Logistic
+  Regression: Second Edition&lt;/i&gt;) in which data were
+  collected from 189 women (of whom 59 had low birth weight
+  infants) at the Baystate Medical Center in Springfield, MA (an
+  academic, research, and teaching hospital that serves as the
+  western campus of Tufts University School of Medicine and is the
+  only Level 1 trauma center in western Massachusetts). The goal of
+  the study was to identify risk factors associated with giving
+  birth to a low birth weight baby.</background>
+  <variable>
+    <name>LOW</name>
+    <description>Low birth weight (0=No (birth weight &amp;gt;= 2500 g) 1=Yes (birth weight &amp;lt; 2500 g)</description>
+    <type>categorical</type>
+  </variable>
+  <variable>
+    <name>AGE</name>
+    <description>Age of mother (in years)</description>
+    <type>quantitative</type>
+  </variable>
+  <variable>
+    <name>LWT</name>
+    <description>Weight of mother at the last menstrual period (in pounds)</description>
+    <type>quantitative</type>
+  </variable>
+  <variable>
+    <name>RACE</name>
+    <description>Race of mother (1=White, 2=Black, 3=Other)</description>
+    <type>categorical</type>
+  </variable>
+  <variable>
+    <name>SMOKE</name>
+    <description>Smoking status during pregnancy (0=No, 1=Yes)</description>
+    <type>categorical</type>
+  </variable>
+  <variable>
+    <name>PTL</name>
+    <description>History of premature labor (0=None, 1=One, etc.)</description>
+    <type>categorical</type>
+  </variable>
+  <variable>
+    <name>HT</name>
+    <description>History of hypertension (0=No, 1=Yes)</description>
+    <type>categorical</type>
+  </variable>
+  <variable>
+    <name>UI</name>
+    <description>Presence of uterine irritability (0=No, 1=Yes)</description>
+    <type>categorical</type>
+  </variable>
+  <variable>
+    <name>FTV</name>
+    <description>Number of physician visits during the first trimester</description>
+    <type>quantitative</type>
+  </variable>
+  <variable>
+    <name>BWT</name>
+    <description>The actual birth weight (in grams)</description>
+    <type>quantitative</type>
+  </variable>
+  <understand_the_problem>
+    <check_data_format>
+      <cdf_question>
+        <text>Out of the first ten mothers in the dataset, how many
+        gave birth to a baby whose weight was normal?</text>
+        <answers>
+          <answer>8</answer>
+          <answer>eight</answer>
+          <answer>8 mothers</answer>
+          <answer>eight mothers</answer>
+        </answers>
+        <hints>
+          <hint>To answer each of the questions in this step,
+          you'll need to look at the dataset you opened at the
+          beginning of your StatTutor session, and examine the
+          first few cases (rows).</hint>
+          <hint>In this dataset, each row represents a single
+          mother, so the first ten rows represent the first ten
+          patients. Look at the "Low" column and count how many of
+          the first ten mothers gave birth to a baby whose weight
+          was normal (coded as 0).</hint>
+          <hint>If you look at the "Low" column, you'll see that
+          eight of the first ten mothers gave birth to a baby whose
+          weight was normal (coded as 0). These are mothers 1, 2,
+          3, 5, 6, 7, 9, and 10.</hint>
+        </hints>
+      </cdf_question>
+      <cdf_question>
+        <text>Out of the first ten mothers in the data set, how old
+        was the mother who gave birth to the baby with the lowest
+        birth weight?</text>
+        <answers>
+          <answer>32</answer>
+          <answer>thirty-two</answer>
+          <answer>32 years</answer>
+          <answer>32 years old</answer>
+          <answer>thirty two</answer>
+          <answer>thirty-two years</answer>
+          <answer>thirty-two years old</answer>
+          <answer>thirty two years</answer>
+          <answer>thirty two years old</answer>
+        </answers>
+        <hints>
+          <hint>To answer each of the questions in this step,
+          you'll need to look at the dataset you opened at the
+          beginning of your StatTutor session, and examine the
+          first few cases (rows).</hint>
+          <hint>In this dataset, each row represents a single
+          mother, so the first ten rows represent the first ten
+          patients. Look at the "BWT" column (representing the
+          actual birth weight), look for the lowest weight (among
+          the first ten), and then report the mother's AGE.</hint>
+          <hint>If you look at the BWT column, you'll find that the
+          lowest birth weight among the first ten is 1818 grams,
+          which is the weight of the baby of mother #8. The age of
+          this mother is 32.</hint>
+        </hints>
+      </cdf_question>
+      <cdf_question>
+        <text>Out of the first ten mothers who did not visit a
+        physician during the first trimester, how many gave birth
+        to a low birth weight baby?</text>
+        <answers>
+          <answer>6</answer>
+          <answer>six</answer>
+          <answer>6 mothers</answer>
+          <answer>six mothers</answer>
+        </answers>
+        <hints>
+          <hint>To answer each of the questions in this step,
+          you'll need to look at the dataset you opened at the
+          beginning of your StatTutor session, and examine the
+          first few cases (rows).</hint>
+          <hint>In this dataset, each row represents a single
+          mother. Scroll through the dataset and consider the first
+          ten mothers who did not visit a physician during the
+          first trimester (FTV=0). Now count how many of them gave
+          birth to a low birth weight baby (LOW=1).</hint>
+          <hint>The first ten mothers who did not visit a physician
+          during the first trimester are 3, 6, 8, 9, 12, 13, 14,
+          15, 18, and 19. If you'll look at the LOW column, you'll
+          find that six of those mothers gave birth to a low birth
+          weight baby (LOW=1). These are mothers # 8, 12, 13, 14,
+          18, and 19.</hint>
+        </hints>
+      </cdf_question>
+    </check_data_format>
+    <consider_study_design>
+      <sampling>
+        <our_answer>
+          <text>We are not given any information about how the 189
+          women were chosen to participate in the study, except the
+          fact that they were all treated at the Baystate Medical
+          Center.</text>
+        </our_answer>
+      </sampling>
+      <design>
+        <answer>observational study</answer>
+      </design>
+    </consider_study_design>
+  </understand_the_problem>
+  <main_question>
+    <text>Do the data provide evidence that the occurrence of low
+    birth weight is significantly related to whether or not the
+    mother smoked during pregnancy?</text>
+    <reflect_on_question>
+      <consider_question>
+        <question>Before analyzing the data and discovering how/if
+        smoking effects the occurrence of low birth weight, try to
+        predict what the data will show (use your own experience
+        and intuition).</question>
+        <our_answer>
+          <text>Smoking is known to be a risk factor, and therefore
+          it would be reasonable to expect the data will show that
+          smoking has a significant effect on the occurrence of low
+          birth weight infants.</text>
+        </our_answer>
+      </consider_question>
+    </reflect_on_question>
+    <analyze_data>
+      <plan_analyses>
+        <relevant_variables>
+          <relevant_variable>
+            <name>LOW</name>
+            <role>response</role>
+          </relevant_variable>
+          <relevant_variable>
+            <name>SMOKE</name>
+            <role>explanatory</role>
+          </relevant_variable>
+        </relevant_variables>
+      </plan_analyses>
+      <exploratory_analyses>
+        <report_results>
+          <our_answer package="Minitab">
+            <image>low_birth_weight_q1_ea_report_results_minitab.jpg</image>
+            <text>25.22% of mothers who did not smoke had a low
+            birth weight baby, and 40.54% of mother who did smoke
+            had a low birth weight baby.</text>
+          </our_answer>
+          <our_answer package="StatCrunch">
+            <image>low_birth_weight_q1_ea_report_results_statcrunch.jpg</image>
+            <text>25.22% of mothers who did not smoke had a low
+            birth weight baby, and 40.54% of mother who did smoke
+            had a low birth weight baby.</text>
+          </our_answer>
+          <our_answer package="Excel">
+            <text>Here is the Excel output:</text>
+            <image>low_birth_weight_q1_ea_report_results_excel.jpg</image>
+            <text>25.22% of mothers who did not smoke had a low
+            birth weight baby, and 40.54% of mother who did smoke
+            had a low birth weight baby.</text>
+          </our_answer>
+          <our_answer package="R">
+            <image>low_birth_weight_q1_ea_report_results_r.jpg</image>
+            <text>25.22% of mothers who did not smoke had a low
+            birth weight baby, and 40.54% of mother who did smoke
+            had a low birth weight baby.</text>
+          </our_answer>
+          <our_answer package="TI Calculator">
+            <image>low_birth_weight_q1_ea_report_results_ti.jpg</image>
+            <text>25.22% of mothers who did not smoke had a low
+            birth weight baby, and 40.54% of mother who did smoke
+            had a low birth weight baby.</text>
+          </our_answer>
+        </report_results>
+      </exploratory_analyses>
+      <more_formal_analyses>
+        <determine_mfa>
+          <focus>examining the relationship between two categorical
+          variables</focus>
+          <test>Chi-square test</test>
+          <ho>
+            <first>two cat vars are independent</first>
+            <second></second>
+            <third></third>
+          </ho>
+          <ha>
+            <first>two cat vars are not independent</first>
+            <second></second>
+            <third></third>
+          </ha>
+        </determine_mfa>
+        <report_results>
+          <our_answer package="Minitab">
+            <image>low_birth_weight_q1_mf_report_results_minitab.jpg</image>
+            <text>The test statistic is 4.924, and the p-value is
+            .026. Since .026 &amp;lt; .05 we reject Ho.</text>
+          </our_answer>
+          <our_answer package="StatCrunch">
+            <image>low_birth_weight_q1_mf_report_results_statcrunch.jpg</image>
+            <text>The test statistic is 4.924, and the p-value is
+            .026. Since .026 &amp;lt; .05 we reject Ho.</text>
+          </our_answer>
+          <our_answer package="Excel">
+            <text>Here is the Excel output:</text>
+            <image>low_birth_weight_q1_mf_report_results_excel.jpg</image>
+            <text>The p-value is .026. Since .026 &amp;lt; .05 we
+            reject Ho.</text>
+          </our_answer>
+          <our_answer package="R">
+            <image>low_birth_weight_q1_mf_report_results_r.jpg</image>
+            <text>The test statistic is 4.924, and the p-value is
+            .026. Since .026 &amp;lt; .05 we reject Ho.</text>
+          </our_answer>
+          <our_answer package="TI Calculator">
+            <image>low_birth_weight_q1_mf_report_results_ti.jpg</image>
+            <text>The test statistic is 4.924, and the p-value is
+            .026. Since .026 &amp;lt; .05 we reject Ho.</text>
+          </our_answer>
+        </report_results>
+      </more_formal_analyses>
+    </analyze_data>
+    <draw_conclusions>
+      <consider_results>
+        <question>What do the results indicate about the
+        relationship between smoking during pregnancy and the
+        occurrence of low birth weight?</question>
+        <our_answer>
+          <text>&lt;ul&gt;&lt;li&gt;The exploratory analysis
+          revealed that low birth weight babies are more prevalent
+          among mothers who smoke during pregnancy than among
+          mothers who don't (40.54 vs.
+          25.22%).&lt;/li&gt;&lt;br&gt;&lt;li&gt;The formal
+          statistical test produced a p-value of .026 indicating
+          that the data provide enough evidence to conclude that
+          low birth weight is significantly related to
+          smoking.&lt;/li&gt;&lt;/ul&gt;</text>
+        </our_answer>
+      </consider_results>
+      <reflect_on_conclusions>
+        <our_answer>
+          <text>&lt;ul&gt;&lt;li&gt;The results are not surprising.
+          They are consistent with what we
+          expected.&lt;/li&gt;&lt;br&gt;&lt;li&gt;The risks
+          associated with smoking, specifically smoking during
+          pregnancy, should be communicated to pregnant women in as
+          many ways as possible (including pamphlets, Internet,
+          prenatal caregivers, etc.).&lt;/li&gt;&lt;/ul&gt;</text>
+        </our_answer>
+      </reflect_on_conclusions>
+    </draw_conclusions>
+  </main_question>
+  <main_question>
+    <text>Do the results of the study provide significant evidence
+    that the race of the mother is a factor in the occurrence of
+    low birth weight?</text>
+    <reflect_on_question>
+      <consider_question>
+        <question>Before analyzing the data and discovering whether
+        the occurrence of low birth weight is related to the
+        mother's race, try to predict what the data will show (use
+        your own experience and intuition).</question>
+        <our_answer>
+          <text>It would be reasonable to expect some differences
+          between races in the occurrence of low birth weight
+          babies. It would be interesting to see whether the data
+          provide enough evidence to conclude that race is indeed a
+          risk factor.</text>
+        </our_answer>
+      </consider_question>
+    </reflect_on_question>
+    <analyze_data>
+      <plan_analyses>
+        <relevant_variables>
+          <relevant_variable>
+            <name>RACE</name>
+            <role>explanatory</role>
+          </relevant_variable>
+          <relevant_variable>
+            <name>LOW</name>
+            <role>response</role>
+          </relevant_variable>
+        </relevant_variables>
+      </plan_analyses>
+      <exploratory_analyses>
+        <report_results>
+          <our_answer package="Minitab">
+            <image>low_birth_weight_q2_ea_report_results_minitab.jpg</image>
+            <text>23.96% of the white mothers had a low birth
+            weight baby. 42.31% of black mothers had a low birth
+            weight baby. 37.31% of mothers in the "other" group had
+            a low birth weight baby.</text>
+          </our_answer>
+          <our_answer package="StatCrunch">
+            <image>low_birth_weight_q2_ea_report_results_statcrunch.jpg</image>
+            <text>23.96% of the white mothers had a low birth
+            weight baby. 42.31% of black mothers had a low birth
+            weight baby. 37.31% of mothers in the "other" group had
+            a low birth weight baby.</text>
+          </our_answer>
+          <our_answer package="Excel">
+            <text>Here is the Excel output:</text>
+            <image>low_birth_weight_q2_ea_report_results_excel.jpg</image>
+            <text>23.96% of the white mothers had a low birth
+            weight baby. 42.31% of black mothers had a low birth
+            weight baby. 37.31% of mothers in the "other" group had
+            a low birth weight baby.</text>
+          </our_answer>
+          <our_answer package="R">
+            <image>low_birth_weight_q2_ea_report_results_r.jpg</image>
+            <text>23.96% of the white mothers had a low birth
+            weight baby. 42.31% of black mothers had a low birth
+            weight baby. 37.31% of mothers in the "other" group had
+            a low birth weight baby.</text>
+          </our_answer>
+          <our_answer package="TI Calculator">
+            <image>low_birth_weight_q2_ea_report_results_ti.jpg</image>
+            <text>23.96% of the white mothers had a low birth
+            weight baby. 42.31% of black mothers had a low birth
+            weight baby. 37.31% of mothers in the "other" group had
+            a low birth weight baby.</text>
+          </our_answer>
+        </report_results>
+      </exploratory_analyses>
+      <more_formal_analyses>
+        <determine_mfa>
+          <focus>examining the relationship between two categorical
+          variables</focus>
+          <test>Chi-square test</test>
+          <ho>
+            <first>two cat vars are independent</first>
+            <second></second>
+            <third></third>
+          </ho>
+          <ha>
+            <first>two cat vars are not independent</first>
+            <second></second>
+            <third></third>
+          </ha>
+        </determine_mfa>
+        <report_results>
+          <our_answer package="Minitab">
+            <image>low_birth_weight_q2_mf_report_results_minitab.jpg</image>
+            <text>The test statistic is 5.005, and the p-value is
+            .082 &amp;gt; .05. Ho cannot be rejected.</text>
+          </our_answer>
+          <our_answer package="StatCrunch">
+            <image>low_birth_weight_q2_mf_report_results_statcrunch.jpg</image>
+            <text>The test statistic is 5.005, and the p-value is
+            .082 &amp;gt; .05. Ho cannot be rejected.</text>
+          </our_answer>
+          <our_answer package="Excel">
+            <text>Here is the Excel output:</text>
+            <image>low_birth_weight_q2_mf_report_results_excel.jpg</image>
+            <text>The p-value is .082 &amp;gt; .05. Ho cannot be
+            rejected.</text>
+          </our_answer>
+          <our_answer package="R">
+            <image>low_birth_weight_q2_mf_report_results_r.jpg</image>
+            <text>The test statistic is 5.005, and the p-value is
+            .082 &amp;gt; .05. Ho cannot be rejected.</text>
+          </our_answer>
+          <our_answer package="TI Calculator">
+            <image>low_birth_weight_q2_mf_report_results_ti.jpg</image>
+            <text>The test statistic is 5.005, and the p-value is
+            .082 &amp;gt; .05. Ho cannot be rejected.</text>
+          </our_answer>
+        </report_results>
+      </more_formal_analyses>
+    </analyze_data>
+    <draw_conclusions>
+      <consider_results>
+        <question>What do the results indicate about the
+        relationship between race and the occurrence of low birth
+        weight?</question>
+        <our_answer>
+          <text>&lt;ul&gt;&lt;li&gt;In the exploratory data
+          analysis, we saw some differences in the occurrence of
+          low birth weight babies among mothers of different
+          races.&lt;/li&gt;&lt;br&gt;&lt;li&gt;The formal
+          statistical test, however, produced a p-value of .082
+          indicating that the data do not provide enough evidence
+          to conclude that low birth weight is indeed related to
+          race. In other words, even though the data showed some
+          differences between the races, the evidence in not strong
+          enough to conclude that race is a risk factor for low
+          birth weight.&lt;/li&gt;&lt;/ul&gt;</text>
+        </our_answer>
+      </consider_results>
+      <reflect_on_conclusions>
+        <our_answer>
+          <text>&lt;ul&gt;&lt;li&gt;Interesting results. It was
+          actually surprising that the formal analysis did not find
+          a significant race
+          effect.&lt;/li&gt;&lt;br&gt;&lt;li&gt;Since we found no
+          association between race and low birth weight, there is
+          no practical use for this
+          information.&lt;/li&gt;&lt;/ul&gt;</text>
+        </our_answer>
+      </reflect_on_conclusions>
+    </draw_conclusions>
+  </main_question>
+  <main_question>
+    <text>Are there significant differences in age between mothers
+    who gave birth to low weight babies and those whose baby's
+    weight was normal?</text>
+    <reflect_on_question>
+      <consider_question>
+        <question>Before analyzing the data and discovering whether
+        there are significant age differences between low and
+        normal birth weight mothers, try to predict what the data
+        will show (use your own experience and
+        intuition).</question>
+        <our_answer>
+          <text>It is known that age is a risk factor for
+          complications during pregnancy, where the older the
+          mother, the more likely the occurrence. It would be
+          reasonable to expect that the data will support that low
+          birth weight may be one of the issues for older
+          mothers.</text>
+        </our_answer>
+      </consider_question>
+    </reflect_on_question>
+    <analyze_data>
+      <plan_analyses>
+        <relevant_variables>
+          <relevant_variable>
+            <name>LOW</name>
+            <role>explanatory</role>
+          </relevant_variable>
+          <relevant_variable>
+            <name>AGE</name>
+            <role>response</role>
+          </relevant_variable>
+        </relevant_variables>
+      </plan_analyses>
+      <exploratory_analyses>
+        <report_results>
+          <our_answer package="Minitab">
+            <image>low_birth_weight_q3_ea_report_results_minitab.jpg</image>
+            <text>&lt;b&gt;Center:&lt;/b&gt; The median age of
+            mothers who did not have a low birth weight baby is
+            slightly higher than that of mothers who did (23 vs.
+            22).&lt;br&gt;&lt;br&gt;&lt;b&gt;Spread:&lt;/b&gt;
+            There is more variation in the age of mothers who did
+            not have a low birth weight baby (IQR: 9 vs. 6, Range:
+            31 vs.
+            20).&lt;br&gt;&lt;br&gt;&lt;b&gt;Outliers:&lt;/b&gt;
+            There is one outlier: a mother who was 45 years old and
+            did not have a low birth weight baby.</text>
+          </our_answer>
+          <our_answer package="StatCrunch">
+            <image>low_birth_weight_q3_ea_report_results_statcrunch.jpg</image>
+            <text>&lt;b&gt;Center:&lt;/b&gt; The median age of
+            mothers who did not have a low birth weight baby is
+            slightly higher than that of mothers who did (23 vs.
+            22).&lt;br&gt;&lt;br&gt;&lt;b&gt;Spread:&lt;/b&gt;
+            There is more variation in the age of mothers who did
+            not have a low birth weight baby (IQR: 9 vs. 6, Range:
+            31 vs.
+            20).&lt;br&gt;&lt;br&gt;&lt;b&gt;Outliers:&lt;/b&gt;
+            There is one outlier: a mother who was 45 years old and
+            did not have a low birth weight baby.</text>
+          </our_answer>
+          <our_answer package="Excel">
+            <text>Here is the Excel output:</text>
+            <image>low_birth_weight_q3_ea_report_results_excel.jpg</image>
+            <text>&lt;b&gt;Center:&lt;/b&gt; The median age of
+            mothers who did not have a low birth weight baby is
+            slightly higher than that of mothers who did (23 vs.
+            22). &lt;br&gt;&lt;br&gt;&lt;b&gt;Spread:&lt;/b&gt;
+            There is more variation in the age of mothers who did
+            not have a low birth weight baby (IQR: 9 vs. 5.5,
+            Range: 31 vs. 20).</text>
+          </our_answer>
+          <our_answer package="R">
+            <image>low_birth_weight_q3_ea_report_results_r.jpg</image>
+            <text>&lt;b&gt;Center:&lt;/b&gt; The median age of
+            mothers who did not have a low birth weight baby is
+            slightly higher than that of mothers who did (23 vs.
+            22). &lt;br&gt;&lt;br&gt;&lt;b&gt;Spread:&lt;/b&gt;
+            There is more variation in the age of mothers who did
+            not have a low birth weight baby (IQR: 9 vs. 5.5,
+            Range: 31 vs. 20).
+            &lt;br&gt;&lt;br&gt;&lt;b&gt;Outliers:&lt;/b&gt; There
+            is one outlier of a mother who was 45 years old and did
+            not have a low birth weight baby. Also, there is a mild
+            outlier of a mother who was 34 years old and did have a
+            low birth weight baby.</text>
+          </our_answer>
+          <our_answer package="TI Calculator">
+            <image>low_birth_weight_q3_ea_report_results_ti.jpg</image>
+            <text>&lt;b&gt;Center:&lt;/b&gt; The median age of
+            mothers who did not have a low birth weight baby is
+            slightly higher than that of mothers who did (23 vs.
+            22). &lt;br&gt;&lt;br&gt;&lt;b&gt;Spread:&lt;/b&gt;
+            There is more variation in the age of mothers who did
+            not have a low birth weight baby (IQR: 9 vs. 6, Range:
+            31 vs. 20).
+            &lt;br&gt;&lt;br&gt;&lt;b&gt;Outliers:&lt;/b&gt; There
+            is one outlier: a mother who was 45 years old and did
+            not have a low birth weight baby.</text>
+          </our_answer>
+        </report_results>
+      </exploratory_analyses>
+      <more_formal_analyses>
+        <determine_mfa>
+          <focus>comparing two population means</focus>
+          <test>two sample t-test for two means</test>
+          <ho>
+            <first>mu1 - mu2</first>
+            <second>=</second>
+            <third>0</third>
+          </ho>
+          <ha>
+            <first>mu1 - mu2</first>
+            <second>ne</second>
+            <third>0</third>
+          </ha>
+        </determine_mfa>
+        <report_results>
+          <our_answer package="Minitab">
+            <image>low_birth_weight_q3_mf_report_results_minitab.jpg</image>
+            <text>The test statistic is t = 1.77, and the p-value
+            is 0.078 &amp;gt; .05, indicating that Ho cannot be
+            rejected.</text>
+          </our_answer>
+          <our_answer package="StatCrunch">
+            <image>low_birth_weight_q3_mf_report_results_statcrunch.jpg</image>
+            <text>The test statistic is t = 1.77, and the p-value
+            is 0.078 &amp;gt; .05, indicating that Ho cannot be
+            rejected.</text>
+          </our_answer>
+          <our_answer package="Excel">
+            <text>Here is the Excel output:</text>
+            <image>low_birth_weight_q3_mf_report_results_excel.jpg</image>
+            <text>The p-value is 0.078 &amp;gt; .05, indicating
+            that Ho cannot be rejected.</text>
+          </our_answer>
+          <our_answer package="R">
+            <image>low_birth_weight_q3_mf_report_results_r.jpg</image>
+            <text>The test statistic is t = 1.77, and the p-value
+            is 0.078 &amp;gt; .05, indicating that Ho cannot be
+            rejected.</text>
+          </our_answer>
+          <our_answer package="TI Calculator">
+            <image>low_birth_weight_q3_mf_report_results_ti.jpg</image>
+            <text>The test statistic is t = 1.77, and the p-value
+            is 0.078 &amp;gt; .05, indicating that Ho cannot be
+            rejected.</text>
+          </our_answer>
+        </report_results>
+      </more_formal_analyses>
+    </analyze_data>
+    <draw_conclusions>
+      <consider_results>
+        <question>What do the results indicate about the
+        differences in age between mothers who gave birth to low
+        birth weight babies and those whose baby's weight was
+        normal?</question>
+        <our_answer>
+          <text>&lt;ul&gt;&lt;li&gt;The exploratory data analysis
+          revealed some small differences in age between mothers
+          who had an occurrence of a low birth weight baby and
+          mothers who didn't.&lt;/li&gt;&lt;br&gt;&lt;li&gt;Indeed,
+          the formal statistical test produced a p-value of .078
+          indicating that the data do not provide enough evidence
+          to conclude that there are differences in age between the
+          two groups of mothers.&lt;/li&gt;&lt;/ul&gt;</text>
+        </our_answer>
+      </consider_results>
+      <reflect_on_conclusions>
+        <our_answer>
+          <text>&lt;ul&gt;&lt;li&gt;These are interesting results.
+          Completely opposite of what we
+          thought...&lt;/li&gt;&lt;br&gt;&lt;li&gt;Although age
+          does not appear to be a factor for low birth weight
+          babies, this does not rule out the possibility of other
+          complications for pregnancies at an older or at very
+          young ages.&lt;/li&gt;&lt;/ul&gt;</text>
+        </our_answer>
+      </reflect_on_conclusions>
+    </draw_conclusions>
+  </main_question>
+  <summarize>
+    <summarize_findings>
+      <our_answer>
+        <text>In this exercise we examined potential risk factors
+        for the occurrence of a low birth weight baby. We found
+        that smoking is a significant risk factor, and race has
+        some effect, but the data did not provide strong enough
+        evidence to conclude that it is a risk factor. We also
+        found that there are no significant differences in age
+        between mothers who had a low birth weight baby and mothers
+        who didn't.</text>
+      </our_answer>
+    </summarize_findings>
+    <evaluate_validity>
+      <our_answer>
+        <text>&lt;ul&gt;&lt;li&gt;Since this is an observational
+        study, we cannot make any causal conclusions. However,
+        identifying risk factors is an important finding regardless
+        of whether these risk factors have a direct causal effect
+        on low birth weight. It should be noted that we can never
+        conduct a randomized experiment for factors such as
+        smoking, race, or age. However, as long as we have a sample
+        that accounts for the diversity in the population, the
+        results are noteworthy.&lt;/li&gt;&lt;br&gt;&lt;li&gt;Even
+        though we are not specifically told this is a random
+        sample, this was a major medical study conducted at a major
+        research center. Therefore, it is reasonable to assume that
+        our sample accounts for the diversity in the population of
+        pregnant women and the results can be thought of as more
+        general.&lt;/li&gt;&lt;/ul&gt;</text>
+      </our_answer>
+    </evaluate_validity>
+  </summarize>
+</stattutor_problem>
