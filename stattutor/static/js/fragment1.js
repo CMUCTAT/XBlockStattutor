@@ -11,7 +11,7 @@ $(function()
 	
 	var MAX_NUMBER_QUESTIONS = 3;
 	$.views.converters("word", function(val) { return ['Zero','One','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten'][parseInt(val)];});
-	var template = $.templates("#question_template");
+	var template = $.templates(question_template);
 	var question_init_data = [];
 	
 	for (var i=0; i<MAX_NUMBER_QUESTIONS; i++) 

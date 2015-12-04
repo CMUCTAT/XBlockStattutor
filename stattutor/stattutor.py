@@ -73,14 +73,14 @@ class StattutorXBlock(XBlock):
         frag.add_javascript ("var baseURL=\""+(baseURL [:-7])+"\";")
         frag.add_javascript_url (self.runtime.local_resource_url(self,"public/js/jsrender.min.js"))
         frag.add_javascript_url (self.runtime.local_resource_url(self,"public/js/ctat.min.js"))
+        raw = self.resource_string("static/html/jsrenderbody.html")
+        #frag.add_resource (raw,"text/x-jsrender","head");
+        frag.add_javascript (raw)
         frag.add_javascript (self.resource_string("static/js/fragment1.js"))
         frag.add_javascript_url (self.runtime.local_resource_url(self,"public/js/jquery.easyui.min.js"))
         frag.add_javascript_url (self.runtime.local_resource_url(self,"public/js/ctatloader.js"))
         frag.add_javascript_url (self.runtime.local_resource_url(self,"public/js/stattutor.js"))
         frag.add_javascript (self.resource_string("static/js/fragment2.js"))
-        raw = self.resource_string("static/html/jsrenderbody.html")
-        #frag.add_resource (raw,"text/x-jsrender","head");
-        frag.add_javascript (raw)
         body = self.resource_string("static/html/body.html")
         frag.add_content (self.bind_path (body))
         frag.initialize_js('CTATXBlock')

@@ -1,4 +1,4 @@
-<div id="Question{{:#index+1}}" class="easyui-panel work_area"
+var question_template = `<div id="Question{{:#index+1}}" class="easyui-panel work_area"
 	title="Question {{word:#getIndex()+1}}" data-options="closed:true, fit:true, onOpen:stattutor_highlight_q{{:#index+1}}">
   {{if #index==0 }}<p>Now that we have completed the first part, where we 
 	examined some general features of the problem, it is
@@ -320,3 +320,4 @@
 	<p class="q{{:#index+1}}last_question_true" style="display:none;">Now that you have completed all three steps in the Work Plan for each question,
 	click on <a class="easyui-linkbutton" onclick="javascript:StatTutor.goto_panel('Summarize')">Summarize</a>.</p>
 </div>
+`;
