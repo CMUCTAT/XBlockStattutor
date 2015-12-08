@@ -48,7 +48,7 @@ function ctatOnload()
 	var tempCommLibrary=new CTATCommLibrary (null,false,null);
 
 	//var instructionsLocation=translateResourceFile (StatTutor.dataset["instructions.xml"]);
-	var instructionsLocation = translateResourceFile ("instructions.xml");
+	var instructionsLocation = translateResourceFile ("Instructions.xml");
 	
 	console.log ("Example LMS specific resource location translation: "  + instructionsLocation);
 	
