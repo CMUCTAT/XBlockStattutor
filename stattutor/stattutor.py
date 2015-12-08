@@ -73,7 +73,7 @@ class StattutorXBlock(XBlock):
         frag.add_javascript ("var baseURL=\""+(baseURL [:-7])+"\";")
         frag.add_javascript_url (self.runtime.local_resource_url(self,"public/js/jsrender.min.js"))
         frag.add_javascript_url (self.runtime.local_resource_url(self,"public/js/ctat.min.js"))
-        raw = self.resource_string("static/html/jsrenderbody.html")
+        raw = self.resource_string("static/js/jsrenderbody.js")
         #frag.add_resource (raw,"text/x-jsrender","head");
         frag.add_javascript (raw)
         frag.add_javascript (self.resource_string("static/js/fragment1.js"))

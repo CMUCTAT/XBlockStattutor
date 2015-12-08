@@ -298,7 +298,7 @@ var question_template = `<div id="Question{{:#index+1}}" class="easyui-panel wor
 	 title="Reflect on Conclusions (Question {{word:#getIndex()+1}})" data-options="closed:true, fit:true,
 	   onOpen:function(){
 		if ($('#q{{:#index+1}}consider').data('CTATComponent').getText())
-		  $('#q{{:#index+1}}reflect_prev').html($('#q{{:#index+1}}consider').data('CTATComponent').getText()[0].replace(/\n/g,'<br/>'));
+		  $('#q{{:#index+1}}reflect_prev').html($('#q{{:#index+1}}consider').data('CTATComponent').getText()[0].replace(/\\n/g,'<br/>'));
 		stattutor_highlight_q{{:#index+1}}();}">
 	<p>Remember...<br/>Under <a class="easyui-linkbutton" onclick="javascript:StatTutor.goto_panel('ConsiderQ{{:#index+1}}')">Consider Question {{word:#getIndex()+1}}</a> you said:
 	<div class="ReminderText" id="q{{:#index+1}}reflect_prev"></div>
