@@ -95,7 +95,7 @@ class StattutorXBlock(XBlock):
 
     @XBlock.json_handler
     def studio_submit(self, data, suffix=''):
-        print 'studio_submit()'
+        print ('studio_submit()')
         #pp = pprint.PrettyPrinter(indent=4)
         #pp.pprint(data)
         self.src = data.get('src')
@@ -103,7 +103,7 @@ class StattutorXBlock(XBlock):
 
     @XBlock.json_handler
     def ctat_set_variable(self, data, suffix=''):
-        print 'ctat_set_variable()'
+        print ('ctat_set_variable()')
         #pp = pprint.PrettyPrinter(indent=4)
         #pp.pprint(data)
 
