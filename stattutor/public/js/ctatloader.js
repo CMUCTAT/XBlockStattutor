@@ -206,7 +206,7 @@ function loadCTAT ()
 		FlashVars ['user_guid']=window.self.studentId;
 		FlashVars ['baseUrl']=window.self.baseUrl;
 		FlashVars ['handlerBaseUrl']=window.self.handlerBaseUrl;
-	    FlashVars ['question_file']=window.self.handlerBaseUrl+window.stattutor_module+'/'+window.self.problem;
+	    FlashVars ['question_file']='/resource/stattutor/public/problem_files/'+window.stattutor_module+'/'+window.self.problem; // currently somewhat hardcoded because not all of the useful variables are set yet.
 		
 		FlashVars ['href']=window.href;
 		FlashVars ['module']=window.stattutor_module;		
