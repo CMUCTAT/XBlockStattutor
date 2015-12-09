@@ -1,7 +1,7 @@
 html
 {
-	width: 100%;
-	height: 100%;
+    width: 100%;
+    height: 100%;
 }
 
 body 
@@ -54,28 +54,28 @@ canvas
 
 .topbtn 
 {
-	text-decoration:none;
-	-webkit-border-radius: 4;
-	-moz-border-radius: 4;
-	border-bottom-left-radius: 4px;
-	border-bottom-right-radius: 4px;
-	font-weight: bold;
-	font-family: Arial;
-	color: #ffffff;
-	font-size: 14px;
-	background: #7d9c95;
-	padding: 5px 18px 5px 11px;
-	border: solid #000000 1px;
-	text-decoration: none;
-	
+    text-decoration:none;
+    -webkit-border-radius: 4;
+    -moz-border-radius: 4;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    font-weight: bold;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 14px;
+    background: #7d9c95;
+    padding: 5px 18px 5px 11px;
+    border: solid #000000 1px;
+    text-decoration: none;
+
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;	
-	
-	cursor: pointer; cursor: hand;
+
+    cursor: pointer; cursor: hand;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -86,22 +86,22 @@ canvas
 
 .topbtnselected 
 {
-	text-decoration:none;
-	-webkit-border-radius: 4;
-	-moz-border-radius: 4;
-	border-bottom-left-radius: 4px;
-	border-bottom-right-radius: 4px;
-	font-weight: bold;
-	font-family: Arial;
-	color: #891b08;
-	font-size: 14px;
-	background: #ebebe9;
-	padding: 5px 18px 5px 11px;
-	border: solid #000000 1px;
-	text-decoration: none;
-	height: 28px;
-	
-	cursor: pointer; cursor: hand;
+    text-decoration:none;
+    -webkit-border-radius: 4;
+    -moz-border-radius: 4;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    font-weight: bold;
+    font-family: Arial;
+    color: #891b08;
+    font-size: 14px;
+    background: #ebebe9;
+    padding: 5px 18px 5px 11px;
+    border: solid #000000 1px;
+    text-decoration: none;
+    height: 28px;
+
+    cursor: pointer; cursor: hand;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -112,15 +112,15 @@ canvas
 
 .topbtn:hover 
 {
-	background: #3cb0fd;
-	background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
-	background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
-	background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
-	background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
-	background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
-	text-decoration: none;
-	
-	cursor: pointer; cursor: hand;
+    background: #3cb0fd;
+    background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+    text-decoration: none;
+
+    cursor: pointer; cursor: hand;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -131,18 +131,18 @@ canvas
 
 .btn 
 {
-	-webkit-border-radius: 4;
-	-moz-border-radius: 4;
-	border-radius: 4px;
-	font-family: Arial;
-	color: #ffffff;
-	font-size: 17px;
-	background: #7d9c95;
-	padding: 5px 18px 5px 11px;
-	border: solid #000000 1px;
-	text-decoration: none;
-  
-	cursor: pointer; cursor: hand;
+    -webkit-border-radius: 4;
+    -moz-border-radius: 4;
+    border-radius: 4px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 17px;
+    background: #7d9c95;
+    padding: 5px 18px 5px 11px;
+    border: solid #000000 1px;
+    text-decoration: none;
+
+    cursor: pointer; cursor: hand;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -153,15 +153,15 @@ canvas
 
 .btn:hover 
 {
-	background: #3cb0fd;
-	background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
-	background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
-	background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
-	background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
-	background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
-	text-decoration: none;
-	
-	cursor: pointer; cursor: hand;
+    background: #3cb0fd;
+    background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+    text-decoration: none;
+
+    cursor: pointer; cursor: hand;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -207,23 +207,56 @@ canvas
 
 div.work_area 
 {
-	width: 97%;
-	height: 350px;
-	background: #f5f5f2;
-	padding: 5px;
+    width: 97%;
+    height: 350px;
+    background: #f5f5f2;
+    padding: 5px;
 }
 
-.CTATRadioButton
-{ 
-	width: auto; 
-}
+.CTATRadioButton { width: auto; }
 
-.icon-box
-{ 
-	background:url('images/icons/box.svg') no-repeat center center; 
+.CTATComboBox { display:inline-block;width:auto; height:auto;}
+.CTATTextArea { margin: 5px; width: 90%; height: 8em; }
+.CTATTextField {
+    margin: 5px;
+    width: 90%;
+    min-height: 5em;
+    border: 1px solid darkgrey;
+    padding: 3px;
 }
+.icon-box { background:url('images/icons/box.svg') no-repeat center center; }
+.icon-partial {
+    background:url('images/icons/box_partial.svg') no-repeat center center;
+}
+.CTAT-text { overflow: auto; }
 
-.icon-partial
-{ 
-	background:url('images/icons/box_partial.svg') no-repeat center center; 
+.WorkPlanLevel0 { font-size: 1.2em; font-weight: bold; }
+.WorkPlanLevel1 { font-size: 1em;}
+.WorkPlanLevel2 { font-size: .8em; }
+.WorkPlanDisabled { color: grey; }
+
+.ReminderText {
+    width:90%;
+    height:8em;
+    background:#EBEBEB;
+    border:1px solid grey;
+    overflow-y: auto;
+}
+.VariableName { font-weight: bold; }
+.Submit_and_Reveal { margin:5px; width:200px; }
+.ThoughtArea { visibility: hidden; }
+
+h3.your_answer { color: blue; }
+h3.our_answer { color: green; }
+
+table, td { border: 1px solid black;}
+th { text-align: center; }
+textarea.CTAT-text { overflow-y: auto; }
+span.CTAT-hint { color: orange; }
+span.CTAT-correct { color: limegreen; font-weight: bold; }
+span.CTAT-incorrect { color: red; font-weight: bold; }
+div.instructions { margin-left: 10px; margin-right: 10px; }
+div.meaningful_display { margin-left: 30px; position: relative; }
+div.meaningful_display_radio {
+    position: absolute; left: 28px; display: inline-block;
 }
