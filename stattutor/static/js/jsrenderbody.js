@@ -16,7 +16,7 @@ var question_template = `<div id="Question{{:#index+1}}" class="easyui-panel wor
 	repeat the same three steps (Reflect on Question, Analyze Data, and
 	Draw Conclusions) for question {{word:#getIndex()+1}}.</p>
 	<p>Read the question marked <b>Q{{:#getIndex()+1}}</b> above in the 
-  {{/if}}
+  {{\/if}}
 	<a class="easyui-linkbutton tab-button" onclick="javascript:StatTutor.goto_tab('Questions')">Questions</a> tab, 
 	and then click on 
 	<a class="easyui-linkbutton" onclick="javascript:StatTutor.goto_panel('ReflectQ{{:#index+1}}')">Reflect on Question</a>
@@ -115,8 +115,8 @@ var question_template = `<div id="Question{{:#index+1}}" class="easyui-panel wor
 		var i=this.id;
 		var r = i.charAt(i.length-1);
 		if ($('#ref_q'+r+'measure_display').text() &&
-			$('#ref_q'+r+'measure_display').text().replace(/\s|-/gm,'').length>0 &&
-            $('#ref_q'+r+'measure_num').text().replace(/\s|-/gm,'').length>0)
+			$('#ref_q'+r+'measure_display').text().replace(/\\s|-/gm,'').length>0 &&
+            $('#ref_q'+r+'measure_num').text().replace(/\\s|-/gm,'').length>0)
 		  mark_complete('AnalysisQ{{:#index+1}}');},
 	  onBeforeOpen:AnalysisQn_onBeforeOpen">
 	<p>Remember...<br/>
@@ -218,7 +218,7 @@ var question_template = `<div id="Question{{:#index+1}}" class="easyui-panel wor
 		</div>
 		<br/>
 		<div>Alternative hypothesis - H<sub>a</sub>:
-			<div id="q{{:#getIndex()+1}}formal_ha" class="CTATComboBox style="width:auto; display:inline-block;">
+			<div id="q{{:#getIndex()+1}}formal_ha" class="CTATComboBox" style="width:auto; display:inline-block;">
 				<option>-------</option>
 				<option value="mu">&mu;</option>
 				<option value="p">p</option>
@@ -242,7 +242,7 @@ var question_template = `<div id="Question{{:#index+1}}" class="easyui-panel wor
 			<div id="q{{:#getIndex()+1}}formal_ha_third" class="CTATTextInput" style="display:inline-block; visibility: hidden;"></div>
 		</div>
 		<div id="FormalMeasuresQ{{:#index+1}}_Thought" class="ThoughtArea"></div>
-		<p>Click on	<a class="easyui-linkbutton" onclick="javascript:StatTutor.goto_panel('FormalAnalysisQ{{:#getIndex()+1}}')">Conduct Analysis</a> to continue.</p>
+		<p>Click on <a class="easyui-linkbutton" onclick="javascript:StatTutor.goto_panel('FormalAnalysisQ{{:#getIndex()+1}}')">Conduct Analysis</a> to continue.</p>
 	</div>
 	<p class="q{{:#getIndex()+1}}formal_disabled">This node is not active for this lab exercise. Click on
 		<a class="easyui-linkbutton" onclick="javascript:StatTutor.goto_panel('ConclusionsQ{{:#getIndex()+1}}')">Draw Conclusions</a> to continue.</p>
@@ -270,7 +270,7 @@ var question_template = `<div id="Question{{:#index+1}}" class="easyui-panel wor
 		<div id="q{{:#index+1}}formal_results_submit" class="CTATSubmitButton Submit_and_Reveal" data-ctat-target="q{{:#index+1}}formal_results" data-ctat-show-feedback="false">Submit and Reveal Our Answer</div>
 		<h3 class="our_answer">Our Answer:</h3>
 		<div id="our_q{{:#getIndex()+1}}formal_results" class="CTATTextField" data-ctat-tutor="false" data-ctat-enabled="false"></div>
-		<p>Click on	<a class="easyui-linkbutton" onclick="javascript:StatTutor.goto_panel('ConclusionsQ{{:#getIndex()+1}}')">Draw Conclusions</a> to continue.</p>
+		<p>Click on <a class="easyui-linkbutton" onclick="javascript:StatTutor.goto_panel('ConclusionsQ{{:#getIndex()+1}}')">Draw Conclusions</a> to continue.</p>
 	</div>
 	<p class="q{{:#getIndex()+1}}formal_disabled">This node is not active for this lab exercise. Click on
 		<a class="easyui-linkbutton" onclick="javascript:StatTutor.goto_panel('ConclusionsQ{{:#getIndex()+1}}')">Draw Conclusions</a> to continue.</p>
@@ -321,3 +321,26 @@ var question_template = `<div id="Question{{:#index+1}}" class="easyui-panel wor
 	click on <a class="easyui-linkbutton" onclick="javascript:StatTutor.goto_panel('Summarize')">Summarize</a>.</p>
 </div>
 `;
+
+// Order for this is important as it needs to execute before easyui
+// Because of that, this will not have any actual information about the
+// problem so all that this does is make blank questions from the template to
+// be filled in when more information is loaded.  There is some contingent
+// things built into the template that end up getting controled by classes/css.
+// This no longer needs to be wrapped in $(function(){...}); because it no
+// longer needs to wait for the page to load to get the template.
+
+var MAX_NUMBER_QUESTIONS = 3;
+$.views.converters("word", function(val) { return ['Zero','One','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten'][parseInt(val)];});
+var template = $.templates(question_template);
+var question_init_data = [];
+
+for (var i=0; i<MAX_NUMBER_QUESTIONS; i++) 
+{
+    question_init_data.push({});
+}
+var question_panels = template.render(question_init_data);
+$('#main').append(question_panels);
+
+console.log ("Finished adding templated html.");
+
