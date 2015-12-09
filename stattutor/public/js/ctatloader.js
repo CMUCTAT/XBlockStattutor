@@ -206,10 +206,10 @@ function loadCTAT ()
 		FlashVars ['user_guid']=window.self.studentId;
 		FlashVars ['baseUrl']=window.self.baseUrl;
 		FlashVars ['handlerBaseUrl']=window.self.handlerBaseUrl;
-		FlashVars ['question_file']=window.self.href + "/" + window.self.module + "/" + window.self.problem;
+	    FlashVars ['question_file']=window.self.handlerBaseUrl+window.stattutor_module+'/'+window.self.problem;
 		
 		FlashVars ['href']=window.href;
-		FlashVars ['module']=window.module;		
+		FlashVars ['module']=window.stattutor_module;		
 	
 		FlashVars ['resource_spec']=window.name;
 		FlashVars ['problem']=window.problem;
@@ -389,7 +389,7 @@ function initOnload ()
 		flashVars.assignRawFlashVars(tempFlashVars);
 		
 		Tutor.name = window.name;
-		Tutor.webcontent = "problem_files/"+window.module+"/";
+		Tutor.webcontent = "problem_files/"+window.stattutor_module+"/";
 		Tutor.data = Tutor.webcontent+window.name;
 		Tutor.problem_description = Tutor.name+".xml";
 		Tutor.brd = Tutor.name+".brd";
@@ -400,10 +400,9 @@ function initOnload ()
 		}
 		else
 		{
-			console.log ("ctatPreload () not defined, only used in ctat stattutor");
+		    console.log ("ctatPreload () not defined, only used in ctat stattutor");
+		    initTutor (); // ctatPreload() calls initTutor;
 		}
-
-		initTutor ();
 
 		return;	
 	}	
@@ -490,7 +489,7 @@ $(document).ready(function()
 		}
 	}
 
-	loadCTAT ();
+	//loadCTAT ();
 });
 
 $(window).load(function() 
