@@ -82,11 +82,11 @@ var question_template = `<div id="Question{{:#index+1}}" class="easyui-panel wor
 <div id="MeasuresQ{{:#index+1}}" class="easyui-panel work_area"
 	 title="Determine Displays and Measures (Question {{word:#getIndex()+1}})" data-options="closed:true, fit:true, onOpen:stattutor_highlight_q{{:#index+1}}">
 	<p>A meaningful display is:</p>
-	<div id="q{{:#index+1}}measure_box" name="q{{:#index+1}}measure_display" class="CTATRadioButton">Side-by-side boxplots</div>
-	<div id="q{{:#index+1}}measure_scatter" name="q{{:#index+1}}measure_display" class="CTATRadioButton">Scatterplot</div>
-	<div id="q{{:#index+1}}measure_2table" name="q{{:#index+1}}measure_display" class="CTATRadioButton">Two-way Table</div>
-	<div id="q{{:#index+1}}measure_pie" name="q{{:#index+1}}measure_display" class="CTATRadioButton">Piechart</div>
-	<div id="q{{:#index+1}}measure_hist" name="q{{:#index+1}}measure_display" class="CTATRadioButton">Histogram</div>
+	<div class="meaningful_display"><img src="$boxplots" style="height:16px;"/><div id="q{{:#index+1}}measure_box" name="q{{:#index+1}}measure_display" class="CTATRadioButton meaningful_display_radio">Side-by-side boxplots</div></div>
+	<div class="meaningful_display"><img src="$scatterplot" style="height:16px;"/><div id="q{{:#index+1}}measure_scatter" name="q{{:#index+1}}measure_display" class="CTATRadioButton meaningful_display_radio">Scatterplot</div></div>
+	<div class="meaningful_display"><img src="$table" style="height:16px;"/><div id="q{{:#index+1}}measure_2table" name="q{{:#index+1}}measure_display" class="CTATRadioButton meaningful_display_radio">Two-way Table</div></div>
+	<div class="meaningful_display"><img src="$piechart" style="height:16px;"/><div id="q{{:#index+1}}measure_pie" name="q{{:#index+1}}measure_display" class="CTATRadioButton meaningful_display_radio">Piechart</div></div>
+	<div class="meaningful_display"><img src="$histogram" style="height:16px;"/><div id="q{{:#index+1}}measure_hist" name="q{{:#index+1}}measure_display" class="CTATRadioButton meaningful_display_radio">Histogram</div></div>
 	<br/>
 	<p>A meaningful numerical summary to supplement the above display is</p>
 	<div id="q{{:#index+1}}measure_num" class="CTATComboBox" style="width:auto;">
@@ -123,7 +123,7 @@ var question_template = `<div id="Question{{:#index+1}}" class="easyui-panel wor
 	You selected <span id="ref_q{{:#index+1}}measure_display" style="font-weight: bold;"></span>
 	and <span id="ref_q{{:#index+1}}measure_num" style="font-weight: bold;"></span>
 	as the meaningful display and measure for the current question.</p>
-	<p> Now use the instructions below to graph you selections
+	<p> Now use the instructions below to graph your selections
 	using your selected tool.</p>
 	<div id="q{{:#index+1}}instructions" class="easyui-tabs" data-options="plain:true"
 		 style="margin:5px;width:90%;"></div>
@@ -155,7 +155,7 @@ var question_template = `<div id="Question{{:#index+1}}" class="easyui-panel wor
 		we move on to assessing the <em>strength</em> of
 		evidence provided by the data using formal
 		statistical tests.</p>
-		<p>Click on <a class="easyui-linkbutton" onclick="javascript:StatTutor.goto_panel('FormalMeasuresQ{{:#getIndex()+1}}')">Determin More Formal Analyses (Question {{word:#getIndex()+1}})</a> to continue.</p>
+		<p>Click on <a class="easyui-linkbutton" onclick="javascript:StatTutor.goto_panel('FormalMeasuresQ{{:#getIndex()+1}}')">Determine More Formal Analyses (Question {{word:#getIndex()+1}})</a> to continue.</p>
 	</div>
 	<p class="q{{:#getIndex()+1}}formal_disabled">This node is not active for this lab exercise. Click on
 		<a class="easyui-linkbutton" onclick="javascript:StatTutor.goto_panel('ConclusionsQ{{:#getIndex()+1}}')">Draw Conclusions</a> to continue.</p>
@@ -297,8 +297,8 @@ var question_template = `<div id="Question{{:#index+1}}" class="easyui-panel wor
 <div id="ConclusionsReflectQ{{:#index+1}}" class="easyui-panel work_area"
 	 title="Reflect on Conclusions (Question {{word:#getIndex()+1}})" data-options="closed:true, fit:true,
 	   onOpen:function(){
-		if ($('#q{{:#index+1}}consider').data('CTATComponent').getText())
-		  $('#q{{:#index+1}}reflect_prev').html($('#q{{:#index+1}}consider').data('CTATComponent').getText()[0].replace(/\\n/g,'<br/>'));
+		if ($('#q{{:#index+1}}consider').data('CTATComponent').getText().length>0)
+		  $('#q{{:#index+1}}reflect_prev').html($('#q{{:#index+1}}consider').data('CTATComponent').getText().replace(/\\n/g,'<br/>'));
 		stattutor_highlight_q{{:#index+1}}();}">
 	<p>Remember...<br/>Under <a class="easyui-linkbutton" onclick="javascript:StatTutor.goto_panel('ConsiderQ{{:#index+1}}')">Consider Question {{word:#getIndex()+1}}</a> you said:
 	<div class="ReminderText" id="q{{:#index+1}}reflect_prev"></div>

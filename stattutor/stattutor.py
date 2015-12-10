@@ -3,6 +3,8 @@ import pprint
 import pkg_resources
 import base64
 
+from string import Template
+
 from xblock.core import XBlock
 from xblock.fields import Scope, Integer, String, Boolean, Any
 from xblock.fragment import Fragment
@@ -76,7 +78,16 @@ class StattutorXBlock(XBlock):
         frag.add_css_url (self.runtime.local_resource_url (self,"public/css/ctatxblock.css"))
         frag.add_css_url (self.runtime.local_resource_url (self,"public/css/stattutor.css"))
         frag.add_javascript_url (self.runtime.local_resource_url(self,"public/js/jsrender.min.js"))
-        frag.add_javascript (self.resource_string("static/js/jsrenderbody.js"))
+        format_references = {
+            'logo': self.runtime.local_resource_url(self, 'public/images/logo.png'),
+            'boxplots': self.runtime.local_resource_url(self, 'public/images/boxplots.png'),
+            'scatterplot': self.runtime.local_resource_url(self, 'public/images/scatterplot.png'),
+            'table': self.runtime.local_resource_url(self, 'public/images/table.png'),
+            'piechart': self.runtime.local_resource_url(self, 'public/images/piechart.png'),
+            'histogram': self.runtime.local_resource_url(self, 'public/images/histogram.png'),
+        }
+        jsrenderbody = self.resource_string("static/js/jsrenderbody.js")
+        frag.add_javascript (Template(jsrenderbody).safe_substitute(format_references))
         frag.add_javascript_url (self.runtime.local_resource_url(self,"public/js/jquery.easyui.min.js"))
         frag.add_javascript ("var baseURL=\""+(baseURL [:-7])+"\";")
         frag.add_javascript_url (self.runtime.local_resource_url(self,"public/js/ctatloader.js"))
@@ -84,7 +95,7 @@ class StattutorXBlock(XBlock):
         frag.add_javascript_url (self.runtime.local_resource_url(self,"public/js/stattutor.js"))
         frag.add_javascript (self.resource_string("static/js/load_resources.js"))
         body = self.resource_string("static/html/body.html")
-        frag.add_content (self.bind_path (body))
+        frag.add_content (body.format(**format_references))
         frag.initialize_js('CTATXBlock')
         return frag
 
