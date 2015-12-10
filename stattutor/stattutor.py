@@ -4,13 +4,18 @@ import pkg_resources
 import base64
 
 from xblock.core import XBlock
-from xblock.fields import Scope, Integer, String
+from xblock.fields import Scope, Integer, String, Boolean, Any
 from xblock.fragment import Fragment
 
 class StattutorXBlock(XBlock):
 
     # Fields are defined on the class.  You can access them in your code as
     # self.<fieldname>.
+    score = Integer(help="Current count of correctly completed student steps", scope=Scope.user_state, default=0)
+    max_score = Integer(help="Total number of steps", scope=Scope.user_state, default=1)
+    attempted = Boolean(help="True if at least one step has been completed", scope=Scope.user_state, default=False)
+    completed = Boolean(help="True if all of the required steps are correctly completed", scope=Scope.user_state, default=False)
+    
     href = String(help="URL to a BRD file", default="http://augustus.pslc.cs.cmu.edu/stattutor/problem_files", scope=Scope.settings)
     module = String(help="The learning module to load from", default="m1_survey", scope=Scope.settings)
     name = String(help="Problem name to log", default="survey", scope=Scope.settings)
@@ -82,7 +87,18 @@ class StattutorXBlock(XBlock):
         frag.add_content (self.bind_path (body))
         frag.initialize_js('CTATXBlock')
         return frag
-    
+
+    @XBlock.json_handler
+    def ctat_grade(self, data, suffix=''):
+        print('ctat_grade:',data,suffix)
+        self.attempted = True
+        self.score = data['value']
+        self.max_score = data['max_value']
+        self.completed = self.score >= self.max_score
+        event_data = {'value': self.score, 'max_value': self.max_score}
+        self.runtime.publish(self, 'grade', event_data);
+        return {'result': 'success'}
+
     # -------------------------------------------------------------------
     # TO-DO: change this view to display your data your own way.
     # -------------------------------------------------------------------
