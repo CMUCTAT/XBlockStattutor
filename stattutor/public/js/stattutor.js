@@ -1,5 +1,4 @@
-var StatTutor = 
-{
+var StatTutor = {
 		/** Values from dataset elements of ctat_m?_stattutor.xml; property names from package attributes */
 		dataset: {},
 
@@ -23,8 +22,10 @@ var StatTutor =
 		setup: function () {
 			// When a component is Hint highlighted, make sure the active panel
 			// contains it.
-			$('div.work_area').on('CTAT_HIGHLIGHT', function() {
-				if ($(this).panel('options').closed) {
+			$('div.work_area').on('CTAT_HIGHLIGHT', function(e) {
+				//console.log('CTAT_HIGHLIGHT',e, e.originalEvent.detail.component.getName(),this.id);
+				//console.log(e.originalEvent.detail.isHighlighted);
+				if (e.originalEvent.detail.isHighlighted && $(this).panel('options').closed) {
 					StatTutor.goto_panel(this.id);
 	            }
 			});
@@ -334,8 +335,10 @@ var StatTutor =
 					$('.easyui-panel').panel('close');
 					if(node.id && $('#'+node.id).length>0) {
 						$('#'+node.id).panel('open');
+						$('#'+node.id).panel();
 					} else {
 						$('#BlankPanel').panel('open');
+						$('#BlankPanel').panel();
 					}
 				},
 				formatter: function(node) {
@@ -387,24 +390,9 @@ var StatTutor =
 				rownumbers: true});
 		},
 		
-		set_data_tab: function (data_file) 
-		{
-			if (data_file.length>0) 
-			{
-				console.log ("Calling $.getJSON ("+data_file+") ...");
-				
-				/*
-				$.getJSON(data_file, function(data) 
-				{
-					// json must be well formed or this will silently fail.
-					// Use something like http://jsonlint.com/ to check files before making them live.
-					$('#data-display').datagrid({data: data});					
-				});
-				*/
-				
-				var tempCommLibrary=new CTATCommLibrary (null,false,null);
-				tempCommLibrary.retrieveJSONFile (data_file, function(data) 
-				{
+		set_data_tab: function (data_file) {
+			if (data_file.length>0) {
+				$.getJSON(data_file, function(data) {
 					// json must be well formed or this will silently fail.
 					// Use something like http://jsonlint.com/ to check files before making them live.
 					$('#data-display').datagrid({data: data});					
@@ -425,7 +413,7 @@ var StatTutor =
 				$('#work_plan').tree('scrollTo',node.target);
 			} else {
 				alert('There was a problem finding the next section, please use the tree on the left side to select the next section.');
-			}			
+			}
 		},
 		
 		/**
@@ -522,10 +510,12 @@ var StatTutor =
 			}
 			var ctext = conclusions.join('\n\n\n');
 			$('#Summary').data('CTATComponent').setText(ctext);
+			return true;
 		},
 		populate_validity: function () {
 			var prev = $('#design_sampling').data('CTATComponent').getText();
-			$('#evaluate_validity').data('CTATComponent').setText();
+			$('#evaluate_validity').data('CTATComponent').setText(prev);
+			return true;
 		},
 		
 		highlight_question: function (Qn) {
@@ -538,7 +528,10 @@ var StatTutor =
 			}
 		}
 }
-
+/**
+ * Reveal the given our_answer section.
+ * @param id [String]	id of the our_* to reveal
+ */
 function show_our_answer(id) {
 	$('#'+id).css('visibility','visible');
 }
@@ -558,6 +551,10 @@ function mark_complete(node_name) {
 	}
 	StatTutor.update_tree_icons(); // update all of the tree completion icons.
 }
+/**
+ * TPA for setting which variable(s) will require classification.
+ * @param input [String]	"q<number>;<Input of related CTATRadioButton Group>"
+ */
 function set_classify_variables(input) {
 	console.log('set_classify_variables',input);
 	var inputs = input.split(';');
@@ -581,6 +578,10 @@ function set_classify_variables(input) {
 }
 function populate_summary() { return StatTutor.populate_summary(); }
 function populate_validity() { return StatTutor.populate_validity(); }
+/**
+ * In the Exploratory Analysis>Conduct Analysis panel, load and select
+ * instructions based on student selections.
+ */
 function AnalysisQn_onBeforeOpen() {
 	var i = this.id;
 	var r = i.charAt(i.length-1);
@@ -605,13 +606,20 @@ function AnalysisQn_onBeforeOpen() {
 		var sys_id = $sys.attr("id");
 		var inst = $task.text().trim();
 		if (inst) {
+			var d = $("<div/>").addClass('instructions');
+			d.html(inst);
 			$q_instructions.tabs('add',
-					{title:sys_id,
-				selected: (sys_id.startsWith(package_select)),
-				content: inst});
+					{title: sys_id,
+				     selected: (sys_id.startsWith(package_select)),
+				     content: d});
 		}
 	});
+	return true;
 }
+/**
+ * In the Formal Analysis>Conduct Analysis panel, add and select instructions
+ * based on student selections.
+ */
 function FormalAnalysisQn_onBeforeOpen() {
 	var i = this.id;
 	var r = i.charAt(i.length-1);
@@ -639,7 +647,12 @@ function FormalAnalysisQn_onBeforeOpen() {
 				content: inst});
 		}
 	});
+	return true;
 }
+/**
+ * Add the package options based on the availability of the dataset and 
+ * the instructions for that dataset type.
+ */
 function package_options() {
 	// moved to here so that it gets triggered on an openning of the CheckDataFormat
 	// panel, which will happen well after the xml files are loaded.
@@ -650,15 +663,24 @@ function package_options() {
 				if ($(StatTutor.instructions).find('system[id^="'+pkg+'"]').length>0)
 					$('#package_select').append('<option>'+pkg+'</option>');
 			});
+			this.package_options_set = true;
 		}
 	}
 }
 
-function stattutor_highlight_q1() { StatTutor.highlight_question('Q1'); }
-function stattutor_highlight_q2() { StatTutor.highlight_question('Q2'); }
-function stattutor_highlight_q3() { StatTutor.highlight_question('Q3'); }
-function stattutor_highlight_q0() { StatTutor.highlight_question(); }
+/**
+ * Top level function declarations of StatTutor.hightlight_question(...) for
+ * each question so they can be used in easy-ui callbacks.
+ */
+function stattutor_highlight_q1() { return StatTutor.highlight_question('Q1'); }
+function stattutor_highlight_q2() { return StatTutor.highlight_question('Q2'); }
+function stattutor_highlight_q3() { return StatTutor.highlight_question('Q3'); }
+function stattutor_highlight_q0() { return StatTutor.highlight_question(); }
 
+/**
+ * Reveals the thought question on the given panel.
+ * @param panel (String)	The id of the panel where the thought question should be revealed 
+ */
 function show_thought(panel) {
 	var $where = $('#'+panel).find('.ThoughtArea');
 	$where.css('visibility','visible');
