@@ -3,6 +3,10 @@
  */
 function ctatPreload() {
     $.get("$problem_description", function(data) { // Substituted by stattutor.py
+	$(data).find('dataset').each(function() {
+	    var $this = $(this);
+	    StatTutor.dataset[$this.attr('package')] = $this.text();
+	});
 	StatTutor.process_problem_data(data);
 	StatTutor.setup();
 	initTutor (flashVars.getRawFlashVars());
@@ -53,6 +57,6 @@ function download_data()
     //console.log(selection,StatTutor.dataset[selection]);
     if (StatTutor.dataset.hasOwnProperty(selection)) 
     {
-	window.open(translateResourceFile(StatTutor.dataset[selection]));
+	window.open('$public'+StatTutor.dataset[selection]);
     }
 }

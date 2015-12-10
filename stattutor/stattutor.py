@@ -80,6 +80,7 @@ class StattutorXBlock(XBlock):
         frag.add_css_url (self.runtime.local_resource_url (self,"public/css/stattutor.css"))
         frag.add_javascript_url (self.runtime.local_resource_url(self,"public/js/jsrender.min.js"))
         format_references = {
+            'public': self.runtime.local_resource_url(self, 'public/'),
             'logo': self.runtime.local_resource_url(self, 'public/images/logo.png'),
             'problem_description': self.runtime.local_resource_url(self, 'public/problem_files/'+self.module+'/'+self.name+'.xml'),
             'Instructions': self.runtime.local_resource_url(self, 'public/Instructions.xml'),
