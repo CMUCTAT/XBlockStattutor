@@ -1,17 +1,8 @@
 /**
  *
  */
-function ctatPreload() 
-{
-    var tempCommLibrary=new CTATCommLibrary (null,false,null);
-
-    //StatTutor.assign_dataset((flashVars.getRawFlashVars())["resource_spec"]);  // content of module-specific ctat_m?_stattutor.xml
-    //var pfile = translateResourceFile (StatTutor.dataset["problem_description.xml"]);
-    var pfile = translateResourceFile ("survey.xml");
-
-    //$.get(pfile, function(data)
-
-    tempCommLibrary.retrieveFile (pfile, function(data) {	
+function ctatPreload() {
+    $.get("$problem_description", function(data) { // Substituted by stattutor.py
 	StatTutor.process_problem_data(data);
 	StatTutor.setup();
 	initTutor (flashVars.getRawFlashVars());
@@ -41,18 +32,12 @@ function ctatOnload()
 {
     console.log ("ctatOnload ()");
 
-    var tempCommLibrary=new CTATCommLibrary (null,false,null);
-
-    //var instructionsLocation=translateResourceFile (StatTutor.dataset["instructions.xml"]);
-    var instructionsLocation = translateResourceFile ("Instructions.xml");
-
-    console.log ("Example LMS specific resource location translation: "  + instructionsLocation);
+    var instructionsLocation = "$Instructions"; // substituted by stattutor.py
 
     //StatTutor.set_data_tab(translateResourceFile (StatTutor.dataset["json"]));
-    StatTutor.set_data_tab(translateResourceFile ("Survey.json"));
+    StatTutor.set_data_tab('$data_json'); // substituted by stattutor.py
 
-    //$.get(instructionsLocation, function(data) 
-    tempCommLibrary.retrieveFile (instructionsLocation, function(data) {
+    $.get(instructionsLocation, function(data) {
 	//console.log('Loading instructions ...',data);
 	StatTutor.process_instructions(data);
     });

@@ -2,6 +2,7 @@ import os
 import pprint
 import pkg_resources
 import base64
+import glob
 
 from string import Template
 
@@ -80,6 +81,9 @@ class StattutorXBlock(XBlock):
         frag.add_javascript_url (self.runtime.local_resource_url(self,"public/js/jsrender.min.js"))
         format_references = {
             'logo': self.runtime.local_resource_url(self, 'public/images/logo.png'),
+            'problem_description': self.runtime.local_resource_url(self, 'public/problem_files/'+self.module+'/'+self.name+'.xml'),
+            'Instructions': self.runtime.local_resource_url(self, 'public/Instructions.xml'),
+            'data_json': self.runtime.local_resource_url(self,'public/problem_files/'+self.module+'/'+'Survey'+'.json'),
             'boxplots': self.runtime.local_resource_url(self, 'public/images/boxplots.png'),
             'scatterplot': self.runtime.local_resource_url(self, 'public/images/scatterplot.png'),
             'table': self.runtime.local_resource_url(self, 'public/images/table.png'),
@@ -93,7 +97,8 @@ class StattutorXBlock(XBlock):
         frag.add_javascript_url (self.runtime.local_resource_url(self,"public/js/ctatloader.js"))
         frag.add_javascript_url (self.runtime.local_resource_url(self,"public/js/ctat.min.js"))
         frag.add_javascript_url (self.runtime.local_resource_url(self,"public/js/stattutor.js"))
-        frag.add_javascript (self.resource_string("static/js/load_resources.js"))
+        load_resources = Template(self.resource_string("static/js/load_resources.js")).safe_substitute(format_references)
+        frag.add_javascript (load_resources)
         body = self.resource_string("static/html/body.html")
         frag.add_content (body.format(**format_references))
         frag.initialize_js('CTATXBlock')
