@@ -25,7 +25,7 @@ function ctatPreload() {
 		}
 	    });
 	});
-    });
+    }, 'xml');
 }
 /**
  * This function is called from the ctatloader javascript file whenever the tutor
@@ -44,7 +44,7 @@ function ctatOnload()
     $.get(instructionsLocation, function(data) {
 	//console.log('Loading instructions ...',data);
 	StatTutor.process_instructions(data);
-    });
+    }, 'xml');
 }
 
 /**

@@ -13,17 +13,19 @@
   
 */ 
 
-var CTATTarget="CTAT";
+if(typeof(CTATTarget) == "undefined" || !CTATTarget)
+{
+	var CTATTarget="Default";
+}
 
 var Tutor = {}; // For XBlock (for now)
-var FlashVars =
-{
+var FlashVars = (FlashVars ? FlashVars : {
 	admit_code: "ies",
-	authenticity_token: "none",
+	authenticity_token: "",
 	auth_token: "none",
 	BehaviorRecorderMode: "AuthorTimeTutoring",
 	class_name: "Default Class",
-	curriculum_service_url: "OLI", // One of: 'OLI', 'SCORM', TutorShop url
+	curriculum_service_url: "", // One of: 'OLI', 'SCORM', TutorShop url
 	dataset_level_name: "none",
 	dataset_level_type: "ProblemSet",
 	dataset_name: "none",
@@ -64,7 +66,7 @@ var FlashVars =
 	DeliverUsingOLI: "none",
 	ssl: "off",
 	sui: ""
-};
+});
 
 /**
 * Started with an example at: // http://www.javascriptkit.com/javatutors/loadjavascriptcss.shtml
@@ -94,6 +96,26 @@ function loadjscssfile(filename, filetype)
 		console.log ("Loading: " + filename);
         document.getElementsByTagName("head")[0].appendChild(fileref)
 	}	
+};
+
+function tutorShopParams(emptyResult) {
+    var tsps = null;
+    if(window && window.frameElement && (tsps = window.frameElement.getAttribute('data-params')))
+		return jQuery.parseJSON(tsps);
+    else
+		return emptyResult;
+};
+
+if((tutorShopParams({}))["LMS"] == "TutorShop" || CTATTarget == "Default")
+{
+    if(typeof CTATTutor == "undefined" || !CTATTutor)
+    {
+        loadjscssfile("Assets/ctat.min.js","js");
+    }
+    if(!(Array.prototype.some.call(document.styleSheets, function(sheet) {return sheet.href && sheet.href.includes("CTAT.css")})))
+    {
+        loadjscssfile("Assets/CTAT.css","css");
+    }
 }
 
 /**
@@ -206,11 +228,11 @@ function loadCTAT ()
 		FlashVars ['user_guid']=window.self.studentId;
 		FlashVars ['baseUrl']=window.self.baseUrl;
 		FlashVars ['handlerBaseUrl']=window.self.handlerBaseUrl;
-	    FlashVars ['question_file']='/resource/stattutor/public/problem_files/'+window.stattutor_module+'/'+window.self.problem; // currently somewhat hardcoded because not all of the useful variables are set yet.
+		FlashVars ['question_file']=window.self.href + "/" + window.self.stattutor_module + "/" + window.self.problem;
 		
 		FlashVars ['href']=window.href;
 		FlashVars ['module']=window.stattutor_module;		
-	
+
 		FlashVars ['resource_spec']=window.name;
 		FlashVars ['problem']=window.problem;
 		FlashVars ['src']=window.src;
@@ -239,10 +261,10 @@ function loadCTAT ()
 		
 		initOnload ();
 		
-		if (window ['ctatOnload'])
+		if (window.hasOwnProperty('ctatOnload'))
 		{
 			ctatdebug ("Calling client provided ctatOnload ...");
-			window ['ctatOnload']();
+			window['ctatOnload']();
 		}
 		else
 		{
@@ -257,9 +279,9 @@ function loadCTAT ()
 	*/	
 	if ((CTATTarget=="Default") || (CTATTarget=="CTAT"))
 	{	
-		loadjscssfile ("css/CTAT.css","css");
+	    //		loadjscssfile ("css/CTAT.css","css");
 		
-		loadjscssfile ("ctatjslib/ctat-tutor.min.js","js");	
+	    //		loadjscssfile ("ctatjslib/ctat.min.js","js");	
 	}		
 }
 
@@ -394,14 +416,14 @@ function initOnload ()
 		Tutor.problem_description = Tutor.name+".xml";
 		Tutor.brd = Tutor.name+".brd";
 		
-		if (window.ctatPreload)
+		if (window.hasOwnProperty('ctatPreload'))
 		{
 			ctatPreload();
 		}
 		else
 		{
-		    console.log ("ctatPreload () not defined, only used in ctat stattutor");
-		    initTutor (); // ctatPreload() calls initTutor;
+			console.log ("ctatPreload () not defined, only used in ctat stattutor");
+			initTutor (); // ctatPreload() calls initTutor.
 		}
 
 		return;	
@@ -412,7 +434,7 @@ function initOnload ()
 	*/	
 	if ((CTATTarget=="Default") || (CTATTarget=="CTAT"))
 	{
-		initTutor ();
+		initTutor (CTATGlobalFunctions.decodeTutorShopParams());
 		
 		// Once all the CTAT code has been loaded allow developers to activate custom code
 		// All developers would have to do is provde the method called 'init'. This is a
@@ -475,7 +497,7 @@ $(document).ready(function()
 	if (CTATTarget=="CTAT")
 	{
 		console.log ("Checking target: " + CTATTarget);
-	
+
 		if (window ['XBlock'])
 		{
 			console.log ("Forcing target platform to be XBlock, loadCTAT () will be called by the EdX Xblock code ...");
@@ -485,11 +507,11 @@ $(document).ready(function()
 		}
 		else
 		{
-			console.log ("window ['XBlock'] is not XBlock: " + window ['XBlock']);
+			console.log ("window ['XBlock'] is not XBlock: " + window ['XBlock'] + "; CTATTarget is " + CTATTarget);
 		}
 	}
 
-	//loadCTAT ();
+	loadCTAT ();
 });
 
 $(window).load(function() 
