@@ -340,7 +340,7 @@ for (var i=0; i<MAX_NUMBER_QUESTIONS; i++)
     question_init_data.push({});
 }
 var question_panels = template.render(question_init_data);
-$('#main').append(question_panels);
+$(function() { $('#main').append(question_panels); });
 
 console.log ("Finished adding templated html.");
 
