@@ -72,6 +72,7 @@ class StattutorXBlock(XBlock):
     def student_view(self, context=None):
         baseURL=self.runtime.local_resource_url (self,"public/problem_files/ref.css");
         html = self.resource_string("static/html/ctatxblock.html")
+        self.problem_location = self.runtime.local_resource_url(self, 'public/problem_files/'+self.module+'/'+self.problem)
         frag = Fragment (html.format(self=self))
         frag.add_css_url (self.runtime.local_resource_url (self,"public/css/themes/default/easyui.css"))
         frag.add_css_url (self.runtime.local_resource_url (self,"public/css/themes/icon.css"))
