@@ -40,8 +40,8 @@ class StattutorXBlock(XBlock):
 
     src = String(help = "URL for MP3 file to play", scope = Scope.settings )
 
-    saveandrestore = String(help="Internal data blob used by the tracer", default="", scope=Scope.settings)
-    skillstring = String(help="Internal data blob used by the tracer", default="", scope=Scope.settings)
+    saveandrestore = String(help="Internal data blob used by the tracer", default="", scope=Scope.user_state)
+    skillstring = String(help="Internal data blob used by the tracer", default="", scope=Scope.user_state)
 
     def logdebug (self, aMessage):
         global dbgopen, tmp_file
@@ -196,10 +196,10 @@ class StattutorXBlock(XBlock):
                self.connection = value
             elif (key=="src"):
                self.src = value
-            elif (key=="saveandrestore"):
-               self.saveandrestore = value
-            elif (key=="skillstring"):
-              self.skillstring = value
+            #elif (key=="saveandrestore"):
+            #   self.saveandrestore = value
+            #elif (key=="skillstring"):
+            #  self.skillstring = value
 
         return {'result': 'success'}
 
