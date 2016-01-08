@@ -40,17 +40,8 @@ class StattutorXBlock(XBlock):
 
     src = String(help = "URL for MP3 file to play", scope = Scope.settings )
 
-    saveandrestore = String(help="Internal data blob used by the tracer", default="", scope=Scope.content)
-    skillstring = String(help="Internal data blob used by the tracer", default="", scope=Scope.content)
-
-    def resource_string(self, path):
-        data = pkg_resources.resource_string(__name__, path)        
-        return data.decode("utf8")
-
-    def bind_path (self, text):
-        tbase=self.runtime.local_resource_url (self,"public/ref.css")
-        base=tbase[:-7]
-        return (text.replace ("[xblockbase]",base))
+    saveandrestore = String(help="Internal data blob used by the tracer", default="", scope=Scope.settings)
+    skillstring = String(help="Internal data blob used by the tracer", default="", scope=Scope.settings)
 
     def logdebug (self, aMessage):
         global dbgopen, tmp_file
@@ -58,7 +49,17 @@ class StattutorXBlock(XBlock):
             tmp_file = open("/tmp/edx-tmp-log.txt", "w", 0)
             dbgopen=True
         tmp_file.write (aMessage + "\n")
-        print (aMessage + "\n")
+
+    def resource_string(self, path):
+        data = pkg_resources.resource_string(__name__, path)        
+        return data.decode("utf8")
+
+    def bind_path (self, text):
+        tbase=self.runtime.local_resource_url (self,"public/ref.css")
+        self.logdebug (self,'local_resource_url: ' + tbase)
+        base=tbase[:-7]
+        self.logdebug (self,'local_resource_url (adjusted): ' + base)
+        return (text.replace ("[xblockbase]",base))
 
     # -------------------------------------------------------------------
     # Here we construct the tutor html page from various resources. This 
@@ -81,6 +82,7 @@ class StattutorXBlock(XBlock):
     # -------------------------------------------------------------------
 
     def student_view(self, context=None):
+        self.logdebug ("student_view ()")
         self.logdebug ("Hostname: " + socket.getfqdn())
         self.logdebug ("Base URL: " + self.runtime.local_resource_url(self, 'public/'))
         baseURL=self.runtime.local_resource_url (self,"public/problem_files/ref.css");
@@ -121,7 +123,8 @@ class StattutorXBlock(XBlock):
 
     @XBlock.json_handler
     def ctat_grade(self, data, suffix=''):
-        print('ctat_grade:',data,suffix)
+        self.logdebug ("ctat_grade ()")
+        #print('ctat_grade:',data,suffix)
         self.attempted = True
         self.score = data['value']
         self.max_score = data['max_value']
@@ -134,15 +137,17 @@ class StattutorXBlock(XBlock):
     # TO-DO: change this view to display your data your own way.
     # -------------------------------------------------------------------
     def studio_view(self, context=None):        
+        self.logdebug ("studio_view ()")
         html = self.resource_string("static/html/ctatstudio.html")
         frag = Fragment(html.format(src=self.src))
-        frag.add_css(self.resource_string("static/css/ctatstudio.css"))
+        frag.add_css_url(self.runtime.local_resource_url (self,"public/css/ctatstudio.css"))    
         frag.initialize_js('CTATXBlock')        
         return frag
 
     @XBlock.json_handler
     def studio_submit(self, data, suffix=''):
-        print ('studio_submit()')
+        self.logdebug ("studio_submit ()")
+        #print ('studio_submit()')
         #pp = pprint.PrettyPrinter(indent=4)
         #pp.pprint(data)
         self.src = data.get('src')
@@ -150,15 +155,15 @@ class StattutorXBlock(XBlock):
 
     @XBlock.json_handler
     def ctat_set_variable(self, data, suffix=''):
+        self.logdebug ("ctat_set_variable ()")
         ### causes 500: INTERNAL SERVER ERROR ###
-        print ('ctat_set_variable()')
         #pp = pprint.PrettyPrinter(indent=4)
         #pp.pprint(data)
 
         for key in data:
             #value = base64.b64decode(data[key])
             value = data[key]
-            #print("Setting ({}) to ({})".format(key, value))
+            self.logdebug("Setting ({}) to ({})".format(key, value))
             if (key=="href"):
                self.href = value
             elif (key=="module"):
