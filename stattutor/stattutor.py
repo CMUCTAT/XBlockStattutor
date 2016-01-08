@@ -3,6 +3,7 @@ import pprint
 import pkg_resources
 import base64
 import glob
+import socket
 
 from string import Template
 
@@ -10,8 +11,10 @@ from xblock.core import XBlock
 from xblock.fields import Scope, Integer, String, Boolean, Any
 from xblock.fragment import Fragment
 
-class StattutorXBlock(XBlock):
+dbgopen=False;
+tmp_file=None;
 
+class StattutorXBlock(XBlock):
     # Fields are defined on the class.  You can access them in your code as
     # self.<fieldname>.
     score = Integer(help="Current count of correctly completed student steps", scope=Scope.user_state, default=0)
@@ -37,8 +40,15 @@ class StattutorXBlock(XBlock):
 
     src = String(help = "URL for MP3 file to play", scope = Scope.settings )
 
-    saveandrestore = String(help="Internal data blob used by the tracer", default="", scope=Scope.content)
-    skillstring = String(help="Internal data blob used by the tracer", default="", scope=Scope.content)
+    saveandrestore = String(help="Internal data blob used by the tracer", default="", scope=Scope.user_state)
+    skillstring = String(help="Internal data blob used by the tracer", default="", scope=Scope.user_state)
+
+    def logdebug (self, aMessage):
+        global dbgopen, tmp_file
+        if (dbgopen==False):
+            tmp_file = open("/tmp/edx-tmp-log.txt", "w", 0)
+            dbgopen=True
+        tmp_file.write (aMessage + "\n")
 
     def resource_string(self, path):
         data = pkg_resources.resource_string(__name__, path)        
@@ -46,7 +56,9 @@ class StattutorXBlock(XBlock):
 
     def bind_path (self, text):
         tbase=self.runtime.local_resource_url (self,"public/ref.css")
+        self.logdebug (self,'local_resource_url: ' + tbase)
         base=tbase[:-7]
+        self.logdebug (self,'local_resource_url (adjusted): ' + base)
         return (text.replace ("[xblockbase]",base))
 
     # -------------------------------------------------------------------
@@ -70,6 +82,9 @@ class StattutorXBlock(XBlock):
     # -------------------------------------------------------------------
 
     def student_view(self, context=None):
+        self.logdebug ("student_view ()")
+        self.logdebug ("Hostname: " + socket.getfqdn())
+        self.logdebug ("Base URL: " + self.runtime.local_resource_url(self, 'public/'))
         baseURL=self.runtime.local_resource_url (self,"public/problem_files/ref.css");
         html = self.resource_string("static/html/ctatxblock.html")
         self.problem_location = self.runtime.local_resource_url(self, 'public/problem_files/'+self.module+'/'+self.problem)
@@ -108,7 +123,8 @@ class StattutorXBlock(XBlock):
 
     @XBlock.json_handler
     def ctat_grade(self, data, suffix=''):
-        print('ctat_grade:',data,suffix)
+        self.logdebug ("ctat_grade ()")
+        #print('ctat_grade:',data,suffix)
         self.attempted = True
         self.score = data['value']
         self.max_score = data['max_value']
@@ -121,15 +137,17 @@ class StattutorXBlock(XBlock):
     # TO-DO: change this view to display your data your own way.
     # -------------------------------------------------------------------
     def studio_view(self, context=None):        
+        self.logdebug ("studio_view ()")
         html = self.resource_string("static/html/ctatstudio.html")
         frag = Fragment(html.format(src=self.src))
-        frag.add_css(self.resource_string("static/css/ctatstudio.css"))
+        frag.add_css_url(self.runtime.local_resource_url (self,"public/css/ctatstudio.css"))    
         frag.initialize_js('CTATXBlock')        
         return frag
 
     @XBlock.json_handler
     def studio_submit(self, data, suffix=''):
-        print ('studio_submit()')
+        self.logdebug ("studio_submit ()")
+        #print ('studio_submit()')
         #pp = pprint.PrettyPrinter(indent=4)
         #pp.pprint(data)
         self.src = data.get('src')
@@ -137,15 +155,15 @@ class StattutorXBlock(XBlock):
 
     @XBlock.json_handler
     def ctat_set_variable(self, data, suffix=''):
+        self.logdebug ("ctat_set_variable ()")
         ### causes 500: INTERNAL SERVER ERROR ###
-        print ('ctat_set_variable()')
         #pp = pprint.PrettyPrinter(indent=4)
         #pp.pprint(data)
 
         for key in data:
             #value = base64.b64decode(data[key])
             value = data[key]
-            #print("Setting ({}) to ({})".format(key, value))
+            self.logdebug("Setting ({}) to ({})".format(key, value))
             if (key=="href"):
                self.href = value
             elif (key=="module"):
@@ -178,10 +196,10 @@ class StattutorXBlock(XBlock):
                self.connection = value
             elif (key=="src"):
                self.src = value
-            elif (key=="saveandrestore"):
-               self.saveandrestore = value
-            elif (key=="skillstring"):
-              self.skillstring = value
+            #elif (key=="saveandrestore"):
+            #   self.saveandrestore = value
+            #elif (key=="skillstring"):
+            #  self.skillstring = value
 
         return {'result': 'success'}
 
