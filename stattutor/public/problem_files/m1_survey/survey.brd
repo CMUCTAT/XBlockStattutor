@@ -5720,7 +5720,7 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage>Select 'More Formal Analyses' to continue.</successMessage>
+            <successMessage>Select 'Draw Conclusions' to continue.</successMessage>
             <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please describe your results in the highlighted element.</hintMessage>
             <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; When describing a categorical distribution using a pie chart and group percentages mention important features of how the sample's individuals are distributed among the different categories.</hintMessage>
             <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Are the sample's individuals distributed evenly among the different categories? If not, which category has the largest percentage, which has the smallest?</hintMessage>
@@ -8207,7 +8207,7 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage>Select 'More Formal Analyses' to continue.</successMessage>
+            <successMessage>Select 'Draw Conclusions' to continue.</successMessage>
             <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please describe your results in the highlighted element.</hintMessage>
             <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; When comparing distributions using side-by-side boxplots and descriptive statistics compare the center and spread across groups and mention any unusual observations.</hintMessage>
             <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; For comparing center, look at the medians of the different groups, and for comparing spread consider the IQR and range across groups. Recall that outliers are marked by *.</hintMessage>
