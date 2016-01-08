@@ -11,8 +11,10 @@ from xblock.core import XBlock
 from xblock.fields import Scope, Integer, String, Boolean, Any
 from xblock.fragment import Fragment
 
-class StattutorXBlock(XBlock):
+dbgopen=False;
+tmp_file=None;
 
+class StattutorXBlock(XBlock):
     # Fields are defined on the class.  You can access them in your code as
     # self.<fieldname>.
     score = Integer(help="Current count of correctly completed student steps", scope=Scope.user_state, default=0)
@@ -50,6 +52,14 @@ class StattutorXBlock(XBlock):
         base=tbase[:-7]
         return (text.replace ("[xblockbase]",base))
 
+    def logdebug (self, aMessage):
+        global dbgopen, tmp_file
+        if (dbgopen==False):
+            tmp_file = open("/tmp/edx-tmp-log.txt", "w", 0)
+            dbgopen=True
+        tmp_file.write (aMessage + "\n")
+        print (aMessage + "\n")
+
     # -------------------------------------------------------------------
     # Here we construct the tutor html page from various resources. This 
     # is where all things go to hell. We can't use jsrender because the
@@ -71,7 +81,8 @@ class StattutorXBlock(XBlock):
     # -------------------------------------------------------------------
 
     def student_view(self, context=None):
-        print(socket.gethostname())
+        self.logdebug ("Hostname: " + socket.getfqdn())
+        self.logdebug ("Base URL: " + self.runtime.local_resource_url(self, 'public/'))
         baseURL=self.runtime.local_resource_url (self,"public/problem_files/ref.css");
         html = self.resource_string("static/html/ctatxblock.html")
         self.problem_location = self.runtime.local_resource_url(self, 'public/problem_files/'+self.module+'/'+self.problem)
