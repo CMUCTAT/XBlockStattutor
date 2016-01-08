@@ -1,210 +1,62 @@
-html
-{
-    width: 100%;
-    height: 100%;
+/* Size the StatTutor frame to fill the alotted area */
+.stattutor-frame {
+   width: 100%; /* 900px; */
+   height: 750px;
+   margin: 0 auto;
 }
 
-body 
-{
-	margin: 0;
-	padding: 0;
-	text-align: center; /* !!! */
-	background-color:#cccccc;
-	width: 100%;
-	height: 100%;	
+/* Clobber edx spacing for the work plan to that the items align correctly */
+#work_plan, #work_plan * {
+    margin: 0;
+    padding: 0;
+    padding-left: 0;
+    list-style: none;
+}
+/* Clobber edx's styles so that easyui tabs are rendered property */
+#description_tabs li {
+    list-style: none;
+    margin: 0 4px 0 0;
+}
+/* Get the easyui tabs to position correctly */
+#description_tabs ul {
+    padding-left: 4px;
+}
+/* Get lists in StatTutor to space better, clobbering other overrides */
+#main ul {
+    padding-left: 40px;
+    margin: 12px 0;
+}
+/* Fix easyui tabs for instructions in Conduct Analysis panels */
+#main div[id$="instructions"] ul.tabs {
+    padding-left: 4px;
+    margin: 0;
+}
+#main div[id$="instructions"] ul.tabs>li {
+    list-style: none;
+    margin: 0 4px 0 0;
+}
+/* Fix edx's setting for paragraphs */
+#main p {
+    margin: 12px 0;
+}
+/* Fix edx's setting for text inputs which ruin StatTutor's spacing */
+#main input[type="text"] {
+    margin: 0;
+    padding: 0 2px;
+    height: initial;
+    border-radius: 5px;
+    background-color: white;
+}
+/* reassert disabled color, which edx sets to white */
+#main input[type="text"][disabled] {
+    background-color: #F2F2F2;
+}
+#main textarea[disabled] {
+    background-color: #F2F2F2;
+    color: #424242;
 }
 
-.container 
-{ 
-	width: 320px;
-	height: 200px; 		  
-	box-shadow: 10px 10px 5px #888888;
-	z-index: 0;
-	position: relative;
-	margin: auto;
-	vertical-align: middle;
-}
-
-canvas
-{
-	border: 1px solid black; 
-	background-color: #ffffff;
-	z-index: 1;
-	position: relative;		
-}	
-
-.shadow
-{
-	box-shadow: 5px 5px 5px #888888;	
-}
-
-.ui-widget-content 
-{
-	border: 1px solid #aaaaaa;
-	background: #ffffff url(skindata/ui-bg_flat_75_ffffff_40x100.png) 50% 50% repeat-x;
-	color: #222222;
-	font-size: 10px;
-}
-
-.ui-widget-content a 
-{
-	color: #222222;
-	font-size: 12px;
-}	
-
-.topbtn 
-{
-    text-decoration:none;
-    -webkit-border-radius: 4;
-    -moz-border-radius: 4;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    font-weight: bold;
-    font-family: Arial;
-    color: #ffffff;
-    font-size: 14px;
-    background: #7d9c95;
-    padding: 5px 18px 5px 11px;
-    border: solid #000000 1px;
-    text-decoration: none;
-
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;	
-
-    cursor: pointer; cursor: hand;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none; 	
-}
-
-.topbtnselected 
-{
-    text-decoration:none;
-    -webkit-border-radius: 4;
-    -moz-border-radius: 4;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    font-weight: bold;
-    font-family: Arial;
-    color: #891b08;
-    font-size: 14px;
-    background: #ebebe9;
-    padding: 5px 18px 5px 11px;
-    border: solid #000000 1px;
-    text-decoration: none;
-    height: 28px;
-
-    cursor: pointer; cursor: hand;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;	
-}
-
-.topbtn:hover 
-{
-    background: #3cb0fd;
-    background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
-    background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
-    background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
-    background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
-    background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
-    text-decoration: none;
-
-    cursor: pointer; cursor: hand;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none; 	
-}
-
-.btn 
-{
-    -webkit-border-radius: 4;
-    -moz-border-radius: 4;
-    border-radius: 4px;
-    font-family: Arial;
-    color: #ffffff;
-    font-size: 17px;
-    background: #7d9c95;
-    padding: 5px 18px 5px 11px;
-    border: solid #000000 1px;
-    text-decoration: none;
-
-    cursor: pointer; cursor: hand;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;  
-}
-
-.btn:hover 
-{
-    background: #3cb0fd;
-    background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
-    background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
-    background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
-    background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
-    background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
-    text-decoration: none;
-
-    cursor: pointer; cursor: hand;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none; 	
-}
-
-.header
-{
-	width: 558px; 
-	height: 152px; 
-	background: #f5f5f2; 
-	border-left: 1px solid #000000; 
-	border-right: 0px solid #000000; 
-	border-top: 1px solid #000000; 
-	border-bottom: 1px solid #000000; 
-	border-top-left-radius: 6px; 
-	border-bottom-left-radius: 6px; 
-	margin: 0px; 
-	padding:10px;
-}
-
-.question_title
-{
-	line-height: 25px; 
-	vertical-align: middle;
-	font-weight: bold; 
-	font-family: Arial; 
-	color: #891b08;
-	width: 570px; 
-	height: 25px; 
-	background: #ece9d8; 
-	border-left: 1px solid #000000; 
-	border-right: 0px solid #000000; 
-	border-top: 1px solid #000000; 
-	border-bottom: 1px solid #000000; 
-	border-top-left-radius: 6px; 
-	border-bottom-left-radius: 6px; 
-	margin: 0px; 
-	padding:4px;
-}
-
+/* Set the size of the work area (main section for student work) */
 div.work_area 
 {
     width: 97%;
@@ -249,8 +101,7 @@ div.work_area
 h3.your_answer { color: blue; }
 h3.our_answer { color: green; }
 
-table, td { border: 1px solid black;}
-th { text-align: center; }
+div[data-block-type=stattutor] th { text-align: center; }
 textarea.CTAT-text { overflow-y: auto; }
 span.CTAT-hint { color: orange; }
 span.CTAT-correct { color: limegreen; font-weight: bold; }

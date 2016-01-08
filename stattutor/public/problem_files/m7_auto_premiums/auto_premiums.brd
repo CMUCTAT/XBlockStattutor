@@ -1175,10 +1175,10 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage></successMessage>
-            <hintMessage>To answer each of the questions in this step, you will need to look at the dataset you opened at the beginning of your StatTutor session, and examine the first few cases (rows).</hintMessage>
-            <hintMessage>In this dataset, each row represents a single driver, so the first ten rows represent the first ten drivers. Find the row representing the most experienced driver, and then look to see what his or her monthly premium is.</hintMessage>
-            <hintMessage>Out of the first ten drivers, the most experienced one is a male with 20 years of driving experience who pays 45 dollars per month.</hintMessage>
+            <successMessage>&lt;span class="CTAT-correct"&gt;&amp;#x2713;&lt;/span&gt; Good job!</successMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Click on the Data tab above to preview and download the dataset needed to answer the questions in this lesson. For each of the questions on this page, look at the first few cases (rows) in the table or the downloaded file.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; In this dataset, each row represents a single driver, so the first ten rows represent the first ten drivers. Find the row representing the most experienced driver, and then look to see what his or her monthly premium is.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Out of the first ten drivers, the most experienced one is a male with 20 years of driving experience who pays 45 dollars per month.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -1238,10 +1238,10 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage></successMessage>
-            <hintMessage>To answer each of the questions in this step, you will need to look at the dataset you opened at the beginning of your StatTutor session, and examine the first few cases (rows).</hintMessage>
-            <hintMessage>In this dataset, each row represents a single driver, so the first ten rows represent the first ten drivers. Find the row representing the least experienced female driver, and then look to see what her monthly premium is.</hintMessage>
-            <hintMessage>Out of the first ten drivers, the least experienced female has 1 year of driving experience and pays 73 dollars per month.</hintMessage>
+            <successMessage>&lt;span class="CTAT-correct"&gt;&amp;#x2713;&lt;/span&gt; Good job!</successMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Click on the Data tab above to preview and download the dataset needed to answer the questions in this lesson. For each of the questions on this page, look at the first few cases (rows) in the table or the downloaded file.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; In this dataset, each row represents a single driver, so the first ten rows represent the first ten drivers. Find the row representing the least experienced female driver, and then look to see what her monthly premium is.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Out of the first ten drivers, the least experienced female has 1 year of driving experience and pays 73 dollars per month.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -1301,10 +1301,10 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage>Now click on 'Consider Study Design' under the Work Plan to continue.</successMessage>
-            <hintMessage>To answer each of the questions in this step, you will need to look at the dataset you opened at the beginning of your StatTutor session, and examine the first few cases (rows).</hintMessage>
-            <hintMessage>In this dataset, each row represents a single driver, so the first ten rows represent the first ten drivers. Find the row representing the driver who pays the highest monthly premium, and then look to see how long that driver has been driving.</hintMessage>
-            <hintMessage>Out of the first ten drivers, the one who pays the highest premium is a male with 6 years of driving experience who pays 74 dollars per month.</hintMessage>
+            <successMessage>&lt;span class="CTAT-correct"&gt;&amp;#x2713;&lt;/span&gt; Good job!</successMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Click on the Data tab above to preview and download the dataset needed to answer the questions in this lesson. For each of the questions on this page, look at the first few cases (rows) in the table or the downloaded file.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; In this dataset, each row represents a single driver, so the first ten rows represent the first ten drivers. Find the row representing the driver who pays the highest monthly premium, and then look to see how long that driver has been driving.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Out of the first ten drivers, the one who pays the highest premium is a male with 6 years of driving experience who pays 74 dollars per month.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -1364,8 +1364,8 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <successMessage>Now click on 'Consider Study Design' under the Work Plan to continue.</successMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -1424,8 +1424,8 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage></successMessage>
-            <hintMessage>In an experiment, researchers impose treatments on their individuals.  In an observational study, no treatment is imposed - researchers simply observe individuals and measure variables of interest.</hintMessage>
+            <successMessage>&lt;span class="CTAT-correct"&gt;&amp;#x2713;&lt;/span&gt; Good job!</successMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; In an experiment, researchers impose treatments on their individuals.  In an observational study, no treatment is imposed - researchers simply observe individuals and measure variables of interest.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -1485,7 +1485,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Read the problem statement (found in the &lt;b&gt;Problem&lt;/b&gt; tab above) to find out how the subjects were selected.  If it is described in the statement, include the type of sampling technique used.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Read the problem statement (found in the &lt;b&gt;Problem&lt;/b&gt; tab above) to find out how the subjects were selected.  If it is described in the statement, include the type of sampling technique used.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -1544,7 +1544,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -1604,7 +1604,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -1664,7 +1664,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage>Select 'Question 1' in the Work Plan to continue.</successMessage>
-            <hintMessage></hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; </hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -1723,7 +1723,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -1783,7 +1783,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -1843,7 +1843,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage>Click on 'Analyze Data' in the Work Plan to continue.</successMessage>
-            <hintMessage>Just give an educated guess on what you think the results will show with respect to the current question.  There is no right or wrong answer.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Just give an educated guess on what you think the results will show with respect to the current question.  There is no right or wrong answer.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -1902,7 +1902,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -1962,7 +1962,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -2021,8 +2021,8 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage></successMessage>
-            <hintMessage>Read the current question again, and think which of the variables among those listed should be looked at in order to answer this question.  Remember to check all variables that are relevant to the current question.</hintMessage>
+            <successMessage>&lt;span class="CTAT-correct"&gt;&amp;#x2713;&lt;/span&gt; Good job!</successMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Read the current question again, and think which of the variables among those listed should be looked at in order to answer this question.  Remember to check all variables that are relevant to the current question.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -2082,7 +2082,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -2141,8 +2141,8 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage></successMessage>
-            <hintMessage>The response variable is the focus of a question in a study or experiment. An explanatory variable is one that explains changes in the response variable; it can be any factor that might influence the response variable.&lt;sup&gt;&lt;a href="http://www.statisticshowto.com/explanatory-variable/"&gt;1&lt;/a&gt;&lt;/sup&gt;</hintMessage>
+            <successMessage>&lt;span class="CTAT-correct"&gt;&amp;#x2713;&lt;/span&gt; Good job!</successMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; The response variable is the focus of a question in a study or experiment. An explanatory variable is one that explains changes in the response variable; it can be any factor that might influence the response variable.&lt;sup&gt;&lt;a href="http://www.statisticshowto.com/explanatory-variable/"&gt;1&lt;/a&gt;&lt;/sup&gt;</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -2201,10 +2201,10 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage></successMessage>
-            <hintMessage>Quantitative variables take numerical values for which arithmetic operations make sense (example: age, GPA, weight).  Categorical variables place an individual into one of several groups (example: race, eye color, handedness).</hintMessage>
-            <hintMessage>Is the variable, Extra credit, quantitative or categorical?</hintMessage>
-            <hintMessage>Please select 'categorical' in the highlighted element.</hintMessage>
+            <successMessage>&lt;span class="CTAT-correct"&gt;&amp;#x2713;&lt;/span&gt; Good job!</successMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Quantitative variables take numerical values for which arithmetic operations make sense (example: age, GPA, weight).  Categorical variables place an individual into one of several groups (example: race, eye color, handedness).</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Is the variable, Extra credit, quantitative or categorical?</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please select 'categorical' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -2263,8 +2263,8 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage></successMessage>
-            <hintMessage>The response variable is the focus of a question in a study or experiment. An explanatory variable is one that explains changes in the response variable; it can be any factor that might influence the response variable.&lt;sup&gt;&lt;a href="http://www.statisticshowto.com/explanatory-variable/"&gt;1&lt;/a&gt;&lt;/sup&gt;</hintMessage>
+            <successMessage>&lt;span class="CTAT-correct"&gt;&amp;#x2713;&lt;/span&gt; Good job!</successMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; The response variable is the focus of a question in a study or experiment. An explanatory variable is one that explains changes in the response variable; it can be any factor that might influence the response variable.&lt;sup&gt;&lt;a href="http://www.statisticshowto.com/explanatory-variable/"&gt;1&lt;/a&gt;&lt;/sup&gt;</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -2323,10 +2323,10 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage>Please click on 'Exploratory Analysis' to continue.</successMessage>
-            <hintMessage>Quantitative variables take numerical values for which arithmetic operations make sense (example: age, GPA, weight).  Categorical variables place an individual into one of several groups (example: race, eye color, handedness).</hintMessage>
-            <hintMessage>Is the variable, Final, quantitative or categorical?</hintMessage>
-            <hintMessage>Please select 'quantitative' in the highlighted element.</hintMessage>
+            <successMessage>&lt;span class="CTAT-correct"&gt;&amp;#x2713;&lt;/span&gt; Good job!</successMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Quantitative variables take numerical values for which arithmetic operations make sense (example: age, GPA, weight).  Categorical variables place an individual into one of several groups (example: race, eye color, handedness).</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Is the variable, Final, quantitative or categorical?</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please select 'quantitative' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -2385,8 +2385,8 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <successMessage>Please click on 'Exploratory Analysis' to continue.</successMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -2445,22 +2445,22 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage></successMessage>
-            <hintMessage>Think about how you classified the two relevant variables for this question.</hintMessage>
-            <hintMessage>Which of the cells in &lt;table&gt;
+            <successMessage>&lt;span class="CTAT-correct"&gt;&amp;#x2713;&lt;/span&gt; Good job!</successMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Think about how you classified the two relevant variables for this question.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Which of the cells in &lt;table&gt;
 &lt;tr&gt;&lt;th&gt;&lt;/th&gt;&lt;th&gt;&lt;/th&gt;&lt;th id="emptyResponse" colspan="2"&gt;RESPONSE&lt;/th&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;th&gt;&lt;/th&gt;&lt;th&gt;&lt;/th&gt;&lt;th headers="emptyResponse" scope="col"&gt;Categorical&lt;/th&gt;&lt;th headers="emptyResponse" scope="col"&gt;Quantitative&lt;/th&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;th rowspan="2" id="emptyExplanatory"&gt;EXPLANATORY&lt;/th&gt;&lt;th headers="emptyExplanatory"&gt;Categorical&lt;/th&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;th headers="emptyExplanatory"&gt;Quantitative&lt;/th&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
 &lt;/table&gt;
  represents the classification of the relevant variables in this question?  What is the appropriate display of the data in this case?</hintMessage>
-            <hintMessage>&lt;table&gt;
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; &lt;table&gt;
 &lt;tr&gt;&lt;th&gt;&lt;/th&gt;&lt;th&gt;&lt;/th&gt;&lt;th id="fullResponse" colspan="2"&gt;RESPONSE&lt;/th&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;th&gt;&lt;/th&gt;&lt;th&gt;&lt;/th&gt;&lt;th headers="fullResponse" scope="col"&gt;Categorical&lt;/th&gt;&lt;th headers="fullResponse" scope="col"&gt;Quantitative&lt;/th&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;th rowspan="2"&gt;EXPLANATORY&lt;/th&gt;&lt;th&gt;Categorical&lt;/th&gt;&lt;td&gt;Two-way table&lt;/td&gt;&lt;td&gt;Side-by-side boxplots&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;th&gt;Quantitative&lt;/th&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;Scatterplot&lt;/td&gt;&lt;/tr&gt;
 &lt;/table&gt; Here are the appropriate displays of the data in each of the three cases that are discussed in this course.</hintMessage>
-            <hintMessage>Please select Scatterplot.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please select Scatterplot.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -2519,16 +2519,16 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage></successMessage>
-            <hintMessage>What is the most appropriate choice of numerical measure to supplement the display you chose?</hintMessage>
-            <hintMessage>Here are the appropriate displays of the data and numerical measures in each of the 3 cases that are discussed in this course:
+            <successMessage>&lt;span class="CTAT-correct"&gt;&amp;#x2713;&lt;/span&gt; Good job!</successMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; What is the most appropriate choice of numerical measure to supplement the display you chose?</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Here are the appropriate displays of the data and numerical measures in each of the 3 cases that are discussed in this course:
 &lt;table&gt;
 &lt;tr&gt;&lt;th&gt;&lt;/th&gt;&lt;th&gt;&lt;/th&gt;&lt;th id="NumMeasures" colspan="2"&gt;RESPONSE&lt;/th&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;th&gt;&lt;/th&gt;&lt;th&gt;&lt;/th&gt;&lt;th headers="fullResponse" scope="col"&gt;Categorical&lt;/th&gt;&lt;th headers="fullResponse" scope="col"&gt;Quantitative&lt;/th&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;th rowspan="2"&gt;EXPLANATORY&lt;/th&gt;&lt;th&gt;Categorical&lt;/th&gt;&lt;td&gt;Two-way table +&lt;br/&gt;Conditional Percentages&lt;/td&gt;&lt;td&gt;Side-by-side boxplots +&lt;br/&gt;Descriptive Statistics&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;th&gt;Quantitative&lt;/th&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;Scatterplot +&lt;br/&gt;Correlation Coefficient&lt;/td&gt;&lt;/tr&gt;
 &lt;/table&gt;</hintMessage>
-            <hintMessage>Please select 'correlation r (if appropriate)'.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please select 'correlation r (if appropriate)'.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -2588,13 +2588,13 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage>Click on 'Conduct Analysis' in the Work Plan to continue.</successMessage>
-            <hintMessage>Which of the choices best describes the information obtained from the display and numerical measure?</hintMessage>
-            <hintMessage>Side-by-side boxplots and descriptive statistics describe the distributions of the quantitative variable in each of the different groups represented by the categorical variable.</hintMessage>
-            <hintMessage>Scatterplots reveal whether there is a linear relationship between two quantitative variables.</hintMessage>
-            <hintMessage>Two-way tables and chi square give us information about the dependence or independence of two categorical variables.</hintMessage>
-            <hintMessage>Pie charts and group percentages describe the distribution of one categorical variable.</hintMessage>
-            <hintMessage>Histograms and descriptive statistics describe the distribution of one quantitative variable.</hintMessage>
-            <hintMessage>Please select 'describe the relationship between two quantitative variables' in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Which of the choices best describes the information obtained from the display and numerical measure?</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Side-by-side boxplots and descriptive statistics describe the distributions of the quantitative variable in each of the different groups represented by the categorical variable.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Scatterplots reveal whether there is a linear relationship between two quantitative variables.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Two-way tables and chi square give us information about the dependence or independence of two categorical variables.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Pie charts and group percentages describe the distribution of one categorical variable.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Histograms and descriptive statistics describe the distribution of one quantitative variable.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please select 'describe the relationship between two quantitative variables' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -2654,7 +2654,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -2714,9 +2714,9 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage>Select 'More Formal Analyses' to continue.</successMessage>
-            <hintMessage>Please describe your results in the highlighted element.</hintMessage>
-            <hintMessage>When describing the relationship between two quantitative variables using a scatterplot and the correlation r (when relevant) be sure to address the direction, form, and strength of the relationship and any unusual observations.</hintMessage>
-            <hintMessage>Is the relationship positive or negative?  Is the relationship linear or does it have some other form?  If the relationship is linear, use the correlation r to assess its strength.  Do all the observations follow roughly the same pattern?</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please describe your results in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; When describing the relationship between two quantitative variables using a scatterplot and the correlation r (when relevant) be sure to address the direction, form, and strength of the relationship and any unusual observations.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Is the relationship positive or negative?  Is the relationship linear or does it have some other form?  If the relationship is linear, use the correlation r to assess its strength.  Do all the observations follow roughly the same pattern?</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -2775,7 +2775,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -2835,7 +2835,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -2894,8 +2894,8 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage></successMessage>
-            <hintMessage>Does the current question focus on means or proportions?  If it does, is it exploring the value of one mean or proportion?  Is it comparing two or more means or proportions?</hintMessage>
+            <successMessage>&lt;span class="CTAT-correct"&gt;&amp;#x2713;&lt;/span&gt; Good job!</successMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Does the current question focus on means or proportions?  If it does, is it exploring the value of one mean or proportion?  Is it comparing two or more means or proportions?</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -2954,8 +2954,8 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage></successMessage>
-            <hintMessage>Consider the answer above, as well as the type of data that is relevant to the current question.</hintMessage>
+            <successMessage>&lt;span class="CTAT-correct"&gt;&amp;#x2713;&lt;/span&gt; Good job!</successMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Consider the answer above, as well as the type of data that is relevant to the current question.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -3014,8 +3014,8 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage></successMessage>
-            <hintMessage>What is/are the parameter(s) of interest in this case?  (The answer above can help.)</hintMessage>
+            <successMessage>&lt;span class="CTAT-correct"&gt;&amp;#x2713;&lt;/span&gt; Good job!</successMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; What is/are the parameter(s) of interest in this case?  (The answer above can help.)</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -3074,8 +3074,8 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage></successMessage>
-            <hintMessage>Recall that H&lt;sub&gt;0&lt;/sub&gt; has the structure H&lt;sub&gt;0&lt;/sub&gt;: parameter = value</hintMessage>
+            <successMessage>&lt;span class="CTAT-correct"&gt;&amp;#x2713;&lt;/span&gt; Good job!</successMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Recall that H&lt;sub&gt;0&lt;/sub&gt; has the structure H&lt;sub&gt;0&lt;/sub&gt;: parameter = value</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -3134,8 +3134,8 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage></successMessage>
-            <hintMessage>What value would the parameter of interest equal under the hypothesis of no change/no effect/no difference from the status quo?</hintMessage>
+            <successMessage>&lt;span class="CTAT-correct"&gt;&amp;#x2713;&lt;/span&gt; Good job!</successMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; What value would the parameter of interest equal under the hypothesis of no change/no effect/no difference from the status quo?</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -3195,8 +3195,8 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage></successMessage>
-            <hintMessage>What is/are the parameter(s) of interest in this case?  (The answer above can help.)</hintMessage>
+            <successMessage>&lt;span class="CTAT-correct"&gt;&amp;#x2713;&lt;/span&gt; Good job!</successMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; What is/are the parameter(s) of interest in this case?  (The answer above can help.)</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -3255,8 +3255,8 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage></successMessage>
-            <hintMessage>Recall that H&lt;sub&gt;a&lt;/sub&gt; has the structure H&lt;sub&gt;a&lt;/sub&gt;: parameter (&lt; or &gt; or &amp;ne;) value.  Reading the current question will help you decide which of the three (&lt; or &gt; or &amp;ne;) is appropriate here.</hintMessage>
+            <successMessage>&lt;span class="CTAT-correct"&gt;&amp;#x2713;&lt;/span&gt; Good job!</successMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Recall that H&lt;sub&gt;a&lt;/sub&gt; has the structure H&lt;sub&gt;a&lt;/sub&gt;: parameter (&lt; or &gt; or &amp;ne;) value.  Reading the current question will help you decide which of the three (&lt; or &gt; or &amp;ne;) is appropriate here.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -3315,8 +3315,8 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage></successMessage>
-            <hintMessage>Recall that H&lt;sub&gt;a&lt;/sub&gt; has the structure H&lt;sub&gt;a&lt;/sub&gt;: parameter (&lt; or &gt; or &amp;ne;) value, where the value is the same one you used in H&lt;sub&gt;0&lt;/sub&gt;</hintMessage>
+            <successMessage>&lt;span class="CTAT-correct"&gt;&amp;#x2713;&lt;/span&gt; Good job!</successMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Recall that H&lt;sub&gt;a&lt;/sub&gt; has the structure H&lt;sub&gt;a&lt;/sub&gt;: parameter (&lt; or &gt; or &amp;ne;) value, where the value is the same one you used in H&lt;sub&gt;0&lt;/sub&gt;</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -3377,7 +3377,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -3437,7 +3437,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage>Select 'Conduct Analysis' to continue.</successMessage>
-            <hintMessage></hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; </hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -3496,7 +3496,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -3556,7 +3556,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -3616,7 +3616,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>You should obtain this information from the output of your data analysis program.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; You should obtain this information from the output of your data analysis program.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -3675,7 +3675,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -3735,7 +3735,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -3795,7 +3795,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Interpret the results you got (exploratory + test) in the context of the current question.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Interpret the results you got (exploratory + test) in the context of the current question.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -3854,7 +3854,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -3914,7 +3914,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -3974,7 +3974,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage>Select 'Reflect on conclusions' in the Work Plan to continue.</successMessage>
-            <hintMessage>Recall that in general the slope is the change in Y for 1 unit increase in X.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Recall that in general the slope is the change in Y for 1 unit increase in X.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -4033,7 +4033,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -4093,7 +4093,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -4153,7 +4153,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage>Select 'Question 2' in the Work Plan to continue.</successMessage>
-            <hintMessage>How do your expectations regarding the results (from before you looked at the data) compare to the actual results you got?  Also, if practical, discuss how the results could be used and who could use them.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; How do your expectations regarding the results (from before you looked at the data) compare to the actual results you got?  Also, if practical, discuss how the results could be used and who could use them.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -4212,7 +4212,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -4272,7 +4272,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -4332,7 +4332,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage>Click on 'Analyze Data' in the Work Plan to continue.</successMessage>
-            <hintMessage>Just give an educated guess on what you think the results will show with respect to the current question.  There is no right or wrong answer.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Just give an educated guess on what you think the results will show with respect to the current question.  There is no right or wrong answer.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -4391,7 +4391,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -4451,7 +4451,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -4510,8 +4510,8 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage></successMessage>
-            <hintMessage>Read the current question again, and think which of the variables among those listed should be looked at in order to answer this question.  Remember to check all variables that are relevant to the current question.</hintMessage>
+            <successMessage>&lt;span class="CTAT-correct"&gt;&amp;#x2713;&lt;/span&gt; Good job!</successMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Read the current question again, and think which of the variables among those listed should be looked at in order to answer this question.  Remember to check all variables that are relevant to the current question.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -4571,7 +4571,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -4630,8 +4630,8 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage></successMessage>
-            <hintMessage>The response variable is the focus of a question in a study or experiment. An explanatory variable is one that explains changes in the response variable; it can be any factor that might influence the response variable.&lt;sup&gt;&lt;a href="http://www.statisticshowto.com/explanatory-variable/"&gt;1&lt;/a&gt;&lt;/sup&gt;</hintMessage>
+            <successMessage>&lt;span class="CTAT-correct"&gt;&amp;#x2713;&lt;/span&gt; Good job!</successMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; The response variable is the focus of a question in a study or experiment. An explanatory variable is one that explains changes in the response variable; it can be any factor that might influence the response variable.&lt;sup&gt;&lt;a href="http://www.statisticshowto.com/explanatory-variable/"&gt;1&lt;/a&gt;&lt;/sup&gt;</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -4690,10 +4690,10 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage></successMessage>
-            <hintMessage>Quantitative variables take numerical values for which arithmetic operations make sense (example: age, GPA, weight).  Categorical variables place an individual into one of several groups (example: race, eye color, handedness).</hintMessage>
-            <hintMessage>Is the variable, Diff.Mid, quantitative or categorical?</hintMessage>
-            <hintMessage>Please select 'quantitative' in the highlighted element.</hintMessage>
+            <successMessage>&lt;span class="CTAT-correct"&gt;&amp;#x2713;&lt;/span&gt; Good job!</successMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Quantitative variables take numerical values for which arithmetic operations make sense (example: age, GPA, weight).  Categorical variables place an individual into one of several groups (example: race, eye color, handedness).</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Is the variable, Diff.Mid, quantitative or categorical?</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please select 'quantitative' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -4752,8 +4752,8 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage></successMessage>
-            <hintMessage>The response variable is the focus of a question in a study or experiment. An explanatory variable is one that explains changes in the response variable; it can be any factor that might influence the response variable.&lt;sup&gt;&lt;a href="http://www.statisticshowto.com/explanatory-variable/"&gt;1&lt;/a&gt;&lt;/sup&gt;</hintMessage>
+            <successMessage>&lt;span class="CTAT-correct"&gt;&amp;#x2713;&lt;/span&gt; Good job!</successMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; The response variable is the focus of a question in a study or experiment. An explanatory variable is one that explains changes in the response variable; it can be any factor that might influence the response variable.&lt;sup&gt;&lt;a href="http://www.statisticshowto.com/explanatory-variable/"&gt;1&lt;/a&gt;&lt;/sup&gt;</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -4812,10 +4812,10 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage>Please click on 'Exploratory Analysis' to continue.</successMessage>
-            <hintMessage>Quantitative variables take numerical values for which arithmetic operations make sense (example: age, GPA, weight).  Categorical variables place an individual into one of several groups (example: race, eye color, handedness).</hintMessage>
-            <hintMessage>Is the variable, Final, quantitative or categorical?</hintMessage>
-            <hintMessage>Please select 'quantitative' in the highlighted element.</hintMessage>
+            <successMessage>&lt;span class="CTAT-correct"&gt;&amp;#x2713;&lt;/span&gt; Good job!</successMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Quantitative variables take numerical values for which arithmetic operations make sense (example: age, GPA, weight).  Categorical variables place an individual into one of several groups (example: race, eye color, handedness).</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Is the variable, Final, quantitative or categorical?</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please select 'quantitative' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -4874,8 +4874,8 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <successMessage>Please click on 'Exploratory Analysis' to continue.</successMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -4934,22 +4934,22 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage></successMessage>
-            <hintMessage>Think about how you classified the two relevant variables for this question.</hintMessage>
-            <hintMessage>Which of the cells in &lt;table&gt;
+            <successMessage>&lt;span class="CTAT-correct"&gt;&amp;#x2713;&lt;/span&gt; Good job!</successMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Think about how you classified the two relevant variables for this question.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Which of the cells in &lt;table&gt;
 &lt;tr&gt;&lt;th&gt;&lt;/th&gt;&lt;th&gt;&lt;/th&gt;&lt;th id="emptyResponse" colspan="2"&gt;RESPONSE&lt;/th&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;th&gt;&lt;/th&gt;&lt;th&gt;&lt;/th&gt;&lt;th headers="emptyResponse" scope="col"&gt;Categorical&lt;/th&gt;&lt;th headers="emptyResponse" scope="col"&gt;Quantitative&lt;/th&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;th rowspan="2" id="emptyExplanatory"&gt;EXPLANATORY&lt;/th&gt;&lt;th headers="emptyExplanatory"&gt;Categorical&lt;/th&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;th headers="emptyExplanatory"&gt;Quantitative&lt;/th&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
 &lt;/table&gt;
  represents the classification of the relevant variables in this question?  What is the appropriate display of the data in this case?</hintMessage>
-            <hintMessage>&lt;table&gt;
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; &lt;table&gt;
 &lt;tr&gt;&lt;th&gt;&lt;/th&gt;&lt;th&gt;&lt;/th&gt;&lt;th id="fullResponse" colspan="2"&gt;RESPONSE&lt;/th&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;th&gt;&lt;/th&gt;&lt;th&gt;&lt;/th&gt;&lt;th headers="fullResponse" scope="col"&gt;Categorical&lt;/th&gt;&lt;th headers="fullResponse" scope="col"&gt;Quantitative&lt;/th&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;th rowspan="2"&gt;EXPLANATORY&lt;/th&gt;&lt;th&gt;Categorical&lt;/th&gt;&lt;td&gt;Two-way table&lt;/td&gt;&lt;td&gt;Side-by-side boxplots&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;th&gt;Quantitative&lt;/th&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;Scatterplot&lt;/td&gt;&lt;/tr&gt;
 &lt;/table&gt; Here are the appropriate displays of the data in each of the three cases that are discussed in this course.</hintMessage>
-            <hintMessage>Please select Side-by-side boxplots.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please select Side-by-side boxplots.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -5008,16 +5008,16 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage></successMessage>
-            <hintMessage>What is the most appropriate choice of numerical measure to supplement the display you chose?</hintMessage>
-            <hintMessage>Here are the appropriate displays of the data and numerical measures in each of the 3 cases that are discussed in this course:
+            <successMessage>&lt;span class="CTAT-correct"&gt;&amp;#x2713;&lt;/span&gt; Good job!</successMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; What is the most appropriate choice of numerical measure to supplement the display you chose?</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Here are the appropriate displays of the data and numerical measures in each of the 3 cases that are discussed in this course:
 &lt;table&gt;
 &lt;tr&gt;&lt;th&gt;&lt;/th&gt;&lt;th&gt;&lt;/th&gt;&lt;th id="NumMeasures" colspan="2"&gt;RESPONSE&lt;/th&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;th&gt;&lt;/th&gt;&lt;th&gt;&lt;/th&gt;&lt;th headers="fullResponse" scope="col"&gt;Categorical&lt;/th&gt;&lt;th headers="fullResponse" scope="col"&gt;Quantitative&lt;/th&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;th rowspan="2"&gt;EXPLANATORY&lt;/th&gt;&lt;th&gt;Categorical&lt;/th&gt;&lt;td&gt;Two-way table +&lt;br/&gt;Conditional Percentages&lt;/td&gt;&lt;td&gt;Side-by-side boxplots +&lt;br/&gt;Descriptive Statistics&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;th&gt;Quantitative&lt;/th&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;Scatterplot +&lt;br/&gt;Correlation Coefficient&lt;/td&gt;&lt;/tr&gt;
 &lt;/table&gt;</hintMessage>
-            <hintMessage>Please select 'descriptive statistics'.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please select 'descriptive statistics'.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -5077,13 +5077,13 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage>Click on 'Conduct Analysis' in the Work Plan to continue.</successMessage>
-            <hintMessage>Which of the choices best describes the information obtained from the display and numerical measure?</hintMessage>
-            <hintMessage>Side-by-side boxplots and descriptive statistics describe the distributions of the quantitative variable in each of the different groups represented by the categorical variable.</hintMessage>
-            <hintMessage>Scatterplots reveal whether there is a linear relationship between two quantitative variables.</hintMessage>
-            <hintMessage>Two-way tables and chi square give us information about the dependence or independence of two categorical variables.</hintMessage>
-            <hintMessage>Pie charts and group percentages describe the distribution of one categorical variable.</hintMessage>
-            <hintMessage>Histograms and descriptive statistics describe the distribution of one quantitative variable.</hintMessage>
-            <hintMessage>Please select 'compare the distribution of a quantitative variable across several groups' in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Which of the choices best describes the information obtained from the display and numerical measure?</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Side-by-side boxplots and descriptive statistics describe the distributions of the quantitative variable in each of the different groups represented by the categorical variable.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Scatterplots reveal whether there is a linear relationship between two quantitative variables.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Two-way tables and chi square give us information about the dependence or independence of two categorical variables.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Pie charts and group percentages describe the distribution of one categorical variable.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Histograms and descriptive statistics describe the distribution of one quantitative variable.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please select 'compare the distribution of a quantitative variable across several groups' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -5143,7 +5143,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -5203,9 +5203,9 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage>Select 'More Formal Analyses' to continue.</successMessage>
-            <hintMessage>Please describe your results in the highlighted element.</hintMessage>
-            <hintMessage>When comparing distributions using side-by-side boxplots and descriptive statistics compare the center and spread across groups and mention any unusual observations.</hintMessage>
-            <hintMessage>For comparing center, look at the medians of the different groups, and for comparing spread consider the IQR and range across groups. Recall that outliers are marked by *.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please describe your results in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; When comparing distributions using side-by-side boxplots and descriptive statistics compare the center and spread across groups and mention any unusual observations.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; For comparing center, look at the medians of the different groups, and for comparing spread consider the IQR and range across groups. Recall that outliers are marked by *.</hintMessage>
            <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -5264,7 +5264,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -5324,7 +5324,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -5383,8 +5383,8 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage></successMessage>
-            <hintMessage>Does the current question focus on means or proportions?  If it does, is it exploring the value of one mean or proportion?  Is it comparing two or more means or proportions?</hintMessage>
+            <successMessage>&lt;span class="CTAT-correct"&gt;&amp;#x2713;&lt;/span&gt; Good job!</successMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Does the current question focus on means or proportions?  If it does, is it exploring the value of one mean or proportion?  Is it comparing two or more means or proportions?</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -5443,8 +5443,8 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage></successMessage>
-            <hintMessage>Consider the answer above, as well as the type of data that is relevant to the current question.</hintMessage>
+            <successMessage>&lt;span class="CTAT-correct"&gt;&amp;#x2713;&lt;/span&gt; Good job!</successMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Consider the answer above, as well as the type of data that is relevant to the current question.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -5503,8 +5503,8 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage></successMessage>
-            <hintMessage>What is/are the parameter(s) of interest in this case?  (The answer above can help.)</hintMessage>
+            <successMessage>&lt;span class="CTAT-correct"&gt;&amp;#x2713;&lt;/span&gt; Good job!</successMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; What is/are the parameter(s) of interest in this case?  (The answer above can help.)</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -5563,8 +5563,8 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage></successMessage>
-            <hintMessage>Recall that H&lt;sub&gt;0&lt;/sub&gt; has the structure H&lt;sub&gt;0&lt;/sub&gt;: parameter = value</hintMessage>
+            <successMessage>&lt;span class="CTAT-correct"&gt;&amp;#x2713;&lt;/span&gt; Good job!</successMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Recall that H&lt;sub&gt;0&lt;/sub&gt; has the structure H&lt;sub&gt;0&lt;/sub&gt;: parameter = value</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -5623,8 +5623,8 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage></successMessage>
-            <hintMessage>What value would the parameter of interest equal under the hypothesis of no change/no effect/no difference from the status quo?</hintMessage>
+            <successMessage>&lt;span class="CTAT-correct"&gt;&amp;#x2713;&lt;/span&gt; Good job!</successMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; What value would the parameter of interest equal under the hypothesis of no change/no effect/no difference from the status quo?</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -5684,8 +5684,8 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage></successMessage>
-            <hintMessage>What is/are the parameter(s) of interest in this case?  (The answer above can help.)</hintMessage>
+            <successMessage>&lt;span class="CTAT-correct"&gt;&amp;#x2713;&lt;/span&gt; Good job!</successMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; What is/are the parameter(s) of interest in this case?  (The answer above can help.)</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -5744,8 +5744,8 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage></successMessage>
-            <hintMessage>Recall that H&lt;sub&gt;a&lt;/sub&gt; has the structure H&lt;sub&gt;a&lt;/sub&gt;: parameter (&lt; or &gt; or &amp;ne;) value.  Reading the current question will help you decide which of the three (&lt; or &gt; or &amp;ne;) is appropriate here.</hintMessage>
+            <successMessage>&lt;span class="CTAT-correct"&gt;&amp;#x2713;&lt;/span&gt; Good job!</successMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Recall that H&lt;sub&gt;a&lt;/sub&gt; has the structure H&lt;sub&gt;a&lt;/sub&gt;: parameter (&lt; or &gt; or &amp;ne;) value.  Reading the current question will help you decide which of the three (&lt; or &gt; or &amp;ne;) is appropriate here.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -5804,8 +5804,8 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage></successMessage>
-            <hintMessage>Recall that H&lt;sub&gt;a&lt;/sub&gt; has the structure H&lt;sub&gt;a&lt;/sub&gt;: parameter (&lt; or &gt; or &amp;ne;) value, where the value is the same one you used in H&lt;sub&gt;0&lt;/sub&gt;</hintMessage>
+            <successMessage>&lt;span class="CTAT-correct"&gt;&amp;#x2713;&lt;/span&gt; Good job!</successMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Recall that H&lt;sub&gt;a&lt;/sub&gt; has the structure H&lt;sub&gt;a&lt;/sub&gt;: parameter (&lt; or &gt; or &amp;ne;) value, where the value is the same one you used in H&lt;sub&gt;0&lt;/sub&gt;</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -5866,7 +5866,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -5926,7 +5926,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage>Select 'Conduct Analysis' to continue.</successMessage>
-            <hintMessage></hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; </hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -5985,7 +5985,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -6045,7 +6045,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -6105,7 +6105,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>You should obtain this information from the output of your data analysis program.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; You should obtain this information from the output of your data analysis program.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -6164,7 +6164,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -6224,7 +6224,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -6284,7 +6284,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Interpret the results you got (exploratory + test) in the context of the current question.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Interpret the results you got (exploratory + test) in the context of the current question.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -6343,7 +6343,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -6403,7 +6403,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -6463,7 +6463,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage>Select 'Reflect on conclusions' in the Work Plan to continue.</successMessage>
-            <hintMessage></hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; </hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -6522,7 +6522,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -6582,7 +6582,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -6642,7 +6642,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage>Select 'Question 2' in the Work Plan to continue.</successMessage>
-            <hintMessage>How do your expectations regarding the results (from before you looked at the data) compare to the actual results you got?  Also, if practical, discuss how the results could be used and who could use them.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; How do your expectations regarding the results (from before you looked at the data) compare to the actual results you got?  Also, if practical, discuss how the results could be used and who could use them.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -6701,7 +6701,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -6761,7 +6761,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -6821,7 +6821,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage>Click on 'Analyze Data' in the Work Plan to continue.</successMessage>
-            <hintMessage>Just give an educated guess on what you think the results will show with respect to the current question.  There is no right or wrong answer.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Just give an educated guess on what you think the results will show with respect to the current question.  There is no right or wrong answer.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -6880,7 +6880,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -6940,7 +6940,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -6999,8 +6999,8 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage></successMessage>
-            <hintMessage>Read the current question again, and think which of the variables among those listed should be looked at in order to answer this question.  Remember to check all variables that are relevant to the current question.</hintMessage>
+            <successMessage>&lt;span class="CTAT-correct"&gt;&amp;#x2713;&lt;/span&gt; Good job!</successMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Read the current question again, and think which of the variables among those listed should be looked at in order to answer this question.  Remember to check all variables that are relevant to the current question.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -7060,7 +7060,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -7119,8 +7119,8 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage></successMessage>
-            <hintMessage>The response variable is the focus of a question in a study or experiment. An explanatory variable is one that explains changes in the response variable; it can be any factor that might influence the response variable.&lt;sup&gt;&lt;a href="http://www.statisticshowto.com/explanatory-variable/"&gt;1&lt;/a&gt;&lt;/sup&gt;</hintMessage>
+            <successMessage>&lt;span class="CTAT-correct"&gt;&amp;#x2713;&lt;/span&gt; Good job!</successMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; The response variable is the focus of a question in a study or experiment. An explanatory variable is one that explains changes in the response variable; it can be any factor that might influence the response variable.&lt;sup&gt;&lt;a href="http://www.statisticshowto.com/explanatory-variable/"&gt;1&lt;/a&gt;&lt;/sup&gt;</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -7179,10 +7179,10 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage></successMessage>
-            <hintMessage>Quantitative variables take numerical values for which arithmetic operations make sense (example: age, GPA, weight).  Categorical variables place an individual into one of several groups (example: race, eye color, handedness).</hintMessage>
-            <hintMessage>Is the variable, Extra credit, quantitative or categorical?</hintMessage>
-            <hintMessage>Please select 'categorical' in the highlighted element.</hintMessage>
+            <successMessage>&lt;span class="CTAT-correct"&gt;&amp;#x2713;&lt;/span&gt; Good job!</successMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Quantitative variables take numerical values for which arithmetic operations make sense (example: age, GPA, weight).  Categorical variables place an individual into one of several groups (example: race, eye color, handedness).</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Is the variable, Extra credit, quantitative or categorical?</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please select 'categorical' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -7241,8 +7241,8 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage></successMessage>
-            <hintMessage>The response variable is the focus of a question in a study or experiment. An explanatory variable is one that explains changes in the response variable; it can be any factor that might influence the response variable.&lt;sup&gt;&lt;a href="http://www.statisticshowto.com/explanatory-variable/"&gt;1&lt;/a&gt;&lt;/sup&gt;</hintMessage>
+            <successMessage>&lt;span class="CTAT-correct"&gt;&amp;#x2713;&lt;/span&gt; Good job!</successMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; The response variable is the focus of a question in a study or experiment. An explanatory variable is one that explains changes in the response variable; it can be any factor that might influence the response variable.&lt;sup&gt;&lt;a href="http://www.statisticshowto.com/explanatory-variable/"&gt;1&lt;/a&gt;&lt;/sup&gt;</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -7301,10 +7301,10 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage>Please click on 'Exploratory Analysis' to continue.</successMessage>
-            <hintMessage>Quantitative variables take numerical values for which arithmetic operations make sense (example: age, GPA, weight).  Categorical variables place an individual into one of several groups (example: race, eye color, handedness).</hintMessage>
-            <hintMessage>Is the variable, Final, quantitative or categorical?</hintMessage>
-            <hintMessage>Please select 'quantitative' in the highlighted element.</hintMessage>
+            <successMessage>&lt;span class="CTAT-correct"&gt;&amp;#x2713;&lt;/span&gt; Good job!</successMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Quantitative variables take numerical values for which arithmetic operations make sense (example: age, GPA, weight).  Categorical variables place an individual into one of several groups (example: race, eye color, handedness).</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Is the variable, Final, quantitative or categorical?</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please select 'quantitative' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -7363,8 +7363,8 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <successMessage>Please click on 'Exploratory Analysis' to continue.</successMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -7423,22 +7423,22 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage></successMessage>
-            <hintMessage>Think about how you classified the two relevant variables for this question.</hintMessage>
-            <hintMessage>Which of the cells in &lt;table&gt;
+            <successMessage>&lt;span class="CTAT-correct"&gt;&amp;#x2713;&lt;/span&gt; Good job!</successMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Think about how you classified the two relevant variables for this question.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Which of the cells in &lt;table&gt;
 &lt;tr&gt;&lt;th&gt;&lt;/th&gt;&lt;th&gt;&lt;/th&gt;&lt;th id="emptyResponse" colspan="2"&gt;RESPONSE&lt;/th&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;th&gt;&lt;/th&gt;&lt;th&gt;&lt;/th&gt;&lt;th headers="emptyResponse" scope="col"&gt;Categorical&lt;/th&gt;&lt;th headers="emptyResponse" scope="col"&gt;Quantitative&lt;/th&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;th rowspan="2" id="emptyExplanatory"&gt;EXPLANATORY&lt;/th&gt;&lt;th headers="emptyExplanatory"&gt;Categorical&lt;/th&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;th headers="emptyExplanatory"&gt;Quantitative&lt;/th&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
 &lt;/table&gt;
  represents the classification of the relevant variables in this question?  What is the appropriate display of the data in this case?</hintMessage>
-            <hintMessage>&lt;table&gt;
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; &lt;table&gt;
 &lt;tr&gt;&lt;th&gt;&lt;/th&gt;&lt;th&gt;&lt;/th&gt;&lt;th id="fullResponse" colspan="2"&gt;RESPONSE&lt;/th&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;th&gt;&lt;/th&gt;&lt;th&gt;&lt;/th&gt;&lt;th headers="fullResponse" scope="col"&gt;Categorical&lt;/th&gt;&lt;th headers="fullResponse" scope="col"&gt;Quantitative&lt;/th&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;th rowspan="2"&gt;EXPLANATORY&lt;/th&gt;&lt;th&gt;Categorical&lt;/th&gt;&lt;td&gt;Two-way table&lt;/td&gt;&lt;td&gt;Side-by-side boxplots&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;th&gt;Quantitative&lt;/th&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;Scatterplot&lt;/td&gt;&lt;/tr&gt;
 &lt;/table&gt; Here are the appropriate displays of the data in each of the three cases that are discussed in this course.</hintMessage>
-            <hintMessage>Please select ????.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please select ????.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -7497,16 +7497,16 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage></successMessage>
-            <hintMessage>What is the most appropriate choice of numerical measure to supplement the display you chose?</hintMessage>
-            <hintMessage>Here are the appropriate displays of the data and numerical measures in each of the 3 cases that are discussed in this course:
+            <successMessage>&lt;span class="CTAT-correct"&gt;&amp;#x2713;&lt;/span&gt; Good job!</successMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; What is the most appropriate choice of numerical measure to supplement the display you chose?</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Here are the appropriate displays of the data and numerical measures in each of the 3 cases that are discussed in this course:
 &lt;table&gt;
 &lt;tr&gt;&lt;th&gt;&lt;/th&gt;&lt;th&gt;&lt;/th&gt;&lt;th id="NumMeasures" colspan="2"&gt;RESPONSE&lt;/th&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;th&gt;&lt;/th&gt;&lt;th&gt;&lt;/th&gt;&lt;th headers="fullResponse" scope="col"&gt;Categorical&lt;/th&gt;&lt;th headers="fullResponse" scope="col"&gt;Quantitative&lt;/th&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;th rowspan="2"&gt;EXPLANATORY&lt;/th&gt;&lt;th&gt;Categorical&lt;/th&gt;&lt;td&gt;Two-way table +&lt;br/&gt;Conditional Percentages&lt;/td&gt;&lt;td&gt;Side-by-side boxplots +&lt;br/&gt;Descriptive Statistics&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;th&gt;Quantitative&lt;/th&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;Scatterplot +&lt;br/&gt;Correlation Coefficient&lt;/td&gt;&lt;/tr&gt;
 &lt;/table&gt;</hintMessage>
-            <hintMessage>Please select 'descriptive statistics'.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please select 'descriptive statistics'.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -7566,13 +7566,13 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage>Click on 'Conduct Analysis' in the Work Plan to continue.</successMessage>
-            <hintMessage>Which of the choices best describes the information obtained from the display and numerical measure?</hintMessage>
-            <hintMessage>Side-by-side boxplots and descriptive statistics describe the distributions of the quantitative variable in each of the different groups represented by the categorical variable.</hintMessage>
-            <hintMessage>Scatterplots reveal whether there is a linear relationship between two quantitative variables.</hintMessage>
-            <hintMessage>Two-way tables and chi square give us information about the dependence or independence of two categorical variables.</hintMessage>
-            <hintMessage>Pie charts and group percentages describe the distribution of one categorical variable.</hintMessage>
-            <hintMessage>Histograms and descriptive statistics describe the distribution of one quantitative variable.</hintMessage>
-            <hintMessage>Please select 'compare the distribution of a quantitative variable across several groups' in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Which of the choices best describes the information obtained from the display and numerical measure?</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Side-by-side boxplots and descriptive statistics describe the distributions of the quantitative variable in each of the different groups represented by the categorical variable.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Scatterplots reveal whether there is a linear relationship between two quantitative variables.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Two-way tables and chi square give us information about the dependence or independence of two categorical variables.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Pie charts and group percentages describe the distribution of one categorical variable.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Histograms and descriptive statistics describe the distribution of one quantitative variable.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please select 'compare the distribution of a quantitative variable across several groups' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -7632,7 +7632,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -7692,9 +7692,9 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage>Select 'More Formal Analyses' to continue.</successMessage>
-            <hintMessage>Please describe your results in the highlighted element.</hintMessage>
-            <hintMessage>When comparing distributions using side-by-side boxplots and descriptive statistics compare the center and spread across groups and mention any unusual observations.</hintMessage>
-            <hintMessage>For comparing center, look at the medians of the different groups, and for comparing spread consider the IQR and range across groups. Recall that outliers are marked by *.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please describe your results in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; When comparing distributions using side-by-side boxplots and descriptive statistics compare the center and spread across groups and mention any unusual observations.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; For comparing center, look at the medians of the different groups, and for comparing spread consider the IQR and range across groups. Recall that outliers are marked by *.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -7753,7 +7753,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -7813,7 +7813,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -7872,8 +7872,8 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage></successMessage>
-            <hintMessage>Does the current question focus on means or proportions?  If it does, is it exploring the value of one mean or proportion?  Is it comparing two or more means or proportions?</hintMessage>
+            <successMessage>&lt;span class="CTAT-correct"&gt;&amp;#x2713;&lt;/span&gt; Good job!</successMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Does the current question focus on means or proportions?  If it does, is it exploring the value of one mean or proportion?  Is it comparing two or more means or proportions?</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -7932,8 +7932,8 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage></successMessage>
-            <hintMessage>Consider the answer above, as well as the type of data that is relevant to the current question.</hintMessage>
+            <successMessage>&lt;span class="CTAT-correct"&gt;&amp;#x2713;&lt;/span&gt; Good job!</successMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Consider the answer above, as well as the type of data that is relevant to the current question.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -7992,8 +7992,8 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage></successMessage>
-            <hintMessage>What is/are the parameter(s) of interest in this case?  (The answer above can help.)</hintMessage>
+            <successMessage>&lt;span class="CTAT-correct"&gt;&amp;#x2713;&lt;/span&gt; Good job!</successMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; What is/are the parameter(s) of interest in this case?  (The answer above can help.)</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -8052,8 +8052,8 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage></successMessage>
-            <hintMessage>Recall that H&lt;sub&gt;0&lt;/sub&gt; has the structure H&lt;sub&gt;0&lt;/sub&gt;: parameter = value</hintMessage>
+            <successMessage>&lt;span class="CTAT-correct"&gt;&amp;#x2713;&lt;/span&gt; Good job!</successMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Recall that H&lt;sub&gt;0&lt;/sub&gt; has the structure H&lt;sub&gt;0&lt;/sub&gt;: parameter = value</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -8112,8 +8112,8 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage></successMessage>
-            <hintMessage>What value would the parameter of interest equal under the hypothesis of no change/no effect/no difference from the status quo?</hintMessage>
+            <successMessage>&lt;span class="CTAT-correct"&gt;&amp;#x2713;&lt;/span&gt; Good job!</successMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; What value would the parameter of interest equal under the hypothesis of no change/no effect/no difference from the status quo?</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -8173,8 +8173,8 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage></successMessage>
-            <hintMessage>What is/are the parameter(s) of interest in this case?  (The answer above can help.)</hintMessage>
+            <successMessage>&lt;span class="CTAT-correct"&gt;&amp;#x2713;&lt;/span&gt; Good job!</successMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; What is/are the parameter(s) of interest in this case?  (The answer above can help.)</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -8233,8 +8233,8 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage></successMessage>
-            <hintMessage>Recall that H&lt;sub&gt;a&lt;/sub&gt; has the structure H&lt;sub&gt;a&lt;/sub&gt;: parameter (&lt; or &gt; or &amp;ne;) value.  Reading the current question will help you decide which of the three (&lt; or &gt; or &amp;ne;) is appropriate here.</hintMessage>
+            <successMessage>&lt;span class="CTAT-correct"&gt;&amp;#x2713;&lt;/span&gt; Good job!</successMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Recall that H&lt;sub&gt;a&lt;/sub&gt; has the structure H&lt;sub&gt;a&lt;/sub&gt;: parameter (&lt; or &gt; or &amp;ne;) value.  Reading the current question will help you decide which of the three (&lt; or &gt; or &amp;ne;) is appropriate here.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -8293,8 +8293,8 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage></successMessage>
-            <hintMessage>Recall that H&lt;sub&gt;a&lt;/sub&gt; has the structure H&lt;sub&gt;a&lt;/sub&gt;: parameter (&lt; or &gt; or &amp;ne;) value, where the value is the same one you used in H&lt;sub&gt;0&lt;/sub&gt;</hintMessage>
+            <successMessage>&lt;span class="CTAT-correct"&gt;&amp;#x2713;&lt;/span&gt; Good job!</successMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Recall that H&lt;sub&gt;a&lt;/sub&gt; has the structure H&lt;sub&gt;a&lt;/sub&gt;: parameter (&lt; or &gt; or &amp;ne;) value, where the value is the same one you used in H&lt;sub&gt;0&lt;/sub&gt;</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -8355,7 +8355,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -8415,7 +8415,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage>Select 'Conduct Analysis' to continue.</successMessage>
-            <hintMessage></hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; </hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -8474,7 +8474,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -8534,7 +8534,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -8594,7 +8594,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>You should obtain this information from the output of your data analysis program.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; You should obtain this information from the output of your data analysis program.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -8653,7 +8653,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -8713,7 +8713,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -8773,7 +8773,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Interpret the results you got (exploratory + test) in the context of the current question.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Interpret the results you got (exploratory + test) in the context of the current question.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -8832,7 +8832,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -8892,7 +8892,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -8952,7 +8952,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage>Select 'Reflect on conclusions' in the Work Plan to continue.</successMessage>
-            <hintMessage></hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; </hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -9011,7 +9011,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -9071,7 +9071,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -9131,7 +9131,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage>Select 'Question 2' in the Work Plan to continue.</successMessage>
-            <hintMessage>How do your expectations regarding the results (from before you looked at the data) compare to the actual results you got?  Also, if practical, discuss how the results could be used and who could use them.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; How do your expectations regarding the results (from before you looked at the data) compare to the actual results you got?  Also, if practical, discuss how the results could be used and who could use them.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -9190,7 +9190,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -9250,7 +9250,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -9309,8 +9309,8 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage>Congradulations, you are done with this exercise.</successMessage>
-            <hintMessage>Here we ask that you combine your conclusions from all the questions, and write a short paragraph to summarize what you found in this exercise.</hintMessage>
+            <successMessage></successMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Here we ask that you combine your conclusions from all the questions, and write a short paragraph to summarize what you found in this exercise.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -9369,7 +9369,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -9429,7 +9429,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -9489,7 +9489,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>In &lt;b&gt;More formal analysis&lt;/b&gt;, you used sample data to perform statistical inference and draw conclusions about the larger population from which the sample data originated. Here you are asked to address the strengths and weaknesses of these conclusions. You are asked to address any of the following that is relevant to this problem:  &lt;ul&gt;&lt;li&gt;Can you make causal conclusions? Recall that causal conclusions can be drawn only when your study is a randomized experiment.&lt;/li&gt;&lt;li&gt;Consider the population, sampling frame, and sample design to decide how the results can be generalized.&lt;/li&gt;&lt;/ul&gt;</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; In &lt;b&gt;More formal analysis&lt;/b&gt;, you used sample data to perform statistical inference and draw conclusions about the larger population from which the sample data originated. Here you are asked to address the strengths and weaknesses of these conclusions. You are asked to address any of the following that is relevant to this problem:  &lt;ul&gt;&lt;li&gt;Can you make causal conclusions? Recall that causal conclusions can be drawn only when your study is a randomized experiment.&lt;/li&gt;&lt;li&gt;Consider the population, sampling frame, and sample design to decide how the results can be generalized.&lt;/li&gt;&lt;/ul&gt;</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -9548,7 +9548,7 @@
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -9607,8 +9607,8 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <successMessage>Congratulations, you are done with this exercise.</successMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -9667,8 +9667,8 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <successMessage>&lt;span class="CTAT-correct"&gt;&amp;#x2713;&lt;/span&gt; Good job!</successMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -9704,6 +9704,27 @@
         <destID>75</destID>
         <traversalCount>0</traversalCount>
     </edge>
-    <EdgesGroups ordered="true"></EdgesGroups>
+    <EdgesGroups ordered="true">
+        <outOfOrderMessage>&lt;span class="CTAT-incorrect"&gt;&amp;otimes;&lt;/span&gt; No, that is not quite right.</outOfOrderMessage>
+        <group name="CheckDataFmt" ordered="false" reenterable="true">
+            <link id="5"/>
+            <link id="1"/>
+            <link id="8"/></group>
+        <group name="Q1PlanAnalysis" ordered="false" reenterable="true">
+            <link id="14"/>
+            <link id="221"/>
+            <link id="225"/>
+            <link id="217"/></group>
+        <group name="Q2PlanAnalysis" ordered="false" reenterable="true">
+            <link id="312"/>
+            <link id="614"/>
+            <link id="615"/>
+            <link id="613"/></group>
+        <group name="Q3PlanAnalysis" ordered="false" reenterable="true">
+            <link id="329"/>
+            <link id="333"/>
+            <link id="348"/>
+            <link id="335"/></group>
+    </EdgesGroups>
 </stateGraph>
 
