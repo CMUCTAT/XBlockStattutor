@@ -3,6 +3,7 @@ import pprint
 import pkg_resources
 import base64
 import glob
+import socket
 
 from string import Template
 
@@ -70,6 +71,7 @@ class StattutorXBlock(XBlock):
     # -------------------------------------------------------------------
 
     def student_view(self, context=None):
+        print(socket.gethostname())
         baseURL=self.runtime.local_resource_url (self,"public/problem_files/ref.css");
         html = self.resource_string("static/html/ctatxblock.html")
         frag = Fragment (html.format(self=self))
