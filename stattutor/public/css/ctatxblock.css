@@ -1,101 +1,33 @@
-.ctatxblock_block .count 
-{
-    font-weight: bold;
-}
-
-.ctatxblock_block p 
-{
+/* Override edx's button styles so that CTAT's button interaction and coloring
+works as intended */
+div[data-block-type=stattutor] button {
+    display: inline-block;
+    line-height: normal;
+    margin-right: .1em;
     cursor: pointer;
+    vertical-align: middle;
+    text-align: center;
+    overflow: visible;
+    background-image: initial;
+    box-shadow: initial;
+    font: inherit;
+    padding: 0 6px 0 6px;
+    text-shadow: initial;
 }
-
-.container 
-{ 
-	width: 320px; 
-	height: 200px; 		  
-	box-shadow: 10px 10px 5px #888888;
-	z-index: 0;
-	position: relative;
-	margin: auto;
-	vertical-align: middle;
+div[data-block-type=stattutor] button[focus] {
+    background-image: initial;
 }
-
-canvas
-{
-	background-color: #ffffff;
-	z-index: 1;
-	position: relative;		
-}	
-
-.console 
-{ 
-	background-color: #ffffff;
-	width: 600px;  		  
-	height: 0px;
-	box-shadow: 10px 10px 5px #888888;
-	text-align: left;
-	overflow: auto;
-	font-family: courier; 
-	font-size: 11px;
-	border: 1px solid black;
-	/*white-space: nowrap;*/
-}	
-
-.classname 
-{
-	box-shadow:inset 0px 1px 0px 0px #ffffff;
-	background-color:#ededed;
-	border-radius:6px;
-	border:1px solid #dcdcdc;
-	display:inline-block;
-	color:#777777;
-	font-family:arial;
-	font-size:15px;
-	font-weight:bold;
-	padding:6px 24px;
-	text-decoration:none;
-	text-shadow:1px 1px 0px #ffffff;
+div[data-block-type=stattutor] button[disabled] {
+    background-image: initial;
 }
-
-.classname:hover 
-{
-	background-color:#dfdfdf;
+div[data-block-type=stattutor] button:hover {
+    background-image: initial;
 }
-
-.classname:active 
-{
-	position:relative;
-	top:1px;
-}	
-
-.shadow
-{
-	box-shadow: 5px 5px 5px #888888;	
+div[data-block-type=stattutor] button:hover.CTAT-hint-button--hover {
+    background-image: initial;
+    background-color: #E6C200;
 }
-
-.ui-widget-content 
-{
-	border: 1px solid #aaaaaa;
-	background: #ffffff url(skindata/ui-bg_flat_75_ffffff_40x100.png) 50% 50% repeat-x;
-	color: #222222;
-	font-size: 10px;
-}
-
-.ui-widget-content a 
-{
-	color: #222222;
-	font-size: 12px;
-}	
-
-#closeKeyboard
-{
-	background-color:red;
-	width:40px;
-	margin-top:5px;
-}
-
-#openKeyboard
-{
-	background-color:green;
-	width:40px;
-	margin-top:5px;
+div[data-block-type=stattutor] button:focus {
+    background-image: initial;
+    box-shadow: none;
 }
