@@ -94,7 +94,6 @@ class StattutorXBlock(XBlock):
         frag.add_css_url (self.runtime.local_resource_url (self,"public/css/ctatxblock.css"))
         frag.add_css_url (self.runtime.local_resource_url (self,"public/css/ctat.css"))
         frag.add_css_url (self.runtime.local_resource_url (self,"public/css/stattutor.css"))
-        frag.add_javascript_url (self.runtime.local_resource_url(self,"public/js/jsrender.min.js"))
         format_references = {
             'public': self.runtime.local_resource_url(self, 'public/'),
             'logo': self.runtime.local_resource_url(self, 'public/images/logo.png'),
@@ -107,8 +106,11 @@ class StattutorXBlock(XBlock):
             'piechart': self.runtime.local_resource_url(self, 'public/images/piechart.png'),
             'histogram': self.runtime.local_resource_url(self, 'public/images/histogram.png'),
         }
-        jsrenderbody = self.resource_string("static/js/jsrenderbody.js")
-        frag.add_javascript (Template(jsrenderbody).safe_substitute(format_references))
+        question_tpl = self.resource_string("static/templates/question-tpl.html")
+        frag.add_resource(Template(question_tpl).safe_substitute(format_references),"text/html")
+        frag.add_javascript_url(self.runtime.resource_url("js/vendor/underscore-min.js"))
+        preEasyUI = self.resource_string("static/js/question-tpl.js")
+        frag.add_javascript (preEasyUI)
         frag.add_javascript_url (self.runtime.local_resource_url(self,"public/js/jquery.easyui.min.js"))
         frag.add_javascript ("var baseURL=\""+(baseURL [:-7])+"\";")
         frag.add_javascript_url (self.runtime.local_resource_url(self,"public/js/ctatloader.js"))

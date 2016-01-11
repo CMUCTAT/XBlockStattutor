@@ -1,0 +1,324 @@
+<script type="text/template" id="question-template">
+<div id="Question<%= question_number %>" class="easyui-panel work_area"
+	title="Question <% print(number_words(question_number)); %>" data-options="closed:true, fit:true, onOpen:stattutor_highlight_q<%= question_number %>">
+  <% if (question_number<=1) { %>
+        <p>Now that we have completed the first part, where we 
+	examined some general features of the problem, it is
+	time to look at the questions that we are trying to
+	answer using the data.</p>
+	<p>In the <b>Work Plan</b> on the left, note that, for 
+	each question, we will repeat three steps:
+	Reflect on Question, Analyze Data, and Draw Conclusions.
+	Once we have completed these three steps for <em>each</em>
+	question, we will move on to the last part, Summarize.</p>
+	<p>To get started with the first question, read 
+  <% } else { %>
+	<p>Now that we are done with Question <% print(number_words(question_number-1)); %>, we are going to
+	repeat the same three steps (Reflect on Question, Analyze Data, and
+	Draw Conclusions) for Question <% print(number_words(question_number)) %></p>
+	<p>Read 
+  <% } %> the question marked <b>Q<%= question_number %></b> above in the
+	<a class="easyui-linkbutton tab-button" onclick="javascript:StatTutor.goto_tab('Questions')">Questions</a> tab, 
+	and then click on 
+	<a class="easyui-linkbutton" onclick="javascript:StatTutor.goto_panel('ReflectQ<%= question_number %>')">Reflect on Question</a>
+	to continue.</p>
+</div>
+
+<div id="ReflectQ<%= question_number %>" class="easyui-panel work_area" data-options="closed:true, fit:true, onOpen:stattutor_highlight_q<%= question_number %>"
+	 title="Reflect on Question (Question <% print(number_words(question_number)); %>)">
+	<p>In this first step, we think about the question and use our
+	intuition and/or experience to try and predict what the results
+	will show. Later, we will compare what we initially thought to
+	what we actually find when we analyze the data.</p>
+
+	<p>Note that we will repeat the middle three steps in the work
+	plan (Reflect on Question, Analyze Data, and Draw Conclusions)
+	for each of the questions in the analysis.</p>
+
+	<p>Click on <a class="easyui-linkbutton" onclick="javascript:StatTutor.goto_panel('ConsiderQ<%= question_number %>')">Consider Question <% print(number_words(question_number)); %></a> to continue.
+	</p>
+</div>
+
+<div id="ConsiderQ<%= question_number %>" class="easyui-panel work_area"
+	 title="Consider Question <% print(number_words(question_number)); %>" data-options="closed:true, fit:true, onOpen:stattutor_highlight_q<%= question_number %>">
+	<p id="q<%= question_number %>consider_question"></p>
+	<h3 class="your_answer">Your Answer:</h3>
+	<div id="q<%= question_number %>consider" class="CTATTextArea" data-ctat-tutor="false" data-ctat-show-feedback="false" data-ctat-tab-on-enter="false"></div>
+	<div id="q<%= question_number %>consider_submit" class="CTATSubmitButton Submit_and_Reveal" data-ctat-target="q<%= question_number %>consider" data-ctat-show-feedback="false">Submit and Reveal Our Answer</div>
+	<br />
+	<h3 class="our_answer">Our Answer:</h3>
+	<div id="our_q<%= question_number %>consider" class="CTATTextField" data-ctat-tutor="false" data-ctat-enabled="false"></div>
+	<p>Click on <a class="easyui-linkbutton" onclick="javascript:StatTutor.goto_panel('AnalyzeQ<%= question_number %>')">Analyze Data</a> to continue.
+	</p>
+</div>
+					
+<div id="AnalyzeQ<%= question_number %>" class="easyui-panel work_area"
+	 title="Analyze Data (Question <% print(number_words(question_number)); %>)" data-options="closed:true, fit:true, onOpen:stattutor_highlight_q<%= question_number %>">
+	<p>In this step, we choose and conduct the analyses that
+	are needed in order to address the current question.</p>
+	<p>Click on <a class="easyui-linkbutton" onclick="javascript:StatTutor.goto_panel('PlanQ<%= question_number %>')">Plan Analyses</a> to continue.</p>
+</div>
+<div id="PlanQ<%= question_number %>" class="easyui-panel work_area"
+	 title="Plan Analyses (Question <% print(number_words(question_number)); %>)" data-options="closed:true, fit:true, onOpen:stattutor_highlight_q<%= question_number %>">
+	<p>Before choosing the appropriate analyses, it is helpful to:</p>
+	<h3>Identify the relevant variables:</h3>
+	<p>Which variable(s) among those listed below is/are
+	particularly relevant to the current question?</p>
+	<div id="q<%= question_number %>plan_variables"></div>
+	<div id="q<%= question_number %>plan_submit" class="CTATSubmitButton" data-ctat-target="q<%= question_number %>plan_id" style="margin:5px;">Submit</div>
+	<br/>
+	<div id="q<%= question_number %>plan_classify_variables" style="visibility:hidden; min-height: 8em;">
+		<h3>Classify the relevant variables:</h3>
+	</div>
+	<p>Click on <a class="easyui-linkbutton" onclick="javascript:StatTutor.goto_panel('ExploreQ<%= question_number %>')">Exploratory Analyses</a> to continue.</p>
+</div>
+<div id="ExploreQ<%= question_number %>" class="easyui-panel work_area"
+	 title="Exploratory Analysis (Question <% print(number_words(question_number)); %>)" data-options="closed:true, fit:true, onOpen:stattutor_highlight_q<%= question_number %>">
+	<p>Now that we have identified and classified the relevant
+	variable(s), we use exploratory data analysis methods
+	to help us make important features of the data visible.</p>
+	<p>Click on <a class="easyui-linkbutton" onclick="javascript:StatTutor.goto_panel('MeasuresQ<%= question_number %>')">Determine Displays and Measures</a> to 
+	continue.</p>
+</div>
+<div id="MeasuresQ<%= question_number %>" class="easyui-panel work_area"
+	 title="Determine Displays and Measures (Question <% print(number_words(question_number)); %>)" data-options="closed:true, fit:true, onOpen:stattutor_highlight_q<%= question_number %>">
+	<p>A meaningful display is:</p>
+	<div class="meaningful_display"><img src="$boxplots" style="height:16px;"/><div id="q<%= question_number %>measure_box" name="q<%= question_number %>measure_display" class="CTATRadioButton meaningful_display_radio">Side-by-side boxplots</div></div>
+	<div class="meaningful_display"><img src="$scatterplot" style="height:16px;"/><div id="q<%= question_number %>measure_scatter" name="q<%= question_number %>measure_display" class="CTATRadioButton meaningful_display_radio">Scatterplot</div></div>
+	<div class="meaningful_display"><img src="$table" style="height:16px;"/><div id="q<%= question_number %>measure_2table" name="q<%= question_number %>measure_display" class="CTATRadioButton meaningful_display_radio">Two-way Table</div></div>
+	<div class="meaningful_display"><img src="$piechart" style="height:16px;"/><div id="q<%= question_number %>measure_pie" name="q<%= question_number %>measure_display" class="CTATRadioButton meaningful_display_radio">Piechart</div></div>
+	<div class="meaningful_display"><img src="$histogram" style="height:16px;"/><div id="q<%= question_number %>measure_hist" name="q<%= question_number %>measure_display" class="CTATRadioButton meaningful_display_radio">Histogram</div></div>
+	<br/>
+	<p>A meaningful numerical summary to supplement the above display is</p>
+	<div id="q<%= question_number %>measure_num" class="CTATComboBox" style="width:auto;">
+		<option>----</option>
+		<option>descriptive statistics</option>
+		<option>group (category) percentages</option>
+		<option>correlation r (if appropriate)</option>
+		<option>conditional percentages</option>
+	</div>
+	<br/>
+	<p>Using this display and numerical summary, I will</p>
+	<div id="q<%= question_number %>measure_plan" class="CTATComboBox" style="width:auto;">
+		<option>----</option>
+		<option value="OneQuant">describe the features of a single quantitative distribution</option>
+		<option value="OneCat">describe the features of a single categorical distribution</option>
+		<option value="TwoQuant">describe the relationship between two quantitative variables</option>
+		<option value="TwoCat">examine the relationship between two categorical variables</option>
+		<option value="TwoMixed">compare the distribution of a quantitative variable across several groups</option>
+	</div>
+	<p>Click on <a class="easyui-linkbutton" onclick="javascript:StatTutor.goto_panel('AnalysisQ<%= question_number %>')">Conduct Analysis</a> to continue.</p>
+</div>
+<div id="AnalysisQ<%= question_number %>" class="easyui-panel work_area"
+	 title="Conduct Analysis (Question <% print(number_words(question_number)); %>)" data-options="closed:true, fit:true,
+	  onOpen:function(){
+		stattutor_highlight_q<%= question_number %>;
+		var i=this.id;
+		var r = i.charAt(i.length-1);
+		if ($('#ref_q'+r+'measure_display').text() &&
+			$('#ref_q'+r+'measure_display').text().replace(/\\s|-/gm,'').length>0 &&
+            $('#ref_q'+r+'measure_num').text().replace(/\\s|-/gm,'').length>0)
+		  mark_complete('AnalysisQ<%= question_number %>');},
+	  onBeforeOpen:AnalysisQn_onBeforeOpen">
+	<p>Remember...<br/>
+	You selected <span id="ref_q<%= question_number %>measure_display" style="font-weight: bold;"></span>
+	and <span id="ref_q<%= question_number %>measure_num" style="font-weight: bold;"></span>
+	as the meaningful display and measure for the current question.</p>
+	<p> Now use the instructions below to graph your selections
+	using your selected tool.</p>
+	<div id="q<%= question_number %>instructions" class="easyui-tabs" data-options="plain:true"
+		 style="margin:5px;width:90%;"></div>
+	<p>Click on <a class="easyui-linkbutton" onclick="javascript:StatTutor.goto_panel('ResultsQ<%= question_number %>')">Report Results</a> to continue.</p>
+</div>
+<div id="ResultsQ<%= question_number %>" class="easyui-panel work_area"
+	 title="Results (Question <% print(number_words(question_number)); %>)" data-options="closed:true, fit:true, onOpen:stattutor_highlight_q<%= question_number %>">
+	<p>Remember, using the display and numerical summary, you need
+	to describe the features of a single quantitative distribution.</p>
+	<p>Do that by describing the key features of the display and by
+	supporting your description with numerical measures.</p>
+	<p>Keep in mind that the appropriate numerical measures for
+	the current situation (i.e., measures of center and spread)
+	will depend on the shape of the distribution you find.</p>
+	<h3 class="your_answer">Your Answer:</h3>
+	<div id="q<%= question_number %>results" class="CTATTextArea" data-ctat-tutor="false" data-ctat-show-feedback="false" data-ctat-tab-on-enter="false"></div>
+	<div id="q<%= question_number %>results_submit" class="CTATSubmitButton Submit_and_Reveal" data-ctat-target="q<%= question_number %>results" data-ctat-show-feedback="false">Submit and Reveal Our Answer</div>
+	<h3 class="our_answer">Our Answer:</h3>
+	<div id="our_q<%= question_number %>results" class="CTATTextField" data-ctat-tutor="false" data-ctat-enabled="false"></div>
+
+	<p class="q<%= question_number %>formal_enabled">Click on <a class="easyui-linkbutton" onclick="javascript:StatTutor.goto_panel('FormalQ<%= question_number %>')">More Formal Analyses</a> to continue.</p>
+	<p class="q<%= question_number %>formal_disabled">Click on <a class="easyui-linkbutton" onclick="javascript:StatTutor.goto_panel('ConclusionsQ<%= question_number %>')">Draw Conclusions</a> to continue.</p>
+</div>
+<div id="FormalQ<%= question_number %>" class="easyui-panel work_area"
+	 title="More Formal Analyses (Question <% print(number_words(question_number)); %>)" data-options="closed:true, fit:true, onOpen:stattutor_highlight_q<%= question_number %>">
+	<div class="q<%= question_number %>formal_enabled">
+		<p>Now that we have made the important features of
+		the data visible using exploratory data analysis,
+		we move on to assessing the <em>strength</em> of
+		evidence provided by the data using formal
+		statistical tests.</p>
+		<p>Click on <a class="easyui-linkbutton" onclick="javascript:StatTutor.goto_panel('FormalMeasuresQ<%= question_number %>')">Determine More Formal Analyses (Question <% print(number_words(question_number)); %>)</a> to continue.</p>
+	</div>
+	<p class="q<%= question_number %>formal_disabled">This node is not active for this lab exercise. Click on
+		<a class="easyui-linkbutton" onclick="javascript:StatTutor.goto_panel('ConclusionsQ<%= question_number %>')">Draw Conclusions</a> to continue.</p>
+</div>
+<div id="FormalMeasuresQ<%= question_number %>" class="easyui-panel work_area"
+	 title="Determine More Formal Analyses (Question <% print(number_words(question_number)); %>)" data-options="closed:true, fit:true, onOpen:stattutor_highlight_q<%= question_number %>">
+	<div class="q<%= question_number %>formal_enabled">
+		<div>The formal analysis part for the current question will focus on<br/>
+			<div id="q<%= question_number %>formal_focus" class="CTATComboBox" style="width:auto">
+				<option>----</option>
+				<option>exploring the population mean</option>
+				<option>exploring the population proportion</option>
+				<option>comparing two population means</option>
+				<option>exploring the mean of differences</option>
+				<option>comparing two population proportions</option>
+				<option>comparing more than two means</option>
+				<option>examining the relationship between two categorical variables</option>
+				<option>examining the relationship between two quantitative variables</option>
+			</div>
+		</div>
+		<br/>
+		<div>The appropriate statistical test is<br/>
+			<div id="q<%= question_number %>formal_test" class="CTATComboBox" style="width:auto;">
+				<option>----</option>
+				<option value="OneZOneMean">one sample z-test for the mean (&mu;)</option>
+				<option value="OneTOneMean">one sample t-test for the mean (&mu;)</option>
+				<option value="OneZOneProportion">one sample z-test for the proportion (p)</option>
+				<option value="TwoTTwoMeans">two sample t-test for two means (&mu;1, &mu;2)</option>
+				<option value="TwoZTwoProportions">two sample z-test for two proportions (p1, p2)</option>
+				<option value="PairedT">paired t-test for &mu;d</option>
+				<option value="ChiSquare">Chi-square test for independence</option>
+				<option value="AnovaF">ANOVA F test</option>
+				<option value="RegressionT">regression t-test for the slope</option>
+			</div>
+		</div>
+		<br/><br/>
+		<div>Null hypotheses - H<sub>0</sub>:
+			<div id="q<%= question_number %>formal_h0" class="CTATComboBox" style="width:auto; display:inline-block;">
+				<option>-------</option>
+				<option value="mu">&mu;</option>
+				<option value="p">p</option>
+				<option value="mu1 - mu2">&mu;1 - &mu;2</option>
+				<option value="p1 - p2">p1 - p2</option>
+				<option value="mud">&mu;d</option>
+				<option value="mu1 = mu2 = mu3 = ... = muk">&mu;1 = &mu;2 = &mu;3 = &hellip; = &mu;k</option>
+				<option value="not all mui are equal">not all &mu;<sub>i</sub> are equal</option>
+				<option value="a linear relationship exists">a linear relationship exists</option>
+				<option value="no linear relationship exists">no linear relationship exists</option>
+				<option value="two cat vars are independent">two categorical variables are independent</option>
+				<option value="two cat vars are not independent">two categorical variables are not independent</option>
+			</div>
+			<div id="q<%= question_number %>formal_h0_second" class="CTATComboBox" style="width:auto; display:inline-block; visibility:hidden;">
+				<option></option>
+				<option value="=">=</option>
+				<option value="ne">&ne;</option>
+				<option value="lt">&lt;</option>
+				<option value="gt">&gt;</option>
+			</div>
+			<div id="q<%= question_number %>formal_h0_third" class="CTATTextInput" style="display:inline-block; visibility:hidden;"></div>
+		</div>
+		<br/>
+		<div>Alternative hypothesis - H<sub>a</sub>:
+			<div id="q<%= question_number %>formal_ha" class="CTATComboBox" style="width:auto; display:inline-block;">
+				<option>-------</option>
+				<option value="mu">&mu;</option>
+				<option value="p">p</option>
+				<option value="mu1 - mu2">&mu;1 - &mu;2</option>
+				<option value="p1 - p2">p1 - p2</option>
+				<option value="mud">&mu;d</option>
+				<option value="mu1 = mu2 = mu3 = ... = muk">&mu;1 = &mu;2 = &mu;3 = &hellip; = &mu;k</option>
+				<option value="not all mui are equal">not all &mu;i are equal</option>
+				<option value="a linear relationship exists">a linear relationship exists</option>
+				<option value="no linear relationship exists">no linear relationship exists</option>
+				<option value="two cat vars are independent">two categorical variables are independent</option>
+				<option value="two cat vars are not independent">two categorical variables are not independent</option>
+			</div>
+			<div id="q<%= question_number %>formal_ha_second" class="CTATComboBox" style="width:auto; display:inline-block; visibility: hidden;">
+				<option></option>
+				<option value="=">=</option>
+				<option value="ne">&ne;</option>
+				<option value="lt">&lt;</option>
+				<option value="gt">&gt;</option>
+			</div>
+			<div id="q<%= question_number %>formal_ha_third" class="CTATTextInput" style="display:inline-block; visibility: hidden;"></div>
+		</div>
+		<div id="FormalMeasuresQ<%= question_number %>_Thought" class="ThoughtArea"></div>
+		<p>Click on <a class="easyui-linkbutton" onclick="javascript:StatTutor.goto_panel('FormalAnalysisQ<%= question_number %>')">Conduct Analysis</a> to continue.</p>
+	</div>
+	<p class="q<%= question_number %>formal_disabled">This node is not active for this lab exercise. Click on
+		<a class="easyui-linkbutton" onclick="javascript:StatTutor.goto_panel('ConclusionsQ<%= question_number %>')">Draw Conclusions</a> to continue.</p>
+</div>
+<div id="FormalAnalysisQ<%= question_number %>" class="easyui-panel work_area"
+	 title="Conduct Analysis (Question <% print(number_words(question_number)); %>)" data-options="closed:true, fit:true, onOpen:stattutor_highlight_q<%= question_number %>">
+	<div class="q<%= question_number %>formal_enabled">
+		<p><i>Remember...</i><br/>
+		You selected <span id="ref_q<%= question_number %>formal_test" style="font-weight:bold;"></span>.<br/>
+		Now use the instructions below to graph you selections using your selected tool:</p>
+		<div id="q<%= question_number %>formal_instructions" class="easyui-tabs" data-options="plain:true"></div>
+		<p>Click on <a class="easyui-linkbutton" onclick="javascript:StatTutor.goto_panel('FormalResultsQ<%= question_number %>')">Report Results</a> to continue.
+		</p>
+	</div>
+	<p class="q<%= question_number %>formal_disabled">This node is not active for this lab exercise. Click on
+		<a class="easyui-linkbutton" onclick="javascript:StatTutor.goto_panel('ConclusionsQ<%= question_number %>')">Draw Conclusions</a> to continue.
+	</p>
+</div>
+<div id="FormalResultsQ<%= question_number %>" class="easyui-panel work_area"
+	 title="Report Results (Question <% print(number_words(question_number)); %>)" data-options="closed:true, fit:true, onOpen:stattutor_highlight_q<%= question_number %>">
+	<div class="q<%= question_number %>formal_enabled">
+		<p>State the p-value of the test:</p>
+		<h3 class="your_answer">Your Answer:</h3>
+		<div id="q<%= question_number %>formal_results" class="CTATTextArea" data-ctat-tutor="false" data-ctat-show-feedback="false" data-ctat-tab-on-enter="false"></div>
+		<div id="q<%= question_number %>formal_results_submit" class="CTATSubmitButton Submit_and_Reveal" data-ctat-target="q<%= question_number %>formal_results" data-ctat-show-feedback="false">Submit and Reveal Our Answer</div>
+		<h3 class="our_answer">Our Answer:</h3>
+		<div id="our_q<%= question_number %>formal_results" class="CTATTextField" data-ctat-tutor="false" data-ctat-enabled="false"></div>
+		<p>Click on <a class="easyui-linkbutton" onclick="javascript:StatTutor.goto_panel('ConclusionsQ<%= question_number %>')">Draw Conclusions</a> to continue.</p>
+	</div>
+	<p class="q<%= question_number %>formal_disabled">This node is not active for this lab exercise. Click on
+		<a class="easyui-linkbutton" onclick="javascript:StatTutor.goto_panel('ConclusionsQ<%= question_number %>')">Draw Conclusions</a> to continue.</p>
+</div>
+					
+<div id="ConclusionsQ<%= question_number %>" class="easyui-panel work_area"
+	 title="Draw Conclusions (Question <% print(number_words(question_number)); %>)" data-options="closed:true, fit:true, onOpen:stattutor_highlight_q<%= question_number %>">
+	<p>In this step, Draw Conclusions, we interpret the
+	results we got from out analyses in the context of the
+	current question.</p>
+	<p>Click on <a class="easyui-linkbutton" onclick="javascript:StatTutor.goto_panel('ConclusionsConsiderQ<%= question_number %>')">Consider what results mean</a> to continue.</p>
+</div>
+<div id="ConclusionsConsiderQ<%= question_number %>" class="easyui-panel work_area"
+	 title="Consider what results mean (Question <% print(number_words(question_number)); %>)" data-options="closed:true, fit:true, onOpen:stattutor_highlight_q<%= question_number %>">
+	<p id="q<%= question_number %>conclusions_question"></p>
+	<h3 class="your_answer">Your Answer:</h3>
+	<div id="q<%= question_number %>conclusions" class="CTATTextArea" data-ctat-tutor="false" data-ctat-show-feedback="false" data-ctat-tab-on-enter="false"></div>
+	<div id="q<%= question_number %>conclusions_submit" class="CTATSubmitButton Submit_and_Reveal" data-ctat-target="q<%= question_number %>conclusions" data-ctat-show-feedback="false">Submit and Reveal Our Answer</div>
+	<h3 class="our_answer">Our Answer:</h3>
+	<div id="our_q<%= question_number %>conclusions" class="CTATTextField" data-ctat-tutor="false" data-ctat-enabled="false"></div>
+	<div id="ConclusionsConsiderQ<%= question_number %>_Thought" class="ThoughtArea"></div>
+	<p>Click on <a class="easyui-linkbutton" onclick="javascript:StatTutor.goto_panel('ConclusionsReflectQ<%= question_number %>')">Reflect on conclusions</a> to continue.</p>
+</div>
+<div id="ConclusionsReflectQ<%= question_number %>" class="easyui-panel work_area"
+	 title="Reflect on Conclusions (Question <% print(number_words(question_number)); %>)" data-options="closed:true, fit:true,
+	   onOpen:function(){
+		if ($('#q<%= question_number %>consider').data('CTATComponent').getText().length>0)
+		  $('#q<%= question_number %>reflect_prev').html($('#q<%= question_number %>consider').data('CTATComponent').getText().replace(/\\n/g,'<br/>'));
+		stattutor_highlight_q<%= question_number %>();}">
+	<p>Remember...<br/>Under <a class="easyui-linkbutton" onclick="javascript:StatTutor.goto_panel('ConsiderQ<%= question_number %>')">Consider Question <% print(number_words(question_number)); %></a> you said:
+	<div class="ReminderText" id="q<%= question_number %>reflect_prev"></div>
+	<p>Relate the comments you made before analyzing the data
+	(these appear in the textbox above) by commenting on
+	<b>both</b> of the following:</p>
+	<ul><li>how your expectations differ (or do not differ) from the actual results</li>
+		<li>if it is relevant or meaningful in context, think of
+			a way that these results could be used in practice</li>
+	</ul>
+	<h3 class="your_answer">Your Answer:</h3>
+	<div id="q<%= question_number %>reflect" class="CTATTextArea" data-ctat-tutor="false" data-ctat-show-feedback="false" data-ctat-tab-on-enter="false"></div>
+	<div id="q<%= question_number %>reflect_submit" class="CTATSubmitButton Submit_and_Reveal" data-ctat-target="q<%= question_number %>reflect" data-ctat-show-feedback="false">Submit and Reveal Our Answer</div>
+	<h3 class="our_answer">Our Answer:</h3>
+	<div id="our_q<%= question_number %>reflect" class="CTATTextField" data-ctat-tutor="false" data-ctat-enabled="false"></div>
+
+	<p class="q<%= question_number %>last_question_false">Now that you have completed the three steps in the
+	the Work Plan for Question <% print(number_words(question_number)); %>, click on <a class="easyui-linkbutton" onclick="javascript:StatTutor.goto_panel('Question<% print(question_number+1); %>')">Question <% print(number_words(question_number+1)); %>.</a></p>
+	<p class="q<%= question_number %>last_question_true" style="display:none;">Now that you have completed all three steps in the Work Plan for each question,
+	click on <a class="easyui-linkbutton" onclick="javascript:StatTutor.goto_panel('Summarize')">Summarize</a>.</p>
+</div>
+</script>
