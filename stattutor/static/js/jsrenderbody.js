@@ -331,16 +331,18 @@ var question_template = `<div id="Question{{:#index+1}}" class="easyui-panel wor
 // longer needs to wait for the page to load to get the template.
 
 var MAX_NUMBER_QUESTIONS = 3;
-$.views.converters("word", function(val) { return ['Zero','One','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten'][parseInt(val)];});
-var template = $.templates(question_template);
 var question_init_data = [];
 
 for (var i=0; i<MAX_NUMBER_QUESTIONS; i++) 
 {
     question_init_data.push({});
 }
-var question_panels = template.render(question_init_data);
-$(function() { $('#main').append(question_panels); });
+$(function() {
+    $.views.converters("word", function(val) { return ['Zero','One','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten'][parseInt(val)];});
+    var template = $.templates(question_template);
+    var question_panels = template.render(question_init_data);
+    $('#main').append(question_panels);
+});
 
 console.log ("Finished adding templated html.");
 
