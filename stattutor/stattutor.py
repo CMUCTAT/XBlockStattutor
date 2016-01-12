@@ -63,6 +63,7 @@ class StattutorXBlock(XBlock):
         return (text.replace ("[xblockbase]",base))
 
     def strip_local (self, url):
+        """Returns the given url with //localhost:port removed."""
         return re.sub('//localhost(:\d*)?', '', url)
     # -------------------------------------------------------------------
     # Here we construct the tutor html page from various resources. This 
@@ -111,6 +112,7 @@ class StattutorXBlock(XBlock):
         }
         question_tpl = self.resource_string("static/templates/question-tpl.html")
         frag.add_resource(Template(question_tpl).safe_substitute(format_references),"text/html")
+        ## Uncomment the following to get it to work in xblock-sdk
         #frag.add_javascript_url(self.runtime.resource_url("js/vendor/underscore-min.js"))
         preEasyUI = self.resource_string("static/js/question-tpl.js")
         frag.add_javascript (preEasyUI)
