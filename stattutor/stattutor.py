@@ -91,7 +91,7 @@ class StattutorXBlock(XBlock):
         self.logdebug ("Base URL: " + self.strip_local(self.runtime.local_resource_url(self, 'public/')))
         baseURL=self.strip_local(self.runtime.local_resource_url (self,"public/problem_files/ref.css"));
         html = self.resource_string("static/html/ctatxblock.html")
-        self.problem_location = self.strip_local(self.runtime.local_resource_url(self, 'public/problem_files/'+self.module+'/'+self.problem))
+        self.problem_location = self.strip_local(self.runtime.local_resource_url(self, 'public/problem_files/'+self.ctatmodule+'/'+self.problem))
         frag = Fragment (html.format(self=self))
         frag.add_css_url (self.strip_local(self.runtime.local_resource_url (self,"public/css/themes/default/easyui.css")))
         frag.add_css_url (self.strip_local(self.runtime.local_resource_url (self,"public/css/themes/icon.css")))
@@ -101,9 +101,9 @@ class StattutorXBlock(XBlock):
         format_references = {
             'public': self.strip_local(self.runtime.local_resource_url(self, 'public/')),
             'logo': self.strip_local(self.runtime.local_resource_url(self, 'public/images/logo.png')),
-            'problem_description': self.strip_local(self.runtime.local_resource_url(self, 'public/problem_files/'+self.module+'/'+self.name+'.xml')),
+            'problem_description': self.strip_local(self.runtime.local_resource_url(self, 'public/problem_files/'+self.ctatmodule+'/'+self.name+'.xml')),
             'Instructions': self.strip_local(self.runtime.local_resource_url(self, 'public/Instructions.xml')),
-            'data_json': self.strip_local(self.runtime.local_resource_url(self,'public/problem_files/'+self.module+'/'+'Survey'+'.json')),
+            'data_json': self.strip_local(self.runtime.local_resource_url(self,'public/problem_files/'+self.ctatmodule+'/'+'Survey'+'.json')),
             'boxplots': self.strip_local(self.runtime.local_resource_url(self, 'public/images/boxplots.png')),
             'scatterplot': self.strip_local(self.runtime.local_resource_url(self, 'public/images/scatterplot.png')),
             'table': self.strip_local(self.runtime.local_resource_url(self, 'public/images/table.png')),
@@ -174,8 +174,8 @@ class StattutorXBlock(XBlock):
             self.logdebug("Setting ({}) to ({})".format(key, value))
             if (key=="href"):
                self.href = value
-            elif (key=="module"):
-               self.module = value
+            elif (key=="ctatmodule"):
+               self.ctatmodule = value
             elif (key=="name"):
                self.name = value
             elif (key=="problem"):
