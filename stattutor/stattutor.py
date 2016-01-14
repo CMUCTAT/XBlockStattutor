@@ -158,7 +158,7 @@ class StattutorXBlock(XBlock):
         #print ('studio_submit()')
         #pp = pprint.PrettyPrinter(indent=4)
         #pp.pprint(data)
-        self.src = data.get('src')
+        #self.src = data.get('src')
         return {'result': 'success'}
 
     @XBlock.json_handler
