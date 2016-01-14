@@ -21,9 +21,9 @@ class StattutorXBlock(XBlock):
     max_score = Integer(help="Total number of steps", scope=Scope.user_state, default=1)
     attempted = Boolean(help="True if at least one step has been completed", scope=Scope.user_state, default=False)
     completed = Boolean(help="True if all of the required steps are correctly completed", scope=Scope.user_state, default=False)
-    
+
     href = String(help="URL to a BRD file", default="http://augustus.pslc.cs.cmu.edu/stattutor/problem_files", scope=Scope.settings)
-    module = String(help="The learning module to load from", default="m1_survey", scope=Scope.settings)
+    ctatmodule = String(help="The learning module to load from", default="m1_survey", scope=Scope.settings)
     name = String(help="Problem name to log", default="survey", scope=Scope.settings)
     problem = String(help="The name of a BRD file", default="survey.brd", scope=Scope.settings)
     dataset = String(help="Dataset name to log", default="edxdataset", scope=Scope.settings)
@@ -38,7 +38,7 @@ class StattutorXBlock(XBlock):
     remoteurl = String(help="Location of the tutoring service (localhost or domain name)", default="localhost", scope=Scope.settings)
     connection = String(help="", default="javascript", scope=Scope.settings)
 
-    src = String(help = "URL for MP3 file to play", scope = Scope.settings )
+    #src = String(help = "URL for MP3 file to play", scope = Scope.settings )
 
     saveandrestore = String(help="Internal data blob used by the tracer", default="", scope=Scope.user_state)
     skillstring = String(help="Internal data blob used by the tracer", default="", scope=Scope.user_state)
@@ -139,9 +139,10 @@ class StattutorXBlock(XBlock):
     def studio_view(self, context=None):        
         self.logdebug ("studio_view ()")
         html = self.resource_string("static/html/ctatstudio.html")
-        frag = Fragment(html.format(src=self.src))
-        frag.add_css_url(self.runtime.local_resource_url (self,"public/css/ctatstudio.css"))    
-        frag.initialize_js('CTATXBlock')        
+        frag = Fragment(html.format(self=self))
+        frag.add_javascript_url(self.runtime.local_resource_url (self,"public/js/ctatstudio.js"))
+        frag.add_css_url(self.runtime.local_resource_url (self,"public/css/ctatstudio.css"))
+        frag.initialize_js('CTATXBlockStudio')        
         return frag
 
     @XBlock.json_handler
@@ -194,8 +195,8 @@ class StattutorXBlock(XBlock):
                self.remoteurl = value
             elif (key=="connection"):
                self.connection = value
-            elif (key=="src"):
-               self.src = value
+            #elif (key=="src"):
+            #   self.src = value
             #elif (key=="saveandrestore"):
             #   self.saveandrestore = value
             #elif (key=="skillstring"):

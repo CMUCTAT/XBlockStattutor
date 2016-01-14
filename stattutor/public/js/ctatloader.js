@@ -106,6 +106,8 @@ function tutorShopParams(emptyResult) {
 		return emptyResult;
 };
 
+// Moved this code to loadCTAT, functionality should be the same
+/**
 if((tutorShopParams({}))["LMS"] == "TutorShop" || CTATTarget == "Default")
 {
     if(typeof CTATTutor == "undefined" || !CTATTutor)
@@ -117,6 +119,7 @@ if((tutorShopParams({}))["LMS"] == "TutorShop" || CTATTarget == "Default")
         loadjscssfile("Assets/CTAT.css","css");
     }
 }
+*/
 
 /**
 *
@@ -228,9 +231,11 @@ function loadCTAT ()
 		FlashVars ['user_guid']=window.self.studentId;
 		FlashVars ['baseUrl']=window.self.baseUrl;
 		FlashVars ['handlerBaseUrl']=window.self.handlerBaseUrl;
-		FlashVars ['question_file']=window.problem_location;//window.self.href + "/" + window.self.stattutor_module + "/" + window.self.problem;
+		//FlashVars ['question_file']=window.problem_location;//window.self.href + "/" + window.self.ctatmodule + "/" + window.self.problem;
+		FlashVars ['question_file']=window.self.href + "/" + window.self.ctatmodule + "/" + window.self.problem;
+		
 		FlashVars ['href']=window.href;
-		FlashVars ['module']=window.stattutor_module;		
+		FlashVars ['module']=window.ctatmodule;
 
 		FlashVars ['resource_spec']=window.name;
 		FlashVars ['problem']=window.problem;
@@ -256,7 +261,7 @@ function loadCTAT ()
 		
 		FlashVars ["session_id"]=("xblocksession_"+guid());
 		
-		ctatdebug ("Generated question_file: " + FlashVars ['question_file']);
+		console.log ("Generated question_file: " + FlashVars ['question_file']);
 		
 		initOnload ();
 		
@@ -274,14 +279,30 @@ function loadCTAT ()
 	}	
 
 	/*
-	*
+	* The target CTAT is synonymous with TutorShop. You can use this target outside of
+	* TutorShop if you use the same directory structure for the css, js and brd files
 	*/	
-	if ((CTATTarget=="Default") || (CTATTarget=="CTAT"))
+	if((tutorShopParams({}))["LMS"] == "TutorShop" || CTATTarget == "CTAT")
+	{
+		if(typeof CTATTutor == "undefined" || !CTATTutor)
+		{
+			loadjscssfile("Assets/ctat.min.js","js");
+		}
+		if(!(Array.prototype.some.call(document.styleSheets, function(sheet) {return sheet.href && sheet.href.includes("CTAT.css")})))
+		{
+			loadjscssfile("Assets/CTAT.css","css");
+		}
+	}
+	
+	/**
+	* This target is available to you if you would like to either develop your own
+	* Learner Management System or would like to test and run your tutor standalone.
+	*/
+	if (CTATTarget=="Default")
 	{	
-	    //		loadjscssfile ("css/CTAT.css","css");
-		
-	    //		loadjscssfile ("ctatjslib/ctat.min.js","js");	
-	}		
+	    loadjscssfile ("http://ctat.pact.cs.cmu.edu/html5releases/latest/CTAT.css","css");		
+	    loadjscssfile ("http://ctat.pact.cs.cmu.edu/html5releases/latest/ctat.min.js","js");	
+	}	
 }
 
 /**
@@ -410,7 +431,7 @@ function initOnload ()
 		flashVars.assignRawFlashVars(tempFlashVars);
 		
 		Tutor.name = window.name;
-		Tutor.webcontent = "problem_files/"+window.stattutor_module+"/";
+		Tutor.webcontent = "problem_files/"+window.ctatmodule+"/";
 		Tutor.data = Tutor.webcontent+window.name;
 		Tutor.problem_description = Tutor.name+".xml";
 		Tutor.brd = Tutor.name+".brd";
@@ -429,9 +450,10 @@ function initOnload ()
 	}	
 	
 	/*
-	*
+	* The target CTAT is synonymous with TutorShop. You can use this target outside of
+	* TutorShop if you use the same directory structure for the css, js and brd files
 	*/	
-	if ((CTATTarget=="Default") || (CTATTarget=="CTAT"))
+	if (CTATTarget=="CTAT")
 	{
 		initTutor (CTATGlobalFunctions.decodeTutorShopParams());
 		
@@ -451,6 +473,31 @@ function initOnload ()
 		
 		return;
 	}
+	
+	/*
+	* This target is available to you if you would like to either develop your own
+	* Learner Management System or would like to test and run your tutor standalone.
+	*/
+	if (CTATTarget=="Default")
+	{
+		initTutor (CTATGlobalFunctions.decodeTutorShopParams());
+		
+		// Once all the CTAT code has been loaded allow developers to activate custom code
+		// All developers would have to do is provde the method called 'init'. This is a
+		// better way of managing the order of execution since the ready function essentially
+		// overwrites the body onLoad function
+		
+		if (window.hasOwnProperty('ctatOnload'))
+		{
+			window ['ctatOnload']();
+		}
+		else
+		{
+			console.log ("Error: window.ctatOnload is not available");
+		}
+		
+		return;
+	}	
 }
 
 /**
@@ -510,7 +557,14 @@ $(document).ready(function()
 		}
 	}
 
-	loadCTAT ();
+	if (CTATTarget!="XBlock")
+	{
+		loadCTAT ();
+	}
+	else	
+	{
+		console.log ("We can't execute loadCTAT () in $(document).ready(), because the actual XBlock needs to start first. It will call loadCTAT instead");
+	}
 });
 
 $(window).load(function() 
