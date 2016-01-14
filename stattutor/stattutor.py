@@ -3,6 +3,7 @@ import pprint
 import pkg_resources
 import base64
 import glob
+import re
 import socket
 
 from string import Template
@@ -61,6 +62,9 @@ class StattutorXBlock(XBlock):
         self.logdebug (self,'local_resource_url (adjusted): ' + base)
         return (text.replace ("[xblockbase]",base))
 
+    def strip_local (self, url):
+        """Returns the given url with //localhost:port removed."""
+        return re.sub('//localhost(:\d*)?', '', url)
     # -------------------------------------------------------------------
     # Here we construct the tutor html page from various resources. This 
     # is where all things go to hell. We can't use jsrender because the
@@ -84,36 +88,39 @@ class StattutorXBlock(XBlock):
     def student_view(self, context=None):
         self.logdebug ("student_view ()")
         self.logdebug ("Hostname: " + socket.getfqdn())
-        self.logdebug ("Base URL: " + self.runtime.local_resource_url(self, 'public/'))
-        baseURL=self.runtime.local_resource_url (self,"public/problem_files/ref.css");
+        self.logdebug ("Base URL: " + self.strip_local(self.runtime.local_resource_url(self, 'public/')))
+        baseURL=self.strip_local(self.runtime.local_resource_url (self,"public/problem_files/ref.css"));
         html = self.resource_string("static/html/ctatxblock.html")
-        self.problem_location = self.runtime.local_resource_url(self, 'public/problem_files/'+self.module+'/'+self.problem)
+        self.problem_location = self.strip_local(self.runtime.local_resource_url(self, 'public/problem_files/'+self.module+'/'+self.problem))
         frag = Fragment (html.format(self=self))
-        frag.add_css_url (self.runtime.local_resource_url (self,"public/css/themes/default/easyui.css"))
-        frag.add_css_url (self.runtime.local_resource_url (self,"public/css/themes/icon.css"))
-        frag.add_css_url (self.runtime.local_resource_url (self,"public/css/ctatxblock.css"))
-        frag.add_css_url (self.runtime.local_resource_url (self,"public/css/ctat.css"))
-        frag.add_css_url (self.runtime.local_resource_url (self,"public/css/stattutor.css"))
-        frag.add_javascript_url (self.runtime.local_resource_url(self,"public/js/jsrender.min.js"))
+        frag.add_css_url (self.strip_local(self.runtime.local_resource_url (self,"public/css/themes/default/easyui.css")))
+        frag.add_css_url (self.strip_local(self.runtime.local_resource_url (self,"public/css/themes/icon.css")))
+        frag.add_css_url (self.strip_local(self.runtime.local_resource_url (self,"public/css/ctatxblock.css")))
+        frag.add_css_url (self.strip_local(self.runtime.local_resource_url (self,"public/css/ctat.css")))
+        frag.add_css_url (self.strip_local(self.runtime.local_resource_url (self,"public/css/stattutor.css")))
         format_references = {
-            'public': self.runtime.local_resource_url(self, 'public/'),
-            'logo': self.runtime.local_resource_url(self, 'public/images/logo.png'),
-            'problem_description': self.runtime.local_resource_url(self, 'public/problem_files/'+self.module+'/'+self.name+'.xml'),
-            'Instructions': self.runtime.local_resource_url(self, 'public/Instructions.xml'),
-            'data_json': self.runtime.local_resource_url(self,'public/problem_files/'+self.module+'/'+'Survey'+'.json'),
-            'boxplots': self.runtime.local_resource_url(self, 'public/images/boxplots.png'),
-            'scatterplot': self.runtime.local_resource_url(self, 'public/images/scatterplot.png'),
-            'table': self.runtime.local_resource_url(self, 'public/images/table.png'),
-            'piechart': self.runtime.local_resource_url(self, 'public/images/piechart.png'),
-            'histogram': self.runtime.local_resource_url(self, 'public/images/histogram.png'),
+            'public': self.strip_local(self.runtime.local_resource_url(self, 'public/')),
+            'logo': self.strip_local(self.runtime.local_resource_url(self, 'public/images/logo.png')),
+            'problem_description': self.strip_local(self.runtime.local_resource_url(self, 'public/problem_files/'+self.module+'/'+self.name+'.xml')),
+            'Instructions': self.strip_local(self.runtime.local_resource_url(self, 'public/Instructions.xml')),
+            'data_json': self.strip_local(self.runtime.local_resource_url(self,'public/problem_files/'+self.module+'/'+'Survey'+'.json')),
+            'boxplots': self.strip_local(self.runtime.local_resource_url(self, 'public/images/boxplots.png')),
+            'scatterplot': self.strip_local(self.runtime.local_resource_url(self, 'public/images/scatterplot.png')),
+            'table': self.strip_local(self.runtime.local_resource_url(self, 'public/images/table.png')),
+            'piechart': self.strip_local(self.runtime.local_resource_url(self, 'public/images/piechart.png')),
+            'histogram': self.strip_local(self.runtime.local_resource_url(self, 'public/images/histogram.png')),
         }
-        jsrenderbody = self.resource_string("static/js/jsrenderbody.js")
-        frag.add_javascript (Template(jsrenderbody).safe_substitute(format_references))
-        frag.add_javascript_url (self.runtime.local_resource_url(self,"public/js/jquery.easyui.min.js"))
+        question_tpl = self.resource_string("static/templates/question-tpl.html")
+        frag.add_resource(Template(question_tpl).safe_substitute(format_references),"text/html")
+        ## Uncomment the following to get it to work in xblock-sdk
+        #frag.add_javascript_url(self.runtime.resource_url("js/vendor/underscore-min.js"))
+        preEasyUI = self.resource_string("static/js/question-tpl.js")
+        frag.add_javascript (preEasyUI)
+        frag.add_javascript_url (self.strip_local(self.runtime.local_resource_url(self,"public/js/jquery.easyui.min.js")))
         frag.add_javascript ("var baseURL=\""+(baseURL [:-7])+"\";")
-        frag.add_javascript_url (self.runtime.local_resource_url(self,"public/js/ctatloader.js"))
-        frag.add_javascript_url (self.runtime.local_resource_url(self,"public/js/ctat.min.js"))
-        frag.add_javascript_url (self.runtime.local_resource_url(self,"public/js/stattutor.js"))
+        frag.add_javascript_url (self.strip_local(self.runtime.local_resource_url(self,"public/js/ctatloader.js")))
+        frag.add_javascript_url (self.strip_local(self.runtime.local_resource_url(self,"public/js/ctat.min.js")))
+        frag.add_javascript_url (self.strip_local(self.runtime.local_resource_url(self,"public/js/stattutor.js")))
         load_resources = Template(self.resource_string("static/js/load_resources.js")).safe_substitute(format_references)
         frag.add_javascript (load_resources)
         body = self.resource_string("static/html/body.html")
