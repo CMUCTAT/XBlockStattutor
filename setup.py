@@ -22,7 +22,7 @@ def package_data(pkg, roots):
 
 setup(
     name='stattutor-xblock',
-    version='0.46',
+    version='0.47',
     description='Stattutor XBlock',
     packages=[
         'stattutor',
