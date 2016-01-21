@@ -16,13 +16,38 @@ dbgopen=False;
 tmp_file=None;
 
 class StattutorXBlock(XBlock):
+    # Scoring
+    has_score = True
+    weight = Float(
+        display_name="Problem Weight",
+        help=("Defines the number of points eash problem is worth. "
+              "If the value is not set, the problem is worth the sum of the option point values."),
+        values={"min": 0, "step": .1},
+        scope=Scope.settings
+    )
+    done = Boolean(
+        scope=Scope.user_state,
+        help="Is the student done?",
+        default = False
+    )
+    score = Integer(
+        help="Current count of correctly completed student steps",
+        scope=Scope.user_state, default=0)
+    max_problem_steps = Integer(
+        help="Total number of steps",
+        scope=Scope.user_state, default=1)
+    def max_score(self):
+        """ The maximum raw score of the problem. """
+        return 1 #self.max_problem_steps
+    attempted = Boolean(
+        help="True if at least one step has been completed",
+        scope=Scope.user_state, default=False)
+    completed = Boolean(
+        help="True if all of the required steps are correctly completed",
+        scope=Scope.user_state, default=False)
+    
     # Fields are defined on the class.  You can access them in your code as
     # self.<fieldname>.
-    score = Integer(help="Current count of correctly completed student steps", scope=Scope.user_state, default=0)
-    max_score = Integer(help="Total number of steps", scope=Scope.user_state, default=1)
-    attempted = Boolean(help="True if at least one step has been completed", scope=Scope.user_state, default=False)
-    completed = Boolean(help="True if all of the required steps are correctly completed", scope=Scope.user_state, default=False)
-
     href = String(help="URL to a BRD file", default="http://augustus.pslc.cs.cmu.edu/stattutor/problem_files", scope=Scope.settings)
     ctatmodule = String(help="The learning module to load from", default="m1_survey", scope=Scope.settings)
     name = String(help="Problem name to log", default="survey", scope=Scope.settings)
@@ -134,11 +159,14 @@ class StattutorXBlock(XBlock):
         #print('ctat_grade:',data,suffix)
         self.attempted = True
         self.score = data['value']
-        self.max_score = data['max_value']
+        self.max_problem_steps = data['max_value']
         self.completed = self.score >= self.max_score
-        event_data = {'value': self.score, 'max_value': self.max_score}
+        self.done = self.score >= self.max_score
+        # trying with max of 1.
+        event_data = {'value': self.score/self.max_problem_steps,
+                      'max_value': 1}
         self.runtime.publish(self, 'grade', event_data);
-        return {'result': 'success'}
+        return {'state': self.done}
 
     # -------------------------------------------------------------------
     # TO-DO: change this view to display your data your own way.
