@@ -9,7 +9,7 @@ import socket
 from string import Template
 
 from xblock.core import XBlock
-from xblock.fields import Scope, Integer, String, Boolean, Any
+from xblock.fields import Scope, Integer, Float, String, Boolean, Any
 from xblock.fragment import Fragment
 
 dbgopen=False;
