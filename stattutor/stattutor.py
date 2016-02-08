@@ -204,8 +204,8 @@ class StattutorXBlock(XBlock):
                self.connection = value
             #elif (key=="src"):
             #   self.src = value
-            #elif (key=="saveandrestore"):
-            #   self.saveandrestore = value
+            elif (key=="saveandrestore"):
+               self.saveandrestore = value
             #elif (key=="skillstring"):
             #  self.skillstring = value
 
