@@ -18,7 +18,7 @@ if(typeof(CTATTarget) == "undefined" || !CTATTarget)
 	var CTATTarget="Default";
 }
 
-var Tutor = {}; // For XBlock (for now)
+//var Tutor = {}; // For XBlock (for now)
 var FlashVars = (FlashVars ? FlashVars : {
 	admit_code: "ies",
 	authenticity_token: "",
@@ -254,7 +254,16 @@ function loadCTAT ()
 
 		FlashVars ['saveandrestore']=window.saveandrestore;
 		FlashVars ['skillstring']=window.skillstring;
-				
+		if (FlashVars ['saveandrestore']!="")
+		{
+			FlashVars ['problem_state_status']='incomplete';
+		}	
+		else
+		{
+			FlashVars ['problem_state_status']='empty';
+		}	
+		FlashVars ['restore_problem_url']='getVariable()';
+
 		ctatdebug ("XBlock windows.self.studentId: " + window.self.studentId);
 		ctatdebug ("XBlock windows.self.handlerBaseUrl: " + window.self.handlerBaseUrl);
 		
@@ -428,12 +437,14 @@ function initOnload ()
 		
 		flashVars=new CTATFlashVars ();
 		flashVars.assignRawFlashVars(tempFlashVars);
-		
+
+		/*
 		Tutor.name = window.name;
 		Tutor.webcontent = "problem_files/"+window.ctatmodule+"/";
 		Tutor.data = Tutor.webcontent+window.name;
 		Tutor.problem_description = Tutor.name+".xml";
 		Tutor.brd = Tutor.name+".brd";
+		*/
 		
 		if (window.hasOwnProperty('ctatPreload'))
 		{
@@ -518,6 +529,7 @@ function OLIReady ()
 	// All developers would have to do is provde the method called 'init'. This is a
 	// better way of managing the order of execution since the ready function essentially
 	// overwrites the body onLoad function
+	
 	if (window.hasOwnProperty('ctatOnload'))
 	{
 		window ['ctatOnload']();	
@@ -566,6 +578,9 @@ $(document).ready(function()
 	}
 });
 
+/**
+*
+*/
 $(window).load(function() 
 {
 	console.log ("load ()");
@@ -586,6 +601,9 @@ $(window).load(function()
 	}	
 });
 
+/**
+*
+*/
 function translateResourceFile (aURL)
 {
 	if (CTATTarget=="OLI")
