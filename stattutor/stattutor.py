@@ -150,7 +150,9 @@ class StattutorXBlock(XBlock):
         self.logdebug ("studio_view ()")
         html = self.resource_string("static/html/ctatstudio.html")
         frag = Fragment(html.format(self=self))
-        frag.add_javascript_url(self.runtime.local_resource_url (self,"public/js/ctatstudio.js"))
+	js = self.resource_string("static/js/ctatstudio.js")
+	frag.add_javascript(unicode(js))
+        #frag.add_javascript_url(self.runtime.local_resource_url (self,"public/js/ctatstudio.js"))
         #frag.add_css_url(self.runtime.local_resource_url (self,"public/css/ctatstudio.css"))
         frag.initialize_js('CTATXBlockStudio')        
         return frag
