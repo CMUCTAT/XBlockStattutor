@@ -25,8 +25,11 @@ class StattutorXBlock(XBlock):
 
     href = String(help="URL to a BRD file", default="http://augustus.pslc.cs.cmu.edu/stattutor/problem_files", scope=Scope.settings)
     ctatmodule = String(help="The learning module to load from", default="m1_survey", scope=Scope.settings)
-    name = String(help="Problem name to log", default="survey", scope=Scope.settings)
     problem = String(help="The name of a BRD file", default="survey.brd", scope=Scope.settings)
+    description = String(help="Problem Description", default="survey.xml", scope=Scope.settings)
+    problem_data = String(help="Name of the json file used to populate the data tab", default="Survey.json", scope=Scope.settings)
+
+    name = String(help="Problem name to log", default="CTATEdXProblem", scope=Scope.settings)
     dataset = String(help="Dataset name to log", default="edxdataset", scope=Scope.settings)
     level1 = String(help="Level name to log", default="unit1", scope=Scope.settings)
     type1 = String(help="Level type to log", default="unit", scope=Scope.settings)
@@ -47,7 +50,7 @@ class StattutorXBlock(XBlock):
     def logdebug (self, aMessage):
         global dbgopen, tmp_file
         if (dbgopen==False):
-            tmp_file = open("/tmp/edx-tmp-log.txt", "w", 0)
+            tmp_file = open("/tmp/edx-tmp-log-stattutor.txt", "a", 0)
             dbgopen=True
         tmp_file.write (aMessage + "\n")
 
@@ -101,9 +104,9 @@ class StattutorXBlock(XBlock):
         format_references = {
             'public': self.strip_local(self.runtime.local_resource_url(self, 'public/')),
             'logo': self.strip_local(self.runtime.local_resource_url(self, 'public/images/logo.png')),
-            'problem_description': self.strip_local(self.runtime.local_resource_url(self, 'public/problem_files/'+self.ctatmodule+'/'+self.name+'.xml')),
+            'problem_description': self.strip_local(self.runtime.local_resource_url(self, 'public/problem_files/'+self.ctatmodule+'/'+self.description)),
             'Instructions': self.strip_local(self.runtime.local_resource_url(self, 'public/Instructions.xml')),
-            'data_json': self.strip_local(self.runtime.local_resource_url(self,'public/problem_files/'+self.ctatmodule+'/'+'Survey'+'.json')),
+            'data_json': self.strip_local(self.runtime.local_resource_url(self,'public/problem_files/'+self.ctatmodule+'/'+self.problem_data)),
             'boxplots': self.strip_local(self.runtime.local_resource_url(self, 'public/images/boxplots.png')),
             'scatterplot': self.strip_local(self.runtime.local_resource_url(self, 'public/images/scatterplot.png')),
             'table': self.strip_local(self.runtime.local_resource_url(self, 'public/images/table.png')),
@@ -148,17 +151,22 @@ class StattutorXBlock(XBlock):
         html = self.resource_string("static/html/ctatstudio.html")
         frag = Fragment(html.format(self=self))
         frag.add_javascript_url(self.runtime.local_resource_url (self,"public/js/ctatstudio.js"))
-        frag.add_css_url(self.runtime.local_resource_url (self,"public/css/ctatstudio.css"))
+        #frag.add_css_url(self.runtime.local_resource_url (self,"public/css/ctatstudio.css"))
         frag.initialize_js('CTATXBlockStudio')        
         return frag
 
     @XBlock.json_handler
     def studio_submit(self, data, suffix=''):
+        """
+        Called when submitting the form in Studio.
+        """
         self.logdebug ("studio_submit ()")
-        #print ('studio_submit()')
-        #pp = pprint.PrettyPrinter(indent=4)
-        #pp.pprint(data)
-        #self.src = data.get('src')
+
+        self.ctatmodule = data.get('module')
+        self.problem = data.get('brd')
+        self.description = data.get('description_file')
+        self.problem_data = data.get('pData')
+        
         return {'result': 'success'}
 
     @XBlock.json_handler

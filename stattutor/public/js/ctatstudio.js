@@ -1,4 +1,4 @@
-
+/*
 var xblockRuntime=null;
 var xblockElement=null;
 var xblockpointer=null;
@@ -11,11 +11,11 @@ function applyValues ()
 	
 	$("#connection").val(connection);
 }
-
+*/
 /**
  *
  */
-function setVariable (aVariable,aContent)
+/*function setVariable (aVariable,aContent)
 {
 	console.log ("setVariable ("+aVariable+","+aContent+")");
 
@@ -36,16 +36,34 @@ function setVariable (aVariable,aContent)
 			console.log ("Error calling XBlock handler: " + errorThrown);
 		}
 	});
-}
+}*/
 
 /**
  *
  */
 function CTATXBlockStudio(runtime, element)
 {
-	console.log("CTATXBlockStudio ("+runtime+","+element+") (STUDIO)");
+    console.log("CTATXBlockStudio ("+runtime+","+element+") (STUDIO)");
 
-	xblockRuntime=runtime;
+    $(element).find('.save-button').bind('click', function() {
+	var handlerUrl = runtime.handlerUrl(element, 'studio_submit');
+	var data = {
+	    module: ,
+	    brd: ,
+	    description_file: ,
+	    pData: $(element).find('input#module').val()
+	};
+	runtime.notify('save', {state: 'start'});
+	$.post(handlerUrl, JSON.stringify(data)).done(function(response) {
+	    runtime.notify('save', {state: 'end'});
+	});
+    });
+
+    $(element).find('.cancel-button').bind('click', function() {
+	runtime.notify('cancel', {});
+    });
+
+/*	xblockRuntime=runtime;
 	xblockElement=element;
 	xblockpointer=this;
 
@@ -175,5 +193,6 @@ function CTATXBlockStudio(runtime, element)
 		console.log ("Setting remoteurl to: " + $('#remoteurl').val ());
 		
 		setVariable ("remoteurl",$('#remoteurl').val ());
-	});	
+	});
+*/
 }
