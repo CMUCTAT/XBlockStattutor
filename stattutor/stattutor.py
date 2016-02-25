@@ -95,12 +95,13 @@ class StattutorXBlock(XBlock):
         baseURL=self.strip_local(self.runtime.local_resource_url (self,"public/problem_files/ref.css"));
         html = self.resource_string("static/html/ctatxblock.html")
         self.problem_location = self.strip_local(self.runtime.local_resource_url(self, 'public/problem_files/'+self.ctatmodule+'/'+self.problem))
-        frag = Fragment (html.format(self=self))
-        frag.add_css_url (self.strip_local(self.runtime.local_resource_url (self,"public/css/themes/default/easyui.css")))
-        frag.add_css_url (self.strip_local(self.runtime.local_resource_url (self,"public/css/themes/icon.css")))
-        frag.add_css_url (self.strip_local(self.runtime.local_resource_url (self,"public/css/ctatxblock.css")))
-        frag.add_css_url (self.strip_local(self.runtime.local_resource_url (self,"public/css/ctat.css")))
-        frag.add_css_url (self.strip_local(self.runtime.local_resource_url (self,"public/css/stattutor.css")))
+        frag = Fragment (html.format(self=self, stattutor_html= self.strip_local(self.runtime.local_resource_url(self, 'public/html/StatTutor.html'))))
+        
+        #frag.add_css_url (self.strip_local(self.runtime.local_resource_url (self,"public/css/themes/default/easyui.css")))
+        #frag.add_css_url (self.strip_local(self.runtime.local_resource_url (self,"public/css/themes/icon.css")))
+        #frag.add_css_url (self.strip_local(self.runtime.local_resource_url (self,"public/css/ctatxblock.css")))
+        #frag.add_css_url (self.strip_local(self.runtime.local_resource_url (self,"public/css/ctat.css")))
+        #frag.add_css_url (self.strip_local(self.runtime.local_resource_url (self,"public/css/stattutor.css")))
         format_references = {
             'public': self.strip_local(self.runtime.local_resource_url(self, 'public/')),
             'logo': self.strip_local(self.runtime.local_resource_url(self, 'public/images/logo.png')),
@@ -113,22 +114,22 @@ class StattutorXBlock(XBlock):
             'piechart': self.strip_local(self.runtime.local_resource_url(self, 'public/images/piechart.png')),
             'histogram': self.strip_local(self.runtime.local_resource_url(self, 'public/images/histogram.png')),
         }
-        question_tpl = self.resource_string("static/templates/question-tpl.html")
-        frag.add_resource(Template(question_tpl).safe_substitute(format_references),"text/html")
+        #question_tpl = self.resource_string("static/templates/question-tpl.html")
+        #frag.add_resource(Template(question_tpl).safe_substitute(format_references),"text/html")
         ## Uncomment the following to get it to work in xblock-sdk
         #frag.add_javascript_url(self.runtime.resource_url("js/vendor/underscore-min.js"))
-        preEasyUI = self.resource_string("static/js/question-tpl.js")
-        frag.add_javascript (preEasyUI)
-        frag.add_javascript_url (self.strip_local(self.runtime.local_resource_url(self,"public/js/jquery.easyui.min.js")))
+        #preEasyUI = self.resource_string("static/js/question-tpl.js")
+        #frag.add_javascript (preEasyUI)
+        #frag.add_javascript_url (self.strip_local(self.runtime.local_resource_url(self,"public/js/jquery.easyui.min.js")))
         frag.add_javascript ("var baseURL=\""+(baseURL [:-7])+"\";")
-        frag.add_javascript_url (self.strip_local(self.runtime.local_resource_url(self,"public/js/ctatloader.js")))
-        frag.add_javascript_url (self.strip_local(self.runtime.local_resource_url(self,"public/js/ctat.min.js")))
-        frag.add_javascript_url (self.strip_local(self.runtime.local_resource_url(self,"public/js/stattutor.js")))
-        load_resources = Template(self.resource_string("static/js/load_resources.js")).safe_substitute(format_references)
-        frag.add_javascript (load_resources)
-        body = self.resource_string("static/html/body.html")
-        frag.add_content (body.format(**format_references))
-        frag.initialize_js('CTATXBlock')
+        #frag.add_javascript_url (self.strip_local(self.runtime.local_resource_url(self,"public/js/ctatloader.js")))
+        #frag.add_javascript_url (self.strip_local(self.runtime.local_resource_url(self,"public/js/ctat.min.js")))
+        #frag.add_javascript_url (self.strip_local(self.runtime.local_resource_url(self,"public/js/stattutor.js")))
+        #load_resources = Template(self.resource_string("static/js/load_resources.js")).safe_substitute(format_references)
+        #frag.add_javascript (load_resources)
+        #body = self.resource_string("static/html/body.html")
+        #frag.add_content (body.format(**format_references))
+        #frag.initialize_js('CTATXBlock')
         return frag
 
     @XBlock.json_handler
@@ -149,6 +150,8 @@ class StattutorXBlock(XBlock):
     def studio_view(self, context=None):        
         self.logdebug ("studio_view ()")
         html = self.resource_string("static/html/ctatstudio.html")
+        #problem_files = pkg_resources.resource_listdir(__name__, 'public/problem_files/')
+        # pkg_resources.resource_isdir(__name__, prolem_files[i]) # filter on directories
         frag = Fragment(html.format(self=self))
 	js = self.resource_string("static/js/ctatstudio.js")
 	frag.add_javascript(unicode(js))

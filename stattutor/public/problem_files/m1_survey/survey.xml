@@ -4,12 +4,12 @@
            "http://oli.web.cmu.edu/dtd/cmu_stat_stattutor_3_1.dtd">
 <stattutor_problem id="survey">
   <title>Drinking Habits and Integrity of College Students</title>
-  <dataset package="Minitab">problem_files/m1_survey/drinking.mtw</dataset>
-  <dataset package="Excel">problem_files/m1_survey/drinking.xls</dataset>
-  <dataset package="StatCrunch">problem_files/m1_survey/drinking.xls</dataset>
-  <dataset package="R">problem_files/m1_survey/drinking.RData</dataset>
-  <dataset package="TI Calculator">problem_files/m1_survey/drinking.8xg</dataset>
-  <dataset package="json">problem_files/m1_survey/Survey.json</dataset>
+  <dataset package="Minitab">../problem_files/m1_survey/drinking.mtw</dataset>
+  <dataset package="Excel">../problem_files/m1_survey/drinking.xls</dataset>
+  <dataset package="StatCrunch">../problem_files/m1_survey/drinking.xls</dataset>
+  <dataset package="R">../problem_files/m1_survey/drinking.RData</dataset>
+  <dataset package="TI Calculator">../problem_files/m1_survey/drinking.8xg</dataset>
+  <dataset package="json">../problem_files/m1_survey/Survey.json</dataset>
   <attempts>1</attempts>
   <background>A student survey was conducted at a major university.
   Data were collected from a random sample of 236 undergraduate
