@@ -127,15 +127,25 @@ $(function() {
 <script src="../js/stattutor.js"></script>
 
 <script>
-	var tutorConfiguration = CTATGlobalFunctions.generateDefaultConfiguration();
-	tutorConfiguration['question_file'] = Tutor.brd;
-	
-	function download_data() {
-		var selection = $('#package_select').val();
-		console.log(selection,StatTutor.dataset[selection]);
-		if (StatTutor.dataset.hasOwnProperty(selection)) {
-			window.open(StatTutor.dataset[selection]);
-		}
+  var CTATTarget="XBlock";
+  var tutorConfiguration = window.parent.CTATConfig;
+  setVariable = window.parent.CTATXBlock.post.set_variable;
+  gradeStudent = window.parent.CTATXBlock.post.report_grade;
+
+  function download_data() {
+     var selection = $('#package_select').val();
+     console.log(selection,StatTutor.dataset[selection]);
+     if (StatTutor.dataset.hasOwnProperty(selection)) {
+        window.open(StatTutor.dataset[selection]);
+     }
+  }
+
+	var tutor_module = "";
+	if (tutorConfiguration.hasOwnProperty('problem_description')) {
+	   var mod = /\/(m[^/]*)\//.exec(tutorConfiguration.problem_description); // this is fragile, but should work.  If images in our_answer break, this will be the likely culprit
+	   if (mod && mod.length>1) {
+              tutor_module = mod[1];
+           }
 	}
 
 	var $instructions = null; // for debuging
@@ -150,7 +160,7 @@ $(function() {
 		});
 		
 		// load the problem data file and adapt interface to it.
-		$.get(Tutor.problem_description, function(data) {
+		$.get(tutorConfiguration.problem_description, function(data) {
 			console.log('loading problem data', data);
 			$problem_data = $(data);
 			$problem_data.find('dataset').each(function () {
@@ -171,7 +181,7 @@ $(function() {
 					var src = $img.attr('src');
 					if (src) {
 						if (src.indexOf('http')!==0) { // not a full url
-							$img.attr('src','../problem_files/'+Tutor.module+'/'+src);
+							$img.attr('src','../problem_files/'+tutor_module+'/'+src);
 						}
 					}
 				});

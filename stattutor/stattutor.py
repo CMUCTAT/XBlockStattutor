@@ -5,47 +5,63 @@ import base64
 import glob
 import re
 import socket
+import uuid
 
 from string import Template
 
 from xblock.core import XBlock
 from xblock.fields import Scope, Integer, String, Boolean, Any
 from xblock.fragment import Fragment
+from xblock.reference.user_service import XBlockUser
 
 dbgopen=False;
 tmp_file=None;
 
 class StattutorXBlock(XBlock):
-    # Fields are defined on the class.  You can access them in your code as
-    # self.<fieldname>.
+    """
+    A XBlock providing a CTAT backed StatTutor.
+    """
+    ### xBlock tag variables
+    width = Integer(help="Width of the StatTutor frame.", default=900, scope=Scope.content)
+    height = Integer(help="Height of the StatTutor frame.", default=750, scope=Scope.content)
+
+    ### Grading variables
+    has_score = Boolean(default=True, scope=Scope.content)
+    icon_class = String(default="problem", scope=Scope.content)
     score = Integer(help="Current count of correctly completed student steps", scope=Scope.user_state, default=0)
     max_score = Integer(help="Total number of steps", scope=Scope.user_state, default=1)
     attempted = Boolean(help="True if at least one step has been completed", scope=Scope.user_state, default=False)
     completed = Boolean(help="True if all of the required steps are correctly completed", scope=Scope.user_state, default=False)
 
-    href = String(help="URL to a BRD file", default="http://augustus.pslc.cs.cmu.edu/stattutor/problem_files", scope=Scope.settings)
-    ctatmodule = String(help="The learning module to load from", default="m1_survey", scope=Scope.settings)
-    problem = String(help="The name of a BRD file", default="survey.brd", scope=Scope.settings)
-    description = String(help="Problem Description", default="survey.xml", scope=Scope.settings)
-    problem_data = String(help="Name of the json file used to populate the data tab", default="Survey.json", scope=Scope.settings)
+    ### Basic interface variables
+    src = String(help="The source html file for CTAT interface.",
+                 default="public/html/StatTutor.html", scope=Scope.settings)
+    brd = String(help="The behavior graph.",
+                 default="public/problem_files/m1_survey/survey.brd",
+                 scope=Scope.settings)
+    problem_description = String(help="The problem description xml file.",
+                                 default="public/problem_files/m1_survey/survey.xml",
+                                 scope=Scope.settings)
 
-    name = String(help="Problem name to log", default="CTATEdXProblem", scope=Scope.settings)
-    dataset = String(help="Dataset name to log", default="edxdataset", scope=Scope.settings)
-    level1 = String(help="Level name to log", default="unit1", scope=Scope.settings)
-    type1 = String(help="Level type to log", default="unit", scope=Scope.settings)
-    level2 = String(help="Level name to log", default="unit2", scope=Scope.settings)
-    type2 = String(help="Level type to log", default="unit", scope=Scope.settings)
-    logurl = String(help="URL of the logging service", default="http://pslc-qa.andrew.cmu.edu/log/server", scope=Scope.settings)
+    ### CTATConfiguration variables
+    log_name = String(help="Problem name to log", default="CTATEdXProblem", scope=Scope.settings)
+    log_dataset = String(help="Dataset name to log", default="edxdataset", scope=Scope.settings)
+    log_level1 = String(help="Level name to log", default="unit1", scope=Scope.settings)
+    log_type1 = String(help="Level type to log", default="unit", scope=Scope.settings)
+    log_level2 = String(help="Level name to log", default="unit2", scope=Scope.settings)
+    log_type2 = String(help="Level type to log", default="unit", scope=Scope.settings)
+    log_url = String(help="URL of the logging service", default="http://pslc-qa.andrew.cmu.edu/log/server", scope=Scope.settings)
     logtype = String(help="How should data be logged", default="clienttologserver", scope=Scope.settings)
-    diskdir = String(help="Directory for log files relative to the tutoring service", default=".", scope=Scope.settings)
-    port = String(help="Port used by the tutoring service", default="8080", scope=Scope.settings)
-    remoteurl = String(help="Location of the tutoring service (localhost or domain name)", default="localhost", scope=Scope.settings)
-    connection = String(help="", default="javascript", scope=Scope.settings)
+    log_diskdir = String(help="Directory for log files relative to the tutoring service", default=".", scope=Scope.settings)
+    log_port = String(help="Port used by the tutoring service", default="8080", scope=Scope.settings)
+    log_remoteurl = String(help="Location of the tutoring service (localhost or domain name)", default="localhost", scope=Scope.settings)
 
-    #src = String(help = "URL for MP3 file to play", scope = Scope.settings )
+    ctat_connection = String(help="", default="javascript", scope=Scope.settings)
 
+    ### user information
     saveandrestore = String(help="Internal data blob used by the tracer", default="", scope=Scope.user_state)
-    skillstring = String(help="Internal data blob used by the tracer", default="", scope=Scope.user_state)
+    skillstring = String(help="Internal data blob used by the tracer", default="", scope=Scope.user_info)
+    ctat_user_id = String(help="Anonymous ID used for logging in DataShop.", default="", scope=Scope.user_info) # unclear how to get EdX's anonymous id, so use our own.
 
     def logdebug (self, aMessage):
         global dbgopen, tmp_file
@@ -68,6 +84,7 @@ class StattutorXBlock(XBlock):
     def strip_local (self, url):
         """Returns the given url with //localhost:port removed."""
         return re.sub('//localhost(:\d*)?', '', url)
+
     # -------------------------------------------------------------------
     # Here we construct the tutor html page from various resources. This 
     # is where all things go to hell. We can't use jsrender because the
@@ -89,31 +106,42 @@ class StattutorXBlock(XBlock):
     # -------------------------------------------------------------------
 
     def student_view(self, context=None):
-        self.logdebug ("student_view ()")
-        self.logdebug ("Hostname: " + socket.getfqdn())
-        self.logdebug ("Base URL: " + self.strip_local(self.runtime.local_resource_url(self, 'public/')))
-        baseURL=self.strip_local(self.runtime.local_resource_url (self,"public/problem_files/ref.css"));
+        """
+        Create a Fragment used to display a CTAT StatTutor xBlock to a student.
+
+        Returns a Fragment object containing the HTML to display
+        """
+        #xblock_user = self.runtime.service(self,"user").get_current_user()
+        #self.ctat_user_id=xblock_user.opt_attrs['edx-platform.user_id']
+        if self.ctat_user_id=="":
+            self.ctat_user_id = str(uuid.uuid4())
+
+        # read in template html
         html = self.resource_string("static/html/ctatxblock.html")
-        self.problem_location = self.strip_local(self.runtime.local_resource_url(self, 'public/problem_files/'+self.ctatmodule+'/'+self.problem))
-        frag = Fragment (html.format(self=self, stattutor_html= self.strip_local(self.runtime.local_resource_url(self, 'public/html/StatTutor.html'))))
+        frag = Fragment (html.format(self=self, 
+                                     stattutor_html=self.strip_local(self.runtime.local_resource_url(self, self.src)),
+                                     question_file=self.strip_local(self.runtime.local_resource_url(self, self.brd)),
+                                     problem_description=self.strip_local(self.runtime.local_resource_url(self, self.problem_description)),
+                                     student_id=self.ctat_user_id,
+                                     guid=str(uuid.uuid4())))
         
         #frag.add_css_url (self.strip_local(self.runtime.local_resource_url (self,"public/css/themes/default/easyui.css")))
         #frag.add_css_url (self.strip_local(self.runtime.local_resource_url (self,"public/css/themes/icon.css")))
         #frag.add_css_url (self.strip_local(self.runtime.local_resource_url (self,"public/css/ctatxblock.css")))
         #frag.add_css_url (self.strip_local(self.runtime.local_resource_url (self,"public/css/ctat.css")))
         #frag.add_css_url (self.strip_local(self.runtime.local_resource_url (self,"public/css/stattutor.css")))
-        format_references = {
-            'public': self.strip_local(self.runtime.local_resource_url(self, 'public/')),
-            'logo': self.strip_local(self.runtime.local_resource_url(self, 'public/images/logo.png')),
-            'problem_description': self.strip_local(self.runtime.local_resource_url(self, 'public/problem_files/'+self.ctatmodule+'/'+self.description)),
-            'Instructions': self.strip_local(self.runtime.local_resource_url(self, 'public/Instructions.xml')),
-            'data_json': self.strip_local(self.runtime.local_resource_url(self,'public/problem_files/'+self.ctatmodule+'/'+self.problem_data)),
-            'boxplots': self.strip_local(self.runtime.local_resource_url(self, 'public/images/boxplots.png')),
-            'scatterplot': self.strip_local(self.runtime.local_resource_url(self, 'public/images/scatterplot.png')),
-            'table': self.strip_local(self.runtime.local_resource_url(self, 'public/images/table.png')),
-            'piechart': self.strip_local(self.runtime.local_resource_url(self, 'public/images/piechart.png')),
-            'histogram': self.strip_local(self.runtime.local_resource_url(self, 'public/images/histogram.png')),
-        }
+        #format_references = {
+        #    'public': self.strip_local(self.runtime.local_resource_url(self, 'public/')),
+        #    'logo': self.strip_local(self.runtime.local_resource_url(self, 'public/images/logo.png')),
+        #    'problem_description': self.strip_local(self.runtime.local_resource_url(self, 'public/problem_files/'+self.ctatmodule+'/'+self.description)),
+        #    'Instructions': self.strip_local(self.runtime.local_resource_url(self, 'public/Instructions.xml')),
+        #    'data_json': self.strip_local(self.runtime.local_resource_url(self,'public/problem_files/'+self.ctatmodule+'/'+self.problem_data)),
+        #    'boxplots': self.strip_local(self.runtime.local_resource_url(self, 'public/images/boxplots.png')),
+        #    'scatterplot': self.strip_local(self.runtime.local_resource_url(self, 'public/images/scatterplot.png')),
+        #    'table': self.strip_local(self.runtime.local_resource_url(self, 'public/images/table.png')),
+        #    'piechart': self.strip_local(self.runtime.local_resource_url(self, 'public/images/piechart.png')),
+        #    'histogram': self.strip_local(self.runtime.local_resource_url(self, 'public/images/histogram.png')),
+        #}
         #question_tpl = self.resource_string("static/templates/question-tpl.html")
         #frag.add_resource(Template(question_tpl).safe_substitute(format_references),"text/html")
         ## Uncomment the following to get it to work in xblock-sdk
@@ -121,15 +149,15 @@ class StattutorXBlock(XBlock):
         #preEasyUI = self.resource_string("static/js/question-tpl.js")
         #frag.add_javascript (preEasyUI)
         #frag.add_javascript_url (self.strip_local(self.runtime.local_resource_url(self,"public/js/jquery.easyui.min.js")))
-        frag.add_javascript ("var baseURL=\""+(baseURL [:-7])+"\";")
+        #frag.add_javascript ("var baseURL=\""+(baseURL [:-7])+"\";")
         #frag.add_javascript_url (self.strip_local(self.runtime.local_resource_url(self,"public/js/ctatloader.js")))
         #frag.add_javascript_url (self.strip_local(self.runtime.local_resource_url(self,"public/js/ctat.min.js")))
         #frag.add_javascript_url (self.strip_local(self.runtime.local_resource_url(self,"public/js/stattutor.js")))
         #load_resources = Template(self.resource_string("static/js/load_resources.js")).safe_substitute(format_references)
-        #frag.add_javascript (load_resources)
+        frag.add_javascript (self.resource_string("static/js/CTATXBlock.js"))
         #body = self.resource_string("static/html/body.html")
         #frag.add_content (body.format(**format_references))
-        #frag.initialize_js('CTATXBlock')
+        frag.initialize_js('Initialize_CTATXBlock')
         return frag
 
     @XBlock.json_handler
@@ -158,6 +186,13 @@ class StattutorXBlock(XBlock):
         #frag.add_javascript_url(self.runtime.local_resource_url (self,"public/js/ctatstudio.js"))
         #frag.add_css_url(self.runtime.local_resource_url (self,"public/css/ctatstudio.css"))
         frag.initialize_js('CTATXBlockStudio')        
+        return frag
+
+    def author_view(self, context=None):
+        # maybe add information from help and some info about the current module
+        frag = Fragment("""
+        <div><img src="{logo}"></div>
+        """.format(logo=self.strip_local(self.runtime.local_resource_url(self, 'public/images/logo.png'))))
         return frag
 
     @XBlock.json_handler
@@ -229,7 +264,7 @@ class StattutorXBlock(XBlock):
         return [
             ("StattutorXBlock",
              """<vertical_demo>
-                <stattutor/>
+                <stattutor width="900" height="750"/>
                 </vertical_demo>
              """),
         ]
