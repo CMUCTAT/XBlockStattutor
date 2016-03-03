@@ -8,10 +8,11 @@ function CTATXBlockStudio(runtime, element)
     $(element).find('.save-button').bind('click', function() {
 	var handlerUrl = runtime.handlerUrl(element, 'studio_submit');
 	var data = {
-	    module: $(element).find('input#module').val(),
+	    src: $(element).find('input#interface').val(),
 	    brd: $(element).find('input#brd').val(),
-	    description_file: $(element).find('input#description_file').val(),
-	    pData: $(element).find('input#pData').val()
+	    problem_description: $(element).find('input#description_file').val(),
+	    width: $(element).find('input#maxwidth').val(),
+	    height: $(element).find('input#maxheight').val()
 	};
 	runtime.notify('save', {state: 'start'});
 	$.post(handlerUrl, JSON.stringify(data)).done(function(response) {

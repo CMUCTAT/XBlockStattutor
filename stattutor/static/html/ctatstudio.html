@@ -2,31 +2,38 @@
   <ul class="list-input settings-list">
     <li class="field comp-setting-entry is-set">
       <div class="wrapper-comp-setting">
-        <label class="label setting-label" for="module">Module</label>
-        <input class="input setting-input" name="module" id="module" value="{self.ctatmodule}" type="text" />
+        <label class="label setting-label" for="interface">Interface File</label>
+        <input class="input setting-input" name="interface" id="interface" value="{self.src}" type="text" />
       </div>
-      <span class="tip setting-help">Example: m1_survey</span>
+      <span class="tip setting-help">Example: public/html/StatTutor.html</span>
     </li>
     <li class="field comp-setting-entry is-set">
       <div class="wrapper-comp-setting">
         <label class="label setting-label" for="brd">Tutor File</label>
-        <input class="input setting-input" name="brd" id="brd" value="{self.problem}" type="text" />
+        <input class="input setting-input" name="brd" id="brd" value="{self.brd}" type="text" />
       </div>
-      <span class="tip setting-help">The name of the tutor graph file, (e.g) survey.brd</span>
+      <span class="tip setting-help">The name of the tutor graph file, (e.g) public/problem_files/m1_survey/survey.brd</span>
     </li>
     <li class="field comp-setting-entry is-set">
       <div class="wrapper-comp-setting">
         <label class="label setting-label" for="description_file">Problem Description File</label>
-        <input class="input setting-input" name="description_file" id="description_file" value="{self.description}" type="text" />
+        <input class="input setting-input" name="description_file" id="description_file" value="{self.problem_description}" type="text" />
       </div>
-      <span class="tip setting-help">Name of the xml description file (e.g) survey.xml</span>
+      <span class="tip setting-help">Name of the xml description file (e.g) public/problem_files/m1_survey/survey.xml</span>
     </li>
     <li class="field comp-setting-entry is-set">
       <div class="wrapper-comp-setting">
-        <label class="label setting-label" for="pData">Problem Data File</label>
-        <input class="input setting-input" name="pData" id="pData" value="{self.problem_data}" type="text" />
+        <label class="label setting-label" for="maxwidth">Max Width</label>
+        <input class="input setting-input" name="maxwidth" id="maxwidth" value="{self.width}" type="text" />
       </div>
-      <span class="tip setting-help">Name of the json file used to polulate the data tab (e.g) Survey.json</span>
+      <span class="tip setting-help">Maximum width of the video player.</span>
+    </li>
+    <li class="field comp-setting-entry is-set">
+      <div class="wrapper-comp-setting">
+        <label class="label setting-label" for="maxheight">Max Height</label>
+        <input class="input setting-input" name="maxheight" id="maxheight" value="{self.height}" type="text" />
+      </div>
+      <span class="tip setting-help">Maximum height of the video player.</span>
     </li>
   </ul>
 
