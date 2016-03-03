@@ -71,20 +71,20 @@
 	  </td>
 	</tr>
 	
-	<tr><td>problem_name:</td><td><input type="text" id="problem" value="{self.problem}" size="50" maxlength="50" title="problem name to log"></td></tr>
-	<tr><td>dataset_name: </td><td><input type="text" id="dataset" name="dataset" value="{self.dataset}" size="50" maxlength="50" title="dataset name to log"></td></tr>
-	<tr><td>dataset_level_name1: </td><td><input type="text" id="level1" name="level1" value="{self.level1}" size="50" maxlength="50" title="level name to log"></td></tr>
-	<tr><td>dataset_level_type1: </td><td><input type="text" id="type1" name="type1" value="{self.type1}" size="50" maxlength="50"title="level type to log"></td></tr>
-	<tr><td>dataset_level_name2: </td><td><input type="text" id="level2" name="level2" value="{self.level2}" size="50" maxlength="50" title="level name to log"></td></tr>
-	<tr><td>dataset_level_type2: </td><td><input type="text" id="type2" name="type2" value="{self.type2}" size="50" maxlength="50"title="level type to log"></td></tr>
+	<tr><td>problem_name:</td><td><input type="text" id="problem" value="{self.log_name}" size="50" maxlength="50" title="problem name to log"></td></tr>
+	<tr><td>dataset_name: </td><td><input type="text" id="dataset" name="dataset" value="{self.log_dataset}" size="50" maxlength="50" title="dataset name to log"></td></tr>
+	<tr><td>dataset_level_name1: </td><td><input type="text" id="level1" name="level1" value="{self.log_level1}" size="50" maxlength="50" title="level name to log"></td></tr>
+	<tr><td>dataset_level_type1: </td><td><input type="text" id="type1" name="type1" value="{self.log_type1}" size="50" maxlength="50"title="level type to log"></td></tr>
+	<tr><td>dataset_level_name2: </td><td><input type="text" id="level2" name="level2" value="{self.log_level2}" size="50" maxlength="50" title="level name to log"></td></tr>
+	<tr><td>dataset_level_type2: </td><td><input type="text" id="type2" name="type2" value="{self.log_type2}" size="50" maxlength="50"title="level type to log"></td></tr>
 
-	<tr><td>log_service_url: </td><td><input type="text" id="logurl" name="logurl" value="{self.logurl}" size="50" maxlength="150" title="url of the logging service"> </td></tr>
+	<tr><td>log_service_url: </td><td><input type="text" id="logurl" name="logurl" value="{self.log_url}" size="50" maxlength="150" title="url of the logging service"> </td></tr>
 	<tr><td>sessionlog: </td><td><input type="text" id="slog" name="slog" value="true" size="25" maxlength="25" title="log the session id?"> </td></tr>
 
 	<tr><td colspan="2"><div class="highlightdiv"> <font face="arial"><b>Tutoring Service</b></font></div></td></tr>
-	<tr><td>log_to_disk_directory: </td><td><input type="text" id="diskdir" name="diskdir" value="{self.diskdir}" size="25" maxlength="50" title="directory for log files relative to the tutoring service"></td></tr>
-	<tr><td>remotesocketport: </td><td><input type="text" id="port" name="port" value="{self.port}" size="25" maxlength="50" title="port used by the tutoring service"></td></tr>
-	<tr><td>remotesocketurl: </td><td><input type="text" id="remoteurl" name="{self.remoteurl}" value="localhost" size="50" maxlength="150" title="location of the tutoring service (localhost or domain name)"></td></tr>
+	<tr><td>log_to_disk_directory: </td><td><input type="text" id="diskdir" name="diskdir" value="{self.log_diskdir}" size="25" maxlength="50" title="directory for log files relative to the tutoring service"></td></tr>
+	<tr><td>remotesocketport: </td><td><input type="text" id="port" name="port" value="{self.log_port}" size="25" maxlength="50" title="port used by the tutoring service"></td></tr>
+	<tr><td>remotesocketurl: </td><td><input type="text" id="remoteurl" name="{self.log_remoteurl}" value="localhost" size="50" maxlength="150" title="location of the tutoring service (localhost or domain name)"></td></tr>
 	<tr><td>connection: </td>
 	  <td>
 	    <select id="connection" name="connection">
