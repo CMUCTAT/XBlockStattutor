@@ -29,9 +29,10 @@ class StattutorXBlock(XBlock):
     has_score = Boolean(default=True, scope=Scope.content)
     icon_class = String(default="problem", scope=Scope.content)
     score = Integer(help="Current count of correctly completed student steps", scope=Scope.user_state, default=0)
-    max_score = Integer(help="Total number of steps", scope=Scope.user_state, default=1)
+    max_score = Integer(help="Total number of steps", scope=Scope.user_state, default=1) # this may want to be a method
     attempted = Boolean(help="True if at least one step has been completed", scope=Scope.user_state, default=False)
     completed = Boolean(help="True if all of the required steps are correctly completed", scope=Scope.user_state, default=False)
+    weight = Integer(default=1, scope=Scope.content)
 
     ### Basic interface variables
     src = String(help="The source html file for CTAT interface.",
@@ -188,12 +189,14 @@ class StattutorXBlock(XBlock):
         frag.initialize_js('CTATXBlockStudio')        
         return frag
 
-    def author_view(self, context=None):
+#    def author_view(self, context=None):
         # maybe add information from help and some info about the current module
-        frag = Fragment("""
-        <div><img src="{logo}"></div>
-        """.format(logo=self.strip_local(self.runtime.local_resource_url(self, 'public/images/logo.png'))))
-        return frag
+#        frag = Fragment("""
+#        <vertical_demo>
+#        <div><img src="{logo}"></div>
+#        </vertical_demo>
+#        """.format(logo=self.strip_local(self.runtime.local_resource_url(self, 'public/images/logo.png'))))
+#        return frag
 
     @XBlock.json_handler
     def studio_submit(self, data, suffix=''):

@@ -130,6 +130,7 @@ $(function() {
   var CTATTarget="XBlock";
   var tutorConfiguration = window.parent.CTATConfig;
   setVariable = window.parent.CTATXBlock.post.set_variable;
+  getVariable = function(key) { return window.atob(tutorConfiguration[key]); };
   gradeStudent = window.parent.CTATXBlock.post.report_grade;
 
   function download_data() {
