@@ -125,39 +125,7 @@ class StattutorXBlock(XBlock):
                                      problem_description=self.strip_local(self.runtime.local_resource_url(self, self.problem_description)),
                                      student_id=self.ctat_user_id,
                                      guid=str(uuid.uuid4())))
-        
-        #frag.add_css_url (self.strip_local(self.runtime.local_resource_url (self,"public/css/themes/default/easyui.css")))
-        #frag.add_css_url (self.strip_local(self.runtime.local_resource_url (self,"public/css/themes/icon.css")))
-        #frag.add_css_url (self.strip_local(self.runtime.local_resource_url (self,"public/css/ctatxblock.css")))
-        #frag.add_css_url (self.strip_local(self.runtime.local_resource_url (self,"public/css/ctat.css")))
-        #frag.add_css_url (self.strip_local(self.runtime.local_resource_url (self,"public/css/stattutor.css")))
-        #format_references = {
-        #    'public': self.strip_local(self.runtime.local_resource_url(self, 'public/')),
-        #    'logo': self.strip_local(self.runtime.local_resource_url(self, 'public/images/logo.png')),
-        #    'problem_description': self.strip_local(self.runtime.local_resource_url(self, 'public/problem_files/'+self.ctatmodule+'/'+self.description)),
-        #    'Instructions': self.strip_local(self.runtime.local_resource_url(self, 'public/Instructions.xml')),
-        #    'data_json': self.strip_local(self.runtime.local_resource_url(self,'public/problem_files/'+self.ctatmodule+'/'+self.problem_data)),
-        #    'boxplots': self.strip_local(self.runtime.local_resource_url(self, 'public/images/boxplots.png')),
-        #    'scatterplot': self.strip_local(self.runtime.local_resource_url(self, 'public/images/scatterplot.png')),
-        #    'table': self.strip_local(self.runtime.local_resource_url(self, 'public/images/table.png')),
-        #    'piechart': self.strip_local(self.runtime.local_resource_url(self, 'public/images/piechart.png')),
-        #    'histogram': self.strip_local(self.runtime.local_resource_url(self, 'public/images/histogram.png')),
-        #}
-        #question_tpl = self.resource_string("static/templates/question-tpl.html")
-        #frag.add_resource(Template(question_tpl).safe_substitute(format_references),"text/html")
-        ## Uncomment the following to get it to work in xblock-sdk
-        #frag.add_javascript_url(self.runtime.resource_url("js/vendor/underscore-min.js"))
-        #preEasyUI = self.resource_string("static/js/question-tpl.js")
-        #frag.add_javascript (preEasyUI)
-        #frag.add_javascript_url (self.strip_local(self.runtime.local_resource_url(self,"public/js/jquery.easyui.min.js")))
-        #frag.add_javascript ("var baseURL=\""+(baseURL [:-7])+"\";")
-        #frag.add_javascript_url (self.strip_local(self.runtime.local_resource_url(self,"public/js/ctatloader.js")))
-        #frag.add_javascript_url (self.strip_local(self.runtime.local_resource_url(self,"public/js/ctat.min.js")))
-        #frag.add_javascript_url (self.strip_local(self.runtime.local_resource_url(self,"public/js/stattutor.js")))
-        #load_resources = Template(self.resource_string("static/js/load_resources.js")).safe_substitute(format_references)
         frag.add_javascript (self.resource_string("static/js/CTATXBlock.js"))
-        #body = self.resource_string("static/html/body.html")
-        #frag.add_content (body.format(**format_references))
         frag.initialize_js('Initialize_CTATXBlock')
         return frag
 
@@ -169,7 +137,7 @@ class StattutorXBlock(XBlock):
         self.score = data['value']
         self.max_score = data['max_value']
         self.completed = self.score >= self.max_score
-        event_data = {'value': self.score, 'max_value': self.max_score}
+        event_data = {'value': self.score/self.max_score, 'max_value': 1}
         self.runtime.publish(self, 'grade', event_data);
         return {'result': 'success'}
 

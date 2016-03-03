@@ -4,57 +4,11 @@
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<script src="../js/query.js"></script>
-<script>
-var Tutor = {};
-query.parse();
-switch (query.get('module')) {
-case "5":
-case "extra_credit":
-	Tutor.name = "extra_credit";
-	Tutor.module="m5_"+Tutor.name;
-	break;
-case "2":
-case "body_image":
-	Tutor.module = "m2_body_image";
-	Tutor.name = "body_image";
-	break;
-case "3":
-case "depression":
-	Tutor.module = "m3_depression";
-	Tutor.name = "depression";
-	break;
-case "4":
-case "cell_phones":
-	Tutor.module = "m4_cell_phones";
-	Tutor.name = "cell_phones";
-	break;
-case "6":
-case "low_birth_weight":
-	Tutor.module = "m6_low_birth_weight";
-	Tutor.name = "low_birth_weight";
-	break;
-case "7":
-case "auto_premiums":
-	Tutor.module = "m7_auto_premiums";
-	Tutor.name = "auto_premiums";
-	break;
-case "1":
-case "survey":
-default:
-	Tutor.module = "m1_survey"; // ChangeMe for each problem: the directory in problem_files/.
-	Tutor.name = "survey"; // ChangeMe for each problem: base filename for problem information
-}
-Tutor.webcontent = "../problem_files/"+Tutor.module+"/";
-Tutor.data = Tutor.webcontent+Tutor.data_name;
-Tutor.problem_description = Tutor.webcontent+Tutor.name+".xml";
-Tutor.brd = Tutor.webcontent+Tutor.name+".brd";
 </script>
 
 	<link rel="stylesheet" href="../css/themes/default/easyui.css" />
 	<link rel="stylesheet" href="../css/themes/icon.css" />
 	<link rel="stylesheet" href="../css/ctat.css" />
-	<link rel="stylesheet" href="../css/stattutor.css" />
 
 <style type="text/css">
 div.work_area {
@@ -64,7 +18,7 @@ div.work_area {
 	padding: 5px;
 }
 .CTATRadioButton { width: auto; }
-.CTATComboBox { display:inline-block;width:auto; height:auto;}
+.CTATComboBox { display:inline-block; width: auto; height: 2.5em; }
 .CTATTextArea { margin: 5px; width: 90%; height: 8em; }
 .CTATTextField { margin: 5px; width: 90%; min-height: 5em; border: 1px solid darkgrey; padding: 3px;}
 .icon-box { background:url('../images/icons/box.svg') no-repeat center center; }
@@ -103,7 +57,7 @@ div.meaningful_display_radio { position: absolute; left: 28px; display: inline-b
 
 <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
 <script src="../js/ctat.min.js"></script>
-<script src="../js/jsrender.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsrender/0.9.73/jsrender.min.js"></script>
 <script>
 // Order for this is important as it needs to execute before easyui
 // Because of that, this will not have any actual information about the
@@ -154,7 +108,7 @@ $(function() {
 
 	$(function() {
 		// load the instruction file
-		$.get('../Instructions.xml', function(data) {
+		$.get('Instructions.xml', function(data) {
 			console.log('loading instructions',data);
 			$instructions = $(data);
 			StatTutor.process_instructions(data);
@@ -282,7 +236,7 @@ $(function() {
 	<div class="meaningful_display"><img src="../images/histogram.png" style="height:16px;"/><div id="q{{:#index+1}}measure_hist" name="q{{:#index+1}}measure_display" class="CTATRadioButton meaningful_display_radio">Histogram</div></div>
 	<br/>
 	<p>A meaningful numerical summary to supplement the above display is</p>
-	<div id="q{{:#index+1}}measure_num" class="CTATComboBox" style="width:auto;">
+	<div id="q{{:#index+1}}measure_num" class="CTATComboBox">
 		<option>----</option>
 		<option>descriptive statistics</option>
 		<option>group (category) percentages</option>
@@ -291,7 +245,7 @@ $(function() {
 	</div>
 	<br/>
 	<p>Using this display and numerical summary, I will</p>
-	<div id="q{{:#index+1}}measure_plan" class="CTATComboBox" style="width:auto;">
+	<div id="q{{:#index+1}}measure_plan" class="CTATComboBox">
 		<option>----</option>
 		<option value="OneQuant">describe the features of a single quantitative distribution</option>
 		<option value="OneCat">describe the features of a single categorical distribution</option>
@@ -357,7 +311,7 @@ $(function() {
 	 title="Determine More Formal Analyses (Question {{word:#getIndex()+1}})" data-options="closed:true, fit:true, onOpen:stattutor_highlight_q{{:#index+1}}">
 	<div class="q{{:#getIndex()+1}}formal_enabled">
 		<div>The formal analysis part for the current question will focus on<br/>
-			<div id="q{{:#getIndex()+1}}formal_focus" class="CTATComboBox" style="width:auto">
+			<div id="q{{:#getIndex()+1}}formal_focus" class="CTATComboBox">
 				<option>----</option>
 				<option>exploring the population mean</option>
 				<option>exploring the population proportion</option>
@@ -371,7 +325,7 @@ $(function() {
 		</div>
 		<br/>
 		<div>The appropriate statistical test is<br/>
-			<div id="q{{:#getIndex()+1}}formal_test" class="CTATComboBox" style="width:auto;">
+			<div id="q{{:#getIndex()+1}}formal_test" class="CTATComboBox">
 				<option>----</option>
 				<option value="OneZOneMean">one sample z-test for the mean (&mu;)</option>
 				<option value="OneTOneMean">one sample t-test for the mean (&mu;)</option>
@@ -386,7 +340,7 @@ $(function() {
 		</div>
 		<br/><br/>
 		<div>Null hypotheses - H<sub>0</sub>:
-			<div id="q{{:#getIndex()+1}}formal_h0" class="CTATComboBox" style="width:auto; display:inline-block;">
+			<div id="q{{:#getIndex()+1}}formal_h0" class="CTATComboBox" style="display:inline-block;">
 				<option>-------</option>
 				<option value="mu">&mu;</option>
 				<option value="p">p</option>
