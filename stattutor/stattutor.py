@@ -137,7 +137,7 @@ class StattutorXBlock(XBlock):
         self.score = data['value']
         self.max_score = data['max_value']
         self.completed = self.score >= self.max_score
-        event_data = {'value': self.score/self.max_score, 'max_value': 1}
+        event_data = {'value': self.score, 'max_value': self.max_score }
         self.runtime.publish(self, 'grade', event_data);
         return {'result': 'success'}
 
@@ -173,10 +173,11 @@ class StattutorXBlock(XBlock):
         """
         self.logdebug ("studio_submit ()")
 
-        self.ctatmodule = data.get('module')
-        self.problem = data.get('brd')
-        self.description = data.get('description_file')
-        self.problem_data = data.get('pData')
+        self.src = data.get('src')
+        self.brd = data.get('brd')
+        self.problem_description = data.get('problem_description')
+        self.width = data.get('width')
+        self.height = data.get('height')
         
         return {'result': 'success'}
 
