@@ -4,12 +4,12 @@
 	"http://oli.web.cmu.edu/dtd/cmu_stat_stattutor_3_1.dtd">
 <stattutor_problem id="depression">
   <title>Treating Depression: A Randomized Clinical Trial</title>
-  <dataset package="Minitab">problem_files/m3_depression/depression.mtw</dataset>
-  <dataset package="StatCrunch">problem_files/m3_depression/depression.xls</dataset>
-  <dataset package="Excel">problem_files/m3_depression/depression.xls</dataset>
-  <dataset package="R">problem_files/m3_depression/depression.RData</dataset>
-  <dataset package="TI Calculator">problem_files/m3_depression/depression.8xg</dataset>
-  <dataset package="json">problem_files/m3_depression/depression.json</dataset>
+  <dataset package="Minitab">../problem_files/m3_depression/depression.mtw</dataset>
+  <dataset package="StatCrunch">../problem_files/m3_depression/depression.xls</dataset>
+  <dataset package="Excel">../problem_files/m3_depression/depression.xls</dataset>
+  <dataset package="R">../problem_files/m3_depression/depression.RData</dataset>
+  <dataset package="TI Calculator">../problem_files/m3_depression/depression.8xg</dataset>
+  <dataset package="json">../problem_files/m3_depression/depression.json</dataset>
   <attempts>1</attempts>
   <background>&lt;b&gt;Background:&lt;/b&gt; Clinical depression is
   a recurrent illness requiring treatment and often

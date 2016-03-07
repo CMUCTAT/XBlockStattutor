@@ -4,12 +4,12 @@
 	"http://oli.web.cmu.edu/dtd/cmu_stat_stattutor_3_1.dtd">
 <stattutor_problem id="extra_credit">
   <title>Analyzing Data From a Course's Grade Book</title>
-  <dataset package="Minitab">problem_files/m5_extra_credit/gradebook.mtw</dataset>
-  <dataset package="StatCrunch">problem_files/m5_extra_credit/gradebook.xls</dataset>
-  <dataset package="Excel">problem_files/m5_extra_credit/gradebook.xls</dataset>
-  <dataset package="R">problem_files/m5_extra_credit/gradebook.RData</dataset>
-  <dataset package="TI Calculator">problem_files/m5_extra_credit/gradebook.8xg</dataset>
-  <dataset package="json">problem_files/m5_extra_credit/gradebook.json</dataset>
+  <dataset package="Minitab">../problem_files/m5_extra_credit/gradebook.mtw</dataset>
+  <dataset package="StatCrunch">../problem_files/m5_extra_credit/gradebook.xls</dataset>
+  <dataset package="Excel">../problem_files/m5_extra_credit/gradebook.xls</dataset>
+  <dataset package="R">../problem_files/m5_extra_credit/gradebook.RData</dataset>
+  <dataset package="TI Calculator">../problem_files/m5_extra_credit/gradebook.8xg</dataset>
+  <dataset package="json">../problem_files/m5_extra_credit/gradebook.json</dataset>
   <attempts>1</attempts>
   <background>At the end of the semester, an "Introduction to
   Statistics" instructor wanted to gain insight into his students'

@@ -4,12 +4,12 @@
 	"http://oli.web.cmu.edu/dtd/cmu_stat_stattutor_3_1.dtd">
 <stattutor_problem id="body_image">
   <title>Body Image and Academic Performance of College Students</title>
-  <dataset package="Minitab">problem_files/m2_body_image/body_image.mtw</dataset>
-  <dataset package="StatCrunch">problem_files/m2_body_image/body_image.xls</dataset>
-  <dataset package="Excel">problem_files/m2_body_image/body_image.xls</dataset>
-  <dataset package="R">problem_files/m2_body_image/body_image.RData</dataset>
-  <dataset package="TI Calculator">problem_files/m2_body_image/body_image.8xg</dataset>
-  <dataset package="json">problem_files/m2_body_image/body_image.json</dataset>
+  <dataset package="Minitab">../problem_files/m2_body_image/body_image.mtw</dataset>
+  <dataset package="StatCrunch">../problem_files/m2_body_image/body_image.xls</dataset>
+  <dataset package="Excel">../problem_files/m2_body_image/body_image.xls</dataset>
+  <dataset package="R">../problem_files/m2_body_image/body_image.RData</dataset>
+  <dataset package="TI Calculator">../problem_files/m2_body_image/body_image.8xg</dataset>
+  <dataset package="json">../problem_files/m2_body_image/body_image.json</dataset>
   <attempts>1</attempts>
   <background>A student survey was conducted at a major university.
   Data were collected from a random sample of 239 undergraduate
