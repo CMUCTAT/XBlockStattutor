@@ -44,13 +44,13 @@ class StattutorXBlock(XBlock):
     completed = Boolean(
         help="True if all of the required steps are correctly completed",
         scope=Scope.user_state, default=False)
-    #weight = Float(
-    #    display_name="Problem Weight",
-    #    help=("Defines the number of points eash problem is worth. "
-    #          "If the value is not set, the problem is worth the sum of the option point values."),
-    #    values={"min": 0, "step": .1},
-    #    scope=Scope.settings
-    #)
+    weight = Float(
+        display_name="Problem Weight",
+        help=("Defines the number of points eash problem is worth. "
+              "If the value is not set, the problem is worth the sum of the option point values."),
+        values={"min": 0, "step": .1},
+        scope=Scope.settings
+    ) # weight needs to be set to something
     #weight = Integer(default=1, scope=Scope.content)
 
     ### Basic interface variables
