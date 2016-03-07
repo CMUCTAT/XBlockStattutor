@@ -72,19 +72,17 @@ class StattutorXBlock(XBlock):
         tmp_file.write (aMessage + "\n")
 
     def resource_string(self, path):
+        """ Read in the contents of a resource file. """
         data = pkg_resources.resource_string(__name__, path)        
         return data.decode("utf8")
 
-    def bind_path (self, text):
-        tbase=self.runtime.local_resource_url (self,"public/ref.css")
-        self.logdebug (self,'local_resource_url: ' + tbase)
-        base=tbase[:-7]
-        self.logdebug (self,'local_resource_url (adjusted): ' + base)
-        return (text.replace ("[xblockbase]",base))
-
     def strip_local (self, url):
-        """Returns the given url with //localhost:port removed."""
+        """ Returns the given url with //localhost:port removed. """
         return re.sub('//localhost(:\d*)?', '', url)
+
+    def get_local_resource_url (self, url):
+        """ Wrapper for self.runtime.local_resource_url. """
+        return self.strip_local(self.runtime.local_resource_url(self, url))
 
     # -------------------------------------------------------------------
     # Here we construct the tutor html page from various resources. This 
@@ -120,9 +118,9 @@ class StattutorXBlock(XBlock):
         # read in template html
         html = self.resource_string("static/html/ctatxblock.html")
         frag = Fragment (html.format(self=self, 
-                                     stattutor_html=self.strip_local(self.runtime.local_resource_url(self, self.src)),
-                                     question_file=self.strip_local(self.runtime.local_resource_url(self, self.brd)),
-                                     problem_description=self.strip_local(self.runtime.local_resource_url(self, self.problem_description)),
+                                     stattutor_html=self.get_local_resource_url(self.src),
+                                     question_file=self.get_local_resource_url(self.brd),
+                                     problem_description=self.get_local_resource_url(self.problem_description),
                                      student_id=self.ctat_user_id,
                                      guid=str(uuid.uuid4())))
         frag.add_javascript (self.resource_string("static/js/CTATXBlock.js"))
@@ -145,18 +143,16 @@ class StattutorXBlock(XBlock):
     # TO-DO: change this view to display your data your own way.
     # -------------------------------------------------------------------
     def studio_view(self, context=None):        
-        self.logdebug ("studio_view ()")
         html = self.resource_string("static/html/ctatstudio.html")
-        #problem_files = pkg_resources.resource_listdir(__name__, 'public/problem_files/')
-        # pkg_resources.resource_isdir(__name__, prolem_files[i]) # filter on directories
-        frag = Fragment(html.format(self=self))
+        problem_dirs = ['<option value="{0}"{1}>public/problem_files/{0}</option>'.format(d,' selected' if d in self.brd else '') for d in pkg_resources.resource_listdir(__name__, 'public/problem_files/') if pkg_resources.resource_isdir(__name__, 'public/problem_files/{}'.format(d))] # filter on directories
+        problem_dirs.sort()
+        frag = Fragment(html.format(self=self,problems=''.join(problem_dirs)))
 	js = self.resource_string("static/js/ctatstudio.js")
 	frag.add_javascript(unicode(js))
-        #frag.add_javascript_url(self.runtime.local_resource_url (self,"public/js/ctatstudio.js"))
-        #frag.add_css_url(self.runtime.local_resource_url (self,"public/css/ctatstudio.css"))
         frag.initialize_js('CTATXBlockStudio')        
         return frag
 
+    # This is no longer be necessary as the preview functionality seems to work
 #    def author_view(self, context=None):
         # maybe add information from help and some info about the current module
 #        frag = Fragment("""
@@ -171,16 +167,24 @@ class StattutorXBlock(XBlock):
         """
         Called when submitting the form in Studio.
         """
-        self.logdebug ("studio_submit ()")
-
-        self.src = data.get('src')
-        self.brd = data.get('brd')
-        self.problem_description = data.get('problem_description')
+        statmodule = data.get('statmodule')
+        problem_dir_files = pkg_resources.resource_listdir(__name__, 'public/problem_files/'+statmodule)
+        self.brd = [a for a in problem_dir_files if '.brd' in a][0]
+        self.problem_description = [p for p in problem_dir_files if '.xml' in p][0]
+        #self.src = data.get('src')
+        #self.brd = data.get('brd')
+        #self.problem_description = data.get('problem_description')
         self.width = data.get('width')
         self.height = data.get('height')
-        
         return {'result': 'success'}
 
+    @XBlock.json_handler
+    def ctat_save_state(self, data, suffix=''):
+        if "saveandrestore" in data:
+            self.saveandrestore = data["saveandrestore"]
+            return {'result': 'success'}
+        return {'result': 'error'}
+    
     @XBlock.json_handler
     def ctat_set_variable(self, data, suffix=''):
         self.logdebug ("ctat_set_variable ()")
