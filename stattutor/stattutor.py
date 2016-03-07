@@ -158,7 +158,7 @@ class StattutorXBlock(XBlock):
         # trying with max of 1.
         event_data = {'value': scaled, 'max_value': 1}
         self.runtime.publish(self, 'grade', event_data);
-        return {'state': self.completed}
+        return {'result': 'success', 'state': self.completed}
 
     # -------------------------------------------------------------------
     # TO-DO: change this view to display your data your own way.
