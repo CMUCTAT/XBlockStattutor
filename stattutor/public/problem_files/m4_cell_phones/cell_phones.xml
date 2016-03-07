@@ -4,12 +4,12 @@
 	"http://oli.web.cmu.edu/dtd/cmu_stat_stattutor_3_1.dtd">
 <stattutor_problem id="cell_phones">
   <title>Cell Phones</title>
-  <dataset package="Minitab">problem_files/m4_cell_phones/cell_phones.mtw</dataset>
-  <dataset package="StatCrunch">problem_files/m4_cell_phones/cell_phones.xls</dataset>
-  <dataset package="Excel">problem_files/m4_cell_phones/cell_phones.xls</dataset>
-  <dataset package="R">problem_files/m4_cell_phones/cell_phones.RData</dataset>
-  <dataset package="TI Calculator">problem_files/m4_cell_phones/cell_phones.8xg</dataset>
-  <dataset package="json">problem_files/m4_cell_phones/cell_phones.json</dataset>
+  <dataset package="Minitab">../problem_files/m4_cell_phones/cell_phones.mtw</dataset>
+  <dataset package="StatCrunch">../problem_files/m4_cell_phones/cell_phones.xls</dataset>
+  <dataset package="Excel">../problem_files/m4_cell_phones/cell_phones.xls</dataset>
+  <dataset package="R">../problem_files/m4_cell_phones/cell_phones.RData</dataset>
+  <dataset package="TI Calculator">../problem_files/m4_cell_phones/cell_phones.8xg</dataset>
+  <dataset package="json">../problem_files/m4_cell_phones/cell_phones.json</dataset>
   <attempts>1</attempts>
   <background>College students at a large state university
   completed a survey about their academic and personal life.

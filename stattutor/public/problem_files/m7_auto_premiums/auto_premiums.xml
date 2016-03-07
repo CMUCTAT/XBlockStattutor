@@ -4,12 +4,12 @@
 	"http://oli.web.cmu.edu/dtd/cmu_stat_stattutor_3_1.dtd">
 <stattutor_problem id="auto_premiums">
   <title>Monthly Premiums of Auto Insurance</title>
-  <dataset package="Minitab">problem_files/m7_auto_premiums/auto_premiums.mtw</dataset>
-  <dataset package="StatCrunch">problem_files/m7_auto_premiums/auto_premiums.xls</dataset>
-  <dataset package="Excel">problem_files/m7_auto_premiums/auto_premiums.xls</dataset>
-  <dataset package="R">problem_files/m7_auto_premiums/auto_premiums.RData</dataset>
-  <dataset package="TI Calculator">problem_files/m7_auto_premiums/auto_premiums.8xg</dataset>
-  <dataset package="json">problem_files/m7_auto_premiums/auto_premiums.json</dataset>
+  <dataset package="Minitab">../problem_files/m7_auto_premiums/auto_premiums.mtw</dataset>
+  <dataset package="StatCrunch">../problem_files/m7_auto_premiums/auto_premiums.xls</dataset>
+  <dataset package="Excel">../problem_files/m7_auto_premiums/auto_premiums.xls</dataset>
+  <dataset package="R">../problem_files/m7_auto_premiums/auto_premiums.RData</dataset>
+  <dataset package="TI Calculator">../problem_files/m7_auto_premiums/auto_premiums.8xg</dataset>
+  <dataset package="json">../problem_files/m7_auto_premiums/auto_premiums.json</dataset>
   <attempts>1</attempts>
   <background>It is very unlikely that two drivers who have the
   same auto insurance with the same insurance company will have the

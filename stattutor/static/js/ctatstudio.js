@@ -3,15 +3,12 @@
  */
 function CTATXBlockStudio(runtime, element)
 {
-    //console.log("CTATXBlockStudio ("+runtime+","+element+") (STUDIO)");
-
     $(element).find('.save-button').bind('click', function() {
 	var handlerUrl = runtime.handlerUrl(element, 'studio_submit');
 	var data = {
-	    module: $(element).find('input#module').val(),
-	    brd: $(element).find('input#brd').val(),
-	    description_file: $(element).find('input#description_file').val(),
-	    pData: $(element).find('input#pData').val()
+	    statmodule: $(element).find('select#statmodule').val(),
+	    width: $(element).find('input#maxwidth').val(),
+	    height: $(element).find('input#maxheight').val()
 	};
 	runtime.notify('save', {state: 'start'});
 	$.post(handlerUrl, JSON.stringify(data)).done(function(response) {

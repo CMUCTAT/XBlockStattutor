@@ -4,12 +4,12 @@
 	"http://oli.web.cmu.edu/dtd/cmu_stat_stattutor_3_1.dtd">
 <stattutor_problem id="low_birth_weight">
   <title>Risk Factors for Low Birth Weight</title>
-  <dataset package="Minitab">problem_files/m6_low_birth_weight/low_birth_weight.mtw</dataset>
-  <dataset package="StatCrunch">problem_files/m6_low_birth_weight/low_birth_weight.xls</dataset>
-  <dataset package="Excel">problem_files/m6_low_birth_weight/low_birth_weight.xls</dataset>
-  <dataset package="R">problem_files/m6_low_birth_weight/low_birth_weight.RData</dataset>
-  <dataset package="TI Calculator">problem_files/m6_low_birth_weight/low_birth_weight.8xg</dataset>
-  <dataset package="json">problem_files/m6_low_birth_weight/low_birth_weight.json</dataset>
+  <dataset package="Minitab">../problem_files/m6_low_birth_weight/low_birth_weight.mtw</dataset>
+  <dataset package="StatCrunch">../problem_files/m6_low_birth_weight/low_birth_weight.xls</dataset>
+  <dataset package="Excel">../problem_files/m6_low_birth_weight/low_birth_weight.xls</dataset>
+  <dataset package="R">../problem_files/m6_low_birth_weight/low_birth_weight.RData</dataset>
+  <dataset package="TI Calculator">../problem_files/m6_low_birth_weight/low_birth_weight.8xg</dataset>
+  <dataset package="json">../problem_files/m6_low_birth_weight/low_birth_weight.json</dataset>
   <attempts>1</attempts>
   <background>Low birth weight is an outcome that has been of
   concern to physicians for years. This is due to the fact that
