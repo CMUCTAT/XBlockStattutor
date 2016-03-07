@@ -176,9 +176,6 @@ class StattutorXBlock(XBlock):
         desc = [p for p in problem_dir_files if '.xml' in p]
         if len(desc) > 0:
             self.problem_description = mod_dir+'/'+desc[0]
-        #self.src = data.get('src')
-        #self.brd = data.get('brd')
-        #self.problem_description = data.get('problem_description')
         self.width = data.get('width')
         self.height = data.get('height')
         return {'result': 'success'}
