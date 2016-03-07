@@ -168,9 +168,14 @@ class StattutorXBlock(XBlock):
         Called when submitting the form in Studio.
         """
         statmodule = data.get('statmodule')
-        problem_dir_files = pkg_resources.resource_listdir(__name__, 'public/problem_files/'+statmodule)
-        self.brd = [a for a in problem_dir_files if '.brd' in a][0]
-        self.problem_description = [p for p in problem_dir_files if '.xml' in p][0]
+        mod_dir = 'public/problem_files/'+statmodule
+        problem_dir_files = [f for f in pkg_resources.resource_listdir(__name__, mod_dir)]
+        brds = [a for a in problem_dir_files if '.brd' in a]
+        if brds.len > 0:
+            self.brd = mod_dir+'/'+brds[0]
+        desc = [p for p in problem_dir_files if '.xml' in p]
+        if desc.len > 0:
+            self.problem_description = mod_dir+'/'+desc[0]
         #self.src = data.get('src')
         #self.brd = data.get('brd')
         #self.problem_description = data.get('problem_description')
