@@ -17,6 +17,7 @@ Table of Contents:
 	#CTAT radio button
 	#CTAT combobox
 	#CTAT jumble
+	#CTAT drag-n-drop
 ** CTAT SVG Based Component
 	#CTAT SVG Component
 	#CTAT SVG button
@@ -61,7 +62,7 @@ Table of Contents:
 
 .CTAT-gen-component {
 	/* assume generated component is always within a div and
-	   that it should occupy the entire div */ 
+	   that it should occupy the entire div */
 	/*position: absolute;*/
 	padding: 0px;
 	left: 0px;
@@ -88,6 +89,7 @@ Table of Contents:
 .CTATFractionBar { width: 240px; height: 70px; }
 .CTATHintWindow { width: 240px;	height: 140px; }
 .CTATJumble { width: 150px; height: 40px; }
+.CTATDragNDrop { width: 160px; height: 100px; }
 .CTATNumberLine { width: 360px; height: 90px; }
 .CTATPieChart { width: 100px; height: 100px; }
 .CTATSkillWindow { width: 240px; height: 140px; }
@@ -235,6 +237,19 @@ textarea.CTAT-text {
 	border: 1px dashed blue;
 }
 
+
+
+/*-----------------------------------------------*\
+	#CTAT drag-n-drop
+\*-----------------------------------------------*/
+.CTATDragNDrop {
+	border: 1px solid grey;
+	border-radius: 5px;
+}
+.CTATDragNDrop--valid-drop {
+	border: 1px dashed blue;
+}
+
 /******************** CTAT SVG Based Component *************************/
 /*-----------------------------------------------*\
 	#CTAT SVG Component
@@ -267,7 +282,6 @@ textarea.CTAT-text {
 /*-------------------------------------------------------*\
 	#CTAT number line
 \*-------------------------------------------------------*/
-
 .CTAT-number-line {
 	padding: 10px;
 	border: 1px solid #CCCCCC;
@@ -276,6 +290,13 @@ textarea.CTAT-text {
 	fill: black;
 	fill-opacity: 0.5;
 	stroke-width: 0px;
+	stroke: black;
+	stroke-opacity: 0.5;
+}
+.CTAT-number-line--point {
+	fill: black;
+	stroke-width: 0px;
+	/* r: 7px; only supported in Chrome */
 }
 .CTAT-number-line--axis {
 	stroke: black;
@@ -290,6 +311,23 @@ textarea.CTAT-text {
 .CTAT-number-line--tickmark-label {
 	stroke: none;
 	fill: black;
+}
+.CTAT-number-line--large-tickmark {
+	stroke-width: 4px;
+}
+.CTAT-number-line--large-tickmark-label {
+}
+.CTAT-number-line--small-tickmark {
+}
+.CTAT-number-line--small-tickmark-label {
+	stroke: none;
+	fill: black;
+}
+.CTAT-number-line--denominator-tickmark {
+	stroke: purple;
+}
+.CTAT-number-line--denominator-tickmark-label {
+	display: none;
 }
 
 /*-------------------------------------------------------*\
@@ -564,6 +602,10 @@ input.CTAT--incorrect[type="radio"] {
 	-moz-box-shadow: 0px 0px 5px 0px red;
 	box-shadow: 0px 0px 5px 0px red;
 }
+.CTAT-number-line--point.CTAT--incorrect {
+	fill: red;
+	fill-opacity: 0.7;
+}
 
 
 /*-------------------------------------------------------*\
@@ -571,8 +613,8 @@ input.CTAT--incorrect[type="radio"] {
 \*-------------------------------------------------------*/
 
 .CTAT--hint {
-	-webkit-box-shadow: 0px 0px 15px 5px yellow;
 	-moz-box-shadow: 0px 0px 15px 5px yellow;
+	-webkit-box-shadow: 0px 0px 15px 5px yellow;
 	box-shadow: 0px 0px 15px 5px yellow;
 }
 label.CTAT--hint {
@@ -581,6 +623,9 @@ label.CTAT--hint {
 	box-shadow: none;
 	text-shadow: 0px 0px 5px yellow;
 }
+textarea.CTAT--hint, input.CTAT--hint[type="text"] {
+	-webkit-appearance: none;
+}
 input.CTAT--hint[type="checkbox"],
 input.CTAT--hint[type="radio"] {
 	-webkit-box-shadow: 0px 0px 5px 0px yellow;
@@ -588,6 +633,30 @@ input.CTAT--hint[type="radio"] {
 	box-shadow: 0px 0px 5px 0px yellow;
 }
 
+/*-------------------------------------------------------*\
+	#CTAT--highlight
+\*-------------------------------------------------------*/
+
+.CTAT--highlight {
+	-moz-box-shadow: 0px 0px 15px 5px yellow;
+	-webkit-box-shadow: 0px 0px 15px 5px yellow;
+	box-shadow: 0px 0px 15px 5px yellow;
+}
+label.CTAT--highlight {
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	text-shadow: 0px 0px 5px yellow;
+}
+textarea.CTAT--highlight, input.CTAT--highlight[type="text"] {
+	-webkit-appearance: none;
+}
+input.CTAT--highlight[type="checkbox"],
+input.CTAT--highlight[type="radio"] {
+	-webkit-box-shadow: 0px 0px 5px 0px yellow;
+	-moz-box-shadow: 0px 0px 5px 0px yellow;
+	box-shadow: 0px 0px 5px 0px yellow;
+}
 
 /*-------------------------------------------------------*\
 	#CTAT--correct
@@ -617,6 +686,9 @@ input.CTAT--correct[type="radio"] {
 	-moz-box-shadow: 0px 0px 5px 0px limegreen;
 	box-shadow: 0px 0px 5px 0px limegreen;
 }
+.CTAT-number-line--point.CTAT--correct {
+	fill: limegreen;
+}
 
 /*[name="button"] {
 	background: linear-gradient(to bottom, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.4) 100%), url("../skindata/CTAT-icon.svg") no-repeat center center;
@@ -638,7 +710,7 @@ input.CTAT--correct[type="radio"] {
     z-index:1000;
 }
 
-.css3-windows-7 .fenster 
+.css3-windows-7 .fenster
 {
 	-moz-border-radius:7px;
 	-webkit-border-radius:7px;
@@ -649,20 +721,20 @@ input.CTAT--correct[type="radio"] {
 	background-color:rgba(160,160,160,0.4);
 	border:1px solid #000;
 	padding-bottom:46px;
-	
+
 	position:absolute;
 	width:389px;
-	height:146px;	
+	height:146px;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%,-50%);
 }
 
-.css3-windows-7 .fenster .titel 
+.css3-windows-7 .fenster .titel
 {
 	background:transparent url(data:image/gif;base64,R0lGODlhEAAQAPcAAAAAAP///8TAwv39/ikvVJGUp+rr8UtRcVBWdomNoh0nUiQtVSgyWikyWvHy9u/w9BglViAtXSIvXCUwWwEXVQIYVgMZWAQaWAUbWQUbWAYcWQcdWgcdWQccWAgeWgkfWwogXAsgXQshXQshXA0iXg0iXQ4jXw4kXw4jXg8kXxAlYBElYBEmYBInYRMoYhMoYRMoYBMnXxYrZBYpYBgtZhgsZRktZhkuZhovZx0waCI2bCY5bjFDdTRGeDpMfD5PfkJSgUNUgkdXhEpahllnkGJvloiSr5GbtpOct5ylvaKqwKmwxba8zrm/0L7E1M3R3dzf6N/i6t3g6PLz9g8lXxAmYBguZmVzmGp4nHOAoqqyxsHH1r/F1Ovt8vX2+Pr7/P+eGP+fGP+dGf+bGv6bGvqZG/mZHPiYHPOWHeqSIOWQIcuEKPmYHPaXHfWWHeiQIeaPIeeQIuOOIuKOIuCMI9yLJNGFJ9CFJ8+DKMuCKcyCKo5jO4FeP4dhQXtcRG9VRWZQSP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAAIEALAAAAAAQABAAAAjdAHEIxNGnTZyDB8/4wUFDh4qHKvaIIcPmjJkxYPioMGGlhccWf/DocVMGTR47gFqowPGxxQwYBOCIobOgQwyVLD+i8IDgjZg5BYq4WLFSJwslAnzKSTDAyIUqOVl8WDLlgFIIQLCIKNqCA5EAQhQolQCixAuuHpw0qcBg7MeiVGoYyGKhrRg5Et6yTJHDwRUMDdKEUZPXY1EVLKAgoTDhTp01EfR6zHCki4wRLVmQwOmxxI4HWj5oOJFiwwkeLLi20DDEy5YgN2z4YJIkg+oWGXpw+RJFypcnP0JADQgAOw==) no-repeat 6px 6px;
 	color:#000;
-	cursor:move;
+	/*cursor:move;*/
 	font:normal 12px/16px "Segoe UI",Arial,sans-serif;
 	height:16px;
 	overflow:hidden;
@@ -672,7 +744,7 @@ input.CTAT--correct[type="radio"] {
 	white-space:nowrap;
 	margin: 0px;
 }
-.css3-windows-7 .fenster .inhalt 
+.css3-windows-7 .fenster .inhalt
 {
 	-moz-border-radius:1px;
 	-webkit-border-radius:1px;
@@ -689,23 +761,23 @@ input.CTAT--correct[type="radio"] {
 	overflow:auto;
 	padding:5px;
 	position:relative;
-	
+
 	text-align: center;
-	vertical-align: middle;	
+	vertical-align: middle;
 }
 
-.css3-windows-7 .inhalt p 
+.css3-windows-7 .inhalt p
 {
 	margin-bottom:10px;
 }
 
-.css3-windows-7 .inhalt img 
+.css3-windows-7 .inhalt img
 {
 	background-color:#f1f1f1;
 	border:0px solid #ddd;
 	float:center;
 	margin:0 20px 10px 0;
-	padding:1px;	
+	padding:1px;
 }
 
 /* Resizeable */
@@ -766,5 +838,3 @@ input.CTAT--correct[type="radio"] {
 	position:relative;
 	top:1px;
 }
-
-

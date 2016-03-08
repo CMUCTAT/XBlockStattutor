@@ -20,4 +20,3 @@ function CTATXBlockStudio(runtime, element)
 	runtime.notify('cancel', {});
     });
 }
-
