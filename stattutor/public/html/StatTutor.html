@@ -4,8 +4,6 @@
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-</script>
-
 	<link rel="stylesheet" href="../css/themes/default/easyui.css" />
 	<link rel="stylesheet" href="../css/themes/icon.css" />
 	<link rel="stylesheet" href="../css/ctat.css" />
@@ -79,14 +77,9 @@ $(function() {
 <script src="../js/jquery.easyui.min.js"></script>
 
 <script src="../js/stattutor.js"></script>
+<script src="../js/CTATXConfig.js"></script>
 
 <script>
-  var CTATTarget="XBlock";
-  var tutorConfiguration = window.parent.CTATConfig;
-  setVariable = window.parent.CTATXBlock.post.set_variable;
-  getVariable = function(key) { return window.atob(tutorConfiguration[key]); };
-  gradeStudent = window.parent.CTATXBlock.post.report_grade;
-
   function download_data() {
      var selection = $('#package_select').val();
      console.log(selection,StatTutor.dataset[selection]);
@@ -96,8 +89,8 @@ $(function() {
   }
 
 	var tutor_module = "";
-	if (tutorConfiguration.hasOwnProperty('problem_description')) {
-	   var mod = /\/(m[^/]*)\//.exec(tutorConfiguration.problem_description); // this is fragile, but should work.  If images in our_answer break, this will be the likely culprit
+	if (CTATXConfig.hasOwnProperty('problem_description')) {
+	   var mod = /\/(m[^/]*)\//.exec(CTATXConfig.problem_description); // this is fragile, but should work.  If images in our_answer break, this will be the likely culprit
 	   if (mod && mod.length>1) {
               tutor_module = mod[1];
            }
@@ -115,7 +108,7 @@ $(function() {
 		});
 		
 		// load the problem data file and adapt interface to it.
-		$.get(tutorConfiguration.problem_description, function(data) {
+		$.get(CTATXConfig.problem_description, function(data) {
 			console.log('loading problem data', data);
 			$problem_data = $(data);
 			$problem_data.find('dataset').each(function () {
@@ -124,7 +117,7 @@ $(function() {
 			});
 			StatTutor.process_problem_data(data);
 			StatTutor.setup();
-			initTutor(tutorConfiguration); // move to end so that setup initializes things properly.
+			initTutor(CTATXConfig); // move to end so that setup initializes things properly.
 			StatTutor.set_data_tab(StatTutor.dataset.json);
 			
 			// Add event listener to our_answer components so that the img tag
