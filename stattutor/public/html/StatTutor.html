@@ -77,7 +77,6 @@ $(function() {
 <script src="../js/jquery.easyui.min.js"></script>
 
 <script src="../js/stattutor.js"></script>
-<script src="../js/CTATXConfig.js"></script>
 
 <script>
   function download_data() {
@@ -88,54 +87,41 @@ $(function() {
      }
   }
 
-	var tutor_module = "";
-	if (CTATXConfig.hasOwnProperty('problem_description')) {
-	   var mod = /\/(m[^/]*)\//.exec(CTATXConfig.problem_description); // this is fragile, but should work.  If images in our_answer break, this will be the likely culprit
+  function fix_img_url(tutor_module) {
+      $('[id^=our_]').on('CTAT_EXECUTE_SAI', function (e) {
+      	$(this).find('img').each(function () {
+	    var $img = $(this);
+	    var src = $img.attr('src');
+	    if (src) {
+	       	if (src.indexOf('http')!==0) { // not a full url
+		   $img.attr('src','../problem_files/'+tutor_module+'/'+src);
+		}
+	    }
+	 });
+       });
+   }
+   function initialize_stattutor(config) {
+       $.get(config.problem_description, function(data) {
+           StatTutor.process_problem_data(data);
+	   StatTutor.setup();
+	   StatTutor.set_data_tab(StatTutor.dataset.json);
+	   initTutor(config);
+
+	   var tutor_module = "";
+	   var mod = /\/(m[^\/]*)\//.exec(config.problem_description); // this is fragile, but should work.  If images in our_answer break, this will be the likely culprit
 	   if (mod && mod.length>1) {
-              tutor_module = mod[1];
-           }
-	}
-
-	var $instructions = null; // for debuging
-	var $problem_data = null;
-
-	$(function() {
-		// load the instruction file
-		$.get('Instructions.xml', function(data) {
+		tutor_module = mod[1];
+	   }
+	   fix_img_url(tutor_module);
+	});
+   }
+   $(function() {
+   		$.get('Instructions.xml', function(data) {
 			console.log('loading instructions',data);
 			$instructions = $(data);
 			StatTutor.process_instructions(data);
 		});
-		
-		// load the problem data file and adapt interface to it.
-		$.get(CTATXConfig.problem_description, function(data) {
-			console.log('loading problem data', data);
-			$problem_data = $(data);
-			$problem_data.find('dataset').each(function () {
-				var $this = $(this);
-				StatTutor.dataset[$this.attr('package')] = $this.text();
-			});
-			StatTutor.process_problem_data(data);
-			StatTutor.setup();
-			initTutor(CTATXConfig); // move to end so that setup initializes things properly.
-			StatTutor.set_data_tab(StatTutor.dataset.json);
-			
-			// Add event listener to our_answer components so that the img tag
-			// src attributes can be modified based on the environment.
-			$('[id^=our_]').on('CTAT_EXECUTE_SAI', function (e) {
-				//console.log('CTAT_EXECUTE_SAI', $(this).data('CTATComponent').getText(),e);
-				$(this).find('img').each(function () {
-					var $img = $(this);
-					var src = $img.attr('src');
-					if (src) {
-						if (src.indexOf('http')!==0) { // not a full url
-							$img.attr('src','../problem_files/'+tutor_module+'/'+src);
-						}
-					}
-				});
-			});
-		});
-	});
+   });
 </script>
 <script id="question_template" type="text/x-jsrender">
 <div id="Question{{:#index+1}}" class="easyui-panel work_area"

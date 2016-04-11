@@ -17,7 +17,6 @@ from string import Template
 from xblock.core import XBlock
 from xblock.fields import Scope, Integer, String, Float, Boolean, Any
 from xblock.fragment import Fragment
-from xblock.reference.user_service import XBlockUser
 
 dbgopen=False;
 tmp_file=None;
@@ -56,7 +55,6 @@ class StattutorXBlock(XBlock):
         values={"min": 0, "step": .1},
         scope=Scope.settings
     ) # weight needs to be set to something
-    #weight = Integer(default=1, scope=Scope.content)
 
     ### Basic interface variables
     src = String(help="The source html file for CTAT interface.",
@@ -104,8 +102,6 @@ class StattutorXBlock(XBlock):
                             default="", scope=Scope.user_state)
     skillstring = String(help="Internal data blob used by the tracer",
                          default="", scope=Scope.user_info)
-    ctat_user_id = String(help="Anonymous ID used for logging in DataShop.",
-                          default="", scope=Scope.user_info) # unclear how to get EdX's anonymous id, so use our own.
 
     def logdebug (self, aMessage):
         global dbgopen, tmp_file
@@ -153,38 +149,36 @@ class StattutorXBlock(XBlock):
 
         Returns a Fragment object containing the HTML to display
         """
-        #xblock_user = self.runtime.service(self,"user").get_current_user()
-        #self.ctat_user_id=xblock_user.opt_attrs['edx-platform.user_id']
-        if self.ctat_user_id=="":
-            self.ctat_user_id = str(uuid.uuid4())
-
         # read in template html
         html = self.resource_string("static/html/ctatxblock.html")
         frag = Fragment (html.format(
+            tutor_html=self.get_local_resource_url(self.src)))
+        config = self.resource_string("static/js/CTATConfig.js")
+        frag.add_javascript (config.format(
             self=self,
-            stattutor_html=self.get_local_resource_url(self.src),
+            tutor_html=self.get_local_resource_url(self.src),
             question_file=self.get_local_resource_url(self.brd),
+            student_id=self.runtime.anonymous_student_id if hasattr(self.runtime, 'anonymous_student_id') else 'bogus-sdk-id',
             problem_description=self.get_local_resource_url(
                 self.problem_description),
-            student_id=self.ctat_user_id,
             guid=str(uuid.uuid4())))
-        frag.add_javascript (self.resource_string("static/js/CTATXBlock.js"))
+        frag.add_javascript (self.resource_string("static/js/Initialize_CTATXBlock.js"))
         frag.initialize_js('Initialize_CTATXBlock')
         return frag
 
     @XBlock.json_handler
     def ctat_grade(self, data, suffix=''):
-        self.logdebug ("ctat_grade ()")
+        #self.logdebug ("ctat_grade ()")
         #print('ctat_grade:',data,suffix)
         self.attempted = True
-        self.score = data['value']
-        self.max_problem_steps = data['max_value']
+        self.score = int(data.get('value'))
+        self.max_problem_steps = int(data.get('max_value'))
         self.completed = self.score >= self.max_problem_steps
-        scaled = self.score/self.max_problem_steps
+        scaled = float(self.score)/float(self.max_problem_steps)
         # trying with max of 1.
         event_data = {'value': scaled, 'max_value': 1}
         self.runtime.publish(self, 'grade', event_data)
-        return {'result': 'success', 'state': self.completed}
+        return {'result': 'success', 'finished': self.completed, 'score':scaled}
 
     # -------------------------------------------------------------------
     # TO-DO: change this view to display your data your own way.
@@ -226,11 +220,16 @@ class StattutorXBlock(XBlock):
         return {'result': 'success'}
 
     @XBlock.json_handler
-    def ctat_save_state(self, data, suffix=''):
-        if "saveandrestore" in data:
-            self.saveandrestore = data["saveandrestore"]
+    def ctat_save_problem_state(self, data, suffix=''):
+        """Called from CTATLMS.saveProblemState."""
+        if data.get('state') is not None:
+            self.saveandrestore = data.get('state')
             return {'result': 'success'}
-        return {'result': 'error'}
+        return {'result': 'failure'}
+
+    @XBlock.json_handler
+    def ctat_get_problem_state(self, data, suffix=''):
+        return {'result': 'success', 'state': self.saveandrestore}
 
     @XBlock.json_handler
     def ctat_set_variable(self, data, suffix=''):

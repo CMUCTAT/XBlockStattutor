@@ -75,7 +75,11 @@ var StatTutor = {
 		 */
 		process_problem_data: function (data) {
 			this.problem_data = data; // global storage of the xml data
-			var $problem_data = $(data); // cast for easier jQuery access.
+		    var $problem_data = $(data); // cast for easier jQuery access.
+		    $problem_data.find('dataset').each(function() {
+			var $this = $(this);
+			StatTutor.dataset[$this.attr('package')] = $this.text();
+		    });
 			
 			var make_thought_question = function (panel, name, $question_node) {
 				var q_id = name+'_question';
