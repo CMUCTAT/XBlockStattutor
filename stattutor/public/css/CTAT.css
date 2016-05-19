@@ -316,12 +316,14 @@ textarea.CTAT-text {
 	stroke-width: 4px;
 }
 .CTAT-number-line--large-tickmark-label {
+	transform: translate(0px,-3px);
 }
 .CTAT-number-line--small-tickmark {
 }
 .CTAT-number-line--small-tickmark-label {
 	stroke: none;
 	fill: black;
+	transform: translate(0px,-2px);
 }
 .CTAT-number-line--denominator-tickmark {
 	stroke: purple;

@@ -6,7 +6,7 @@
 
 	<link rel="stylesheet" href="../css/themes/default/easyui.css" />
 	<link rel="stylesheet" href="../css/themes/icon.css" />
-	<link rel="stylesheet" href="../css/ctat.css" />
+	<link rel="stylesheet" href="../css/CTAT.css" />
 
 <style type="text/css">
 div.work_area {
@@ -18,10 +18,10 @@ div.work_area {
 .CTATRadioButton { width: auto; }
 .CTATComboBox { display:inline-block; width: auto; height: 2.5em; }
 .CTATTextArea { margin: 5px; width: 90%; height: 8em; }
-.CTATTextField { margin: 5px; width: 90%; min-height: 5em; border: 1px solid darkgrey; padding: 3px;}
+.CTATTextField { margin: 5px; width: 90%; height: auto; min-height: 60px; border: 1px solid darkgrey; padding: 3px;}
 .icon-box { background:url('../images/icons/box.svg') no-repeat center center; }
 .icon-partial { background:url('../images/icons/box_partial.svg') no-repeat center center; }
-.CTAT-text {overflow: auto; }
+/*.CTAT-text { overflow: auto; height: 100%; width: 100%; }*/
 
 .WorkPlanLevel0 { font-size: 1.2em; font-weight: bold; }
 .WorkPlanLevel1 { font-size: 1em;}
@@ -54,7 +54,6 @@ div.meaningful_display_radio { position: absolute; left: 28px; display: inline-b
 </style>
 
 <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
-<script src="../js/ctat.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jsrender/0.9.73/jsrender.min.js"></script>
 <script>
 // Order for this is important as it needs to execute before easyui
@@ -76,6 +75,7 @@ $(function() {
 </script>
 <script src="../js/jquery.easyui.min.js"></script>
 
+<script src="../js/ctat.min.js"></script>
 <script src="../js/stattutor.js"></script>
 
 <script>
