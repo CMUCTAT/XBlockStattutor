@@ -53,7 +53,7 @@ div.meaningful_display { margin-left: 30px; position: relative; }
 div.meaningful_display_radio { position: absolute; left: 28px; display: inline-block; }
 </style>
 
-<script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+<script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
 <script src="../js/ctat.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jsrender/0.9.73/jsrender.min.js"></script>
 <script>
@@ -63,7 +63,7 @@ div.meaningful_display_radio { position: absolute; left: 28px; display: inline-b
 // be filled in when more information is loaded.  There is some contingent
 // things built into the template that end up getting controled by classes/css.
 $(function() {
-	var MAX_NUMBER_QUESTIONS = 3;
+        var MAX_NUMBER_QUESTIONS = 3;
 	$.views.converters("word", function(val) { return ['Zero','One','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten'][parseInt(val)];});
 	var template = $.templates("#question_template");
 	var question_init_data = [];
@@ -126,25 +126,25 @@ $(function() {
 <script id="question_template" type="text/x-jsrender">
 <div id="Question{{:#index+1}}" class="easyui-panel work_area"
 	title="Question {{word:#getIndex()+1}}" data-options="closed:true, fit:true, onOpen:stattutor_highlight_q{{:#index+1}}">
-  {{if #index==0 }}<p>Now that we have completed the first part, where we 
+  {{if #index==0 }}<p>Now that we have completed the first part, where we
 	examined some general features of the problem, it is
 	time to look at the questions that we are trying to
 	answer using the data.</p>
-	<p>In the <b>Work Plan</b> on the left, note that, for 
+	<p>In the <b>Work Plan</b> on the left, note that, for
 	each question, we will repeat three steps:
 	Reflect on Question, Analyze Data, and Draw Conclusions.
 	Once we have completed these three steps for <em>each</em>
 	question, we will move on to the last part, Summarize.</p>
 	<p>To get started with the first question, read the question
-	marked <b>Q{{:#getIndex()+1}}</b> above in the 
+	marked <b>Q{{:#getIndex()+1}}</b> above in the
   {{else}}
 	<p>Now that we are done with Question {{word:#getIndex()}}, we are going to
 	repeat the same three steps (Reflect on Question, Analyze Data, and
 	Draw Conclusions) for Question {{word:#getIndex()+1}}.</p>
-	<p>Read the question marked <b>Q{{:#getIndex()+1}}</b> above in the 
+	<p>Read the question marked <b>Q{{:#getIndex()+1}}</b> above in the
   {{/if}}
-	<a class="easyui-linkbutton tab-button" onclick="javascript:StatTutor.goto_tab('Questions')">Questions</a> tab, 
-	and then click on 
+	<a class="easyui-linkbutton tab-button" onclick="javascript:StatTutor.goto_tab('Questions')">Questions</a> tab,
+	and then click on
 	<a class="easyui-linkbutton" onclick="javascript:StatTutor.goto_panel('ReflectQ{{:#index+1}}')">Reflect on Question</a>
 	to continue.</p>
 </div>
@@ -176,7 +176,7 @@ $(function() {
 	<p>Click on <a class="easyui-linkbutton" onclick="javascript:StatTutor.goto_panel('AnalyzeQ{{:#index+1}}')">Analyze Data</a> to continue.
 	</p>
 </div>
-					
+
 <div id="AnalyzeQ{{:#index+1}}" class="easyui-panel work_area"
 	 title="Analyze Data (Question {{word:#getIndex()+1}})" data-options="closed:true, fit:true, onOpen:stattutor_highlight_q{{:#index+1}}">
 	<p>In this step, we choose and conduct the analyses that
@@ -202,7 +202,7 @@ $(function() {
 	<p>Now that we have identified and classified the relevant
 	variable(s), we use exploratory data analysis methods
 	to help us make important features of the data visible.</p>
-	<p>Click on <a class="easyui-linkbutton" onclick="javascript:StatTutor.goto_panel('MeasuresQ{{:#index+1}}')">Determine Displays and Measures</a> to 
+	<p>Click on <a class="easyui-linkbutton" onclick="javascript:StatTutor.goto_panel('MeasuresQ{{:#index+1}}')">Determine Displays and Measures</a> to
 	continue.</p>
 </div>
 <div id="MeasuresQ{{:#index+1}}" class="easyui-panel work_area"
@@ -236,14 +236,6 @@ $(function() {
 </div>
 <div id="AnalysisQ{{:#index+1}}" class="easyui-panel work_area"
 	 title="Conduct Analysis (Question {{word:#getIndex()+1}})" data-options="closed:true, fit:true,
-	  onOpen:function(){
-		stattutor_highlight_q{{:#index+1}};
-		var i=this.id;
-		var r = i.charAt(i.length-1);
-		if ($('#ref_q'+r+'measure_display').text() &&
-			$('#ref_q'+r+'measure_display').text().replace(/\s|-/gm,'').length>0 &&
-            $('#ref_q'+r+'measure_num').text().replace(/\s|-/gm,'').length>0)
-		  mark_complete('AnalysisQ{{:#index+1}}');},
 	  onBeforeOpen:AnalysisQn_onBeforeOpen">
 	<p>Remember...<br/>
 	You selected <span id="ref_q{{:#index+1}}measure_display" style="font-weight: bold;"></span>
@@ -319,7 +311,7 @@ $(function() {
 		</div>
 		<br/><br/>
 		<div>Null hypotheses - H<sub>0</sub>:
-			<div id="q{{:#getIndex()+1}}formal_h0" class="CTATComboBox" style="display:inline-block;">
+			<div id="q{{:#getIndex()+1}}formal_h0" class="CTATComboBox">
 				<option>-------</option>
 				<option value="mu">&mu;</option>
 				<option value="p">p</option>
@@ -401,7 +393,7 @@ $(function() {
 	<p class="q{{:#getIndex()+1}}formal_disabled">This node is not active for this lab exercise. Click on
 		<a class="easyui-linkbutton" onclick="javascript:StatTutor.goto_panel('ConclusionsQ{{:#getIndex()+1}}')">Draw Conclusions</a> to continue.</p>
 </div>
-					
+
 <div id="ConclusionsQ{{:#index+1}}" class="easyui-panel work_area"
 	 title="Draw Conclusions (Question {{word:#getIndex()+1}})" data-options="closed:true, fit:true, onOpen:stattutor_highlight_q{{:#index+1}}">
 	<p>In this step, Draw Conclusions, we interpret the
@@ -453,7 +445,7 @@ $(function() {
 	<div class="easyui-layout"
 		style="width:100%; height:100%; margin: 0 auto;">
 		<div data-options="region:'west'" style="width: 250px; background: #f5f5f2">
-			<div class="easyui-layout" style="width:100%;height:100%;">
+			<div id="work_pane" class="easyui-layout" style="width:100%;height:100%;">
 				<div data-options="region:'north',border:false" style="background:#f5f5f2;">
 					<img src="../images/logo.png" alt="CTAT StatTutor Work Plan" width="248px" height="193px"/>
 				</div>
@@ -507,7 +499,8 @@ $(function() {
 								the same set of steps. Those steps are shown on the left side of
 								StatTutor, and you will click on them in sequence as you
 								progress through the lab. Clicking on each step will cause a new
-								worksheet to appear below for you to complete.</p>
+							  worksheet to appear below for you to complete.</p>
+							<p>Note that you must provide a correct answer to all questions in a given step or provide a written response before being able to proceed.  The system will bounce you back to a page that does not have all the questions correct or is missing an answer.</p>
 							<p>If you get stuck along the way, you can ask for hints by
 								clicking on the hint button.</p>
 						</div>
@@ -530,6 +523,7 @@ $(function() {
 							StatTutor, and you will click on them in sequence as you progress
 							through the lab. Clicking on each step will cause a new worksheet
 							to appear in this box for you to complete.</p>
+						<p>Note that you must provide a correct answer to all questions in a given step or provide a written response before being able to proceed.  The system will bounce you back to a page that does not have all the questions correct or is missing an answer.</p>
 						<p>If you get stuck along the way, you can ask for hints by
 							clicking on the hint button below.</p>
 							To begin:
@@ -670,7 +664,7 @@ $(function() {
 						</div>
 						<p class="EvaluateStudy_disabled">This node is not active for this lab exercise.  You are done!</p>
 					</div>
-					
+
 				</div>
 				<div data-options="region:'south'"
 					style="height: 157px; padding: 5px;">
