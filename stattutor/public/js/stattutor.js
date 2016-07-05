@@ -260,8 +260,8 @@ var StatTutor = {
 		$('.'+q+'formal_disabled').css('display','none');
 		var $FA = $('#FormalAnalysisQ'+qn);
 		$FA.panel({'onBeforeOpen': FormalAnalysisQn_onBeforeOpen});
-		$('#q'+qn+'formal_h0').on('change', StatTutor.reveal_formal_extras);
-		$('#q'+qn+'formal_ha').on('change', StatTutor.reveal_formal_extras);
+		$('#q'+qn+'formal_h0').on('change', StatTutor.reveal_formal_extras).on('CTAT_EXECUTE_SAI', StatTutor.reveal_formal_extras);
+		$('#q'+qn+'formal_ha').on('change', StatTutor.reveal_formal_extras).on('CTAT_EXECUTE_SAI', StatTutor.reveal_formal_extras);
 	    } else {
 		$('.'+q+'formal_enabled').css('display','none');
 	    }
@@ -410,8 +410,7 @@ var StatTutor = {
 	    var $v = $(this);
 	    // May want to be adaptive to multiple names/descriptions
 	    var name = $v.find('name').text();
-	    $('#problem_data_variables').append('<dt style="font-weight:bold;">'
-						+name+'</dt><dd>'
+	    $('#problem_data_variables').append('<dt>'+name+'</dt><dd>'
 						+$v.find('description').text()
 						+'</dd>');
 	    fields.push({field:name,title:name})

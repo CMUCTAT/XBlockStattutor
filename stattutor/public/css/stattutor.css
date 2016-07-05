@@ -1,0 +1,75 @@
+/** Changing the way the variable definition list is displayed **/
+dl#problem_data_variables dd {
+    display: inline;
+    margin: 0;
+}
+dl#problem_data_variables dd:after {
+    display: block;
+    content: '';
+}
+dl#problem_data_variables dt:after {
+    content: ':';
+    margin-right: 1ch;
+}
+dl#problem_data_variables dt {
+    display: inline-block;
+    font-weight: bold;
+}
+
+/** Size of the main panel for student work **/
+div.work_area {
+    width: 97%;
+    height: 350px;
+    background: #f5f5f2;
+    padding: 5px;
+}
+
+/** Icon for undone steps in work plan (the empty box) **/
+.icon-box {
+    background:url('../images/icons/box.svg') no-repeat center center;
+}
+/** Icon for partially done steps in work plan (partially filled box **/
+.icon-partial {
+    background:url('../images/icons/box_partial.svg') no-repeat center center;
+}
+
+.CTATCheckBox { display: flex; } /* get check boxes to align vertically */
+.CTATTextArea { margin: 5px; width: 90%; height: 8em; }
+.CTATTextField {
+    margin: 5px;
+    width: 90%;
+    min-height: 5em;
+    border: 1px solid darkgrey;
+    padding: 3px;
+}
+.CTAT-text {overflow: auto; } /* allow scroll bar */
+
+/** Work plan items by level **/
+.WorkPlanLevel0 { font-size: 1.2em; font-weight: bold; }
+.WorkPlanLevel1 { font-size: 1em;}
+.WorkPlanLevel2 { font-size: .8em; }
+.WorkPlanDisabled { color: grey; }
+
+.ReminderText {
+    width:90%;
+    height:8em;
+    background:#EBEBEB;
+    border:1px solid grey;
+    overflow-y: auto;
+}
+.VariableName { font-weight: bold; }
+.Submit_and_Reveal { margin:5px; width:200px; }
+.ThoughtArea { visibility: hidden; }
+
+h3.your_answer { color: blue; }
+h3.our_answer { color: green; }
+
+table, td { border: 1px solid black;}
+th { text-align: center; }
+textarea.CTAT-text { overflow-y: auto; }
+span.CTAT-hint { color: orange; }
+span.CTAT-correct { color: limegreen; font-weight: bold; }
+span.CTAT-incorrect { color: red; font-weight: bold; }
+div.instructions { margin-left: 10px; margin-right: 10px; }
+div.meaningful_display { margin-left: 30px; position: relative; }
+div.meaningful_display_radio { position: absolute; left: 28px; }
