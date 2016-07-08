@@ -182,8 +182,8 @@ class StattutorXBlock(XBlock):
             try:
                 with transaction.atomic():
                     self.runtime.publish(self, 'grade', event_data)
-            except IntegrityError as err:
-                return {'result': 'fail', 'Error': "IntegrityError: {0}".format(err)}
+            #except IntegrityError as err:
+            #    return {'result': 'fail', 'Error': "IntegrityError: {0}".format(err)}
             except:
                 return {'result': 'fail', 'Error': "Unexpected Error: {0}".format(sys.exc_info())}
             return {'result': 'success', 'finished': self.completed, 'score':scaled}
