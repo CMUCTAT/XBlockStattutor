@@ -178,8 +178,14 @@ class StattutorXBlock(XBlock):
             self.completed = self.score >= self.max_problem_steps
             scaled = float(self.score)/float(self.max_problem_steps)
             # trying with max of 1.
-            event_data = {'value': scaled, 'max_value': 1}
-            self.runtime.publish(self, 'grade', event_data)
+            event_data = {'value': scaled, 'max_value': 1.0}
+            try:
+                with transaction.atomic():
+                    self.runtime.publish(self, 'grade', event_data)
+            except IntegrityError as err:
+                return {'result': 'fail', 'Error': "IntegrityError: {0}".format(err)}
+            except:
+                return {'result': 'fail', 'Error': "Unexpected Error: {0}".format(sys.exc_info())}
             return {'result': 'success', 'finished': self.completed, 'score':scaled}
         return {'result': 'no-change', 'finished': self.completed, 'score':float(self.score)/float(self.max_problem_steps)}
 
