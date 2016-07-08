@@ -171,19 +171,17 @@ class StattutorXBlock(XBlock):
         #self.logdebug ("ctat_grade ()")
         #print('ctat_grade:',data,suffix)
         self.attempted = True
-        self.score = int(data.get('value'))
+        corrects = int(data.get('value'))
         self.max_problem_steps = int(data.get('max_value'))
-        # correct for lack of done button.
-        if self.max_problem_steps > 1:
-            self.max_problem_steps -= 1
-        else:
-            self.max_problem_steps = 1
-        self.completed = self.score >= self.max_problem_steps
-        scaled = float(self.score)/float(self.max_problem_steps)
-        # trying with max of 1.
-        event_data = {'value': scaled, 'max_value': 1}
-        self.runtime.publish(self, 'grade', event_data)
-        return {'result': 'success', 'finished': self.completed, 'score':scaled}
+        if corrects > self.score:
+            self.score = corrects
+            self.completed = self.score >= self.max_problem_steps
+            scaled = float(self.score)/float(self.max_problem_steps)
+            # trying with max of 1.
+            event_data = {'value': scaled, 'max_value': 1}
+            self.runtime.publish(self, 'grade', event_data)
+            return {'result': 'success', 'finished': self.completed, 'score':scaled}
+        return {'result': 'no-change', 'finished': self.completed, 'score':float(self.score)/float(self.max_problem_steps)}
 
     # -------------------------------------------------------------------
     # TO-DO: change this view to display your data your own way.
