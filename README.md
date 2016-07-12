@@ -41,3 +41,6 @@ first exercise. To change the exercise, click on `Edit` and use the
 drop down to select the desired exercise. A preview of the exercise
 will be displayed in Studio.
 
+## License
+
+ This is made available under a [CC-BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) license by Carnegie Mellon University Open Learning Initiative.
