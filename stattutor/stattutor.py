@@ -3,15 +3,8 @@ This is a XBlock used to serve the CTAT based StatTutor problems orginally
 implimented for OLI (http://oli.cmu.edu/).
 """
 
-#import os
-#import pprint
-#import base64
-#import glob
-#import socket
 import re
-#import sys
 import uuid
-#from string import Template
 import pkg_resources
 
 # pylint: disable=import-error
@@ -20,8 +13,6 @@ from xblock.core import XBlock
 from xblock.fields import Scope, Integer, String, Float, Boolean
 from xblock.fragment import Fragment
 
-#dbgopen = False
-#tmp_file = None
 
 class StattutorXBlock(XBlock):
     """
@@ -29,13 +20,14 @@ class StattutorXBlock(XBlock):
     """
     # pylint: disable=too-many-instance-attributes
     # All of the instance variables are required.
-    ### xBlock tag variables
+
+    # **** xBlock tag variables ****
     width = Integer(help="Width of the StatTutor frame.",
                     default=900, scope=Scope.content)
     height = Integer(help="Height of the StatTutor frame.",
                      default=750, scope=Scope.content)
 
-    ### Grading variables
+    # **** Grading variables ****
     has_score = Boolean(default=True, scope=Scope.content)
     icon_class = String(default="problem", scope=Scope.content)
     score = Integer(help="Current count of correctly completed student steps",
@@ -44,6 +36,7 @@ class StattutorXBlock(XBlock):
         help="Total number of steps",
         scope=Scope.user_state, default=1)
     max_possible_score = 1
+
     def max_score(self):
         """ The maximum raw score of the problem. """
         return self.max_possible_score
@@ -59,9 +52,9 @@ class StattutorXBlock(XBlock):
               "option point values."),
         values={"min": 0, "step": .1},
         scope=Scope.settings
-    ) # weight needs to be set to something
+    )  # weight needs to be set to something
 
-    ### Basic interface variables
+    # **** Basic interface variables ****
     src = String(help="The source html file for CTAT interface.",
                  default="public/html/StatTutor.html", scope=Scope.settings)
     brd = String(help="The behavior graph.",
@@ -72,7 +65,7 @@ class StattutorXBlock(XBlock):
         default="public/problem_files/m1_survey/survey.xml",
         scope=Scope.settings)
 
-    ### CTATConfiguration variables
+    # **** CTATConfiguration variables ****
     log_name = String(help="Problem name to log", default="CTATEdXProblem",
                       scope=Scope.settings)
     log_dataset = String(help="Dataset name to log", default="edxdataset",
@@ -102,12 +95,13 @@ class StattutorXBlock(XBlock):
     ctat_connection = String(help="", default="javascript",
                              scope=Scope.settings)
 
-    ### user information
+    # **** User Information ****
     saveandrestore = String(help="Internal data blob used by the tracer",
                             default="", scope=Scope.user_state)
     skillstring = String(help="Internal data blob used by the tracer",
                          default="", scope=Scope.user_info)
 
+    # **** Utility functions and methods ****
     @staticmethod
     def resource_string(path):
         """ Read in the contents of a resource file. """
@@ -122,6 +116,8 @@ class StattutorXBlock(XBlock):
     def get_local_resource_url(self, url):
         """ Wrapper for self.runtime.local_resource_url. """
         return self.strip_local(self.runtime.local_resource_url(self, url))
+
+    # **** XBlock methods ****
 
     # -------------------------------------------------------------------
     # Here we construct the tutor html page from various resources. This
@@ -158,19 +154,22 @@ class StattutorXBlock(XBlock):
             self=self,
             tutor_html=self.get_local_resource_url(self.src),
             question_file=self.get_local_resource_url(self.brd),
-            student_id=self.runtime.anonymous_student_id \
-            if hasattr(self.runtime, 'anonymous_student_id') \
+            student_id=self.runtime.anonymous_student_id
+            if hasattr(self.runtime, 'anonymous_student_id')
             else 'bogus-sdk-id',
             problem_description=self.get_local_resource_url(
                 self.problem_description),
             guid=str(uuid.uuid4())))
-        frag.add_javascript(self.resource_string("static/js/Initialize_CTATXBlock.js"))
+        frag.add_javascript(self.resource_string(
+            "static/js/Initialize_CTATXBlock.js"))
         frag.initialize_js('Initialize_CTATXBlock')
         return frag
 
     @XBlock.json_handler
     def ctat_grade(self, data, dummy_suffix=''):
-        """ Handles updating the grade based on post request from the tutor. """
+        """
+        Handles updating the grade based on post request from the tutor.
+        """
         self.attempted = True
         corrects = int(data.get('value'))
         self.max_problem_steps = int(data.get('max_value'))
@@ -180,14 +179,18 @@ class StattutorXBlock(XBlock):
             scaled = float(self.score)/float(self.max_problem_steps)
             # trying with max of 1.
             event_data = {'value': scaled, 'max_value': 1.0}
+            # pylint: disable=broad-except
+            # The errors that should be checked are django errors, but there
+            # type is not known at this point. This exception is designed
+            # partially to learn what the possible errors are.
             try:
                 self.runtime.publish(self, 'grade', event_data)
             except Exception as err:
                 return {'result': 'fail', 'Error': err.message}
             return {'result': 'success', 'finished': self.completed,
-                    'score':scaled}
+                    'score': scaled}
         return {'result': 'no-change', 'finished': self.completed,
-                'score':float(self.score)/float(self.max_problem_steps)}
+                'score': float(self.score)/float(self.max_problem_steps)}
 
     def studio_view(self, dummy_context=None):
         """ Generate the Studio page contents. """
@@ -236,7 +239,9 @@ class StattutorXBlock(XBlock):
 
     @XBlock.json_handler
     def ctat_get_problem_state(self, dummy_data, dummy_suffix=''):
-        """ Return the stored problem state to reconstruct a student's progress. """
+        """
+        Return the stored problem state to reconstruct a student's progress.
+        """
         return {'result': 'success', 'state': self.saveandrestore}
 
     @staticmethod
