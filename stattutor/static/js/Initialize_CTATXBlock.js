@@ -5,7 +5,7 @@
  */
 function Initialize_CTATXBlock(runtime,element) {
     var post = {
-	set_variable: function(variable_name,value) {
+	/*set_variable: function(variable_name,value) {
 	    //console.log('CTATXBlock.js','set_variable',variable_name,value);
 	    CTATConfig[variable_name] = value;
 	    var data = {};
@@ -18,7 +18,7 @@ function Initialize_CTATXBlock(runtime,element) {
 		.done(function () {
 		    console.log('ctat_set_variable succeeded');
 		});
-	},
+	},*/
 	save_problem_state: function(state) {
 	    $.ajax({type: "POST",
 		    url: runtime.handlerUrl(element, 'ctat_save_problem_state'),
@@ -48,7 +48,8 @@ function Initialize_CTATXBlock(runtime,element) {
 	lms.identifier = 'XBlock';
 	lms.setValue = function(key,value) {
 	    //console.log('CTATXBlock.setValue',key,value);
-	    post.set_variable(key,value);
+	    //post.set_variable(key,value);
+	    CTATConfig[key]=value;
 	};
 	lms.getValue = function(key) { return CTATConfig[key]; };
 	lms.saveProblemState = function (state) {

@@ -1,31 +1,34 @@
-# -------------------------------------------------------------------
-#
-#
-# -------------------------------------------------------------------
+"""
+This is a XBlock used to serve the CTAT based StatTutor problems orginally
+implimented for OLI (http://oli.cmu.edu/).
+"""
 
-import os
-import pprint
-import pkg_resources
-import base64
-import glob
+#import os
+#import pprint
+#import base64
+#import glob
+#import socket
 import re
-import socket
+#import sys
 import uuid
-import sys
+#from string import Template
+import pkg_resources
 
-from string import Template
-
+# pylint: disable=import-error
+# The xblock packages are available in the runtime environment.
 from xblock.core import XBlock
-from xblock.fields import Scope, Integer, String, Float, Boolean, Any
+from xblock.fields import Scope, Integer, String, Float, Boolean
 from xblock.fragment import Fragment
 
-dbgopen=False;
-tmp_file=None;
+#dbgopen = False
+#tmp_file = None
 
 class StattutorXBlock(XBlock):
     """
     A XBlock providing a CTAT backed StatTutor.
     """
+    # pylint: disable=too-many-instance-attributes
+    # All of the instance variables are required.
     ### xBlock tag variables
     width = Integer(help="Width of the StatTutor frame.",
                     default=900, scope=Scope.content)
@@ -40,9 +43,10 @@ class StattutorXBlock(XBlock):
     max_problem_steps = Integer(
         help="Total number of steps",
         scope=Scope.user_state, default=1)
+    max_possible_score = 1
     def max_score(self):
         """ The maximum raw score of the problem. """
-        return 1 #self.max_problem_steps
+        return self.max_possible_score
     attempted = Boolean(help="True if at least one step has been completed",
                         scope=Scope.user_state, default=False)
     completed = Boolean(
@@ -104,23 +108,18 @@ class StattutorXBlock(XBlock):
     skillstring = String(help="Internal data blob used by the tracer",
                          default="", scope=Scope.user_info)
 
-    def logdebug (self, aMessage):
-        global dbgopen, tmp_file
-        if (dbgopen==False):
-            tmp_file = open("/tmp/edx-tmp-log-stattutor.txt", "a", 0)
-            dbgopen=True
-        tmp_file.write (aMessage + "\n")
-
-    def resource_string(self, path):
+    @staticmethod
+    def resource_string(path):
         """ Read in the contents of a resource file. """
         data = pkg_resources.resource_string(__name__, path)
         return data.decode("utf8")
 
-    def strip_local (self, url):
+    @staticmethod
+    def strip_local(url):
         """ Returns the given url with //localhost:port removed. """
-        return re.sub('//localhost(:\d*)?', '', url)
+        return re.sub(r'//localhost(:\d*)?', '', url)
 
-    def get_local_resource_url (self, url):
+    def get_local_resource_url(self, url):
         """ Wrapper for self.runtime.local_resource_url. """
         return self.strip_local(self.runtime.local_resource_url(self, url))
 
@@ -144,7 +143,7 @@ class StattutorXBlock(XBlock):
     #
     # -------------------------------------------------------------------
 
-    def student_view(self, context=None):
+    def student_view(self, dummy_context=None):
         """
         Create a Fragment used to display a CTAT StatTutor xBlock to a student.
 
@@ -152,25 +151,26 @@ class StattutorXBlock(XBlock):
         """
         # read in template html
         html = self.resource_string("static/html/ctatxblock.html")
-        frag = Fragment (html.format(
+        frag = Fragment(html.format(
             tutor_html=self.get_local_resource_url(self.src)))
         config = self.resource_string("static/js/CTATConfig.js")
-        frag.add_javascript (config.format(
+        frag.add_javascript(config.format(
             self=self,
             tutor_html=self.get_local_resource_url(self.src),
             question_file=self.get_local_resource_url(self.brd),
-            student_id=self.runtime.anonymous_student_id if hasattr(self.runtime, 'anonymous_student_id') else 'bogus-sdk-id',
+            student_id=self.runtime.anonymous_student_id \
+            if hasattr(self.runtime, 'anonymous_student_id') \
+            else 'bogus-sdk-id',
             problem_description=self.get_local_resource_url(
                 self.problem_description),
             guid=str(uuid.uuid4())))
-        frag.add_javascript (self.resource_string("static/js/Initialize_CTATXBlock.js"))
+        frag.add_javascript(self.resource_string("static/js/Initialize_CTATXBlock.js"))
         frag.initialize_js('Initialize_CTATXBlock')
         return frag
 
     @XBlock.json_handler
-    def ctat_grade(self, data, suffix=''):
-        #self.logdebug ("ctat_grade ()")
-        #print('ctat_grade:',data,suffix)
+    def ctat_grade(self, data, dummy_suffix=''):
+        """ Handles updating the grade based on post request from the tutor. """
         self.attempted = True
         corrects = int(data.get('value'))
         self.max_problem_steps = int(data.get('max_value'))
@@ -182,33 +182,33 @@ class StattutorXBlock(XBlock):
             event_data = {'value': scaled, 'max_value': 1.0}
             try:
                 self.runtime.publish(self, 'grade', event_data)
-            except:
-                return {'result': 'fail', 'Error': sys.exc_info()[0]}
-            return {'result': 'success', 'finished': self.completed, 'score':scaled}
-        return {'result': 'no-change', 'finished': self.completed, 'score':float(self.score)/float(self.max_problem_steps)}
+            except Exception as err:
+                return {'result': 'fail', 'Error': err.message}
+            return {'result': 'success', 'finished': self.completed,
+                    'score':scaled}
+        return {'result': 'no-change', 'finished': self.completed,
+                'score':float(self.score)/float(self.max_problem_steps)}
 
-    # -------------------------------------------------------------------
-    # TO-DO: change this view to display your data your own way.
-    # -------------------------------------------------------------------
-    def studio_view(self, context=None):
+    def studio_view(self, dummy_context=None):
+        """ Generate the Studio page contents. """
         html = self.resource_string("static/html/ctatstudio.html")
         problem_dirs = [
             '<option value="{0}"{1}>public/problem_files/{0}</option>'.format(
-                d,' selected' if d in self.brd else '')
+                d, ' selected' if d in self.brd else '')
             for d in pkg_resources.resource_listdir(__name__,
                                                     'public/problem_files/')
             if pkg_resources.resource_isdir(
-                    __name__,
-                    'public/problem_files/{}'.format(d))]
+                __name__,
+                'public/problem_files/{}'.format(d))]
         problem_dirs.sort()
-        frag = Fragment(html.format(self=self,problems=''.join(problem_dirs)))
-	js = self.resource_string("static/js/ctatstudio.js")
-	frag.add_javascript(unicode(js))
+        frag = Fragment(html.format(self=self, problems=''.join(problem_dirs)))
+        studio_js = self.resource_string("static/js/ctatstudio.js")
+        frag.add_javascript(unicode(studio_js))
         frag.initialize_js('CTATXBlockStudio')
         return frag
 
     @XBlock.json_handler
-    def studio_submit(self, data, suffix=''):
+    def studio_submit(self, data, dummy_suffix=''):
         """
         Called when submitting the form in Studio.
         """
@@ -227,7 +227,7 @@ class StattutorXBlock(XBlock):
         return {'result': 'success'}
 
     @XBlock.json_handler
-    def ctat_save_problem_state(self, data, suffix=''):
+    def ctat_save_problem_state(self, data, dummy_suffix=''):
         """Called from CTATLMS.saveProblemState."""
         if data.get('state') is not None:
             self.saveandrestore = data.get('state')
@@ -235,61 +235,13 @@ class StattutorXBlock(XBlock):
         return {'result': 'failure'}
 
     @XBlock.json_handler
-    def ctat_get_problem_state(self, data, suffix=''):
+    def ctat_get_problem_state(self, dummy_data, dummy_suffix=''):
+        """ Return the stored problem state to reconstruct a student's progress. """
         return {'result': 'success', 'state': self.saveandrestore}
-
-    @XBlock.json_handler
-    def ctat_set_variable(self, data, suffix=''):
-        self.logdebug ("ctat_set_variable ()")
-        ### causes 500: INTERNAL SERVER ERROR ###
-        #pp = pprint.PrettyPrinter(indent=4)
-        #pp.pprint(data)
-
-        for key in data:
-            #value = base64.b64decode(data[key])
-            value = data[key]
-            self.logdebug("Setting ({}) to ({})".format(key, value))
-            if (key=="href"):
-               self.href = value
-            elif (key=="ctatmodule"):
-               self.ctatmodule = value
-            elif (key=="name"):
-               self.name = value
-            elif (key=="problem"):
-               self.problem = value
-            elif (key=="dataset"):
-               self.dataset = value
-            elif (key=="level1"):
-               self.level1 = value
-            elif (key=="type1"):
-               self.type1 = value
-            elif (key=="level2"):
-               self.level2 = value
-            elif (key=="type2"):
-               self.type2 = value
-            elif (key=="logurl"):
-               self.logurl = value
-            elif (key=="logtype"):
-               self.logtype = value
-            elif (key=="diskdir"):
-               self.diskdir = value
-            elif (key=="port"):
-               self.port = value
-            elif (key=="remoteurl"):
-               self.remoteurl = value
-            elif (key=="connection"):
-               self.connection = value
-            #elif (key=="src"):
-            #   self.src = value
-            elif (key=="saveandrestore"):
-               self.saveandrestore = value
-            #elif (key=="skillstring"):
-            #  self.skillstring = value
-
-        return {'result': 'success'}
 
     @staticmethod
     def workbench_scenarios():
+        """ Prescribed XBlock method for displaying this in the workbench. """
         return [
             ("StattutorXBlock",
              """<vertical_demo>
