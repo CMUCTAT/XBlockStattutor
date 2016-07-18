@@ -15,7 +15,6 @@ var CTATConfig = {{
    'question_file': "{question_file}",
    'tutoring_service_communication': 'javascript',
    'user_guid': '{student_id}',
-   'resource_spec': "{self.log_name}", // unsure if used
    'dataset': "{self.log_dataset}",
    'level1': "{self.log_level1}",
    'type1': "{self.log_type1}",
@@ -28,7 +27,7 @@ var CTATConfig = {{
    'connection': "{self.ctat_connection}",
 
    'saveandrestore': "{self.saveandrestore}",
-   'skills': "{self.skillstring}",
+   'skills': "",
    'problem_state_status': "{self.completed}"!=="False"?'complete':"{self.saveandrestore}"!==""?'incomplete':'empty',
     'session_id': 'xblockstattutor_'+"{guid}",
     'problem_description': "{problem_description}"

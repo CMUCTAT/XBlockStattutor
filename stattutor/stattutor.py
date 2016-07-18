@@ -28,20 +28,12 @@ class StattutorXBlock(XBlock):
         scope=Scope.content)
 
     # **** Grading variables ****
-    has_score = Boolean(default=True, scope=Scope.content)
-    icon_class = String(default="problem", scope=Scope.content)
     score = Integer(help="Current count of correctly completed student steps",
                     scope=Scope.user_state, default=0)
     max_problem_steps = Integer(
         help="Total number of steps",
         scope=Scope.user_state, default=1)
-    max_possible_score = 1
 
-    def max_score(self):
-        """ The maximum raw score of the problem. """
-        return self.max_possible_score
-    attempted = Boolean(help="True if at least one step has been completed",
-                        scope=Scope.user_state, default=False)
     completed = Boolean(
         help="True if all of the required steps are correctly completed",
         scope=Scope.user_state, default=False)
@@ -66,28 +58,6 @@ class StattutorXBlock(XBlock):
         scope=Scope.settings)
 
     # **** CTATConfiguration variables ****
-    log_name = String(help="Problem name to log", default="CTATEdXProblem",
-                      scope=Scope.settings)
-    log_dataset = String(help="Dataset name to log", default="edxdataset",
-                         scope=Scope.settings)
-    log_level1 = String(help="Level name to log", default="unit1",
-                        scope=Scope.settings)
-    log_type1 = String(help="Level type to log", default="unit",
-                       scope=Scope.settings)
-    log_level2 = String(help="Level name to log", default="unit2",
-                        scope=Scope.settings)
-    log_type2 = String(help="Level type to log", default="unit",
-                       scope=Scope.settings)
-    log_url = String(help="URL of the logging service",
-                     default="http://pslc-qa.andrew.cmu.edu/log/server",
-                     scope=Scope.settings)
-    logtype = String(help="How should data be logged",
-                     default="clienttologserver", scope=Scope.settings)
-    log_diskdir = String(
-        help="Directory for log files relative to the tutoring service",
-        default=".", scope=Scope.settings)
-    log_port = String(help="Port used by the tutoring service", default="8080",
-                      scope=Scope.settings)
     log_remoteurl = String(
         help="Location of the tutoring service (localhost or domain name)",
         default="localhost", scope=Scope.settings)
@@ -98,8 +68,6 @@ class StattutorXBlock(XBlock):
     # **** User Information ****
     saveandrestore = String(help="Internal data blob used by the tracer",
                             default="", scope=Scope.user_state)
-    skillstring = String(help="Internal data blob used by the tracer",
-                         default="", scope=Scope.user_info)
 
     # **** Utility functions and methods ****
     @staticmethod
@@ -153,7 +121,6 @@ class StattutorXBlock(XBlock):
         config = self.resource_string("static/js/CTATConfig.js")
         frag.add_javascript(config.format(
             self=self,
-            tutor_html=self.get_local_resource_url(self.src),
             question_file=self.get_local_resource_url(self.brd),
             student_id=self.runtime.anonymous_student_id
             if hasattr(self.runtime, 'anonymous_student_id')
@@ -171,7 +138,6 @@ class StattutorXBlock(XBlock):
         """
         Handles updating the grade based on post request from the tutor.
         """
-        self.attempted = True
         corrects = int(data.get('value'))
         self.max_problem_steps = int(data.get('max_value'))
         # only change score if it increases.
