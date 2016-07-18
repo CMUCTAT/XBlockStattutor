@@ -12,6 +12,7 @@ import pkg_resources
 from xblock.core import XBlock
 from xblock.fields import Scope, Integer, String, Float, Boolean
 from xblock.fragment import Fragment
+# pylint: enable=import-error
 
 
 class StattutorXBlock(XBlock):
