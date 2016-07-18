@@ -153,7 +153,8 @@ class StattutorXBlock(XBlock):
         # read in template html
         html = self.resource_string("static/html/ctatxblock.html")
         frag = Fragment(html.format(
-            tutor_html=self.get_local_resource_url(self.src)))
+            tutor_html=self.get_local_resource_url(self.src),
+            width=self.width, height=self.height))
         config = self.resource_string("static/js/CTATConfig.js")
         frag.add_javascript(config.format(
             self=self,
