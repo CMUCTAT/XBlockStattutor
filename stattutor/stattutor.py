@@ -21,6 +21,11 @@ class StattutorXBlock(XBlock):
     # pylint: disable=too-many-instance-attributes
     # All of the instance variables are required.
 
+    display_name = String(
+        help="Display name of the component",
+        default="StatTutor",
+        scope=Scope.content)
+
     # **** xBlock tag variables ****
     width = Integer(help="Width of the StatTutor frame.",
                     default=900, scope=Scope.content)
@@ -173,6 +178,10 @@ class StattutorXBlock(XBlock):
         self.attempted = True
         corrects = int(data.get('value'))
         self.max_problem_steps = int(data.get('max_value'))
+        # only change score if it increases.
+        # this is done because corrects should only ever increase and
+        # it deals with issues EdX has with grading, in particular
+        # the multiple identical database entries issue.
         if corrects > self.score:
             self.score = corrects
             self.completed = self.score >= self.max_problem_steps
