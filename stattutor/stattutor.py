@@ -62,9 +62,6 @@ class StattutorXBlock(XBlock):
         help="Location of the tutoring service (localhost or domain name)",
         default="localhost", scope=Scope.settings)
 
-    ctat_connection = String(help="", default="javascript",
-                             scope=Scope.settings)
-
     # **** User Information ****
     saveandrestore = String(help="Internal data blob used by the tracer",
                             default="", scope=Scope.user_state)
