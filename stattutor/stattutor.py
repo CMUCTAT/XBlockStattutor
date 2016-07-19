@@ -14,6 +14,7 @@ from xblock.fields import Scope, Integer, String, Float, Boolean
 from xblock.fragment import Fragment
 # pylint: enable=import-error
 
+TUTOR_HTML_PATH = 'public/html/StatTutor.html'
 
 class StattutorXBlock(XBlock):
     """
@@ -47,8 +48,6 @@ class StattutorXBlock(XBlock):
     )  # weight needs to be set to something
 
     # **** Basic interface variables ****
-    src = String(help="The source html file for CTAT interface.",
-                 default="public/html/StatTutor.html", scope=Scope.settings)
     brd = String(help="The behavior graph.",
                  default="public/problem_files/m1_survey/survey.brd",
                  scope=Scope.settings)
@@ -110,10 +109,10 @@ class StattutorXBlock(XBlock):
 
         Returns a Fragment object containing the HTML to display
         """
-        # read in template html
+        html_path = self.get_local_resource_url(TUTOR_HTML_PATH)
         html = self.resource_string("static/html/ctatxblock.html")
         frag = Fragment(html.format(
-            tutor_html=self.get_local_resource_url(self.src),
+            tutor_html=html_path,
         ))
         config = self.resource_string("static/js/CTATConfig.js")
         frag.add_javascript(config.format(
