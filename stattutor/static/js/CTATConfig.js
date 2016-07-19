@@ -23,12 +23,12 @@ var CTATConfig = {{
    'logtype': "clienttologserver",
    'distdir': ".",
    'remoteSocketPort': 8080,
-   'remoteSocketURL': "{self.log_remoteurl}",
+   'remoteSocketURL': "{log_remoteurl}",
    'connection': "javascript",
 
-   'saveandrestore': "{self.saveandrestore}",
+   'saveandrestore': "{saveandrestore}",
    'skills': "",
-   'problem_state_status': "{self.completed}"!=="False"?'complete':"{self.saveandrestore}"!==""?'incomplete':'empty',
+   'problem_state_status': "{completed}"!=="False"?'complete':"{saveandrestore}"!==""?'incomplete':'empty',
     'session_id': 'xblockstattutor_'+"{guid}",
     'problem_description': "{problem_description}"
 }};

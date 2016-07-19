@@ -116,7 +116,9 @@ class StattutorXBlock(XBlock):
         ))
         config = self.resource_string("static/js/CTATConfig.js")
         frag.add_javascript(config.format(
-            self=self,
+            completed=self.completed,
+            log_remoteurl=self.log_remoteurl,
+            saveandrestore=self.saveandrestore,
             question_file=self.get_local_resource_url(self.brd),
             student_id=self.runtime.anonymous_student_id
             if hasattr(self.runtime, 'anonymous_student_id')
