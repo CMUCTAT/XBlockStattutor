@@ -72,14 +72,9 @@ class StattutorXBlock(XBlock):
         data = pkg_resources.resource_string(__name__, path)
         return data.decode("utf8")
 
-    @staticmethod
-    def strip_local(url):
-        """ Returns the given url with //localhost:port removed. """
-        return re.sub(r'//localhost(:\d*)?', '', url)
-
     def get_local_resource_url(self, url):
         """ Wrapper for self.runtime.local_resource_url. """
-        return self.strip_local(self.runtime.local_resource_url(self, url))
+        return self.runtime.local_resource_url(self, url)
 
     # **** XBlock methods ****
 
