@@ -1,7 +1,7 @@
 # StatTutor XBlock
 
-This is the XBlock implimentation of the StatTutor exercises
-origionally developed for the
+This is the [XBlock](https://github.com/edx/XBlock) implimentation of
+the StatTutor exercises origionally developed for the
 [Open Learning Initiative](http://oli.cmu.edu/) at
 [Carnegie Mellon University](http://www.cmu.edu/) using the
 [Cognitive Tutor Authoring Tools](http://ctat.pact.cs.cmu.edu).
