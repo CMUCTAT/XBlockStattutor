@@ -78,7 +78,8 @@ var StatTutor = {
 	var $problem_data = $(data); // cast for easier jQuery access.
 	$problem_data.find('dataset').each(function() {
 	    var $this = $(this);
-	    StatTutor.dataset[$this.attr('package')] = $this.text();
+	    StatTutor.dataset[$this.attr('package')] =
+		'../problem_files/'+$this.text();
 	});
 
 	var make_thought_question = function (panel, name, $question_node) {
