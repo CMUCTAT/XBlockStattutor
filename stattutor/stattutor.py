@@ -86,8 +86,9 @@ class StattutorXBlock(XBlock):
     log_url = String(help="URL of the logging service",
                      default="http://pslc-qa.andrew.cmu.edu/log/server",
                      scope=Scope.settings)
+    # None, ClientToService, ClientToLogServer, or OLI
     logtype = String(help="How should data be logged",
-                     default="clienttologserver", scope=Scope.settings)
+                     default="None", scope=Scope.settings)
     log_diskdir = String(
         help="Directory for log files relative to the tutoring service",
         default=".", scope=Scope.settings)

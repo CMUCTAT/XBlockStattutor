@@ -21,7 +21,7 @@ var CTATConfig = {{
    'type1': "{self.log_type1}",
    'level2': "{self.log_level2}",
    'type2': "{self.log_type2}",
-   'logtype': "{self.logtype}",
+   'Logging': "{self.logtype}",
    'distdir': "{self.log_diskdir}",
    'remoteSocketPort': {self.log_port},
    'remoteSocketURL': "{self.log_remoteurl}",
