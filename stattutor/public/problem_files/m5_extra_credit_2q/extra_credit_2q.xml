@@ -2,14 +2,14 @@
 <!DOCTYPE stattutor_problem
     PUBLIC "-//Carnegie Mellon University//DTD Stattutor 3.1//EN"
 	"http://oli.web.cmu.edu/dtd/cmu_stat_stattutor_3_1.dtd">
-<stattutor_problem id="extra_credit">
+<stattutor_problem id="extra_credit_2q">
   <title>Analyzing Data From a Course's Grade Book</title>
-  <dataset package="Minitab">m5_extra_credit/gradebook.mtw</dataset>
-  <dataset package="StatCrunch">m5_extra_credit/gradebook.xls</dataset>
-  <dataset package="Excel">m5_extra_credit/gradebook.xls</dataset>
-  <dataset package="R">m5_extra_credit/gradebook.RData</dataset>
-  <dataset package="TI Calculator">m5_extra_credit/gradebook.8xg</dataset>
-  <dataset package="json">m5_extra_credit/gradebook.json</dataset>
+  <dataset package="Minitab">m5_extra_credit_2q/gradebook.mtw</dataset>
+  <dataset package="StatCrunch">m5_extra_credit_2q/gradebook.xls</dataset>
+  <dataset package="Excel">m5_extra_credit_2q/gradebook.xls</dataset>
+  <dataset package="R">m5_extra_credit_2q/gradebook.RData</dataset>
+  <dataset package="TI Calculator">m5_extra_credit_2q/gradebook.8xg</dataset>
+  <dataset package="json">m5_extra_credit2_q/gradebook.json</dataset>
   <attempts>1</attempts>
   <background>At the end of the semester, an "Introduction to
   Statistics" instructor wanted to gain insight into his students'
@@ -498,194 +498,7 @@
       </reflect_on_conclusions>
     </draw_conclusions>
   </main_question>
-  <main_question>
-    <text>Do the data provide evidence for a significant "class
-    effect" on final performance?</text>
-    <reflect_on_question>
-      <consider_question>
-        <question>Before analyzing the data and discovering whether
-        or not performance on the final is related to the student's
-        class, try to predict what the data will show (use your own
-        experience and intuition).</question>
-        <our_answer>
-          <text>It would be reasonable to expect that there will be
-          differences between the classes. More specifically,
-          freshmen might score slightly lower due to time
-          management adjustments, and seniors might score slightly
-          lower due to an attitude of "I just want to pass and
-          graduate."</text>
-        </our_answer>
-      </consider_question>
-    </reflect_on_question>
-    <analyze_data>
-      <plan_analyses>
-        <relevant_variables>
-          <relevant_variable>
-            <name>Final</name>
-            <role>response</role>
-          </relevant_variable>
-          <relevant_variable>
-            <name>Class</name>
-            <role>explanatory</role>
-          </relevant_variable>
-        </relevant_variables>
-      </plan_analyses>
-      <exploratory_analyses>
-        <report_results>
-          <our_answer package="Minitab">
-            <image>m5_extra_credit/extra_credit_q3_ea_report_results_minitab.jpg</image>
-            <text>&lt;b&gt;Center:&lt;/b&gt; The median final
-            scores in the four class groups are 76, 77, 80, and 75.
-            &lt;br&gt; &lt;br&gt; &lt;b&gt;Spread:&lt;/b&gt; The
-            distribution of the scores in group 2 has the largest
-            spread (IQR = 13.25, range = 31). At the other extreme,
-            group 4 has the smallest spread (IQR = 9.5, range =
-            18). &lt;br&gt;&lt;br&gt;&lt;b&gt;Outliers:&lt;/b&gt;
-            None of the four distributions has outliers.
-            &lt;br&gt;&lt;br&gt;The side-by-side boxplots suggest
-            that the scores in group 4 are generally lower, and
-            noticeably so compared to group 3.</text>
-          </our_answer>
-          <our_answer package="StatCrunch">
-            <image>m5_extra_credit/extra_credit_q3_ea_report_results_statcrunch.jpg</image>
-            <text>&lt;b&gt;Center:&lt;/b&gt; The median final
-            scores in the four class groups are 76, 77, 80, and 75.
-            &lt;br&gt; &lt;br&gt; &lt;b&gt;Spread:&lt;/b&gt; The
-            distribution of the scores in group 2 has the largest
-            spread (IQR = 13.25, range = 31). At the other extreme,
-            group 4 has the smallest spread (IQR = 9.5, range =
-            18). &lt;br&gt;&lt;br&gt;&lt;b&gt;Outliers:&lt;/b&gt;
-            None of the four distributions has outliers.
-            &lt;br&gt;&lt;br&gt;The side-by-side boxplots suggest
-            that the scores in group 4 are generally lower, and
-            noticeably so compared to group 3.</text>
-          </our_answer>
-          <our_answer package="Excel">
-            <text>Here is the Excel output:</text>
-            <image>m5_extra_credit/extra_credit_q3_ea_report_results_excel.jpg</image>
-            <text>&lt;b&gt;Center:&lt;/b&gt; The median final
-            scores in the four class groups are 76, 77, 80, and 75.
-            &lt;br&gt; &lt;br&gt; &lt;b&gt;Spread:&lt;/b&gt; The
-            distribution of the scores in group 2 has the largest
-            spread (IQR = 10.75, range = 31). At the other extreme,
-            group 4 has the smallest spread (IQR = 8, range = 18).
-            &lt;br&gt;&lt;br&gt;The side-by-side boxplots suggest
-            that the scores in group 4 are generally lower, and
-            noticeably so compared to group 3.</text>
-          </our_answer>
-          <our_answer package="R">
-            <image>m5_extra_credit/extra_credit_q3_ea_report_results_r.jpg</image>
-            <text>&lt;b&gt;Center:&lt;/b&gt; The median final
-            scores in the four class groups are 76, 77, 80, and 75.
-            &lt;br&gt; &lt;br&gt; &lt;b&gt;Spread:&lt;/b&gt; The
-            distribution of the scores in group 2 has the largest
-            spread (IQR = 10.75, range = 31). At the other extreme,
-            group 4 has the smallest spread (IQR = 8, range = 18).
-            &lt;br&gt;&lt;br&gt;&lt;b&gt;Outliers:&lt;/b&gt; None
-            of the four distributions has outliers.
-            &lt;br&gt;&lt;br&gt;The side-by-side boxplots suggest
-            that the scores in group 4 are generally lower, and
-            noticeably so compared to group 3.</text>
-          </our_answer>
-          <our_answer package="TI Calculator">
-            <text>Here is the TI output:</text>
-            <image>m5_extra_credit/extra_credit_q3_ea_report_results_ti.jpg</image>
-            <text>&lt;b&gt;Center:&lt;/b&gt; The median final
-            scores in the four class groups are 76, 77, 80, and
-            75.&lt;br&gt;&lt;br&gt; &lt;b&gt;Spread:&lt;/b&gt; The
-            distribution of the scores in group 2 has the largest
-            spread (IQR = 13, range = 31). At the other extreme,
-            group 4 has the smallest spread (IQR = 8, range = 18).
-            &lt;br&gt;&lt;br&gt;&lt;b&gt;Outliers:&lt;/b&gt; None
-            of the four distributions has outliers.
-            &lt;br&gt;&lt;br&gt;The side-by-side boxplots suggest
-            that the scores in group 4 are generally lower, and
-            noticeably so compared to group 3.</text>
-          </our_answer>
-        </report_results>
-      </exploratory_analyses>
-      <more_formal_analyses>
-        <determine_mfa>
-          <focus>comparing more than two means</focus>
-          <test>ANOVA F test</test>
-          <ho>
-            <first>mu1 = mu2 = mu3 = ... = muk</first>
-            <second></second>
-            <third></third>
-          </ho>
-          <ha>
-            <first>not all mui are equal</first>
-            <second></second>
-            <third></third>
-          </ha>
-        </determine_mfa>
-        <report_results>
-          <our_answer package="Minitab">
-            <image>m5_extra_credit/extra_credit_q3_mf_report_results_minitab.jpg</image>
-            <text>The test statistic is F = 2.83, and the p-value
-            is .042. Since .042 &amp;lt; .05, we can reject
-            Ho.</text>
-          </our_answer>
-          <our_answer package="StatCrunch">
-            <image>m5_extra_credit/extra_credit_q3_mf_report_results_statcrunch.jpg</image>
-            <text>The test statistic is F = 2.83, and the p-value
-            is .042. Since .042 &amp;lt; .05, we can reject
-            Ho.</text>
-          </our_answer>
-          <our_answer package="Excel">
-            <text>Here is the Excel output:</text>
-            <image>m5_extra_credit/extra_credit_q3_mf_report_results_excel.jpg</image>
-            <text>The test statistic is F = 2.83, and the p-value
-            is .042. Since .042 &amp;lt; .05, we can reject
-            Ho.</text>
-          </our_answer>
-          <our_answer package="R">
-            <image>m5_extra_credit/extra_credit_q3_mf_report_results_r.jpg</image>
-            <text>The test statistic is F = 2.83, and the p-value
-            is .042. Since .042 &amp;lt; .05, we can reject
-            Ho.</text>
-          </our_answer>
-          <our_answer package="TI Calculator">
-            <text>Here is the TI output:</text>
-            <image>m5_extra_credit/extra_credit_q3_mf_report_results_ti.jpg</image>
-            <text>The test statistic is F = 2.83, and the p-value
-            is .042. Since .042 &amp;lt; .05, we can reject
-            Ho.</text>
-          </our_answer>
-        </report_results>
-      </more_formal_analyses>
-    </analyze_data>
-    <draw_conclusions>
-      <consider_results>
-        <question>What do the results you got indicate about the
-        differences in performance on the final between students in
-        the different class groups?</question>
-        <our_answer>
-          <text>&lt;ul&gt;&lt;li&gt;The exploratory analysis
-          suggested that there are differences in performance on
-          the final between students in the different classes. In
-          particular, the data suggests that in general, seniors
-          scored lower, and more specifically, substantially lower
-          than juniors.&lt;/li&gt;&lt;br&gt;&lt;li&gt;Formally, the
-          ANOVA F-test indeed produces a p-value of .042 indicating
-          that the data provide enough evidence to reject Ho and
-          conclude that there are significant differences in
-          performance on the final between students in the
-          different class groups.&lt;/li&gt;&lt;/ul&gt;</text>
-        </our_answer>
-      </consider_results>
-      <reflect_on_conclusions>
-        <our_answer>
-          <text>&lt;ul&gt;&lt;li&gt;The results are consistent with
-          what we expected.&lt;/li&gt;&lt;br&gt;&lt;li&gt;The
-          instructor could monitor the progress of freshman more
-          closely and counsel students as
-          needed.&lt;/li&gt;&lt;/ul&gt;</text>
-        </our_answer>
-      </reflect_on_conclusions>
-    </draw_conclusions>
-  </main_question>
-  <summarize>
+    <summarize>
     <summarize_findings>
       <our_answer>
         <text>In this exercise we analyzed data from an

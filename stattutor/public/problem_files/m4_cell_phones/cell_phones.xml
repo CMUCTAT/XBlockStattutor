@@ -4,12 +4,12 @@
 	"http://oli.web.cmu.edu/dtd/cmu_stat_stattutor_3_1.dtd">
 <stattutor_problem id="cell_phones">
   <title>Cell Phones</title>
-  <dataset package="Minitab">../problem_files/m4_cell_phones/cell_phones.mtw</dataset>
-  <dataset package="StatCrunch">../problem_files/m4_cell_phones/cell_phones.xls</dataset>
-  <dataset package="Excel">../problem_files/m4_cell_phones/cell_phones.xls</dataset>
-  <dataset package="R">../problem_files/m4_cell_phones/cell_phones.RData</dataset>
-  <dataset package="TI Calculator">../problem_files/m4_cell_phones/cell_phones.8xg</dataset>
-  <dataset package="json">../problem_files/m4_cell_phones/cell_phones.json</dataset>
+  <dataset package="Minitab">m4_cell_phones/cell_phones.mtw</dataset>
+  <dataset package="StatCrunch">m4_cell_phones/cell_phones.xls</dataset>
+  <dataset package="Excel">m4_cell_phones/cell_phones.xls</dataset>
+  <dataset package="R">m4_cell_phones/cell_phones.RData</dataset>
+  <dataset package="TI Calculator">m4_cell_phones/cell_phones.8xg</dataset>
+  <dataset package="json">m4_cell_phones/cell_phones.json</dataset>
   <attempts>1</attempts>
   <background>College students at a large state university
   completed a survey about their academic and personal life.
@@ -195,34 +195,31 @@
       <exploratory_analyses>
         <report_results>
           <our_answer package="Minitab">
-            <image>
-            cell_phones_q1_ea_report_results_minitab.jpg</image>
+            <image>m4_cell_phones/cell_phones_q1_ea_report_results_minitab.jpg</image>
             <text>The distribution of the verbal SAT scores is
             roughly symmetric, has a mean of roughly 597, and
             standard deviation of about 78.</text>
           </our_answer>
           <our_answer package="StatCrunch">
-            <image>
-            cell_phones_q1_ea_report_results_statcrunch.jpg</image>
+            <image>m4_cell_phones/cell_phones_q1_ea_report_results_statcrunch.jpg</image>
             <text>The distribution of the verbal SAT scores is
             roughly symmetric, has a mean of roughly 597, and
             standard deviation of about 78.</text>
           </our_answer>
           <our_answer package="Excel">
             <text>Here is the Excel output:</text>
-            <image>
-            cell_phones_q1_ea_report_results_excel.jpg</image>
+            <image>m4_cell_phones/cell_phones_q1_ea_report_results_excel.jpg</image>
             <text>The distribution of the verbal SAT scores is
             roughly symmetric, has a mean of roughly 597, and
             standard deviation of about 78.</text>
           </our_answer>
           <our_answer package="R">
-            <image>cell_phones_q1_ea_report_results_r.jpg</image>
+            <image>m4_cell_phones/cell_phones_q1_ea_report_results_r.jpg</image>
             <text>The distribution of the verbal SAT scores is
             roughly symmetric and has a mean of roughly 597.</text>
           </our_answer>
           <our_answer package="TI Calculator">
-            <image>cell_phones_q1_ea_report_results_ti.jpg</image>
+            <image>m4_cell_phones/cell_phones_q1_ea_report_results_ti.jpg</image>
             <text>The distribution of the verbal SAT scores is
             roughly symmetric, has a mean of roughly 597, and
             standard deviation of about 78.</text>
@@ -246,35 +243,32 @@
         </determine_mfa>
         <report_results>
           <our_answer package="Minitab">
-            <image>
-            cell_phones_q1_mf_report_results_minitab.jpg</image>
+            <image>m4_cell_phones/cell_phones_q1_mf_report_results_minitab.jpg</image>
             <text>The test statistic is z = 2.55 and the p-value is
             .011 &amp;lt; .05, indicating that Ho can be
             rejected.</text>
           </our_answer>
           <our_answer package="StatCrunch">
-            <image>
-            cell_phones_q1_mf_report_results_statcrunch.jpg</image>
+            <image>m4_cell_phones/cell_phones_q1_mf_report_results_statcrunch.jpg</image>
             <text>The test statistic is z = 2.55 and the p-value is
             .011 &amp;lt; .05, indicating that Ho can be
             rejected.</text>
           </our_answer>
           <our_answer package="Excel">
             <text>Here is the Excel output:</text>
-            <image>
-            cell_phones_q1_mf_report_results_excel.jpg</image>
+            <image>m4_cell_phones/cell_phones_q1_mf_report_results_excel.jpg</image>
             <text>The test statistic is z = 2.55 and the p-value is
             .011 &amp;lt; .05, indicating that Ho can be
             rejected.</text>
           </our_answer>
           <our_answer package="R">
-            <image>cell_phones_q1_mf_report_results_r.jpg</image>
+            <image>m4_cell_phones/cell_phones_q1_mf_report_results_r.jpg</image>
             <text>The test statistic is z = 2.55 and the p-value is
             .011 &amp;lt; .05, indicating that Ho can be
             rejected.</text>
           </our_answer>
           <our_answer package="TI Calculator">
-            <image>cell_phones_q1_mf_report_results_ti.jpg</image>
+            <image>m4_cell_phones/cell_phones_q1_mf_report_results_ti.jpg</image>
             <text>The test statistic is z = 2.55 and the p-value is
             .011 &amp;lt; .05, indicating that Ho can be
             rejected.</text>
@@ -382,7 +376,7 @@
           problem)&lt;/li&gt;&lt;li&gt;Choose CALCULATE, then press
           ENTER.&lt;/li&gt;&lt;/ul&gt;</question>
           <our_answer package="Minitab">
-            <image>cell_phones_q1_consider_results_thought_question_minitab.jpg</image>
+            <image>m4_cell_phones/cell_phones_q1_consider_results_thought_question_minitab.jpg</image>
             <text>The 95% confidence interval for the mean verbal
             SAT score of stat students at this university is
             roughly (584, 610). We are therefore 95% confident that
@@ -394,7 +388,7 @@
             with the fact that the Ho was rejected.</text>
           </our_answer>
           <our_answer package="StatCrunch">
-            <image>cell_phones_q1_consider_results_thought_question_statcrunch.jpg</image>
+            <image>m4_cell_phones/cell_phones_q1_consider_results_thought_question_statcrunch.jpg</image>
             <text>The 95% confidence interval for the mean verbal
             SAT score of stat students at this university is
             roughly (584, 610). We are therefore 95% confident that
@@ -407,7 +401,7 @@
           </our_answer>
           <our_answer package="Excel">
             <text>Here is the Excel output:</text>
-            <image>cell_phones_q1_consider_results_thought_question_excel.jpg</image>
+            <image>m4_cell_phones/cell_phones_q1_consider_results_thought_question_excel.jpg</image>
             <text>The 95% confidence interval for the mean verbal
             SAT score of stat students at this university is
             roughly (584, 610). We are therefore 95% confident that
@@ -419,7 +413,7 @@
             with the fact that the Ho was rejected.</text>
           </our_answer>
           <our_answer package="R">
-            <image>cell_phones_q1_consider_results_thought_question_r.jpg</image>
+            <image>m4_cell_phones/cell_phones_q1_consider_results_thought_question_r.jpg</image>
             <text>The 95% confidence interval for the mean verbal
             SAT score of stat students at this university is
             roughly (584, 610). We are therefore 95% confident that
@@ -431,7 +425,7 @@
             with the fact that the Ho was rejected.</text>
           </our_answer>
           <our_answer package="TI Calculator">
-            <image>cell_phones_q1_consider_results_thought_question_ti.jpg</image>
+            <image>m4_cell_phones/cell_phones_q1_consider_results_thought_question_ti.jpg</image>
             <text>The 95% confidence interval for the mean verbal
             SAT score of stat students at this university is
             roughly (584, 610). We are therefore 95% confident that
@@ -492,30 +486,30 @@
       <exploratory_analyses>
         <report_results>
           <our_answer package="Minitab">
-            <image>cell_phones_q2_ea_report_results_minitab2.jpg</image>
+            <image>m4_cell_phones/cell_phones_q2_ea_report_results_minitab2.jpg</image>
             <text>Roughly 78% of the students in the sample own a
             cell phone.</text>
           </our_answer>
           <our_answer package="StatCrunch">
-            <image>cell_phones_q2_ea_report_results_statcrunch.jpg</image>
+            <image>m4_cell_phones/cell_phones_q2_ea_report_results_statcrunch.jpg</image>
             <text>Roughly 78% of the students in the sample own a
             cell phone.</text>
           </our_answer>
           <our_answer package="Excel">
             <text>Here is the Excel output:</text>
-            <image>cell_phones_q2_ea_report_results_excel.jpg</image>
+            <image>m4_cell_phones/cell_phones_q2_ea_report_results_excel.jpg</image>
             <text>Roughly 78% of the students in the sample own a
             cell phone. Note that we did not include the 2 students
             who failed to respond to this question, and took our
             percentages out of the 310 who responded.</text>
           </our_answer>
           <our_answer package="R">
-            <image>cell_phones_q2_ea_report_results_r.jpg</image>
+            <image>m4_cell_phones/cell_phones_q2_ea_report_results_r.jpg</image>
             <text>Roughly 78% of the students in the sample own a
             cell phone.</text>
           </our_answer>
           <our_answer package="TI Calculator">
-            <image>cell_phones_q2_ea_report_results_ti.jpg</image>
+            <image>m4_cell_phones/cell_phones_q2_ea_report_results_ti.jpg</image>
             <text>Roughly 78% of the students in the sample own a
             cell phone. Note that we had 310 out of the 312
             students in our sample respond to this question.</text>
@@ -555,32 +549,32 @@
         </determine_mfa>
         <report_results>
           <our_answer package="Minitab">
-            <image>cell_phones_q2_mf_report_results_minitab.jpg</image>
+            <image>m4_cell_phones/cell_phones_q2_mf_report_results_minitab.jpg</image>
             <text>The test statistic is z = -.71, and the p-value
             is .239 &amp;gt; .05, indicating that Ho cannot be
             rejected.</text>
           </our_answer>
           <our_answer package="StatCrunch">
-            <image>cell_phones_q2_mf_report_results_statcrunch.jpg</image>
+            <image>m4_cell_phones/cell_phones_q2_mf_report_results_statcrunch.jpg</image>
             <text>The test statistic is z = -.71, and the p-value
             is .239 &amp;gt; .05, indicating that Ho cannot be
             rejected.</text>
           </our_answer>
           <our_answer package="Excel">
             <text>Here is the Excel output:</text>
-            <image>cell_phones_q2_mf_report_results_excel.jpg</image>
+            <image>m4_cell_phones/cell_phones_q2_mf_report_results_excel.jpg</image>
             <text>The test statistic is z = -.71, and the p-value
             is .239 &amp;gt; .05, indicating that Ho cannot be
             rejected.</text>
           </our_answer>
           <our_answer package="R">
-            <image>cell_phones_q2_mf_report_results_r.jpg</image>
+            <image>m4_cell_phones/cell_phones_q2_mf_report_results_r.jpg</image>
             <text>The test statistic is z = -.71, and the p-value
             is .239 &amp;gt; .05, indicating that Ho cannot be
             rejected.</text>
           </our_answer>
           <our_answer package="TI Calculator">
-            <image>cell_phones_q2_mf_report_results_ti.jpg</image>
+            <image>m4_cell_phones/cell_phones_q2_mf_report_results_ti.jpg</image>
             <text>The test statistic is z = -.71, and the p-value
             is .239 &amp;gt; .05, indicating that Ho cannot be
             rejected.</text>
@@ -646,7 +640,7 @@
       <exploratory_analyses>
         <report_results>
           <our_answer package="Minitab">
-            <image>cell_phones_q3_ea_report_results_minitab.jpg</image>
+            <image>m4_cell_phones/cell_phones_q3_ea_report_results_minitab.jpg</image>
             <text>The distribution of the number of sleep hours is
             roughly symmetric but has some low and high outliers.
             The distribution is centered at around 7 (median = 7),
@@ -657,7 +651,7 @@
             national mean of U.S. adults (7).</text>
           </our_answer>
           <our_answer package="StatCrunch">
-            <image>cell_phones_q3_ea_report_results_statcrunch.jpg</image>
+            <image>m4_cell_phones/cell_phones_q3_ea_report_results_statcrunch.jpg</image>
             <text>The distribution of the number of sleep hours is
             roughly symmetric but has some low and high outliers.
             The distribution is centered at around 7 (median = 7),
@@ -669,7 +663,7 @@
           </our_answer>
           <our_answer package="Excel">
             <text>Here is the Excel output:</text>
-            <image>cell_phones_q3_ea_report_results_excel.jpg</image>
+            <image>m4_cell_phones/cell_phones_q3_ea_report_results_excel.jpg</image>
             <text>The distribution of the number of sleep hours is
             roughly symmetric but has some outliers. The
             distribution is centered at around 7 (median = 7), has
@@ -680,7 +674,7 @@
             national mean of U.S. adults (7).</text>
           </our_answer>
           <our_answer package="R">
-            <image>cell_phones_q3_ea_report_results_r.jpg</image>
+            <image>m4_cell_phones/cell_phones_q3_ea_report_results_r.jpg</image>
             <text>The distribution of the number of sleep hours is
             roughly symmetric but has some low and high outliers.
             The distribution is centered at around 7 (median = 7),
@@ -691,7 +685,7 @@
             national mean of U.S. adults (7).</text>
           </our_answer>
           <our_answer package="TI Calculator">
-            <image>cell_phones_q3_ea_report_results_ti.jpg</image>
+            <image>m4_cell_phones/cell_phones_q3_ea_report_results_ti.jpg</image>
             <text>The distribution of the number of sleep hours is
             roughly symmetric but has some low and high outliers.
             The distribution is centered at around 7 (median = 7),
@@ -733,32 +727,32 @@
         </determine_mfa>
         <report_results>
           <our_answer package="Minitab">
-            <image>cell_phones_q3_mf_report_results_minitab.jpg</image>
+            <image>m4_cell_phones/cell_phones_q3_mf_report_results_minitab.jpg</image>
             <text>The test statistic is t = 2.41 and the p-value is
             .017 &amp;lt; .05, indicating that Ho can be
             rejected.</text>
           </our_answer>
           <our_answer package="StatCrunch">
-            <image>cell_phones_q3_mf_report_results_statcrunch.jpg</image>
+            <image>m4_cell_phones/cell_phones_q3_mf_report_results_statcrunch.jpg</image>
             <text>The test statistic is t = 2.41 and the p-value is
             .017 &amp;lt; .05, indicating that Ho can be
             rejected.</text>
           </our_answer>
           <our_answer package="Excel">
             <text>Here is the Excel output:</text>
-            <image>cell_phones_q3_mf_report_results_excel.jpg</image>
+            <image>m4_cell_phones/cell_phones_q3_mf_report_results_excel.jpg</image>
             <text>The test statistic is t = 2.41 and the p-value is
             .017 &amp;lt; .05, indicating that Ho can be
             rejected.</text>
           </our_answer>
           <our_answer package="R">
-            <image>cell_phones_q3_mf_report_results_r.jpg</image>
+            <image>m4_cell_phones/cell_phones_q3_mf_report_results_r.jpg</image>
             <text>The test statistic is t = 2.41 and the p-value is
             .017 &amp;lt; .05, indicating that Ho can be
             rejected.</text>
           </our_answer>
           <our_answer package="TI Calculator">
-            <image>cell_phones_q3_mf_report_results_ti.jpg</image>
+            <image>m4_cell_phones/cell_phones_q3_mf_report_results_ti.jpg</image>
             <text>The test statistic is t = 2.41 and the p-value is
             .017 &amp;lt; .05, indicating that Ho can be
             rejected.</text>
@@ -843,7 +837,7 @@
           problem)&lt;/li&gt;&lt;li&gt;Choose CALCULATE, then press
           ENTER.&lt;/li&gt;&lt;/ul&gt;</question>
           <our_answer package="Minitab">
-            <image>cell_phones_q3_consider_results_thought_question_minitab.jpg</image>
+            <image>m4_cell_phones/cell_phones_q3_consider_results_thought_question_minitab.jpg</image>
             <text>The 95% confidence interval for the mean number
             of sleep hours of stat students at this university is
             roughly (7.04, 7.35). We are therefore 95% confident
@@ -856,7 +850,7 @@
             rejected.</text>
           </our_answer>
           <our_answer package="StatCrunch">
-            <image>cell_phones_q3_consider_results_thought_question_statcrunch.jpg</image>
+            <image>m4_cell_phones/cell_phones_q3_consider_results_thought_question_statcrunch.jpg</image>
             <text>The 95% confidence interval for the mean number
             of sleep hours of stat students at this university is
             roughly (7.04, 7.35). We are therefore 95% confident
@@ -870,7 +864,7 @@
           </our_answer>
           <our_answer package="Excel">
             <text>Here is the Excel output:</text>
-            <image>cell_phones_q3_consider_results_thought_question_excel.jpg</image>
+            <image>m4_cell_phones/cell_phones_q3_consider_results_thought_question_excel.jpg</image>
             <text>The 95% confidence interval for the mean number
             of sleep hours of stat students at this university is
             roughly (7.04, 7.35). We are therefore 95% confident
@@ -883,7 +877,7 @@
             rejected.</text>
           </our_answer>
           <our_answer package="R">
-            <image>cell_phones_q3_consider_results_thought_question_r.jpg</image>
+            <image>m4_cell_phones/cell_phones_q3_consider_results_thought_question_r.jpg</image>
             <text>The 95% confidence interval for the mean number
             of sleep hours of stat students at this university is
             roughly (7.04, 7.35). We are therefore 95% confident
@@ -896,7 +890,7 @@
             rejected.</text>
           </our_answer>
           <our_answer package="TI Calculator">
-            <image>cell_phones_q3_consider_results_thought_question_ti.jpg</image>
+            <image>m4_cell_phones/cell_phones_q3_consider_results_thought_question_ti.jpg</image>
             <text>The 95% confidence interval for the mean number
             of sleep hours of stat students at this university is
             roughly (7.04, 7.35). We are therefore 95% confident

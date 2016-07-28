@@ -2751,7 +2751,7 @@
                         <value>UpdateTextArea</value>
                     </Action>
                     <Input>
-                        <value>&lt;img src="cell_phones_q1_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The distribution of the verbal SAT scores is roughly symmetric, has a mean of roughly 597, and standard deviation of about 78.</value>
+                        <value>&lt;img src="m4_cell_phones/cell_phones_q1_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The distribution of the verbal SAT scores is roughly symmetric, has a mean of roughly 597, and standard deviation of about 78.</value>
                     </Input>
                     <transaction_id>T67e7c476-09c6-42bb-8b11-e2f984168284</transaction_id>
                 </properties>
@@ -2779,7 +2779,7 @@
                 <Input>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">&lt;img src="cell_phones_q1_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The distribution of the verbal SAT scores is roughly symmetric, has a mean of roughly 597, and standard deviation of about 78.</matcherParameter>
+                        <matcherParameter name="single">&lt;img src="m4_cell_phones/cell_phones_q1_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The distribution of the verbal SAT scores is roughly symmetric, has a mean of roughly 597, and standard deviation of about 78.</matcherParameter>
                     </matcher>
                 </Input>
                 <Actor linkTriggered="false">Tutor (unevaluated)</Actor>
@@ -3651,7 +3651,7 @@
                         <value>UpdateTextArea</value>
                     </Action>
                     <Input>
-                        <value>&lt;img src="cell_phones_q1_mf_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The test statistic is z = 2.55 and the p-value is .011 &amp;lt; .05, indicating that H&lt;sub&gt;0&lt;/sub&gt; can be rejected.</value>
+                        <value>&lt;img src="m4_cell_phones/cell_phones_q1_mf_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The test statistic is z = 2.55 and the p-value is .011 &amp;lt; .05, indicating that H&lt;sub&gt;0&lt;/sub&gt; can be rejected.</value>
                     </Input>
                     <transaction_id>Td0af824d-46f8-4baf-9d63-442afedeb20c</transaction_id>
                 </properties>
@@ -3679,7 +3679,7 @@
                 <Input>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">&lt;img src="cell_phones_q1_mf_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The test statistic is z = 2.55 and the p-value is .011 &amp;lt; .05, indicating that H&lt;sub&gt;0&lt;/sub&gt; can be rejected.</matcherParameter>
+                        <matcherParameter name="single">&lt;img src="m4_cell_phones/cell_phones_q1_mf_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The test statistic is z = 2.55 and the p-value is .011 &amp;lt; .05, indicating that H&lt;sub&gt;0&lt;/sub&gt; can be rejected.</matcherParameter>
                     </matcher>
                 </Input>
                 <Actor linkTriggered="false">Tutor (unevaluated)</Actor>
@@ -4009,7 +4009,7 @@
                         <value>UpdateTextArea</value>
                     </Action>
                     <Input>
-                        <value>&lt;img src="cell_phones_q1_consider_results_thought_question_statcrunch.jpg"&gt;&lt;br/&gt;The 95% confidence interval for the mean verbal SAT score of stat students at this university is roughly (584, 610). We are therefore 95% confident that the mean verbal SAT score of stat students at this university is between 584 and 610.  Note that the entire confidence interval (representing the plausible values for the mean verbal SAT score of stats students at this university) does not include 580, which is consistent with the fact that the H&lt;sub&gt;0&lt;/sub&gt; was rejected.</value>
+                        <value>&lt;img src="m4_cell_phones/cell_phones_q1_consider_results_thought_question_statcrunch.jpg"&gt;&lt;br/&gt;The 95% confidence interval for the mean verbal SAT score of stat students at this university is roughly (584, 610). We are therefore 95% confident that the mean verbal SAT score of stat students at this university is between 584 and 610.  Note that the entire confidence interval (representing the plausible values for the mean verbal SAT score of stats students at this university) does not include 580, which is consistent with the fact that the H&lt;sub&gt;0&lt;/sub&gt; was rejected.</value>
                     </Input>
                     <transaction_id>Tafceb1fc-54ab-4ce1-8710-5ebf69525543</transaction_id>
                 </properties>
@@ -4037,7 +4037,7 @@
                 <Input>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">&lt;img src="cell_phones_q1_consider_results_thought_question_statcrunch.jpg"&gt;&lt;br/&gt;The 95% confidence interval for the mean verbal SAT score of stat students at this university is roughly (584, 610). We are therefore 95% confident that the mean verbal SAT score of stat students at this university is between 584 and 610.  Note that the entire confidence interval (representing the plausible values for the mean verbal SAT score of stats students at this university) does not include 580, which is consistent with the fact that the H&lt;sub&gt;0&lt;/sub&gt; was rejected.</matcherParameter>
+                        <matcherParameter name="single">&lt;img src="m4_cell_phones/cell_phones_q1_consider_results_thought_question_statcrunch.jpg"&gt;&lt;br/&gt;The 95% confidence interval for the mean verbal SAT score of stat students at this university is roughly (584, 610). We are therefore 95% confident that the mean verbal SAT score of stat students at this university is between 584 and 610.  Note that the entire confidence interval (representing the plausible values for the mean verbal SAT score of stats students at this university) does not include 580, which is consistent with the fact that the H&lt;sub&gt;0&lt;/sub&gt; was rejected.</matcherParameter>
                     </matcher>
                 </Input>
                 <Actor linkTriggered="true">Tutor (unevaluated)</Actor>
@@ -5222,7 +5222,7 @@
                         <value>UpdateTextArea</value>
                     </Action>
                     <Input>
-                        <value>&lt;img src="cell_phones_q2_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;Roughly 78% of the students in the sample own a cell phone.</value>
+                        <value>&lt;img src="m4_cell_phones/cell_phones_q2_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;Roughly 78% of the students in the sample own a cell phone.</value>
                     </Input>
                     <transaction_id>T67e7c476-09c6-42bb-8b11-e2f984168284</transaction_id>
                 </properties>
@@ -5250,7 +5250,7 @@
                 <Input>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">&lt;img src="cell_phones_q2_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;Roughly 78% of the students in the sample own a cell phone.</matcherParameter>
+                        <matcherParameter name="single">&lt;img src="m4_cell_phones/cell_phones_q2_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;Roughly 78% of the students in the sample own a cell phone.</matcherParameter>
                     </matcher>
                 </Input>
                 <Actor linkTriggered="false">Tutor (unevaluated)</Actor>
@@ -6122,7 +6122,7 @@
                         <value>UpdateTextArea</value>
                     </Action>
                     <Input>
-                        <value>&lt;img src="cell_phones_q2_mf_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The test statistic is z = -.71, and the p-value is .239 &amp;gt; .05, indicating that H&lt;sub&gt;0&lt;/sub&gt; cannot be rejected.</value>
+                        <value>&lt;img src="m4_cell_phones/cell_phones_q2_mf_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The test statistic is z = -.71, and the p-value is .239 &amp;gt; .05, indicating that H&lt;sub&gt;0&lt;/sub&gt; cannot be rejected.</value>
                     </Input>
                     <transaction_id>Td0af824d-46f8-4baf-9d63-442afedeb20c</transaction_id>
                 </properties>
@@ -6150,7 +6150,7 @@
                 <Input>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">&lt;img src="cell_phones_q2_mf_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The test statistic is z = -.71, and the p-value is .239 &amp;gt; .05, indicating that H&lt;sub&gt;0&lt;/sub&gt; cannot be rejected.</matcherParameter>
+                        <matcherParameter name="single">&lt;img src="m4_cell_phones/cell_phones_q2_mf_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The test statistic is z = -.71, and the p-value is .239 &amp;gt; .05, indicating that H&lt;sub&gt;0&lt;/sub&gt; cannot be rejected.</matcherParameter>
                     </matcher>
                 </Input>
                 <Actor linkTriggered="false">Tutor (unevaluated)</Actor>
@@ -7694,7 +7694,7 @@
                         <value>UpdateTextArea</value>
                     </Action>
                     <Input>
-                        <value>&lt;img src="cell_phones_q3_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The distribution of the number of sleep hours is roughly symmetric but has some low and high outliers.  The distribution is centered at around 7 (median = 7), has a range of 12, and an IQR of 1.5. Even though it's the case that when outliers are present we focus on the median as a measure of center, it should be mentioned that the mean is roughly 7.2, which is larger than the national mean of U.S. adults (7).</value>
+                        <value>&lt;img src="m4_cell_phones/cell_phones_q3_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The distribution of the number of sleep hours is roughly symmetric but has some low and high outliers.  The distribution is centered at around 7 (median = 7), has a range of 12, and an IQR of 1.5. Even though it's the case that when outliers are present we focus on the median as a measure of center, it should be mentioned that the mean is roughly 7.2, which is larger than the national mean of U.S. adults (7).</value>
                     </Input>
                     <transaction_id>T67e7c476-09c6-42bb-8b11-e2f984168284</transaction_id>
                 </properties>
@@ -7722,7 +7722,7 @@
                 <Input>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">&lt;img src="cell_phones_q3_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The distribution of the number of sleep hours is roughly symmetric but has some low and high outliers.  The distribution is centered at around 7 (median = 7), has a range of 12, and an IQR of 1.5. Even though it's the case that when outliers are present we focus on the median as a measure of center, it should be mentioned that the mean is roughly 7.2, which is larger than the national mean of U.S. adults (7).</matcherParameter>
+                        <matcherParameter name="single">&lt;img src="m4_cell_phones/cell_phones_q3_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The distribution of the number of sleep hours is roughly symmetric but has some low and high outliers.  The distribution is centered at around 7 (median = 7), has a range of 12, and an IQR of 1.5. Even though it's the case that when outliers are present we focus on the median as a measure of center, it should be mentioned that the mean is roughly 7.2, which is larger than the national mean of U.S. adults (7).</matcherParameter>
                     </matcher>
                 </Input>
                 <Actor linkTriggered="false">Tutor (unevaluated)</Actor>
@@ -8594,7 +8594,7 @@
                         <value>UpdateTextArea</value>
                     </Action>
                     <Input>
-                        <value>&lt;img src="cell_phones_q3_mf_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The test statistic is t = 2.41 and the p-value is .017 &amp;lt; .05, indicating that Ho can be rejected.</value>
+                        <value>&lt;img src="m4_cell_phones/cell_phones_q3_mf_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The test statistic is t = 2.41 and the p-value is .017 &amp;lt; .05, indicating that Ho can be rejected.</value>
                     </Input>
                     <transaction_id>Td0af824d-46f8-4baf-9d63-442afedeb20c</transaction_id>
                 </properties>
@@ -8622,7 +8622,7 @@
                 <Input>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">&lt;img src="cell_phones_q3_mf_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The test statistic is t = 2.41 and the p-value is .017 &amp;lt; .05, indicating that Ho can be rejected.</matcherParameter>
+                        <matcherParameter name="single">&lt;img src="m4_cell_phones/cell_phones_q3_mf_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The test statistic is t = 2.41 and the p-value is .017 &amp;lt; .05, indicating that Ho can be rejected.</matcherParameter>
                     </matcher>
                 </Input>
                 <Actor linkTriggered="false">Tutor (unevaluated)</Actor>
@@ -8952,7 +8952,7 @@
                         <value>UpdateTextArea</value>
                     </Action>
                     <Input>
-                        <value>&lt;img src="cell_phones_q3_consider_results_thought_question_statcrunch.jpg"&gt;&lt;br/&gt;The 95% confidence interval for the mean number of sleep hours of stat students at this university is roughly (7.04, 7.35). We are therefore 95% confident that the mean number of sleep hours of stat students at this university is between 7.04 and 7.35.  Note that the entire confidence interval (representing the plausible values for the mean number of sleep hours of stats students at this university) does not include 7, which is consistent with the fact that Ho was rejected.</value>
+                        <value>&lt;img src="m4_cell_phones/cell_phones_q3_consider_results_thought_question_statcrunch.jpg"&gt;&lt;br/&gt;The 95% confidence interval for the mean number of sleep hours of stat students at this university is roughly (7.04, 7.35). We are therefore 95% confident that the mean number of sleep hours of stat students at this university is between 7.04 and 7.35.  Note that the entire confidence interval (representing the plausible values for the mean number of sleep hours of stats students at this university) does not include 7, which is consistent with the fact that Ho was rejected.</value>
                     </Input>
                     <transaction_id>Tafceb1fc-54ab-4ce1-8710-5ebf69525543</transaction_id>
                 </properties>

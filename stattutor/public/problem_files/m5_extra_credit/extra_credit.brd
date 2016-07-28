@@ -2768,7 +2768,7 @@
                         <value>UpdateTextArea</value>
                     </Action>
                     <Input>
-                        <value>&lt;img src="extra_credit_q1_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;&lt;b&gt;Center:&lt;/b&gt; The median final score of students who did not do the extra credit is substantially lower than the median final score of students who did (74.5 vs. 82). &lt;b&gt;Spread:&lt;/b&gt; Both groups have roughly the same range of scores (20 and 19), however the IQR of 'group 0' is lower than that of 'group 1' (6 vs. 10). &lt;b&gt;Outliers:&lt;/b&gt; There are no outliers.</value>
+                        <value>&lt;img src="m5_extra_credit/extra_credit_q1_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;&lt;b&gt;Center:&lt;/b&gt; The median final score of students who did not do the extra credit is substantially lower than the median final score of students who did (74.5 vs. 82). &lt;b&gt;Spread:&lt;/b&gt; Both groups have roughly the same range of scores (20 and 19), however the IQR of 'group 0' is lower than that of 'group 1' (6 vs. 10). &lt;b&gt;Outliers:&lt;/b&gt; There are no outliers.</value>
                     </Input>
                     <transaction_id>T67e7c476-09c6-42bb-8b11-e2f984168284</transaction_id>
                 </properties>
@@ -2796,7 +2796,7 @@
                 <Input>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">&lt;img src="extra_credit_q1_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;&lt;b&gt;Center:&lt;/b&gt; The median final score of students who did not do the extra credit is substantially lower than the median final score of students who did (74.5 vs. 82). &lt;b&gt;Spread:&lt;/b&gt; Both groups have roughly the same range of scores (20 and 19), however the IQR of 'group 0' is lower than that of 'group 1' (6 vs. 10). &lt;b&gt;Outliers:&lt;/b&gt; There are no outliers.</matcherParameter>
+                        <matcherParameter name="single">&lt;img src="m5_extra_credit/extra_credit_q1_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;&lt;b&gt;Center:&lt;/b&gt; The median final score of students who did not do the extra credit is substantially lower than the median final score of students who did (74.5 vs. 82). &lt;b&gt;Spread:&lt;/b&gt; Both groups have roughly the same range of scores (20 and 19), however the IQR of 'group 0' is lower than that of 'group 1' (6 vs. 10). &lt;b&gt;Outliers:&lt;/b&gt; There are no outliers.</matcherParameter>
                     </matcher>
                 </Input>
                 <Actor linkTriggered="false">Tutor (unevaluated)</Actor>
@@ -3668,7 +3668,7 @@
                         <value>UpdateTextArea</value>
                     </Action>
                     <Input>
-                        <value>&lt;img src="extra_credit_q1_mf_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The test statistic is t = -8.78, and the p-value is 6.27E-13, which is so small that we can say that it is essentially 0. Thus, we would reject Ho.</value>
+                        <value>&lt;img src="m5_extra_credit/extra_credit_q1_mf_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The test statistic is t = -8.78, and the p-value is 6.27E-13, which is so small that we can say that it is essentially 0. Thus, we would reject Ho.</value>
                     </Input>
                     <transaction_id>Td0af824d-46f8-4baf-9d63-442afedeb20c</transaction_id>
                 </properties>
@@ -3696,7 +3696,7 @@
                 <Input>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">&lt;img src="extra_credit_q1_mf_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The test statistic is t = -8.78, and the p-value is 6.27E-13, which is so small that we can say that it is essentially 0. Thus, we would reject Ho.</matcherParameter>
+                        <matcherParameter name="single">&lt;img src="m5_extra_credit/extra_credit_q1_mf_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The test statistic is t = -8.78, and the p-value is 6.27E-13, which is so small that we can say that it is essentially 0. Thus, we would reject Ho.</matcherParameter>
                     </matcher>
                 </Input>
                 <Actor linkTriggered="false">Tutor (unevaluated)</Actor>
@@ -5240,7 +5240,7 @@
                         <value>UpdateTextArea</value>
                     </Action>
                     <Input>
-                        <value>&lt;img src="extra_credit_q2_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The histogram of the differences between the two exam scores (Diff.mid) is roughly symmetric with no outliers. The distribution is centered roughly at 0 (mean = .41), and has a standard deviation of roughly 5.</value>
+                        <value>&lt;img src="m5_extra_credit/extra_credit_q2_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The histogram of the differences between the two exam scores (Diff.mid) is roughly symmetric with no outliers. The distribution is centered roughly at 0 (mean = .41), and has a standard deviation of roughly 5.</value>
                     </Input>
                     <transaction_id>T67e7c476-09c6-42bb-8b11-e2f984168284</transaction_id>
                 </properties>
@@ -5268,7 +5268,7 @@
                 <Input>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">&lt;img src="extra_credit_q2_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The histogram of the differences between the two exam scores (Diff.mid) is roughly symmetric with no outliers. The distribution is centered roughly at 0 (mean = .41), and has a standard deviation of roughly 5.</matcherParameter>
+                        <matcherParameter name="single">&lt;img src="m5_extra_credit/extra_credit_q2_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The histogram of the differences between the two exam scores (Diff.mid) is roughly symmetric with no outliers. The distribution is centered roughly at 0 (mean = .41), and has a standard deviation of roughly 5.</matcherParameter>
                     </matcher>
                 </Input>
                 <Actor linkTriggered="false">Tutor (unevaluated)</Actor>
@@ -6140,7 +6140,7 @@
                         <value>UpdateTextArea</value>
                     </Action>
                     <Input>
-                        <value>&lt;img src="extra_credit_q2_mf_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The test statistic is t = .84, and the p-value is .203. Since .203 &gt; .05, we cannot reject H&lt;sub&gt;0&lt;/sub&gt;.</value>
+                        <value>&lt;img src="m5_extra_credit/extra_credit_q2_mf_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The test statistic is t = .84, and the p-value is .203. Since .203 &gt; .05, we cannot reject H&lt;sub&gt;0&lt;/sub&gt;.</value>
                     </Input>
                     <transaction_id>Td0af824d-46f8-4baf-9d63-442afedeb20c</transaction_id>
                 </properties>
@@ -6168,7 +6168,7 @@
                 <Input>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">&lt;img src="extra_credit_q2_mf_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The test statistic is t = .84, and the p-value is .203. Since .203 &gt; .05, we cannot reject H&lt;sub&gt;0&lt;/sub&gt;.</matcherParameter>
+                        <matcherParameter name="single">&lt;img src="m5_extra_credit/extra_credit_q2_mf_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The test statistic is t = .84, and the p-value is .203. Since .203 &gt; .05, we cannot reject H&lt;sub&gt;0&lt;/sub&gt;.</matcherParameter>
                     </matcher>
                 </Input>
                 <Actor linkTriggered="false">Tutor (unevaluated)</Actor>
@@ -7729,7 +7729,7 @@
                         <value>UpdateTextArea</value>
                     </Action>
                     <Input>
-                        <value>&lt;img src="extra_credit_q3_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;&lt;b&gt;Center:&lt;/b&gt; The median final scores in the four class groups are 76, 77, 80, and 75.  &lt;br/&gt;&lt;br/&gt;&lt;b&gt;Spread:&lt;/b&gt; The distribution of the scores in group 2 has the largest spread (IQR = 13.25, range = 31). At the other extreme, group 4 has the smallest spread (IQR = 9.5, range = 18).&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Outliers:&lt;/b&gt; None of the four distributions has outliers.&lt;br/&gt;&lt;br/&gt;The side-by-side boxplots suggest that the scores in group 4 are generally lower, and noticeably so compared to group 3.</value>
+                        <value>&lt;img src="m5_extra_credit/extra_credit_q3_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;&lt;b&gt;Center:&lt;/b&gt; The median final scores in the four class groups are 76, 77, 80, and 75.  &lt;br/&gt;&lt;br/&gt;&lt;b&gt;Spread:&lt;/b&gt; The distribution of the scores in group 2 has the largest spread (IQR = 13.25, range = 31). At the other extreme, group 4 has the smallest spread (IQR = 9.5, range = 18).&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Outliers:&lt;/b&gt; None of the four distributions has outliers.&lt;br/&gt;&lt;br/&gt;The side-by-side boxplots suggest that the scores in group 4 are generally lower, and noticeably so compared to group 3.</value>
                     </Input>
                     <transaction_id>T67e7c476-09c6-42bb-8b11-e2f984168284</transaction_id>
                 </properties>
@@ -7757,7 +7757,7 @@
                 <Input>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">&lt;img src="extra_credit_q3_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;&lt;b&gt;Center:&lt;/b&gt; The median final scores in the four class groups are 76, 77, 80, and 75.  &lt;br/&gt;&lt;br/&gt;&lt;b&gt;Spread:&lt;/b&gt; The distribution of the scores in group 2 has the largest spread (IQR = 13.25, range = 31). At the other extreme, group 4 has the smallest spread (IQR = 9.5, range = 18).&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Outliers:&lt;/b&gt; None of the four distributions has outliers.&lt;br/&gt;&lt;br/&gt;The side-by-side boxplots suggest that the scores in group 4 are generally lower, and noticeably so compared to group 3.</matcherParameter>
+                        <matcherParameter name="single">&lt;img src="m5_extra_credit/extra_credit_q3_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;&lt;b&gt;Center:&lt;/b&gt; The median final scores in the four class groups are 76, 77, 80, and 75.  &lt;br/&gt;&lt;br/&gt;&lt;b&gt;Spread:&lt;/b&gt; The distribution of the scores in group 2 has the largest spread (IQR = 13.25, range = 31). At the other extreme, group 4 has the smallest spread (IQR = 9.5, range = 18).&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Outliers:&lt;/b&gt; None of the four distributions has outliers.&lt;br/&gt;&lt;br/&gt;The side-by-side boxplots suggest that the scores in group 4 are generally lower, and noticeably so compared to group 3.</matcherParameter>
                     </matcher>
                 </Input>
                 <Actor linkTriggered="false">Tutor (unevaluated)</Actor>
@@ -8629,7 +8629,7 @@
                         <value>UpdateTextArea</value>
                     </Action>
                     <Input>
-                        <value>&lt;img src="extra_credit_q3_mf_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The test statistic is F = 2.83, and the p-value is .042. Since .042 &lt; .05, we can reject H&lt;sub&gt;0&lt;/sub&gt;.</value>
+                        <value>&lt;img src="m5_extra_credit/extra_credit_q3_mf_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The test statistic is F = 2.83, and the p-value is .042. Since .042 &lt; .05, we can reject H&lt;sub&gt;0&lt;/sub&gt;.</value>
                     </Input>
                     <transaction_id>Td0af824d-46f8-4baf-9d63-442afedeb20c</transaction_id>
                 </properties>
@@ -8657,7 +8657,7 @@
                 <Input>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">&lt;img src="extra_credit_q3_mf_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The test statistic is F = 2.83, and the p-value is .042. Since .042 &lt; .05, we can reject H&lt;sub&gt;0&lt;/sub&gt;.</matcherParameter>
+                        <matcherParameter name="single">&lt;img src="m5_extra_credit/extra_credit_q3_mf_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The test statistic is F = 2.83, and the p-value is .042. Since .042 &lt; .05, we can reject H&lt;sub&gt;0&lt;/sub&gt;.</matcherParameter>
                     </matcher>
                 </Input>
                 <Actor linkTriggered="false">Tutor (unevaluated)</Actor>

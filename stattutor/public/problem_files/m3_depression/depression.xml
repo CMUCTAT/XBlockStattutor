@@ -4,12 +4,12 @@
 	"http://oli.web.cmu.edu/dtd/cmu_stat_stattutor_3_1.dtd">
 <stattutor_problem id="depression">
   <title>Treating Depression: A Randomized Clinical Trial</title>
-  <dataset package="Minitab">../problem_files/m3_depression/depression.mtw</dataset>
-  <dataset package="StatCrunch">../problem_files/m3_depression/depression.xls</dataset>
-  <dataset package="Excel">../problem_files/m3_depression/depression.xls</dataset>
-  <dataset package="R">../problem_files/m3_depression/depression.RData</dataset>
-  <dataset package="TI Calculator">../problem_files/m3_depression/depression.8xg</dataset>
-  <dataset package="json">../problem_files/m3_depression/depression.json</dataset>
+  <dataset package="Minitab">m3_depression/depression.mtw</dataset>
+  <dataset package="StatCrunch">m3_depression/depression.xls</dataset>
+  <dataset package="Excel">m3_depression/depression.xls</dataset>
+  <dataset package="R">m3_depression/depression.RData</dataset>
+  <dataset package="TI Calculator">m3_depression/depression.8xg</dataset>
+  <dataset package="json">m3_depression/depression.json</dataset>
   <attempts>1</attempts>
   <background>&lt;b&gt;Background:&lt;/b&gt; Clinical depression is
   a recurrent illness requiring treatment and often
@@ -402,7 +402,7 @@
         left/right arrows to display
         minX,Q1,Med,Q3,maxX.&lt;/li&gt;&lt;/ul&gt;&lt;br&gt;&lt;br&gt;</question>
         <our_answer package="Minitab">
-          <image>depression_consider_study_design_thought_question_minitab.jpg</image>
+          <image>m3_depression/depression_consider_study_design_thought_question_minitab.jpg</image>
           <text>&lt;b&gt;(a)&lt;/b&gt; We see in the output that
           the randomization was effective in assigning roughly the
           same number of patients to each of the three treatment
@@ -416,7 +416,7 @@
           among the three treatment groups.</text>
         </our_answer>
         <our_answer package="StatCrunch">
-          <image>depression_consider_study_design_thought_question_statcrunch.jpg</image>
+          <image>m3_depression/depression_consider_study_design_thought_question_statcrunch.jpg</image>
           <text>&lt;b&gt;(a)&lt;/b&gt; We see in the output that
           the randomization was effective in assigning roughly the
           same number of patients to each of the three treatment
@@ -431,7 +431,7 @@
         </our_answer>
         <our_answer package="Excel">
           <text>Here is the Excel output:</text>
-          <image>depression_consider_study_design_thought_question_excel.jpg</image>
+          <image>m3_depression/depression_consider_study_design_thought_question_excel.jpg</image>
           <text>&lt;b&gt;(a)&lt;/b&gt; We see in the output that
           the randomization was effective in assigning roughly the
           same number of patients to each of the three treatment
@@ -445,7 +445,7 @@
           among the three treatment groups.</text>
         </our_answer>
         <our_answer package="R">
-          <image>depression_consider_study_design_thought_question_r.jpg</image>
+          <image>m3_depression/depression_consider_study_design_thought_question_r.jpg</image>
           <text>&lt;b&gt;(a)&lt;/b&gt; We see in the output that
           the randomization was effective in assigning roughly the
           same number of patients to each of the three treatment
@@ -459,7 +459,7 @@
           among the three treatment groups.</text>
         </our_answer>
         <our_answer package="TI Calculator">
-          <image>depression_consider_study_design_thought_question_ti.jpg</image>
+          <image>m3_depression/depression_consider_study_design_thought_question_ti.jpg</image>
           <text>&lt;b&gt;(a)&lt;/b&gt; We see in the output that
           the randomization was effective in assigning roughly the
           same number of patients to each of the three treatment
@@ -512,14 +512,14 @@
       <exploratory_analyses>
         <report_results>
           <our_answer package="Minitab">
-            <image>depression_q1_ea_report_results_minitab.jpg</image>
+            <image>m3_depression/depression_q1_ea_report_results_minitab.jpg</image>
             <text>The percentage of patients that had a recurrence
             of depression is: 62.16% in the Lithium treatment
             group, 28.95% in the Imipramine treatment group, and
             67.65% in the Placebo group.</text>
           </our_answer>
           <our_answer package="StatCrunch">
-            <image>depression_q1_ea_report_results_statcrunch.jpg</image>
+            <image>m3_depression/depression_q1_ea_report_results_statcrunch.jpg</image>
             <text>The percentage of patients that had a recurrence
             of depression is: 62.16% in the Lithium treatment
             group, 28.95% in the Imipramine treatment group, and
@@ -527,21 +527,21 @@
           </our_answer>
           <our_answer package="Excel">
             <text>Here is the Excel output:</text>
-            <image>depression_q1_ea_report_results_excel.jpg</image>
+            <image>m3_depression/depression_q1_ea_report_results_excel.jpg</image>
             <text>The percentage of patients that had a recurrence
             of depression is: 62.16% in the Lithium treatment
             group, 28.95% in the Imipramine treatment group, and
             67.65% in the Placebo group.</text>
           </our_answer>
           <our_answer package="R">
-            <image>depression_q1_ea_report_results_r.jpg</image>
+            <image>m3_depression/depression_q1_ea_report_results_r.jpg</image>
             <text>The percentage of patients that had a recurrence
             of depression is: 62.16% in the Lithium treatment
             group, 28.95% in the Imipramine treatment group, and
             67.65% in the Placebo group.</text>
           </our_answer>
           <our_answer package="TI Calculator">
-            <image>depression_q1_ea_report_results_ti.jpg</image>
+            <image>m3_depression/depression_q1_ea_report_results_ti.jpg</image>
             <text>The percentage of patients that had a recurrence
             of depression is: 62.16% in the Lithium treatment
             group, 28.95% in the Imipramine treatment group, and
@@ -632,7 +632,7 @@
       <exploratory_analyses>
         <report_results>
           <our_answer package="Minitab">
-            <image>depression_q2_ea_report_results_minitab.jpg</image>
+            <image>m3_depression/depression_q2_ea_report_results_minitab.jpg</image>
             <text>&lt;b&gt;Center:&lt;/b&gt; The distribution of
             Time in the Imipramine group (coded as 1) has a
             substantially larger median (70.71) compared to the
@@ -649,7 +649,7 @@
             is one outlier in the Lithium group.</text>
           </our_answer>
           <our_answer package="StatCrunch">
-            <image>depression_q2_ea_report_results_statcrunch.jpg</image>
+            <image>m3_depression/depression_q2_ea_report_results_statcrunch.jpg</image>
             <text>&lt;b&gt;Center:&lt;/b&gt; The distribution of
             Time in the Imipramine group (coded as 1) has a
             substantially larger median (70.71) compared to the
@@ -666,7 +666,7 @@
           </our_answer>
           <our_answer package="Excel">
             <text>Here is the Excel output:</text>
-            <image>depression_q2_ea_report_results_excel.jpg</image>
+            <image>m3_depression/depression_q2_ea_report_results_excel.jpg</image>
             <text>&lt;b&gt;Center:&lt;/b&gt; The distribution of
             Time in the Imipramine group (coded as 1) has a
             substantially larger median (70.714) compared to the
@@ -682,7 +682,7 @@
             direction.</text>
           </our_answer>
           <our_answer package="R">
-            <image>depression_q2_ea_report_results_r.jpg</image>
+            <image>m3_depression/depression_q2_ea_report_results_r.jpg</image>
             <text>&lt;b&gt;Center:&lt;/b&gt; The distribution of
             Time in the Imipramine group (coded as 1) has a
             substantially larger median (70.71) compared to the
@@ -699,7 +699,7 @@
             is one outlier in the Lithium group.</text>
           </our_answer>
           <our_answer package="TI Calculator">
-            <image>depression_q2_ea_report_results_ti.jpg</image>
+            <image>m3_depression/depression_q2_ea_report_results_ti.jpg</image>
             <text>&lt;b&gt;Center:&lt;/b&gt; The distribution of
             Time in the Imipramine group (coded as 1) has a
             substantially larger median (70.71) compared to the

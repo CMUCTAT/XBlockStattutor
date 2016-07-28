@@ -2768,7 +2768,7 @@
                         <value>UpdateTextArea</value>
                     </Action>
                     <Input>
-                        <value>&lt;img src="low_birth_weight_q1_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;25.22% of mothers who did not smoke had a low birth weight baby, and 40.54% of mother who did smoke had a low birth weight baby.</value>
+                        <value>&lt;img src="m6_low_birth_weight/low_birth_weight_q1_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;25.22% of mothers who did not smoke had a low birth weight baby, and 40.54% of mother who did smoke had a low birth weight baby.</value>
                     </Input>
                     <transaction_id>T67e7c476-09c6-42bb-8b11-e2f984168284</transaction_id>
                 </properties>
@@ -2796,7 +2796,7 @@
                 <Input>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">&lt;img src="low_birth_weight_q1_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;25.22% of mothers who did not smoke had a low birth weight baby, and 40.54% of mother who did smoke had a low birth weight baby.</matcherParameter>
+                        <matcherParameter name="single">&lt;img src="m6_low_birth_weight/low_birth_weight_q1_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;25.22% of mothers who did not smoke had a low birth weight baby, and 40.54% of mother who did smoke had a low birth weight baby.</matcherParameter>
                     </matcher>
                 </Input>
                 <Actor linkTriggered="false">Tutor (unevaluated)</Actor>
@@ -3668,7 +3668,7 @@
                         <value>UpdateTextArea</value>
                     </Action>
                     <Input>
-                        <value>&lt;img src="low_birth_weight_q1_mf_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The test statistic is 4.924, and the p-value is .026. Since .026 &amp;lt; .05 we reject H&lt;sub&gt;0&lt;/sub&gt;.</value>
+                        <value>&lt;img src="m6_low_birth_weight/low_birth_weight_q1_mf_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The test statistic is 4.924, and the p-value is .026. Since .026 &amp;lt; .05 we reject H&lt;sub&gt;0&lt;/sub&gt;.</value>
                     </Input>
                     <transaction_id>Td0af824d-46f8-4baf-9d63-442afedeb20c</transaction_id>
                 </properties>
@@ -3696,7 +3696,7 @@
                 <Input>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">&lt;img src="low_birth_weight_q1_mf_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The test statistic is 4.924, and the p-value is .026. Since .026 &amp;lt; .05 we reject H&lt;sub&gt;0&lt;/sub&gt;.</matcherParameter>
+                        <matcherParameter name="single">&lt;img src="m6_low_birth_weight/low_birth_weight_q1_mf_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The test statistic is 4.924, and the p-value is .026. Since .026 &amp;lt; .05 we reject H&lt;sub&gt;0&lt;/sub&gt;.</matcherParameter>
                     </matcher>
                 </Input>
                 <Actor linkTriggered="false">Tutor (unevaluated)</Actor>
@@ -5257,7 +5257,7 @@
                         <value>UpdateTextArea</value>
                     </Action>
                     <Input>
-                        <value>&lt;img src="low_birth_weight_q2_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;23.96% of the white mothers had a low birth weight baby.  42.31% of black mothers had a low birth weight baby.  37.31% of mothers in the &quot;other&quot; group had a low birth weight baby.</value>
+                        <value>&lt;img src="m6_low_birth_weight/low_birth_weight_q2_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;23.96% of the white mothers had a low birth weight baby.  42.31% of black mothers had a low birth weight baby.  37.31% of mothers in the &quot;other&quot; group had a low birth weight baby.</value>
                     </Input>
                     <transaction_id>T67e7c476-09c6-42bb-8b11-e2f984168284</transaction_id>
                 </properties>
@@ -5285,7 +5285,7 @@
                 <Input>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">&lt;img src="low_birth_weight_q2_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;23.96% of the white mothers had a low birth weight baby.  42.31% of black mothers had a low birth weight baby.  37.31% of mothers in the &quot;other&quot; group had a low birth weight baby.</matcherParameter>
+                        <matcherParameter name="single">&lt;img src="m6_low_birth_weight/low_birth_weight_q2_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;23.96% of the white mothers had a low birth weight baby.  42.31% of black mothers had a low birth weight baby.  37.31% of mothers in the &quot;other&quot; group had a low birth weight baby.</matcherParameter>
                     </matcher>
                 </Input>
                 <Actor linkTriggered="false">Tutor (unevaluated)</Actor>
@@ -6157,7 +6157,7 @@
                         <value>UpdateTextArea</value>
                     </Action>
                     <Input>
-                        <value>&lt;img src="low_birth_weight_q2_mf_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The test statistic is 5.005, and the p-value is .082 &amp;gt; .05.  Ho cannot be rejected.</value>
+                        <value>&lt;img src="m6_low_birth_weight/low_birth_weight_q2_mf_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The test statistic is 5.005, and the p-value is .082 &amp;gt; .05.  Ho cannot be rejected.</value>
                     </Input>
                     <transaction_id>Td0af824d-46f8-4baf-9d63-442afedeb20c</transaction_id>
                 </properties>
@@ -6185,7 +6185,7 @@
                 <Input>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">&lt;img src="low_birth_weight_q2_mf_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The test statistic is 5.005, and the p-value is .082 &amp;gt; .05.  Ho cannot be rejected.</matcherParameter>
+                        <matcherParameter name="single">&lt;img src="m6_low_birth_weight/low_birth_weight_q2_mf_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The test statistic is 5.005, and the p-value is .082 &amp;gt; .05.  Ho cannot be rejected.</matcherParameter>
                     </matcher>
                 </Input>
                 <Actor linkTriggered="false">Tutor (unevaluated)</Actor>
@@ -7746,7 +7746,7 @@
                         <value>UpdateTextArea</value>
                     </Action>
                     <Input>
-                        <value>&lt;img src="low_birth_weight_q3_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;&lt;b&gt;Center:&lt;/b&gt; The median age of mothers who did not have a low birth weight baby is slightly higher than that of mothers who did (23 vs. 22).&lt;br&gt;&lt;br&gt;&lt;b&gt;Spread:&lt;/b&gt; There is more variation in the age of mothers who did not have a low birth weight baby (IQR: 9 vs. 6, Range: 31 vs. 20).&lt;br&gt;&lt;br&gt;&lt;b&gt;Outliers:&lt;/b&gt; There is one outlier: a mother who was 45 years old and did not have a low birth weight baby.</value>
+                        <value>&lt;img src="m6_low_birth_weight/low_birth_weight_q3_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;&lt;b&gt;Center:&lt;/b&gt; The median age of mothers who did not have a low birth weight baby is slightly higher than that of mothers who did (23 vs. 22).&lt;br&gt;&lt;br&gt;&lt;b&gt;Spread:&lt;/b&gt; There is more variation in the age of mothers who did not have a low birth weight baby (IQR: 9 vs. 6, Range: 31 vs. 20).&lt;br&gt;&lt;br&gt;&lt;b&gt;Outliers:&lt;/b&gt; There is one outlier: a mother who was 45 years old and did not have a low birth weight baby.</value>
                     </Input>
                     <transaction_id>T67e7c476-09c6-42bb-8b11-e2f984168284</transaction_id>
                 </properties>
@@ -7774,7 +7774,7 @@
                 <Input>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">&lt;img src="low_birth_weight_q3_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;&lt;b&gt;Center:&lt;/b&gt; The median age of mothers who did not have a low birth weight baby is slightly higher than that of mothers who did (23 vs. 22).&lt;br&gt;&lt;br&gt;&lt;b&gt;Spread:&lt;/b&gt; There is more variation in the age of mothers who did not have a low birth weight baby (IQR: 9 vs. 6, Range: 31 vs. 20).&lt;br&gt;&lt;br&gt;&lt;b&gt;Outliers:&lt;/b&gt; There is one outlier: a mother who was 45 years old and did not have a low birth weight baby.</matcherParameter>
+                        <matcherParameter name="single">&lt;img src="m6_low_birth_weight/low_birth_weight_q3_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;&lt;b&gt;Center:&lt;/b&gt; The median age of mothers who did not have a low birth weight baby is slightly higher than that of mothers who did (23 vs. 22).&lt;br&gt;&lt;br&gt;&lt;b&gt;Spread:&lt;/b&gt; There is more variation in the age of mothers who did not have a low birth weight baby (IQR: 9 vs. 6, Range: 31 vs. 20).&lt;br&gt;&lt;br&gt;&lt;b&gt;Outliers:&lt;/b&gt; There is one outlier: a mother who was 45 years old and did not have a low birth weight baby.</matcherParameter>
                     </matcher>
                 </Input>
                 <Actor linkTriggered="false">Tutor (unevaluated)</Actor>
@@ -8646,7 +8646,7 @@
                         <value>UpdateTextArea</value>
                     </Action>
                     <Input>
-                        <value>&lt;img src="low_birth_weight_q3_mf_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The test statistic is t = 1.77, and the p-value is 0.078 &amp;gt; .05, indicating that Ho cannot be rejected.</value>
+                        <value>&lt;img src="m6_low_birth_weight/low_birth_weight_q3_mf_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The test statistic is t = 1.77, and the p-value is 0.078 &amp;gt; .05, indicating that Ho cannot be rejected.</value>
                     </Input>
                     <transaction_id>Td0af824d-46f8-4baf-9d63-442afedeb20c</transaction_id>
                 </properties>
@@ -8674,7 +8674,7 @@
                 <Input>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">&lt;img src="low_birth_weight_q3_mf_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The test statistic is t = 1.77, and the p-value is 0.078 &amp;gt; .05, indicating that Ho cannot be rejected.</matcherParameter>
+                        <matcherParameter name="single">&lt;img src="m6_low_birth_weight/low_birth_weight_q3_mf_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The test statistic is t = 1.77, and the p-value is 0.078 &amp;gt; .05, indicating that Ho cannot be rejected.</matcherParameter>
                     </matcher>
                 </Input>
                 <Actor linkTriggered="false">Tutor (unevaluated)</Actor>

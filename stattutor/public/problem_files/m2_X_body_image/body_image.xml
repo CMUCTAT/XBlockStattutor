@@ -4,12 +4,12 @@
 	"http://oli.web.cmu.edu/dtd/cmu_stat_stattutor_3_1.dtd">
 <stattutor_problem id="body_image">
   <title>Body Image and Academic Performance of College Students</title>
-  <dataset package="Minitab">m2_body_image/body_image.mtw</dataset>
-  <dataset package="StatCrunch">m2_body_image/body_image.xls</dataset>
-  <dataset package="Excel">m2_body_image/body_image.xls</dataset>
-  <dataset package="R">m2_body_image/body_image.RData</dataset>
-  <dataset package="TI Calculator">m2_body_image/body_image.8xg</dataset>
-  <dataset package="json">m2_body_image/body_image.json</dataset>
+  <dataset package="Minitab">problem_files/m2_body_image/body_image.mtw</dataset>
+  <dataset package="StatCrunch">problem_files/m2_body_image/body_image.xls</dataset>
+  <dataset package="Excel">problem_files/m2_body_image/body_image.xls</dataset>
+  <dataset package="R">problem_files/m2_body_image/body_image.RData</dataset>
+  <dataset package="TI Calculator">problem_files/m2_body_image/body_image.8xg</dataset>
+  <dataset package="json">problem_files/m2_body_image/body_image.json</dataset>
   <attempts>1</attempts>
   <background>A student survey was conducted at a major university.
   Data were collected from a random sample of 239 undergraduate
@@ -177,7 +177,7 @@
         <report_results>
           <our_answer package="Minitab">
             <text>Here is the Minitab output:</text>
-            <image>m2_body_image/body_image_q1_ea_report_results_minitab.jpg</image>
+            <image>body_image_q1_ea_report_results_minitab.jpg</image>
             <text>The scatterplot displays a positive linear
             relationship between HS GPA and college GPA. The
             correlation coefficient r is 0.716, indicating that the
@@ -186,7 +186,7 @@
           </our_answer>
           <our_answer package="StatCrunch">
             <text>Here is the StatCrunch output:</text>
-            <image>m2_body_image/body_image_q1_ea_report_results_statcrunch.jpg</image>
+            <image>body_image_q1_ea_report_results_statcrunch.jpg</image>
             <text>The scatterplot displays a positive linear
             relationship between HS GPA and college GPA. The
             correlation coefficient r is 0.716, indicating that the
@@ -195,7 +195,7 @@
           </our_answer>
           <our_answer package="Excel">
             <text>Here is the Excel output:</text>
-            <image>m2_body_image/body_image_q1_ea_report_results_excel.jpg</image>
+            <image>body_image_q1_ea_report_results_excel.jpg</image>
             <text>The scatterplot displays a positive linear
             relationship between HS_GPA and college GPA. The
             correlation coefficient r is 0.716, indicating that the
@@ -203,7 +203,7 @@
             strong.</text>
           </our_answer>
           <our_answer package="R">
-            <image>m2_body_image/body_image_q1_ea_report_results_r.jpg</image>
+            <image>body_image_q1_ea_report_results_r.jpg</image>
             <text>The scatterplot displays a positive linear
             relationship between HS GPA and college GPA. The
             correlation coefficient r is 0.716, indicating that the
@@ -212,7 +212,7 @@
           </our_answer>
           <our_answer package="TI Calculator">
             <text>Here is the TI output:</text>
-            <image>m2_body_image/body_image_q1_ea_report_results_ti.jpg</image>
+            <image>body_image_q1_ea_report_results_ti.jpg</image>
             <text>The scatterplot displays a positive linear
             relationship between HS GPA and college GPA. The
             correlation coefficient r is 0.716, indicating that the
@@ -420,7 +420,7 @@
             <text>&lt;b&gt;(a)&lt;/b&gt; The regression equation is
             given in the following output:</text>
             <image>
-            m2_body_image/body_image_q1_consider_results_thought_question_minitab.jpg</image>
+            body_image_q1_consider_results_thought_question_minitab.jpg</image>
             <text>&lt;b&gt;(b)&lt;/b&gt; The graph displays a
             pretty good fit of the regression line to the data.
             &lt;br&gt;&lt;br&gt;&lt;b&gt;(c)&lt;/b&gt; The
@@ -431,7 +431,7 @@
             <text>&lt;b&gt;(a)&lt;/b&gt; The regression equation is
             given in the following output:</text>
             <image>
-            m2_body_image/body_image_q1_consider_results_thought_question_statcrunch.jpg</image>
+            body_image_q1_consider_results_thought_question_statcrunch.jpg</image>
             <text>&lt;b&gt;(b)&lt;/b&gt; The graph displays a
             pretty good fit of the regression line to the data.
             &lt;br&gt;&lt;br&gt;&lt;b&gt;(c)&lt;/b&gt; The
@@ -442,7 +442,7 @@
             <text>&lt;b&gt;(a)&lt;/b&gt; The regression equation is
             given in the following output:</text>
             <image>
-            m2_body_image/body_image_q1_consider_results_thought_question_excel.jpg</image>
+            body_image_q1_consider_results_thought_question_excel.jpg</image>
             <text>&lt;b&gt;(b)&lt;/b&gt; The graph displays a
             pretty good fit of the regression line to the data.
             &lt;br&gt;&lt;br&gt;&lt;b&gt;(c)&lt;/b&gt; The
@@ -453,7 +453,7 @@
             <text>&lt;b&gt;(a)&lt;/b&gt; The regression equation is
             given in the following output:</text>
             <image>
-            m2_body_image/body_image_q1_consider_results_thought_question_r.jpg</image>
+            body_image_q1_consider_results_thought_question_r.jpg</image>
             <text>&lt;b&gt;(b)&lt;/b&gt; The graph displays a
             pretty good fit of the regression line to the data.
             &lt;br&gt;&lt;br&gt;&lt;b&gt;(c)&lt;/b&gt; The
@@ -464,17 +464,17 @@
             <text>&lt;b&gt;(a)&lt;/b&gt; The regression equation is
             given in the following output:</text>
             <image>
-            m2_body_image/body_image_q1_consider_results_thought_question_a_ti.jpg</image>
+            body_image_q1_consider_results_thought_question_a_ti.jpg</image>
             <text>&lt;b&gt;(b)&lt;/b&gt; The graph displays a
             pretty good fit of the regression line to the
             data.</text>
             <image>
-            m2_body_image/body_image_q1_consider_results_thought_question_b_ti.jpg</image>
+            body_image_q1_consider_results_thought_question_b_ti.jpg</image>
             <text>&lt;br&gt;&lt;br&gt;&lt;b&gt;(c)&lt;/b&gt; The
             predicted GPA for a student whose HS GPA is 3.45 is:
             1.073 + 0.6192 * 3.45 = 3.21.</text>
             <image>
-            m2_body_image/body_image_q1_consider_results_thought_question_c_ti.jpg</image>
+            body_image_q1_consider_results_thought_question_c_ti.jpg</image>
           </our_answer>
           <hint>Use the regression equation to do the prediction by
           calculating the GPA when the HS GPA is set to
@@ -532,7 +532,7 @@
             (which also highlights the comparison between males and
             females).</text>
             <image>
-            m2_body_image/body_image_q2_ea_report_results_minitab.jpg</image>
+            body_image_q2_ea_report_results_minitab.jpg</image>
             <text>Note that as stated in red, for each cell, the
             conditional percents appear below the cell
             count.&lt;br&gt;&lt;br&gt; The percentages for About
@@ -545,7 +545,7 @@
             <text>The counts and conditional percents are
             summarized in the following tables.</text>
             <image>
-            m2_body_image/body_image_q2_ea_report_results_statcrunch.jpg</image>
+            body_image_q2_ea_report_results_statcrunch.jpg</image>
             <text>The percentages for About Right, Overweight, and
             Underweight for females are 73.79%, 22.07%, and 4.138%,
             respectively. The same percentages for males are:
@@ -555,7 +555,7 @@
             <text>The counts and conditional percents are
             summarized in the following tables.</text>
             <image>
-            m2_body_image/body_image_q2_ea_report_results_excel.jpg</image>
+            body_image_q2_ea_report_results_excel.jpg</image>
             <text>The percentages for About Right, Overweight,
             Underweight, and Missing for females are 71.33%,
             21.33%, 4.00%, and 3.33% respectively. The same
@@ -566,7 +566,7 @@
             <text>The counts and conditional percents are
             summarized in the following tables provided by R, which
             show the comparison between males and females.</text>
-            <image>m2_body_image/body_image_q2_ea_report_results_r.jpg</image>
+            <image>body_image_q2_ea_report_results_r.jpg</image>
             <text>The percentages for About Right, Overweight, and
             Underweight for females are 73.79%, 22.07%, and 4.14%,
             respectively. The same percentages for males are:
@@ -575,7 +575,7 @@
           <our_answer package="TI Calculator">
             <text>The counts and conditional percents are
             summarized in the following tables.</text>
-            <image>m2_body_image/body_image_q2_ea_report_results_ti.jpg</image>
+            <image>body_image_q2_ea_report_results_ti.jpg</image>
             <text>The percentages for About Right, Overweight,
             Underweight, and Missing for females are 71.33%,
             21.33%, 4.00%, mad 3.33% respectively. The same
@@ -763,7 +763,7 @@
           <our_answer package="Minitab">
             <text>Here is the Minitab output:</text>
             <image>
-            m2_body_image/body_image_q3_ea_report_results_minitab.jpg</image>
+            body_image_q3_ea_report_results_minitab.jpg</image>
             <text>When comparing distributions across groups, we
             need to address the issues of center, spread and
             outliers:&lt;br&gt;&lt;br&gt;&lt;b&gt;Center:&lt;/b&gt;
@@ -783,7 +783,7 @@
           <our_answer package="StatCrunch">
             <text>Here is the StatCrunch output:</text>
             <image>
-            m2_body_image/body_image_q3_ea_report_results_statcrunch.jpg</image>
+            body_image_q3_ea_report_results_statcrunch.jpg</image>
             <text>When comparing distributions across groups, we
             need to address the issues of center, spread and
             outliers:&lt;br&gt;&lt;br&gt;&lt;b&gt;Center:&lt;/b&gt;
@@ -801,7 +801,7 @@
           <our_answer package="Excel">
             <text>Here is the Excel output:</text>
             <image>
-            m2_body_image/body_image_q3_ea_report_results_excel.jpg</image>
+            body_image_q3_ea_report_results_excel.jpg</image>
             <text>When comparing distributions across groups, we
             need to address the issues of center, spread and
             outliers:&lt;br&gt;&lt;br&gt;&lt;b&gt;Center:&lt;/b&gt;
@@ -817,7 +817,7 @@
             There are no outliers.&lt;/li&gt;&lt;/ul&gt;</text>
           </our_answer>
           <our_answer package="R">
-            <image>m2_body_image/body_image_q3_ea_report_results_r.jpg</image>
+            <image>body_image_q3_ea_report_results_r.jpg</image>
             <text>When comparing distributions across groups, we
             need to address the issues of center, spread and
             outliers:&lt;br&gt;&lt;br&gt;&lt;b&gt;Center:&lt;/b&gt;
@@ -836,7 +836,7 @@
           </our_answer>
           <our_answer package="TI Calculator">
             <text>Here is the TI output:</text>
-            <image>m2_body_image/body_image_q3_ea_report_results_ti.jpg</image>
+            <image>body_image_q3_ea_report_results_ti.jpg</image>
             <text>When comparing distributions across groups, we
             need to address the issues of center, spread and
             outliers:&lt;br&gt;&lt;br&gt;&lt;b&gt;Center:&lt;/b&gt;

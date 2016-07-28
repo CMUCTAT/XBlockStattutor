@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE stattutor_problem
+    PUBLIC "-//Carnegie Mellon University//DTD Stattutor 3.1//EN"
+	"http://oli.web.cmu.edu/dtd/cmu_stat_stattutor_3_1.dtd">
+<stattutor_problem id="cell_phones">
+  <title>Cell Phones</title>
+  <dataset package="Minitab">m4_cell_phones/cell_phones.mtw</dataset>
+  <dataset package="StatCrunch">m4_cell_phones/cell_phones.xls</dataset>
+  <dataset package="Excel">m4_cell_phones/cell_phones.xls</dataset>
+  <dataset package="R">m4_cell_phones/cell_phones.RData</dataset>
+  <dataset package="TI Calculator">m4_cell_phones/cell_phones.8xg</dataset>
+  <dataset package="json">m4_cell_phones/cell_phones.json</dataset>
+  <attempts>1</attempts>
+  <background>College students at a large state university
+  completed a survey about their academic and personal life.
+  Questions ranged from "How many credits are you registered for
+  this semester?" to "Would you define yourself as a vegetarian?"
+  Four sections of an introductory statistics course were chosen at
+  random from all the sections of introductory statistics courses
+  offered at the university in the semester when the survey was
+  conducted, and the 312 students who completed the survey were
+  students registered in one of the four chosen
+  sections.&lt;br&gt;&lt;br&gt;In this exercise, we will use a
+  subset of variables from the survey and use the collected data to
+  answer three questions. Note that (1) these are real data, and
+  (2) the symbol * in the worksheet means that this observation is
+  not available (this is known as a "missing
+  value").</background>
+  <variable>
+    <name>Math</name>
+    <description>Math SAT score</description>
+    <type>quantitative</type>
+  </variable>
+  <variable>
+    <name>Verbal</name>
+    <description>Verbal SAT score</description>
+    <type>quantitative</type>
+  </variable>
+  <variable>
+    <name>Credits</name>
+    <description>Number of credits the student is registered for</description>
+    <type>quantitative</type>
+  </variable>
+  <variable>
+    <name>Year</name>
+    <description>Year in college (1=Freshman, 2=Sophomore, 3=Junior, 4=Senior)</description>
+    <type>categorical</type>
+  </variable>
+  <variable>
+    <name>Exer</name>
+    <description>Time (in minutes) spent exercising in a typical day</description>
+    <type>quantitative</type>
+  </variable>
+  <variable>
+    <name>Sleep</name>
+    <description>Time (in hours) spent sleeping in a typical day</description>
+    <type>quantitative</type>
+  </variable>
+  <variable>
+    <name>Veg</name>
+    <description>Are you a vegetarian (yes, no, some)</description>
+    <type>categorical</type>
+  </variable>
+  <variable>
+    <name>Cell</name>
+    <description>Do you own a cell phone (yes, no)</description>
+    <type>categorical</type>
+  </variable>
+  <understand_the_problem>
+    <check_data_format>
+      <cdf_question>
+        <text>Out of the first ten students in the datafile, how
+        many did better on the verbal portion of the SAT compared
+        to the math portion?</text>
+        <answers>
+          <answer>6</answer>
+          <answer>six</answer>
+          <answer>6 students</answer>
+          <answer>six students</answer>
+        </answers>
+        <hints>
+          <hint>To answer each of the questions in this step,
+          you'll need to look at the dataset you opened at the
+          beginning of your StatTutor session, and examine the
+          first few cases (rows).</hint>
+          <hint>In this dataset, each row represents a single
+          student, so the first ten rows represent the first ten
+          students. Look at the Math and Verbal columns and count
+          how many of the first ten students did better on the
+          verbal portion of the SAT</hint>
+          <hint>If you look at the first ten students (rows) in the
+          dataset, you'll see that six of the students did better
+          on the verbal portion of the SAT than on the math
+          portion. These are students 3, 4, 5, 6, 7, and 9.</hint>
+        </hints>
+      </cdf_question>
+      <cdf_question>
+        <text>Out of the first ten students in the datafile, how
+        many are at least somewhat vegetarian?</text>
+        <answers>
+          <answer>3</answer>
+          <answer>three</answer>
+          <answer>3 students</answer>
+          <answer>three students</answer>
+        </answers>
+        <hints>
+          <hint>To answer each of the questions in this step,
+          you'll need to look at the dataset you opened at the
+          beginning of your StatTutor session, and examine the
+          first few cases (rows).</hint>
+          <hint>In this dataset, each row represents a single
+          student, so the first ten rows represent the first ten
+          students. Look at the Veg column and count how many of
+          the first ten students are at least somewhat
+          vegetarian.</hint>
+          <hint>If you look at the first ten students (rows) in the
+          dataset, you'll see that three of the students reported
+          being at least somewhat vegetarian. These are students 5,
+          6, and 8.</hint>
+        </hints>
+      </cdf_question>
+      <cdf_question>
+        <text>How many hours does the first junior in the datafile
+        who does not own a cell phone spend sleeping in a typical
+        day?</text>
+        <answers>
+          <answer>6.5</answer>
+          <answer>6.5 hrs</answer>
+          <answer>6.5 hours</answer>
+        </answers>
+        <hints>
+          <hint>To answer each of the questions in this step,
+          you'll need to look at the dataset you opened at the
+          beginning of your StatTutor session, and examine the
+          first few cases (rows).</hint>
+          <hint>In this dataset, each row represents a single
+          student. Scroll down the dataset and look for the first
+          junior (Year=3) who does not own a cell phone (Cell=no),
+          and report the number of hours this student spends
+          sleeping in a typical day.</hint>
+          <hint>If you look at the first ten students (rows) in the
+          dataset, you'll see that the first junior who does not
+          own a cell phone is student #18. This student sleeps 6.5
+          hours in a typical day.</hint>
+        </hints>
+      </cdf_question>
+    </check_data_format>
+    <consider_study_design>
+      <sampling>
+        <our_answer>
+          <text>The 312 students who participated in the study were
+          chosen via cluster sampling, where 4 clusters of students
+          were chosen at random, and all the students in these four
+          clusters are the sample. The resulting sample can be
+          considered to be a random sample of the entire
+          "population" of students who take the statistics course
+          at this university.</text>
+        </our_answer>
+      </sampling>
+      <design>
+        <answer>observational study</answer>
+      </design>
+    </consider_study_design>
+  </understand_the_problem>
+ <main_question>
+    <text>Based on a recent study, roughly 80% of college students
+    in the U.S. own a cell phone. Do the data provide evidence that
+    the proportion of students who own cell phones in this
+    university is lower than the national figure?</text>
+    <reflect_on_question>
+      <consider_question>
+        <question>Before analyzing the data and exploring how cell
+        phone ownership among college students at this university
+        compares with college students in general, try to predict
+        what the data will show (use your own experience and
+        intuition).</question>
+        <our_answer>
+          <text>There is no reason to believe that students at this
+          university are different from the entire population of
+          students in the U.S. with respect to whether or not they
+          own a cell phone.</text>
+        </our_answer>
+      </consider_question>
+    </reflect_on_question>
+    <analyze_data>
+      <plan_analyses>
+        <relevant_variables>
+          <relevant_variable>
+            <name>Cell</name>
+            <role></role>
+          </relevant_variable>
+        </relevant_variables>
+      </plan_analyses>
+      <exploratory_analyses>
+        <report_results>
+          <our_answer package="Minitab">
+            <image>m4_cell_phones/cell_phones_q2_ea_report_results_minitab2.jpg</image>
+            <text>Roughly 78% of the students in the sample own a
+            cell phone.</text>
+          </our_answer>
+          <our_answer package="StatCrunch">
+            <image>m4_cell_phones/cell_phones_q2_ea_report_results_statcrunch.jpg</image>
+            <text>Roughly 78% of the students in the sample own a
+            cell phone.</text>
+          </our_answer>
+          <our_answer package="Excel">
+            <text>Here is the Excel output:</text>
+            <image>m4_cell_phones/cell_phones_q2_ea_report_results_excel.jpg</image>
+            <text>Roughly 78% of the students in the sample own a
+            cell phone. Note that we did not include the 2 students
+            who failed to respond to this question, and took our
+            percentages out of the 310 who responded.</text>
+          </our_answer>
+          <our_answer package="R">
+            <image>m4_cell_phones/cell_phones_q2_ea_report_results_r.jpg</image>
+            <text>Roughly 78% of the students in the sample own a
+            cell phone.</text>
+          </our_answer>
+          <our_answer package="TI Calculator">
+            <image>m4_cell_phones/cell_phones_q2_ea_report_results_ti.jpg</image>
+            <text>Roughly 78% of the students in the sample own a
+            cell phone. Note that we had 310 out of the 312
+            students in our sample respond to this question.</text>
+          </our_answer>
+        </report_results>
+      </exploratory_analyses>
+      <more_formal_analyses>
+        <determine_mfa>
+          <focus>exploring the population proportion</focus>
+          <test>one sample z-test for the proportion</test>
+          <ho>
+            <first>p</first>
+            <second>=</second>
+            <third>0.8</third>
+          </ho>
+          <ha>
+            <first>p</first>
+            <second>lt</second>
+            <third>0.8</third>
+          </ha>
+          <thought_question>
+            <question>Explain why the relevant test for this
+            question (which you chose above) can be reliably
+            used?</question>
+            <our_answer>
+              <text>Both conditions under which we can reliably use
+              the z-test for the population proportion are met:(i)
+              The sample is random (recall that the sampling method
+              used is cluster sampling)(ii) n = 312, and Po = .8
+              and so 312(.8) = 249.6 &#226;&#8240;&#165; 10 and
+              also 312(1-.8) = 62.4 &#226;&#8240;&#165; 10.</text>
+            </our_answer>
+            <hint>Recall that the two conditions that need to be
+            satisfied are (i) Having a random sample and (ii) n*Po
+            and n*(1-Po) both need to be at least 10</hint>
+          </thought_question>
+        </determine_mfa>
+        <report_results>
+          <our_answer package="Minitab">
+            <image>m4_cell_phones/cell_phones_q2_mf_report_results_minitab.jpg</image>
+            <text>The test statistic is z = -.71, and the p-value
+            is .239 &amp;gt; .05, indicating that Ho cannot be
+            rejected.</text>
+          </our_answer>
+          <our_answer package="StatCrunch">
+            <image>m4_cell_phones/cell_phones_q2_mf_report_results_statcrunch.jpg</image>
+            <text>The test statistic is z = -.71, and the p-value
+            is .239 &amp;gt; .05, indicating that Ho cannot be
+            rejected.</text>
+          </our_answer>
+          <our_answer package="Excel">
+            <text>Here is the Excel output:</text>
+            <image>m4_cell_phones/cell_phones_q2_mf_report_results_excel.jpg</image>
+            <text>The test statistic is z = -.71, and the p-value
+            is .239 &amp;gt; .05, indicating that Ho cannot be
+            rejected.</text>
+          </our_answer>
+          <our_answer package="R">
+            <image>m4_cell_phones/cell_phones_q2_mf_report_results_r.jpg</image>
+            <text>The test statistic is z = -.71, and the p-value
+            is .239 &amp;gt; .05, indicating that Ho cannot be
+            rejected.</text>
+          </our_answer>
+          <our_answer package="TI Calculator">
+            <image>m4_cell_phones/cell_phones_q2_mf_report_results_ti.jpg</image>
+            <text>The test statistic is z = -.71, and the p-value
+            is .239 &amp;gt; .05, indicating that Ho cannot be
+            rejected.</text>
+          </our_answer>
+        </report_results>
+      </more_formal_analyses>
+    </analyze_data>
+    <draw_conclusions>
+      <consider_results>
+        <question>What do the results you got indicate about the
+        proportion of students at this university who own cell
+        phones?</question>
+        <our_answer>
+          <text>&lt;ul&gt;&lt;li&gt;In the exploratory analysis we
+          found that roughly 78% of the sampled students own a cell
+          phone.&lt;/li&gt;&lt;br&gt;&lt;li&gt;The formal
+          statistical test assessed that even though 78% is less
+          than 80%, this does not provide enough evidence to
+          conclude that the proportion of students at this
+          university who own a cell phone is less than .8 (which is
+          the national proportion).&lt;/li&gt;&lt;/ul&gt;</text>
+        </our_answer>
+      </consider_results>
+      <reflect_on_conclusions>
+        <our_answer>
+          <text>&lt;ul&gt;&lt;li&gt;The results are consistent with
+          what we initially
+          expected.&lt;/li&gt;&lt;br&gt;&lt;li&gt;We found no
+          relevant or meaningful way to use this information for a
+          practical purpose. It is merely interesting
+          information.&lt;/li&gt;&lt;/ul&gt;</text>
+        </our_answer>
+      </reflect_on_conclusions>
+    </draw_conclusions>
+  </main_question>
+  
+  <summarize>
+    <summarize_findings>
+      <our_answer>
+        <text>The three questions we answered in this exercise have
+        to do with evaluating some characteristics of stats
+        students at the university where the study was done
+        relative to some other larger groups of students. We found
+        that the mean verbal SAT score of the stats students is
+        significantly different from that of the entire student
+        body at the university, and that the proportion of stats
+        students who own a cell phone is not significantly lower
+        than the proportion for all college students in the nation.
+        In addition we found that the mean number of sleep hours of
+        stats students at this university is significantly
+        different from that of U.S. adults.</text>
+      </our_answer>
+    </summarize_findings>
+    <evaluate_validity>
+      <our_answer>
+        <text>&lt;ul&gt;&lt;li&gt;The questions in this StatTutor
+        only dealt with one variable rather than how one variable
+        affected another. Thus, making causal conclusions is not
+        appropriate.&lt;/li&gt;&lt;br&gt;&lt;li&gt;The cluster
+        sampling design produces a random sample, and therefore we
+        can generalize our results to the entire "population" of
+        students at this university who are taking this stats
+        class. Again, since stats students have many different
+        majors, we can probably generalize the results to the
+        entire student body at &lt;b&gt;this&lt;/b&gt;
+        university.&lt;/li&gt;&lt;/ul&gt;</text>
+      </our_answer>
+    </evaluate_validity>
+  </summarize>
+</stattutor_problem>

@@ -4,12 +4,12 @@
 	"http://oli.web.cmu.edu/dtd/cmu_stat_stattutor_3_1.dtd">
 <stattutor_problem id="low_birth_weight">
   <title>Risk Factors for Low Birth Weight</title>
-  <dataset package="Minitab">../problem_files/m6_low_birth_weight/low_birth_weight.mtw</dataset>
-  <dataset package="StatCrunch">../problem_files/m6_low_birth_weight/low_birth_weight.xls</dataset>
-  <dataset package="Excel">../problem_files/m6_low_birth_weight/low_birth_weight.xls</dataset>
-  <dataset package="R">../problem_files/m6_low_birth_weight/low_birth_weight.RData</dataset>
-  <dataset package="TI Calculator">../problem_files/m6_low_birth_weight/low_birth_weight.8xg</dataset>
-  <dataset package="json">../problem_files/m6_low_birth_weight/low_birth_weight.json</dataset>
+  <dataset package="Minitab">m6_low_birth_weight/low_birth_weight.mtw</dataset>
+  <dataset package="StatCrunch">m6_low_birth_weight/low_birth_weight.xls</dataset>
+  <dataset package="Excel">m6_low_birth_weight/low_birth_weight.xls</dataset>
+  <dataset package="R">m6_low_birth_weight/low_birth_weight.RData</dataset>
+  <dataset package="TI Calculator">m6_low_birth_weight/low_birth_weight.8xg</dataset>
+  <dataset package="json">m6_low_birth_weight/low_birth_weight.json</dataset>
   <attempts>1</attempts>
   <background>Low birth weight is an outcome that has been of
   concern to physicians for years. This is due to the fact that
@@ -213,32 +213,32 @@
       <exploratory_analyses>
         <report_results>
           <our_answer package="Minitab">
-            <image>low_birth_weight_q1_ea_report_results_minitab.jpg</image>
+            <image>m6_low_birth_weight/low_birth_weight_q1_ea_report_results_minitab.jpg</image>
             <text>25.22% of mothers who did not smoke had a low
             birth weight baby, and 40.54% of mother who did smoke
             had a low birth weight baby.</text>
           </our_answer>
           <our_answer package="StatCrunch">
-            <image>low_birth_weight_q1_ea_report_results_statcrunch.jpg</image>
+            <image>m6_low_birth_weight/low_birth_weight_q1_ea_report_results_statcrunch.jpg</image>
             <text>25.22% of mothers who did not smoke had a low
             birth weight baby, and 40.54% of mother who did smoke
             had a low birth weight baby.</text>
           </our_answer>
           <our_answer package="Excel">
             <text>Here is the Excel output:</text>
-            <image>low_birth_weight_q1_ea_report_results_excel.jpg</image>
+            <image>m6_low_birth_weight/low_birth_weight_q1_ea_report_results_excel.jpg</image>
             <text>25.22% of mothers who did not smoke had a low
             birth weight baby, and 40.54% of mother who did smoke
             had a low birth weight baby.</text>
           </our_answer>
           <our_answer package="R">
-            <image>low_birth_weight_q1_ea_report_results_r.jpg</image>
+            <image>m6_low_birth_weight/low_birth_weight_q1_ea_report_results_r.jpg</image>
             <text>25.22% of mothers who did not smoke had a low
             birth weight baby, and 40.54% of mother who did smoke
             had a low birth weight baby.</text>
           </our_answer>
           <our_answer package="TI Calculator">
-            <image>low_birth_weight_q1_ea_report_results_ti.jpg</image>
+            <image>m6_low_birth_weight/low_birth_weight_q1_ea_report_results_ti.jpg</image>
             <text>25.22% of mothers who did not smoke had a low
             birth weight baby, and 40.54% of mother who did smoke
             had a low birth weight baby.</text>
@@ -263,28 +263,28 @@
         </determine_mfa>
         <report_results>
           <our_answer package="Minitab">
-            <image>low_birth_weight_q1_mf_report_results_minitab.jpg</image>
+            <image>m6_low_birth_weight/low_birth_weight_q1_mf_report_results_minitab.jpg</image>
             <text>The test statistic is 4.924, and the p-value is
             .026. Since .026 &amp;lt; .05 we reject Ho.</text>
           </our_answer>
           <our_answer package="StatCrunch">
-            <image>low_birth_weight_q1_mf_report_results_statcrunch.jpg</image>
+            <image>m6_low_birth_weight/low_birth_weight_q1_mf_report_results_statcrunch.jpg</image>
             <text>The test statistic is 4.924, and the p-value is
             .026. Since .026 &amp;lt; .05 we reject Ho.</text>
           </our_answer>
           <our_answer package="Excel">
             <text>Here is the Excel output:</text>
-            <image>low_birth_weight_q1_mf_report_results_excel.jpg</image>
+            <image>m6_low_birth_weight/low_birth_weight_q1_mf_report_results_excel.jpg</image>
             <text>The p-value is .026. Since .026 &amp;lt; .05 we
             reject Ho.</text>
           </our_answer>
           <our_answer package="R">
-            <image>low_birth_weight_q1_mf_report_results_r.jpg</image>
+            <image>m6_low_birth_weight/low_birth_weight_q1_mf_report_results_r.jpg</image>
             <text>The test statistic is 4.924, and the p-value is
             .026. Since .026 &amp;lt; .05 we reject Ho.</text>
           </our_answer>
           <our_answer package="TI Calculator">
-            <image>low_birth_weight_q1_mf_report_results_ti.jpg</image>
+            <image>m6_low_birth_weight/low_birth_weight_q1_mf_report_results_ti.jpg</image>
             <text>The test statistic is 4.924, and the p-value is
             .026. Since .026 &amp;lt; .05 we reject Ho.</text>
           </our_answer>
@@ -356,14 +356,14 @@
       <exploratory_analyses>
         <report_results>
           <our_answer package="Minitab">
-            <image>low_birth_weight_q2_ea_report_results_minitab.jpg</image>
+            <image>m6_low_birth_weight/low_birth_weight_q2_ea_report_results_minitab.jpg</image>
             <text>23.96% of the white mothers had a low birth
             weight baby. 42.31% of black mothers had a low birth
             weight baby. 37.31% of mothers in the "other" group had
             a low birth weight baby.</text>
           </our_answer>
           <our_answer package="StatCrunch">
-            <image>low_birth_weight_q2_ea_report_results_statcrunch.jpg</image>
+            <image>m6_low_birth_weight/low_birth_weight_q2_ea_report_results_statcrunch.jpg</image>
             <text>23.96% of the white mothers had a low birth
             weight baby. 42.31% of black mothers had a low birth
             weight baby. 37.31% of mothers in the "other" group had
@@ -371,21 +371,21 @@
           </our_answer>
           <our_answer package="Excel">
             <text>Here is the Excel output:</text>
-            <image>low_birth_weight_q2_ea_report_results_excel.jpg</image>
+            <image>m6_low_birth_weight/low_birth_weight_q2_ea_report_results_excel.jpg</image>
             <text>23.96% of the white mothers had a low birth
             weight baby. 42.31% of black mothers had a low birth
             weight baby. 37.31% of mothers in the "other" group had
             a low birth weight baby.</text>
           </our_answer>
           <our_answer package="R">
-            <image>low_birth_weight_q2_ea_report_results_r.jpg</image>
+            <image>m6_low_birth_weight/low_birth_weight_q2_ea_report_results_r.jpg</image>
             <text>23.96% of the white mothers had a low birth
             weight baby. 42.31% of black mothers had a low birth
             weight baby. 37.31% of mothers in the "other" group had
             a low birth weight baby.</text>
           </our_answer>
           <our_answer package="TI Calculator">
-            <image>low_birth_weight_q2_ea_report_results_ti.jpg</image>
+            <image>m6_low_birth_weight/low_birth_weight_q2_ea_report_results_ti.jpg</image>
             <text>23.96% of the white mothers had a low birth
             weight baby. 42.31% of black mothers had a low birth
             weight baby. 37.31% of mothers in the "other" group had
@@ -411,28 +411,28 @@
         </determine_mfa>
         <report_results>
           <our_answer package="Minitab">
-            <image>low_birth_weight_q2_mf_report_results_minitab.jpg</image>
+            <image>m6_low_birth_weight/low_birth_weight_q2_mf_report_results_minitab.jpg</image>
             <text>The test statistic is 5.005, and the p-value is
             .082 &amp;gt; .05. Ho cannot be rejected.</text>
           </our_answer>
           <our_answer package="StatCrunch">
-            <image>low_birth_weight_q2_mf_report_results_statcrunch.jpg</image>
+            <image>m6_low_birth_weight/low_birth_weight_q2_mf_report_results_statcrunch.jpg</image>
             <text>The test statistic is 5.005, and the p-value is
             .082 &amp;gt; .05. Ho cannot be rejected.</text>
           </our_answer>
           <our_answer package="Excel">
             <text>Here is the Excel output:</text>
-            <image>low_birth_weight_q2_mf_report_results_excel.jpg</image>
+            <image>m6_low_birth_weight/low_birth_weight_q2_mf_report_results_excel.jpg</image>
             <text>The p-value is .082 &amp;gt; .05. Ho cannot be
             rejected.</text>
           </our_answer>
           <our_answer package="R">
-            <image>low_birth_weight_q2_mf_report_results_r.jpg</image>
+            <image>m6_low_birth_weight/low_birth_weight_q2_mf_report_results_r.jpg</image>
             <text>The test statistic is 5.005, and the p-value is
             .082 &amp;gt; .05. Ho cannot be rejected.</text>
           </our_answer>
           <our_answer package="TI Calculator">
-            <image>low_birth_weight_q2_mf_report_results_ti.jpg</image>
+            <image>m6_low_birth_weight/low_birth_weight_q2_mf_report_results_ti.jpg</image>
             <text>The test statistic is 5.005, and the p-value is
             .082 &amp;gt; .05. Ho cannot be rejected.</text>
           </our_answer>
@@ -508,7 +508,7 @@
       <exploratory_analyses>
         <report_results>
           <our_answer package="Minitab">
-            <image>low_birth_weight_q3_ea_report_results_minitab.jpg</image>
+            <image>m6_low_birth_weight/low_birth_weight_q3_ea_report_results_minitab.jpg</image>
             <text>&lt;b&gt;Center:&lt;/b&gt; The median age of
             mothers who did not have a low birth weight baby is
             slightly higher than that of mothers who did (23 vs.
@@ -521,7 +521,7 @@
             did not have a low birth weight baby.</text>
           </our_answer>
           <our_answer package="StatCrunch">
-            <image>low_birth_weight_q3_ea_report_results_statcrunch.jpg</image>
+            <image>m6_low_birth_weight/low_birth_weight_q3_ea_report_results_statcrunch.jpg</image>
             <text>&lt;b&gt;Center:&lt;/b&gt; The median age of
             mothers who did not have a low birth weight baby is
             slightly higher than that of mothers who did (23 vs.
@@ -535,7 +535,7 @@
           </our_answer>
           <our_answer package="Excel">
             <text>Here is the Excel output:</text>
-            <image>low_birth_weight_q3_ea_report_results_excel.jpg</image>
+            <image>m6_low_birth_weight/low_birth_weight_q3_ea_report_results_excel.jpg</image>
             <text>&lt;b&gt;Center:&lt;/b&gt; The median age of
             mothers who did not have a low birth weight baby is
             slightly higher than that of mothers who did (23 vs.
@@ -545,7 +545,7 @@
             Range: 31 vs. 20).</text>
           </our_answer>
           <our_answer package="R">
-            <image>low_birth_weight_q3_ea_report_results_r.jpg</image>
+            <image>m6_low_birth_weight/low_birth_weight_q3_ea_report_results_r.jpg</image>
             <text>&lt;b&gt;Center:&lt;/b&gt; The median age of
             mothers who did not have a low birth weight baby is
             slightly higher than that of mothers who did (23 vs.
@@ -560,7 +560,7 @@
             low birth weight baby.</text>
           </our_answer>
           <our_answer package="TI Calculator">
-            <image>low_birth_weight_q3_ea_report_results_ti.jpg</image>
+            <image>m6_low_birth_weight/low_birth_weight_q3_ea_report_results_ti.jpg</image>
             <text>&lt;b&gt;Center:&lt;/b&gt; The median age of
             mothers who did not have a low birth weight baby is
             slightly higher than that of mothers who did (23 vs.
@@ -591,31 +591,31 @@
         </determine_mfa>
         <report_results>
           <our_answer package="Minitab">
-            <image>low_birth_weight_q3_mf_report_results_minitab.jpg</image>
+            <image>m6_low_birth_weight/low_birth_weight_q3_mf_report_results_minitab.jpg</image>
             <text>The test statistic is t = 1.77, and the p-value
             is 0.078 &amp;gt; .05, indicating that Ho cannot be
             rejected.</text>
           </our_answer>
           <our_answer package="StatCrunch">
-            <image>low_birth_weight_q3_mf_report_results_statcrunch.jpg</image>
+            <image>m6_low_birth_weight/low_birth_weight_q3_mf_report_results_statcrunch.jpg</image>
             <text>The test statistic is t = 1.77, and the p-value
             is 0.078 &amp;gt; .05, indicating that Ho cannot be
             rejected.</text>
           </our_answer>
           <our_answer package="Excel">
             <text>Here is the Excel output:</text>
-            <image>low_birth_weight_q3_mf_report_results_excel.jpg</image>
+            <image>m6_low_birth_weight/low_birth_weight_q3_mf_report_results_excel.jpg</image>
             <text>The p-value is 0.078 &amp;gt; .05, indicating
             that Ho cannot be rejected.</text>
           </our_answer>
           <our_answer package="R">
-            <image>low_birth_weight_q3_mf_report_results_r.jpg</image>
+            <image>m6_low_birth_weight/low_birth_weight_q3_mf_report_results_r.jpg</image>
             <text>The test statistic is t = 1.77, and the p-value
             is 0.078 &amp;gt; .05, indicating that Ho cannot be
             rejected.</text>
           </our_answer>
           <our_answer package="TI Calculator">
-            <image>low_birth_weight_q3_mf_report_results_ti.jpg</image>
+            <image>m6_low_birth_weight/low_birth_weight_q3_mf_report_results_ti.jpg</image>
             <text>The test statistic is t = 1.77, and the p-value
             is 0.078 &amp;gt; .05, indicating that Ho cannot be
             rejected.</text>

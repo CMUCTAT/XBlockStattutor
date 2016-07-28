@@ -2768,7 +2768,7 @@
                         <value>UpdateTextArea</value>
                     </Action>
                     <Input>
-                        <value>&lt;img src="auto_premiums_q2_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The scatterplot displays a negative linear relationship between monthly premiums and years of driving experience.  The correlation between monthly premium and driving experience is r = -0.523 indicating a moderate linear relationship.</value>
+                        <value>&lt;img src="m7_auto_premiums/auto_premiums_q2_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The scatterplot displays a negative linear relationship between monthly premiums and years of driving experience.  The correlation between monthly premium and driving experience is r = -0.523 indicating a moderate linear relationship.</value>
                     </Input>
                     <transaction_id>T67e7c476-09c6-42bb-8b11-e2f984168284</transaction_id>
                 </properties>
@@ -2796,7 +2796,7 @@
                 <Input>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">&lt;img src="auto_premiums_q2_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The scatterplot displays a negative linear relationship between monthly premiums and years of driving experience.  The correlation between monthly premium and driving experience is r = -0.523 indicating a moderate linear relationship.</matcherParameter>
+                        <matcherParameter name="single">&lt;img src="m7_auto_premiums/auto_premiums_q2_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The scatterplot displays a negative linear relationship between monthly premiums and years of driving experience.  The correlation between monthly premium and driving experience is r = -0.523 indicating a moderate linear relationship.</matcherParameter>
                     </matcher>
                 </Input>
                 <Actor linkTriggered="false">Tutor (unevaluated)</Actor>
@@ -3668,7 +3668,7 @@
                         <value>UpdateTextArea</value>
                     </Action>
                     <Input>
-                        <value>Here is the output of the test: &lt;br/&gt;&lt;img src="auto_premiums_q2_mfa_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The test statistic is T = -4.25 and the p-value is so small that it is essentially 0, indicating that we would reject H&lt;sub&gt;0&lt;/sub&gt;.</value>
+                        <value>Here is the output of the test: &lt;br/&gt;&lt;img src="m7_auto_premiums/auto_premiums_q2_mfa_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The test statistic is T = -4.25 and the p-value is so small that it is essentially 0, indicating that we would reject H&lt;sub&gt;0&lt;/sub&gt;.</value>
                     </Input>
                     <transaction_id>Td0af824d-46f8-4baf-9d63-442afedeb20c</transaction_id>
                 </properties>
@@ -3696,7 +3696,7 @@
                 <Input>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">Here is the output of the test: &lt;br/&gt;&lt;img src="auto_premiums_q2_mfa_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The test statistic is T = -4.25 and the p-value is so small that it is essentially 0, indicating that we would reject H&lt;sub&gt;0&lt;/sub&gt;.</matcherParameter>
+                        <matcherParameter name="single">Here is the output of the test: &lt;br/&gt;&lt;img src="m7_auto_premiums/auto_premiums_q2_mfa_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The test statistic is T = -4.25 and the p-value is so small that it is essentially 0, indicating that we would reject H&lt;sub&gt;0&lt;/sub&gt;.</matcherParameter>
                     </matcher>
                 </Input>
                 <Actor linkTriggered="false">Tutor (unevaluated)</Actor>
@@ -5257,7 +5257,7 @@
                         <value>UpdateTextArea</value>
                     </Action>
                     <Input>
-                        <value>&lt;img src="auto_premiums_q1_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;&lt;b&gt;Center:&lt;/b&gt; The side-by-side boxplots suggest that in general, male drivers have higher premiums than female drivers (median 68 vs. 50).&lt;br&gt;&lt;br&gt;&lt;b&gt;Spread:&lt;/b&gt; The spread of the two distributions is roughly the same (the IQRs are 19 and 18.5).&lt;br&gt;&lt;br&gt;&lt;b&gt;Outliers:&lt;/b&gt; Neither of the distributions have outliers.</value>
+                        <value>&lt;img src="m7_auto_premiums/auto_premiums_q1_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;&lt;b&gt;Center:&lt;/b&gt; The side-by-side boxplots suggest that in general, male drivers have higher premiums than female drivers (median 68 vs. 50).&lt;br&gt;&lt;br&gt;&lt;b&gt;Spread:&lt;/b&gt; The spread of the two distributions is roughly the same (the IQRs are 19 and 18.5).&lt;br&gt;&lt;br&gt;&lt;b&gt;Outliers:&lt;/b&gt; Neither of the distributions have outliers.</value>
                     </Input>
                     <transaction_id>T67e7c476-09c6-42bb-8b11-e2f984168284</transaction_id>
                 </properties>
@@ -5285,7 +5285,7 @@
                 <Input>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">&lt;img src="auto_premiums_q1_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;&lt;b&gt;Center:&lt;/b&gt; The side-by-side boxplots suggest that in general, male drivers have higher premiums than female drivers (median 68 vs. 50).&lt;br&gt;&lt;br&gt;&lt;b&gt;Spread:&lt;/b&gt; The spread of the two distributions is roughly the same (the IQRs are 19 and 18.5).&lt;br&gt;&lt;br&gt;&lt;b&gt;Outliers:&lt;/b&gt; Neither of the distributions have outliers.</matcherParameter>
+                        <matcherParameter name="single">&lt;img src="m7_auto_premiums/auto_premiums_q1_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;&lt;b&gt;Center:&lt;/b&gt; The side-by-side boxplots suggest that in general, male drivers have higher premiums than female drivers (median 68 vs. 50).&lt;br&gt;&lt;br&gt;&lt;b&gt;Spread:&lt;/b&gt; The spread of the two distributions is roughly the same (the IQRs are 19 and 18.5).&lt;br&gt;&lt;br&gt;&lt;b&gt;Outliers:&lt;/b&gt; Neither of the distributions have outliers.</matcherParameter>
                     </matcher>
                 </Input>
                 <Actor linkTriggered="false">Tutor (unevaluated)</Actor>
@@ -6157,7 +6157,7 @@
                         <value>UpdateTextArea</value>
                     </Action>
                     <Input>
-                        <value>Here is the output of the test &lt;br/&gt;&lt;img src="auto_premiums_q1_mfa_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The test statistic is t = 3.57 and the p-value is 0.001, indicating that we would reject H&lt;sub&gt;0&lt;/sub&gt;.</value>
+                        <value>Here is the output of the test &lt;br/&gt;&lt;img src="m7_auto_premiums/auto_premiums_q1_mfa_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The test statistic is t = 3.57 and the p-value is 0.001, indicating that we would reject H&lt;sub&gt;0&lt;/sub&gt;.</value>
                     </Input>
                     <transaction_id>Td0af824d-46f8-4baf-9d63-442afedeb20c</transaction_id>
                 </properties>
@@ -6185,7 +6185,7 @@
                 <Input>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">Here is the output of the test &lt;br/&gt;&lt;img src="auto_premiums_q1_mfa_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The test statistic is t = 3.57 and the p-value is 0.001, indicating that we would reject H&lt;sub&gt;0&lt;/sub&gt;.</matcherParameter>
+                        <matcherParameter name="single">Here is the output of the test &lt;br/&gt;&lt;img src="m7_auto_premiums/auto_premiums_q1_mfa_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The test statistic is t = 3.57 and the p-value is 0.001, indicating that we would reject H&lt;sub&gt;0&lt;/sub&gt;.</matcherParameter>
                     </matcher>
                 </Input>
                 <Actor linkTriggered="false">Tutor (unevaluated)</Actor>

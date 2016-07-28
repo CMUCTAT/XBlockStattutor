@@ -4,12 +4,12 @@
 	"http://oli.web.cmu.edu/dtd/cmu_stat_stattutor_3_1.dtd">
 <stattutor_problem id="auto_premiums">
   <title>Monthly Premiums of Auto Insurance</title>
-  <dataset package="Minitab">../problem_files/m7_auto_premiums/auto_premiums.mtw</dataset>
-  <dataset package="StatCrunch">../problem_files/m7_auto_premiums/auto_premiums.xls</dataset>
-  <dataset package="Excel">../problem_files/m7_auto_premiums/auto_premiums.xls</dataset>
-  <dataset package="R">../problem_files/m7_auto_premiums/auto_premiums.RData</dataset>
-  <dataset package="TI Calculator">../problem_files/m7_auto_premiums/auto_premiums.8xg</dataset>
-  <dataset package="json">../problem_files/m7_auto_premiums/auto_premiums.json</dataset>
+  <dataset package="Minitab">m7_auto_premiums/auto_premiums.mtw</dataset>
+  <dataset package="StatCrunch">m7_auto_premiums/auto_premiums.xls</dataset>
+  <dataset package="Excel">m7_auto_premiums/auto_premiums.xls</dataset>
+  <dataset package="R">m7_auto_premiums/auto_premiums.RData</dataset>
+  <dataset package="TI Calculator">m7_auto_premiums/auto_premiums.8xg</dataset>
+  <dataset package="json">m7_auto_premiums/auto_premiums.json</dataset>
   <attempts>1</attempts>
   <background>It is very unlikely that two drivers who have the
   same auto insurance with the same insurance company will have the
@@ -175,7 +175,7 @@
       <exploratory_analyses>
         <report_results>
           <our_answer package="Minitab">
-            <image>auto_premiums_q2_ea_report_results_minitab.jpg</image>
+            <image>m7_auto_premiums/auto_premiums_q2_ea_report_results_minitab.jpg</image>
             <text>The scatterplot displays a negative linear
             relationship between monthly premiums and years of
             driving experience. The correlation between monthly
@@ -183,7 +183,7 @@
             a moderate linear relationship.</text>
           </our_answer>
           <our_answer package="StatCrunch">
-            <image>auto_premiums_q2_ea_report_results_statcrunch.jpg</image>
+            <image>m7_auto_premiums/auto_premiums_q2_ea_report_results_statcrunch.jpg</image>
             <text>The scatterplot displays a negative linear
             relationship between monthly premiums and years of
             driving experience. The correlation between monthly
@@ -192,7 +192,7 @@
           </our_answer>
           <our_answer package="Excel">
             <text>Here is the Excel output:</text>
-            <image>auto_premiums_q2_ea_report_results_excel.jpg</image>
+            <image>m7_auto_premiums/auto_premiums_q2_ea_report_results_excel.jpg</image>
             <text>The scatterplot displays a negative linear
             relationship between monthly premiums and years of
             driving experience. The correlation between monthly
@@ -200,7 +200,7 @@
             a moderate linear relationship.</text>
           </our_answer>
           <our_answer package="R">
-            <image>auto_premiums_q2_ea_report_results_r.jpg</image>
+            <image>m7_auto_premiums/auto_premiums_q2_ea_report_results_r.jpg</image>
             <text>The scatterplot displays a negative linear
             relationship between monthly premiums and years of
             driving experience. The correlation between monthly
@@ -209,7 +209,7 @@
           </our_answer>
           <our_answer package="TI Calculator">
             <text>Here is the TI output:</text>
-            <image>auto_premiums_q2_ea_report_results_ti.jpg</image>
+            <image>m7_auto_premiums/auto_premiums_q2_ea_report_results_ti.jpg</image>
             <text>The scatterplot displays a negative linear
             relationship between monthly premiums and years of
             driving experience. The correlation between monthly
@@ -237,14 +237,14 @@
         <report_results>
           <our_answer package="Minitab">
             <text>Here is the output of the test:</text>
-            <image>auto_premiums_q2_mfa_report_results_minitab.jpg</image>
+            <image>m7_auto_premiums/auto_premiums_q2_mfa_report_results_minitab.jpg</image>
             <text>The test statistic is T = -4.25 and the p-value
             is so small that Minitab reports that it is essentially
             0, indicating that we would reject Ho.</text>
           </our_answer>
           <our_answer package="StatCrunch">
             <text>Here is the output of the test:</text>
-            <image>auto_premiums_q2_mfa_report_results_statcrunch.jpg</image>
+            <image>m7_auto_premiums/auto_premiums_q2_mfa_report_results_statcrunch.jpg</image>
             <text>The test statistic is T = -4.25 and the p-value
             is so small that Minitab reports that it is essentially
             0, indicating that we would reject Ho.</text>
@@ -252,21 +252,20 @@
           <our_answer package="Excel">
             <text>Here is the Excel output (the right half of the
             table that Excel generates is not shown):</text>
-            <image>auto_premiums_q2_mfa_report_results_excel.jpg</image>
+            <image>m7_auto_premiums/auto_premiums_q2_mfa_report_results_excel.jpg</image>
             <text>The p-value, highlighted in red, is 9.8E-05, or
             essentially 0, indicating that we would reject
             Ho.</text>
           </our_answer>
           <our_answer package="R">
-            <image>auto_premiums_q2_mfa_report_results_r.jpg</image>
+            <image>m7_auto_premiums/auto_premiums_q2_mfa_report_results_r.jpg</image>
             <text>The test statistic is t = -4.25 and the p-value
             is 9.8e-05, or essentially 0, indicating that we would
             reject Ho.</text>
           </our_answer>
           <our_answer package="TI Calculator">
             <text>Here is the output of the test:</text>
-            <image>
-            auto_premiums_q2_mfa_report_results_ti.jpg</image>
+            <image>m7_auto_premiums/auto_premiums_q2_mfa_report_results_ti.jpg</image>
             <text>The test statistic is t = -4.25 and the p-value
             is 9.8E-5, or essentially 0, indicating that we would
             reject Ho.</text>
@@ -349,7 +348,7 @@
       <exploratory_analyses>
         <report_results>
           <our_answer package="Minitab">
-            <image>auto_premiums_q1_ea_report_results_minitab.jpg</image>
+            <image>m7_auto_premiums/auto_premiums_q1_ea_report_results_minitab.jpg</image>
             <text>&lt;b&gt;Center:&lt;/b&gt; The side-by-side
             boxplots suggest that in general, male drivers have
             higher premiums than female drivers (median 68 vs.
@@ -360,7 +359,7 @@
             Neither of the distributions have outliers.</text>
           </our_answer>
           <our_answer package="StatCrunch">
-            <image>auto_premiums_q1_ea_report_results_statcrunch.jpg</image>
+            <image>m7_auto_premiums/auto_premiums_q1_ea_report_results_statcrunch.jpg</image>
             <text>&lt;b&gt;Center:&lt;/b&gt; The side-by-side
             boxplots suggest that in general, male drivers have
             higher premiums than female drivers (median 68 vs.
@@ -372,7 +371,7 @@
           </our_answer>
           <our_answer package="Excel">
             <text>Here is the Excel output:</text>
-            <image>auto_premiums_q1_ea_report_results_excel.jpg</image>
+            <image>m7_auto_premiums/auto_premiums_q1_ea_report_results_excel.jpg</image>
             <text>&lt;b&gt;Center:&lt;/b&gt; The side-by-side
             boxplots suggest that in general, male drivers have
             higher premiums than female drivers (median 68 vs.
@@ -381,7 +380,7 @@
             (the IQRs are 18 and 15).</text>
           </our_answer>
           <our_answer package="R">
-            <image>auto_premiums_q1_ea_report_results_r.jpg</image>
+            <image>m7_auto_premiums/auto_premiums_q1_ea_report_results_r.jpg</image>
             <text>&lt;b&gt;Center:&lt;/b&gt; The side-by-side
             boxplots suggest that in general, male drivers have
             higher premiums than female drivers (median 68 vs.
@@ -393,7 +392,7 @@
           </our_answer>
           <our_answer package="TI Calculator">
             <text>Here is the TI output:</text>
-            <image>auto_premiums_q1_ea_report_results_ti.jpg</image>
+            <image>m7_auto_premiums/auto_premiums_q1_ea_report_results_ti.jpg</image>
             <text>&lt;b&gt;Center:&lt;/b&gt; The side-by-side
             boxplots suggest that in general, male drivers have
             higher premiums than female drivers (median 68 vs.
@@ -423,30 +422,30 @@
         <report_results>
           <our_answer package="Minitab">
             <text>Here is the output of the test</text>
-            <image>auto_premiums_q1_mfa_report_results_minitab.jpg</image>
+            <image>m7_auto_premiums/auto_premiums_q1_mfa_report_results_minitab.jpg</image>
             <text>The test statistic is t = 3.57 and the p-value is
             0.001, indicating that we would reject Ho.</text>
           </our_answer>
           <our_answer package="StatCrunch">
             <text>Here is the output of the test</text>
-            <image>auto_premiums_q1_mfa_report_results_statcrunch.jpg</image>
+            <image>m7_auto_premiums/auto_premiums_q1_mfa_report_results_statcrunch.jpg</image>
             <text>The test statistic is t = 3.57 and the p-value is
             0.001, indicating that we would reject Ho.</text>
           </our_answer>
           <our_answer package="Excel">
             <text>Here is the Excel output:</text>
-            <image>auto_premiums_q1_mfa_report_results_excel.jpg</image>
+            <image>m7_auto_premiums/auto_premiums_q1_mfa_report_results_excel.jpg</image>
             <text>The p-value is 0.0005, indicating that we would
             reject Ho.</text>
           </our_answer>
           <our_answer package="R">
-            <image>auto_premiums_q1_mfa_report_results_r.jpg</image>
+            <image>m7_auto_premiums/auto_premiums_q1_mfa_report_results_r.jpg</image>
             <text>The test statistic is t = 3.57 and the p-value is
             0.0005, indicating that we would reject Ho.</text>
           </our_answer>
           <our_answer package="TI Calculator">
             <text>Here is the TI output:</text>
-            <image>auto_premiums_q1_mfa_report_results_ti.jpg</image>
+            <image>m7_auto_premiums/auto_premiums_q1_mfa_report_results_ti.jpg</image>
             <text>The test statistic is t = 3.57 and the p-value is
             5.08E-4 = 0.0005, indicating that we would reject
             Ho.</text>

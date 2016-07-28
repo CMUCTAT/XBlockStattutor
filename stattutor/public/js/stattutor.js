@@ -12,7 +12,8 @@ var StatTutor = {
 	var $dataset = $($.parseXML(datasetXML));
 	$dataset.find('dataset').each(function () {
 	    var $this = $(this);
-	    StatTutor.dataset[$this.attr('package')] = $this.text();
+	    StatTutor.dataset[$this.attr('package')] =
+		'../problem_files/'+$this.text();
 	});
     },
 
@@ -572,6 +573,77 @@ var StatTutor = {
 	    StatTutor.goto_tab('Questions');
 	}
     }
+}
+/**
+ * Construct a buggy feedback message having a diagnostic for each right and wrong entry to a
+ * choose-K-of-N checkbox question. The first 2 arguments are strings of the form
+ *     choice1: {true|false};[choice2: {true|false};[...]]
+ * where true means that box is checked, false means unchecked.
+ * @param exp {string} expected or correct input from the checkbox component
+ * @param act {string} actual or student input to grade from the checkbox component
+ * @param intro {string} the very first words of the response; e.g. "Incorrect.", "Almost but not quite."
+ * @param studentTerms [{string}] the student terms for the choices; e.g. ["grade point average","hair color"]
+ * @param itemName {string} the student term for what thing is being chosen; e.g. "a variable", "a color".
+ * @param itemsName {string} the plural for itemName; e.g. "variables", "colors".
+ * @param rightPr {string} prepend this string if any needed box is checked; e.g. "You are right that"
+ * @param wrongPr {string} prepend this string if any unwanted box is checked; e.g. "Changes due to"
+ * @param wrongMid {string} insert this string in the middle of the unwanted-box sentence; e.g. "are not included in this matter, so"
+ * @param rightSf {string} end of sentence when any needed box is checked; e.g. "relevant to this question."
+ * @param wrongSf {string} end of sentence when any unwanted box is checked; e.g. "irrelevant to this question."
+ * @param exist1Sf {string} final sentence if no needed box is checked; e.g. "There is at least one relevant variable."
+ * @param existOtherSf {string} final sentence if too few needed boxes are checked; e.g. "There is at least one other relevant variable."
+ * @return {string} complete response
+ */
+function gen_k_of_n_checkbox_feedback(exp, act, intro, studentTerms, itemName, itemsName, rightPr, wrongPr, wrongMid, rightSf, wrongSf, exist1Sf, existOtherSf) {
+    var expA = exp.split(";");
+    var actA = act.split(";");
+    var wantedA = [];              // needed and set
+    var unwantedA = [];            // unneeded but set
+    var unwantedStudentTermA = []; // studentTerms for unwantedA
+    var nNeeded = 0;               // total needed
+    for(var n = Math.min(expA.length, actA.length), i = 0; i<n; ++i) {
+	var ok = (expA[i] == actA[i]);
+	var expNV = expA[i].split(": ");
+	var actNV = actA[i].split(": ");
+	if(expNV[1]=="true") {
+	    ++nNeeded;
+	    if(ok) {wantedA.push(expNV[0])};
+	}
+	if(!ok && (actNV[1]=="true")) {
+	    unwantedA.push(actNV[0]);
+	    unwantedStudentTermA.push(studentTerms[i]);
+	};
+    }
+    var result = "";
+    var i=0;
+    switch(wantedA.length) {
+	case 0: break;
+	case 1: result = intro+" "+rightPr+" "+wantedA[i++]+" is "+itemName+" "+rightSf;
+		break;
+	case 2: result = intro+" "+rightPr+" "+wantedA[i++]+" and "+wantedA[i++]+" are "+itemsName+" "+rightSf;
+		break;
+	default: result = intro+" "+rightPr+" ";
+		while(i<wantedA.length-1) {result=result+wantedA[i++]+", "};
+		result = result+"and "+wantedA[i++]+" are "+itemsName+" "+rightSf;
+    }
+    var j=0;
+    switch(unwantedA.length) {
+	case 0: if(!result) {result = intro}
+		break;
+	case 1: result += (result? " However:":intro)+" "+wrongPr+" "+unwantedStudentTermA[j];
+		result += " "+wrongMid+" "+unwantedA[j]+" is "+itemName+" "+wrongSf;
+		break;
+	case 2: result += (result? " However:":intro)+" "+wrongPr+" "+unwantedStudentTermA[j]+" and "+unwantedStudentTermA[j+1];
+		result += " "+wrongMid+" "+unwantedA[j]+" and "+unwantedA[j+1]+" are "+itemsName+" "+wrongSf;
+		break;
+	default: result += (result? " However:":intro)+" "+wrongPr+" ";
+		while(j<unwantedStudentTermA.length-1) {result=result+unwantedStudentTermA[j++]+", "};
+		result = result+"and "+unwantedStudentTermA[j++]+" "+wrongMid+" ";
+		j=0;
+		while(j<unwantedA.length-1) {result=result+unwantedA[j++]+", "};
+		result = result+"and "+unwantedA[j++]+" are "+itemsName+" "+wrongSf;
+    }
+    result += (wantedA.length>=nNeeded ? "" : (wantedA.length>0 ? " "+existOtherSf : (nNeeded>0 ? " "+exist1Sf : "")));	    return result;
 }
 /**
  * Reveal the given our_answer section.

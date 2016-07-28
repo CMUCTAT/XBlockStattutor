@@ -2,14 +2,14 @@
 <!DOCTYPE stattutor_problem
     PUBLIC "-//Carnegie Mellon University//DTD Stattutor 3.1//EN"
            "http://oli.web.cmu.edu/dtd/cmu_stat_stattutor_3_1.dtd">
-<stattutor_problem id="survey">
-  <title>Drinking Habits and Integrity of College Students</title>
-  <dataset package="Minitab">m1_survey/drinking.mtw</dataset>
-  <dataset package="Excel">m1_survey/drinking.xls</dataset>
-  <dataset package="StatCrunch">m1_survey/drinking.xls</dataset>
-  <dataset package="R">m1_survey/drinking.RData</dataset>
+<stattutor_problem id="survey_1q">
+  <title>Drinking Habits  of College Students</title>
+  <dataset package="Minitab">m1_survey_1q/drinking.mtw</dataset>
+  <dataset package="Excel">m1_survey_1q/drinking.xls</dataset>
+  <dataset package="StatCrunch">m1_survey_1q/drinking.xls</dataset>
+  <dataset package="R">m1_survey_1q/drinking.RData</dataset>
   <dataset package="TI Calculator">m1_survey/drinking.8xg</dataset>
-  <dataset package="json">m1_survey/Survey.json</dataset>
+  <dataset package="json">m1_survey_1q/Survey.json</dataset>
   <attempts>1</attempts>
   <background>A student survey was conducted at a major university.
   Data were collected from a random sample of 236 undergraduate
@@ -331,115 +331,7 @@
       </reflect_on_conclusions>
     </draw_conclusions>
   </main_question>
-  <main_question>
-    <text>One of the statistics professors at this university uses
-    the honor system when giving exams. If there were cheating
-    going on during her exams, would the professor be likely to
-    know about it?</text>
-    <reflect_on_question>
-      <consider_question>
-        <question>Before analyzing the data and discovering how the
-        students will react if they witness cheating during an
-        exam, try to predict what the data will show (use your own
-        experience and intuition).</question>
-        <our_answer>
-          <text>Most universities do not have an "honor code," so
-          it would make sense to expect that most students answered
-          that they would not report on cheating.</text>
-        </our_answer>
-      </consider_question>
-    </reflect_on_question>
-    <analyze_data>
-      <plan_analyses>
-        <relevant_variables>
-          <relevant_variable>
-            <name>Cheat</name>
-            <role></role>
-          </relevant_variable>
-        </relevant_variables>
-      </plan_analyses>
-      <exploratory_analyses>
-        <report_results>
-          <our_answer package="Minitab">
-            <image>m1_survey/survey_q2_ea_report_results_minitab.jpg</image>
-            <text>The vast majority of students (91.5%) answered
-            that they would not report on cheating, and the other
-            8.5% answered that they would.</text>
-          </our_answer>
-          <our_answer package="StatCrunch">
-            <image>m1_survey/survey_q2_ea_report_results_statcrunch.jpg</image>
-            <text>The vast majority of students (91.5%) answered
-            that they would not report on cheating, and the other
-            8.5% answered that they would.</text>
-          </our_answer>
-          <our_answer package="Excel">
-            <image>m1_survey/survey_q2_ea_report_results_excel.jpg</image>
-            <text>The vast majority of students (91.5%) answered
-            that they would not report on cheating, and the other
-            8.5% answered that they would.</text>
-          </our_answer>
-          <our_answer package="R">
-            <image>m1_survey/survey_q2_ea_report_results_r.jpg</image>
-            <text>The vast majority of students (92%) answered that
-            they would not report on cheating, and the other 8%
-            answered that they would.</text>
-          </our_answer>
-          <our_answer package="TI Calculator">
-            <image>m1_survey/survey_q2_ea_report_results_ti.jpg</image>
-            <text>The vast majority of students (91.5%) answered
-            that they would not report on cheating, and the other
-            8.5% answered that they will.</text>
-          </our_answer>
-        </report_results>
-      </exploratory_analyses>
-      <more_formal_analyses>
-        <determine_mfa>
-          <focus></focus>
-          <test></test>
-          <ho>
-            <first></first>
-            <second></second>
-            <third></third>
-          </ho>
-          <ha>
-            <first></first>
-            <second></second>
-            <third></third>
-          </ha>
-        </determine_mfa>
-        <report_results>
-          <our_answer></our_answer>
-        </report_results>
-      </more_formal_analyses>
-    </analyze_data>
-    <draw_conclusions>
-      <consider_results>
-        <question>What do the results you got indicate about the
-        question highlighted above (i.e., about the likelihood of
-        the statistics professor knowing about the
-        cheating)?</question>
-        <our_answer>
-          <text>Since the vast majority would not report on
-          cheating, it is most likely that if there was cheating
-          going on during an exam, the instructor would not know
-          about it. On the other hand, even if one of the 8.5% of
-          students who answered that they would report on cheating
-          witnessed it, then the instructor would be
-          informed.</text>
-        </our_answer>
-      </consider_results>
-      <reflect_on_conclusions>
-        <our_answer>
-          <text>&lt;ul&gt;&lt;li&gt;The results we got are
-          consistent with what we predicted that they would
-          be.&lt;/li&gt;&lt;br&gt;&lt;li&gt;The instructor might
-          want to reconsider using the honor code and should
-          definitely be on the lookout for cheating
-          herself/himself.&lt;/li&gt;&lt;/ul&gt;</text>
-        </our_answer>
-      </reflect_on_conclusions>
-    </draw_conclusions>
-  </main_question>
+  
   <summarize>
     <summarize_findings>
       <our_answer>
