@@ -31,3 +31,6 @@
 *.PDF	 diff=astextplain
 *.rtf	 diff=astextplain
 *.RTF	 diff=astextplain
+
+# CTAT
+*.brd linguist-language=XML
