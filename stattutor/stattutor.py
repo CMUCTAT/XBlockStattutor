@@ -27,12 +27,6 @@ class StattutorXBlock(XBlock):
         default="StatTutor",
         scope=Scope.content)
 
-    # **** xBlock tag variables ****
-    width = Integer(help="Width of the StatTutor frame.",
-                    default=900, scope=Scope.content)
-    height = Integer(help="Height of the StatTutor frame.",
-                     default=750, scope=Scope.content)
-
     # **** Grading variables ****
     has_score = Boolean(default=True, scope=Scope.content)
     icon_class = String(default="problem", scope=Scope.content)
@@ -156,7 +150,7 @@ class StattutorXBlock(XBlock):
         html = self.resource_string("static/html/ctatxblock.html")
         frag = Fragment(html.format(
             tutor_html=self.get_local_resource_url(self.src),
-            width=self.width, height=self.height))
+        ))
         config = self.resource_string("static/js/CTATConfig.js")
         frag.add_javascript(config.format(
             self=self,
@@ -237,8 +231,6 @@ class StattutorXBlock(XBlock):
         desc = [p for p in problem_dir_files if '.xml' in p]
         if len(desc) > 0:
             self.problem_description = mod_dir+'/'+desc[0]
-        self.width = data.get('width')
-        self.height = data.get('height')
         return {'result': 'success'}
 
     @XBlock.json_handler
@@ -262,7 +254,7 @@ class StattutorXBlock(XBlock):
         return [
             ("StattutorXBlock",
              """<vertical_demo>
-                <stattutor width="900" height="750"/>
+                <stattutor />
                 </vertical_demo>
              """),
         ]
