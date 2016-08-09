@@ -6,6 +6,7 @@ implimented for OLI (http://oli.cmu.edu/).
 import re
 import uuid
 import pkg_resources
+import base64
 
 # pylint: disable=import-error
 # The xblock packages are available in the runtime environment.
@@ -161,7 +162,8 @@ class StattutorXBlock(XBlock):
         frag.add_javascript(config.format(
             self=self,
             tutor_html=self.get_local_resource_url(self.src),
-            question_file=self.get_local_resource_url(self.brd),
+            question_file="data:file/brd;base64," +
+            base64.b64encode(self.resource_string(self.brd)),
             student_id=self.runtime.anonymous_student_id
             if hasattr(self.runtime, 'anonymous_student_id')
             else 'bogus-sdk-id',
