@@ -1,12 +1,12 @@
 """
-This is a XBlock used to serve the CTAT based StatTutor problems orginally
-implimented for OLI (http://oli.cmu.edu/).
+This is a XBlock used to serve the CTAT based StatTutor problems originally
+implemented for OLI (http://oli.cmu.edu/).
 """
 
 import re
 import uuid
-import pkg_resources
 import base64
+import pkg_resources
 
 # pylint: disable=import-error
 # The xblock packages are available in the runtime environment.
@@ -26,15 +26,21 @@ class StattutorXBlock(XBlock):
     display_name = String(
         help="Display name of the component",
         default="StatTutor",
-        scope=Scope.content)
+        scope=Scope.content)  # required to prevent garbage name at the top
 
     # **** xBlock tag variables ****
-    width = Integer(help="Width of the StatTutor frame.",
-                    default=900, scope=Scope.content)
-    height = Integer(help="Height of the StatTutor frame.",
-                     default=750, scope=Scope.content)
+    # The width must be at least 900 in order to accommodate some dynamically
+    # loaded images and some of the interactive elements without causing
+    # side scrolling scrollbars to appear.  They are set here instead of
+    # hard coding them into ctatxblock.html to make it easier for EdX
+    # administrators to modify them if they wish without having to scour
+    # all of the code for where they are set.
+    width = 900  # Width of the StatTutor frame.
+    height = 750  # Height of the StatTutor frame.
 
     # **** Grading variables ****
+    # All of the variable in this section are required to get grading to work
+    # according to EdX's documentation.
     has_score = Boolean(default=True, scope=Scope.content)
     icon_class = String(default="problem", scope=Scope.content)
     score = Integer(help="Current count of correctly completed student steps",
@@ -46,6 +52,8 @@ class StattutorXBlock(XBlock):
 
     def max_score(self):
         """ The maximum raw score of the problem. """
+        # For some unknown reason, errors are thrown if the return value is
+        # hard coded.
         return self.max_possible_score
     attempted = Boolean(help="True if at least one step has been completed",
                         scope=Scope.user_state, default=False)
@@ -59,55 +67,52 @@ class StattutorXBlock(XBlock):
               "option point values."),
         values={"min": 0, "step": .1},
         scope=Scope.settings
-    )  # weight needs to be set to something
+    )  # weight needs to be set to something, errors will be thrown if it does
+    # not exist.
 
     # **** Basic interface variables ****
-    src = String(help="The source html file for CTAT interface.",
-                 default="public/html/StatTutor.html", scope=Scope.settings)
-    brd = String(help="The behavior graph.",
-                 default="public/problem_files/m1_survey/survey.brd",
-                 scope=Scope.settings)
-    problem_description = String(
-        help="The problem description xml file.",
-        default="public/problem_files/m1_survey/survey.xml",
-        scope=Scope.settings)
+    # All of the variable in this section are required to get the tutors to run
+    src = "public/html/StatTutor.html"  # this is static in StatTutor
+    # src can not be hard coded into static/html/ctatxblock.html because of the
+    # relative path issues discussed elsewhere in this file.
+
+    # Generate and store a dictionary of the available problems.
+    # (AKA the problem whitelist)
+    problems = {}
+    for pf_dir in pkg_resources.resource_listdir(__name__,
+                                                 'public/problem_files/'):
+        pdir = 'public/problem_files/{}'.format(pf_dir)
+        if pkg_resources.resource_isdir(__name__, pdir):
+            pdir_files = [f for f in
+                          pkg_resources.resource_listdir(__name__, pdir)]
+            brds = [brd for brd in pdir_files if '.brd' in brd]
+            desc = [dsc for dsc in pdir_files if '.xml' in dsc]
+            if len(brds) > 0 and len(desc) > 0:
+                problems[pf_dir] = {'name': pf_dir,
+                                    'brd': pdir + '/' + brds[0],
+                                    'description': pdir + '/' + desc[0]}
+    problem = String(help="The selected problem from problems",
+                     default="m1_survey", scope=Scope.settings)
 
     # **** CTATConfiguration variables ****
-    log_name = String(help="Problem name to log", default="CTATEdXProblem",
-                      scope=Scope.settings)
-    log_dataset = String(help="Dataset name to log", default="edxdataset",
-                         scope=Scope.settings)
-    log_level1 = String(help="Level name to log", default="unit1",
-                        scope=Scope.settings)
-    log_type1 = String(help="Level type to log", default="unit",
-                       scope=Scope.settings)
-    log_level2 = String(help="Level name to log", default="unit2",
-                        scope=Scope.settings)
-    log_type2 = String(help="Level type to log", default="unit",
-                       scope=Scope.settings)
+    # These should be the only variables needed to set up logging.
+
+    # log_url should be the url of the logging service.
     log_url = String(help="URL of the logging service",
                      default="http://pslc-qa.andrew.cmu.edu/log/server",
                      scope=Scope.settings)
+
     # None, ClientToService, ClientToLogServer, or OLI
+    # Set to "ClientToService" to activate logging.
     logtype = String(help="How should data be logged",
                      default="None", scope=Scope.settings)
-    log_diskdir = String(
-        help="Directory for log files relative to the tutoring service",
-        default=".", scope=Scope.settings)
-    log_port = String(help="Port used by the tutoring service", default="8080",
-                      scope=Scope.settings)
-    log_remoteurl = String(
-        help="Location of the tutoring service (localhost or domain name)",
-        default="localhost", scope=Scope.settings)
-
-    ctat_connection = String(help="", default="javascript",
-                             scope=Scope.settings)
 
     # **** User Information ****
+    # This section includes variables necessary for storing partial
+    # student answers so that they can come back and work on a problem
+    # without worrying about loosing progress.
     saveandrestore = String(help="Internal data blob used by the tracer",
                             default="", scope=Scope.user_state)
-    skillstring = String(help="Internal data blob used by the tracer",
-                         default="", scope=Scope.user_info)
 
     # **** Utility functions and methods ****
     @staticmethod
@@ -123,6 +128,9 @@ class StattutorXBlock(XBlock):
 
     def get_local_resource_url(self, url):
         """ Wrapper for self.runtime.local_resource_url. """
+        # It has been observed that self.runtime.local_resource_url(self, url)
+        # prepends "//localhost:(port)" which makes accessing the Xblock in EdX
+        # from a remote machine fail completely.
         return self.strip_local(self.runtime.local_resource_url(self, url))
 
     # **** XBlock methods ****
@@ -151,24 +159,36 @@ class StattutorXBlock(XBlock):
         """
         Create a Fragment used to display a CTAT StatTutor xBlock to a student.
 
-        Returns a Fragment object containing the HTML to display
+        Args:
+          dummy_context: unused but required as a XBlock.student_view.
+        Returns:
+          a Fragment object containing the HTML to display.
         """
         # read in template html
         html = self.resource_string("static/html/ctatxblock.html")
+        brd = self.problems[self.problem]['brd']
+        description = self.problems[self.problem]['description']
         frag = Fragment(html.format(
+            # Until the iframe srcdoc attribute is universally supported
+            # a valid xblock generated url has to be passed into
+            # ctatxblock.html.  Internet Explorer does not support srcdoc.
             tutor_html=self.get_local_resource_url(self.src),
             width=self.width, height=self.height))
         config = self.resource_string("static/js/CTATConfig.js")
         frag.add_javascript(config.format(
-            self=self,
+            logtype=self.logtype,
+            log_url=self.log_url,
+            problem_name=self.problem,
             tutor_html=self.get_local_resource_url(self.src),
             question_file="data:file/brd;base64," +
-            base64.b64encode(self.resource_string(self.brd)),
+            base64.b64encode(self.resource_string(brd)),
             student_id=self.runtime.anonymous_student_id
             if hasattr(self.runtime, 'anonymous_student_id')
             else 'bogus-sdk-id',
-            problem_description=self.get_local_resource_url(
-                self.problem_description),
+            saved_state=self.saveandrestore,
+            completed=self.completed,
+            usage_id=unicode(self.scope_ids.usage_id),
+            problem_description=self.get_local_resource_url(description),
             guid=str(uuid.uuid4())))
         frag.add_javascript(self.resource_string(
             "static/js/Initialize_CTATXBlock.js"))
@@ -179,6 +199,13 @@ class StattutorXBlock(XBlock):
     def ctat_grade(self, data, dummy_suffix=''):
         """
         Handles updating the grade based on post request from the tutor.
+
+        Args:
+          self: the StatTutor XBlock.
+          data: A JSON object.
+          dummy_suffix: unused but required as a XBlock.json_handler.
+        Returns:
+          A JSON object reporting the success or failure.
         """
         self.attempted = True
         corrects = int(data.get('value'))
@@ -191,7 +218,8 @@ class StattutorXBlock(XBlock):
             self.score = corrects
             self.completed = self.score >= self.max_problem_steps
             scaled = float(self.score)/float(self.max_problem_steps)
-            # trying with max of 1.
+            # trying with max of 1. because basing it on max_problem_steps
+            # seems to cause EdX to incorrectly report the grade.
             event_data = {'value': scaled, 'max_value': 1.0}
             # pylint: disable=broad-except
             # The errors that should be checked are django errors, but there
@@ -203,6 +231,7 @@ class StattutorXBlock(XBlock):
                 return {'result': 'fail', 'Error': err.message}
             return {'result': 'success', 'finished': self.completed,
                     'score': scaled}
+            # pylint: enable=broad-except
         return {'result': 'no-change', 'finished': self.completed,
                 'score': float(self.score)/float(self.max_problem_steps)}
 
@@ -210,13 +239,9 @@ class StattutorXBlock(XBlock):
         """ Generate the Studio page contents. """
         html = self.resource_string("static/html/ctatstudio.html")
         problem_dirs = [
-            '<option value="{0}"{1}>public/problem_files/{0}</option>'.format(
-                d, ' selected' if d in self.brd else '')
-            for d in pkg_resources.resource_listdir(__name__,
-                                                    'public/problem_files/')
-            if pkg_resources.resource_isdir(
-                __name__,
-                'public/problem_files/{}'.format(d))]
+            '<option value="{0}"{1}>{0}</option>'.format(
+                d, ' selected' if d == self.problem else '')
+            for d in self.problems.keys()]
         problem_dirs.sort()
         frag = Fragment(html.format(self=self, problems=''.join(problem_dirs)))
         studio_js = self.resource_string("static/js/ctatstudio.js")
@@ -228,24 +253,38 @@ class StattutorXBlock(XBlock):
     def studio_submit(self, data, dummy_suffix=''):
         """
         Called when submitting the form in Studio.
+
+        Args:
+          self: the StatTutor XBlock.
+          data: a JSON object encoding the form data from
+                static/html/ctatstudio.html
+          dummy_suffix: unused but required as a XBlock.json_handler.
+        Returns:
+          A JSON object reporting the success of the operation.
         """
+        status = 'success'
         statmodule = data.get('statmodule')
-        mod_dir = 'public/problem_files/'+statmodule
-        problem_dir_files = [f for f in pkg_resources.resource_listdir(
-            __name__, mod_dir)]
-        brds = [a for a in problem_dir_files if '.brd' in a]
-        if len(brds) > 0:
-            self.brd = mod_dir+'/'+brds[0]
-        desc = [p for p in problem_dir_files if '.xml' in p]
-        if len(desc) > 0:
-            self.problem_description = mod_dir+'/'+desc[0]
-        self.width = data.get('width')
-        self.height = data.get('height')
-        return {'result': 'success'}
+        if statmodule in self.problems.keys():
+            self.problem = statmodule
+        else:
+            status = 'failure'
+        return {'result': status}
 
     @XBlock.json_handler
     def ctat_save_problem_state(self, data, dummy_suffix=''):
-        """Called from CTATLMS.saveProblemState."""
+        """Called from CTATLMS.saveProblemState.
+        This saves the current state of the tutor after each correct action.
+
+        Args:
+          self: the StatTutor XBlock.
+          data: A JSON object with a 'state' field with a payload of the blob
+                of 64 bit encoded data that represents the current
+                state of the tutor.
+          dummy_suffix: unused but required as a XBlock.json_handler.
+        Returns:
+          A JSON object with a 'result' field with a payload indicating the
+          success status.
+        """
         if data.get('state') is not None:
             self.saveandrestore = data.get('state')
             return {'result': 'success'}
@@ -255,6 +294,13 @@ class StattutorXBlock(XBlock):
     def ctat_get_problem_state(self, dummy_data, dummy_suffix=''):
         """
         Return the stored problem state to reconstruct a student's progress.
+
+        Args:
+          self: the StatTutor XBlock.
+          dummy_data: unused but required as a XBlock.json_handler.
+          dummy_suffix: unused but required as a XBlock.json_handler.
+        Returns:
+          A JSON object with a 'result' and a 'state' field.
         """
         return {'result': 'success', 'state': self.saveandrestore}
 
