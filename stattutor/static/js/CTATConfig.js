@@ -28,7 +28,7 @@ var CTATConfig = {{
    'connection': "{self.ctat_connection}",
 
    'saveandrestore': "{self.saveandrestore}",
-   'skills': "{self.skillstring}",
+   //'skills': "",
    'problem_state_status': "{self.completed}"!=="False"?'complete':"{self.saveandrestore}"!==""?'incomplete':'empty',
     'session_id': 'xblockstattutor_'+"{guid}",
     'problem_description': "{problem_description}"
