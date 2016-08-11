@@ -5,8 +5,8 @@ implemented for OLI (http://oli.cmu.edu/).
 
 import re
 import uuid
-import pkg_resources
 import base64
+import pkg_resources
 
 # pylint: disable=import-error
 # The xblock packages are available in the runtime environment.
@@ -26,7 +26,7 @@ class StattutorXBlock(XBlock):
     display_name = String(
         help="Display name of the component",
         default="StatTutor",
-        scope=Scope.content) # required to prevent garbage name at the top
+        scope=Scope.content)  # required to prevent garbage name at the top
 
     # **** xBlock tag variables ****
     # The width must be at least 900 in order to accommodate some dynamically
@@ -35,8 +35,8 @@ class StattutorXBlock(XBlock):
     # hard coding them into ctatxblock.html to make it easier for EdX
     # administrators to modify them if they wish without having to scour
     # all of the code for where they are set.
-    width = 900 # Width of the StatTutor frame.
-    height = 750 # Height of the StatTutor frame.
+    width = 900  # Width of the StatTutor frame.
+    height = 750  # Height of the StatTutor frame.
 
     # **** Grading variables ****
     # All of the variable in this section are required to get grading to work
@@ -72,57 +72,40 @@ class StattutorXBlock(XBlock):
 
     # **** Basic interface variables ****
     # All of the variable in this section are required to get the tutors to run
-    src = "public/html/StatTutor.html" # this is static in StatTutor
+    src = "public/html/StatTutor.html"  # this is static in StatTutor
     # src can not be hard coded into static/html/ctatxblock.html because of the
     # relative path issues discussed elsewhere in this file.
 
     # Generate and store a dictionary of the available problems.
     # (AKA the problem whitelist)
     problems = {}
-    for d in pkg_resources.resource_listdir(__name__, 'public/problem_files/'):
-        pdir = 'public/problem_files/{}'.format(d)
+    for pf_dir in pkg_resources.resource_listdir(__name__,
+                                                 'public/problem_files/'):
+        pdir = 'public/problem_files/{}'.format(pf_dir)
         if pkg_resources.resource_isdir(__name__, pdir):
             pdir_files = [f for f in
                           pkg_resources.resource_listdir(__name__, pdir)]
             brds = [brd for brd in pdir_files if '.brd' in brd]
             desc = [dsc for dsc in pdir_files if '.xml' in dsc]
             if len(brds) > 0 and len(desc) > 0:
-                problems[d] = {'name': d,
-                               'brd': pdir + '/' + brds[0],
-                               'description': pdir + '/' + desc[0]}
+                problems[pf_dir] = {'name': pf_dir,
+                                    'brd': pdir + '/' + brds[0],
+                                    'description': pdir + '/' + desc[0]}
     problem = String(help="The selected problem from problems",
                      default="m1_survey", scope=Scope.settings)
 
     # **** CTATConfiguration variables ****
-    log_name = String(help="Problem name to log", default="CTATEdXProblem",
-                      scope=Scope.settings)
-    log_dataset = String(help="Dataset name to log", default="edxdataset",
-                         scope=Scope.settings)
-    log_level1 = String(help="Level name to log", default="unit1",
-                        scope=Scope.settings)
-    log_type1 = String(help="Level type to log", default="unit",
-                       scope=Scope.settings)
-    log_level2 = String(help="Level name to log", default="unit2",
-                        scope=Scope.settings)
-    log_type2 = String(help="Level type to log", default="unit",
-                       scope=Scope.settings)
+    # These should be the only variables needed to set up logging.
+
+    # log_url should be the url of the logging service.
     log_url = String(help="URL of the logging service",
                      default="http://pslc-qa.andrew.cmu.edu/log/server",
                      scope=Scope.settings)
+
     # None, ClientToService, ClientToLogServer, or OLI
+    # Set to "ClientToService" to activate logging.
     logtype = String(help="How should data be logged",
                      default="None", scope=Scope.settings)
-    log_diskdir = String(
-        help="Directory for log files relative to the tutoring service",
-        default=".", scope=Scope.settings)
-    log_port = String(help="Port used by the tutoring service", default="8080",
-                      scope=Scope.settings)
-    log_remoteurl = String(
-        help="Location of the tutoring service (localhost or domain name)",
-        default="localhost", scope=Scope.settings)
-
-    ctat_connection = String(help="", default="javascript",
-                             scope=Scope.settings)
 
     # **** User Information ****
     # This section includes variables necessary for storing partial
@@ -176,7 +159,10 @@ class StattutorXBlock(XBlock):
         """
         Create a Fragment used to display a CTAT StatTutor xBlock to a student.
 
-        Returns a Fragment object containing the HTML to display
+        Args:
+          dummy_context: unused but required as a XBlock.student_view.
+        Returns:
+          a Fragment object containing the HTML to display.
         """
         # read in template html
         html = self.resource_string("static/html/ctatxblock.html")
@@ -190,13 +176,18 @@ class StattutorXBlock(XBlock):
             width=self.width, height=self.height))
         config = self.resource_string("static/js/CTATConfig.js")
         frag.add_javascript(config.format(
-            self=self,
+            logtype=self.logtype,
+            log_url=self.log_url,
+            problem_name=self.problem,
             tutor_html=self.get_local_resource_url(self.src),
             question_file="data:file/brd;base64," +
             base64.b64encode(self.resource_string(brd)),
             student_id=self.runtime.anonymous_student_id
             if hasattr(self.runtime, 'anonymous_student_id')
             else 'bogus-sdk-id',
+            saved_state=self.saveandrestore,
+            completed=self.completed,
+            usage_id=unicode(self.scope_ids.usage_id),
             problem_description=self.get_local_resource_url(description),
             guid=str(uuid.uuid4())))
         frag.add_javascript(self.resource_string(
@@ -211,7 +202,7 @@ class StattutorXBlock(XBlock):
 
         Args:
           self: the StatTutor XBlock.
-          data: 
+          data: A JSON object.
           dummy_suffix: unused but required as a XBlock.json_handler.
         Returns:
           A JSON object reporting the success or failure.
