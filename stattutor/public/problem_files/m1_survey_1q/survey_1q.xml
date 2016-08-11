@@ -4,12 +4,12 @@
            "http://oli.web.cmu.edu/dtd/cmu_stat_stattutor_3_1.dtd">
 <stattutor_problem id="survey_1q">
   <title>Drinking Habits  of College Students</title>
-  <dataset package="Minitab">m1_survey_1q/drinking.mtw</dataset>
-  <dataset package="Excel">m1_survey_1q/drinking.xls</dataset>
-  <dataset package="StatCrunch">m1_survey_1q/drinking.xls</dataset>
-  <dataset package="R">m1_survey_1q/drinking.RData</dataset>
+  <dataset package="Minitab">m1_survey/drinking.mtw</dataset>
+  <dataset package="Excel">m1_survey/drinking.xls</dataset>
+  <dataset package="StatCrunch">m1_survey/drinking.xls</dataset>
+  <dataset package="R">m1_survey/drinking.RData</dataset>
   <dataset package="TI Calculator">m1_survey/drinking.8xg</dataset>
-  <dataset package="json">m1_survey_1q/Survey.json</dataset>
+  <dataset package="json">m1_survey/Survey.json</dataset>
   <attempts>1</attempts>
   <background>A student survey was conducted at a major university.
   Data were collected from a random sample of 236 undergraduate
