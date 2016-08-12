@@ -57,6 +57,16 @@ in the add_mimetypes() function by adding the following code:
     mimetypes.add_type('application/octet-stream', '.RData')  # R uses .RData
 ```
 
+### Adding new problems
+
+To import new problems from OLI, place the problem specific files from
+`content/webcontent/<problem directory>` in the corresponding directory in
+`stattutor/public/problem_files/<problem directory>`.  Once the
+XBlockStattutor is reinstalled in the OpenEdX server and it is restarted,
+the new problem should be available in the list of problems in the Edit panel
+for the xblock exercise in Studio.  See the 'README.md' file in
+`stattutor/public/problem_files/` for important notes and restrictions.
+
 ## License
 
  This is made available under a [CC-BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) license by Carnegie Mellon University Open Learning Initiative.
