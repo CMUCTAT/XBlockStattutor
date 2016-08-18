@@ -6,7 +6,9 @@ implemented for OLI (http://oli.cmu.edu/).
 import re
 import uuid
 import base64
+import math
 import pkg_resources
+import bleach
 
 # pylint: disable=import-error
 # The xblock packages are available in the runtime environment.
@@ -107,6 +109,12 @@ class StattutorXBlock(XBlock):
     logtype = String(help="How should data be logged",
                      default="None", scope=Scope.settings)
 
+    # This is required by OLI and TutorShop logging services, its value
+    # should be determined by contacting the administrator of the log service.
+    dataset = String(help="Dataset name,"
+                     "Used to identify related data for the logging service",
+                     default="XBlockStattutor",
+                     scope=Scope.settings)
     # **** User Information ****
     # This section includes variables necessary for storing partial
     # student answers so that they can come back and work on a problem
@@ -178,6 +186,7 @@ class StattutorXBlock(XBlock):
         frag.add_javascript(config.format(
             logtype=self.logtype,
             log_url=self.log_url,
+            log_dataset=self.dataset,
             problem_name=self.problem,
             tutor_html=self.get_local_resource_url(self.src),
             question_file="data:file/brd;base64," +
@@ -208,8 +217,16 @@ class StattutorXBlock(XBlock):
           A JSON object reporting the success or failure.
         """
         self.attempted = True
-        corrects = int(data.get('value'))
-        self.max_problem_steps = int(data.get('max_value'))
+        corrects = 0
+        if data.get('value') is not None:
+            corrects = int(data.get('value'))
+            if math.isnan(corrects):
+                corrects = 0  # check for invalid value
+        if data.get('max_value') is not None:
+            max_val = int(data.get('max_value'))
+            if not math.isnan(max_val) and max_val > 0:
+                # only update if a valid number
+                self.max_problem_steps = max_val
         # only change score if it increases.
         # this is done because corrects should only ever increase and
         # it deals with issues EdX has with grading, in particular
@@ -243,7 +260,11 @@ class StattutorXBlock(XBlock):
                 d, ' selected' if d == self.problem else '')
             for d in self.problems.keys()]
         problem_dirs.sort()
-        frag = Fragment(html.format(self=self, problems=''.join(problem_dirs)))
+        frag = Fragment(html.format(
+            problems=''.join(problem_dirs),
+            logging='checked' if self.logtype == "ClientToService" else '',
+            dataset=self.dataset,
+            logserver=self.log_url))
         studio_js = self.resource_string("static/js/ctatstudio.js")
         frag.add_javascript(unicode(studio_js))
         frag.initialize_js('CTATXBlockStudio')
@@ -263,12 +284,36 @@ class StattutorXBlock(XBlock):
           A JSON object reporting the success of the operation.
         """
         status = 'success'
-        statmodule = data.get('statmodule')
+        messages = []
+        statmodule = bleach.clean(data.get('statmodule'), strip=True)
+        dataset = bleach.clean(data.get('dataset').trim(), strip=True)
+        logserver = bleach.clean(data.get('logserver').trim(), strip=True)
+        logging = bleach.clean(data.get('logging'), strip=True)
         if statmodule in self.problems.keys():
             self.problem = statmodule
         else:
             status = 'failure'
-        return {'result': status}
+            messages.append("invalid module")
+        if logging.lower() == "true":
+            self.logtype = "ClientToService"
+            if len(dataset) > 0:
+                self.dataset = dataset
+            else:
+                status = 'failure'
+                messages.append("invalid dataset name")
+                self.logtype = "None"
+            if len(logserver) > 0:
+                self.log_url = logserver
+            else:
+                status = 'failure'
+                messages.append('invalid log server name')
+                self.logtype = "None"
+        else:
+            self.logtype = "None"
+        ret = {'result': status}
+        if len(messages) > 0:
+            ret['message'] = "; ".join(messages)
+        return ret
 
     @XBlock.json_handler
     def ctat_save_problem_state(self, data, dummy_suffix=''):

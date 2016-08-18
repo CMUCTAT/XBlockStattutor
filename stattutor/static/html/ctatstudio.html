@@ -9,14 +9,27 @@
     </li>
     <!-- changing dimensions removed as requested, the width and height can be changed by modifying the respective values in the XBlock -->
       
-    <!-- This is a stub for activating logging, once it is determined how to best configure logging...
     <li class="field comp-setting-entry is-set">
       <div class="wrapper-comp-setting">
-        <label class="label setting-label" for="logging">Enable Logging</label>
-        <input class="input setting-input" name="logging" id="logging" type="checkbox" />
+	<label class="label setting-label" for="logging">Enable Logging</label>
+	<input class="input setting-input" name="logging" id="logging" type="checkbox" {logging}/>
       </div>
       <span class="tip setting-help">Enable logging to the server configured elsewhere.</span>
-    </li> -->
+    </li>
+    <li>
+    <div class="wrapper-comp-setting">
+      <label class="label setting-label" for="dataset">Dataset Name</label>
+      <input class="input setting-input" name="dataset" id="dataset" type="text" value="{dataset}"/>
+    </div>
+    <span class="tip setting-help">The name of the dataset. This is used in logging, contact the log server administrator to learn what this should be.</span>
+    </li>
+    <li>
+    <div class="wrapper-comp-setting">
+      <label class="label setting-label" for="logserver">Log Server URL</label>
+      <input class="input setting-input" name="logserver" id="logserver" type="text" value="{logserver}"/>
+    </div>
+    <span class="tip setting-help">The URL of the server to send log data from the tutor, check with the log server administrator to get the appropriate URL.</span>
+    </li>
   </ul>
   <div class="xblock-actions">
     <ul>

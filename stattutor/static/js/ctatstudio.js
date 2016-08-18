@@ -14,7 +14,10 @@ function CTATXBlockStudio(runtime, element)
 	var handlerUrl = runtime.handlerUrl(element, 'studio_submit');
 	// compose form data
 	var data = {
-	    statmodule: $(element).find('select#statmodule').val()
+	    statmodule: $(element).find('select#statmodule').val(),
+	    dataset: $(element).find('input#dataset').val(),
+	    logserver: $(element).find('input#logserver').val(),
+	    logging: $(element).find('input#logging').is(':checked')
 	};
 	runtime.notify('save', {state: 'start'});
 	// post form data as JSON to XBlock.

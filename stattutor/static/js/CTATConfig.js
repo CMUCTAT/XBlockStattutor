@@ -12,7 +12,7 @@ var CTATConfig = {{
     'problem_name': "{problem_name}",
     'dataset_level_name1': "{usage_id}",
     'dataset_level_type1': "Unit",
-    'dataset_name': window.$$course_id || "SDK",
+    'dataset_name': "{log_dataset}",
 
     // if window.$$course_id is undefined, then this is in an environment
     // that should forcibly disable logging (eg) in Studio or in the SDK
