@@ -100,8 +100,10 @@ class StattutorXBlock(XBlock):
     # These should be the only variables needed to set up logging.
 
     # log_url should be the url of the logging service.
+    # This should probably be hard coded or at least made to be one
+    # of a few predefined log servers.
     log_url = String(help="URL of the logging service",
-                     default="http://pslc-qa.andrew.cmu.edu/log/server",
+                     default="",
                      scope=Scope.settings)
 
     # None, ClientToService, ClientToLogServer, or OLI
