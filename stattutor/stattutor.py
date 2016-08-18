@@ -286,8 +286,8 @@ class StattutorXBlock(XBlock):
         status = 'success'
         messages = []
         statmodule = bleach.clean(data.get('statmodule'), strip=True)
-        dataset = bleach.clean(data.get('dataset').trim(), strip=True)
-        logserver = bleach.clean(data.get('logserver').trim(), strip=True)
+        dataset = bleach.clean(data.get('dataset').strip(), strip=True)
+        logserver = bleach.clean(data.get('logserver').strip(), strip=True)
         logging = bleach.clean(data.get('logging'), strip=True)
         if statmodule in self.problems.keys():
             self.problem = statmodule
