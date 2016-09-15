@@ -4531,7 +4531,7 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage>&lt;span class="CTAT-correct"&gt;&amp;#x2713;&lt;/span&gt; Correct. Question 3 focuses on the relationship between students' academic performance in college and their typical seat location in class. Therefore, GPA (i.e., college GPA) and Seat (i.e., typical seat location) are the two variables relevant to addressing this question. </successMessage>
+            <successMessage>&lt;span class="CTAT-correct"&gt;&amp;#x2713;&lt;/span&gt; Correct. Question 2 focuses on the relationship between students' academic performance in college and their typical seat location in class. Therefore, GPA (i.e., college GPA) and Seat (i.e., typical seat location) are the two variables relevant to addressing this question. </successMessage>
             <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Read the current question again, and think which of the variables among those listed should be looked at in order to answer this question.  Remember to check all variables that are relevant to the current question.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
@@ -6894,7 +6894,7 @@
                         <value>UpdateTextArea</value>
                     </Action>
                     <Input>
-                        <value>In the first and third question, we examined two explanatory variables for the response variable college GPA. We found that generally, students who have a high high school GPA will tend to also have a high college GPA, and that students who typically sit in the front of the classroom generally have a higher GPA than those who sit in the middle or the back. In the second question, we investigated a completely unrelated issue, the differences in body image between males and females. We were surprised to find that actually a higher percentage of females were satisfied with their weight than males.</value>
+                        <value>In the these two questions, we examined two explanatory variables for the response variable college GPA. We found that generally, students who have a high high school GPA will tend to also have a high college GPA, and that students who typically sit in the front of the classroom generally have a higher GPA than those who sit in the middle or the back.</value>
                     </Input>
                     <transaction_id>Tfddbcda5-4818-49bc-948c-292ba013e08e</transaction_id>
                 </properties>
@@ -6922,7 +6922,7 @@
                 <Input>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">In the first and third question, we examined two explanatory variables for the response variable college GPA. We found that generally, students who have a high high school GPA will tend to also have a high college GPA, and that students who typically sit in the front of the classroom generally have a higher GPA than those who sit in the middle or the back. In the second question, we investigated a completely unrelated issue, the differences in body image between males and females. We were surprised to find that actually a higher percentage of females were satisfied with their weight than males.</matcherParameter>
+                        <matcherParameter name="single">In the these two questions, we examined two explanatory variables for the response variable college GPA. We found that generally, students who have a high high school GPA will tend to also have a high college GPA, and that students who typically sit in the front of the classroom generally have a higher GPA than those who sit in the middle or the back.</matcherParameter>
                     </matcher>
                 </Input>
                 <Actor linkTriggered="false">Tutor (unevaluated)</Actor>
@@ -9092,7 +9092,7 @@
                     <transaction_id>Te7b0d4b1-a6ac-45b8-93b0-767613fa2c45</transaction_id>
                 </properties>
             </message>
-            <buggyMessage>&lt;%=gen_k_of_n_checkbox_feedback("Gender: false;Height: false;GPA: true;HS_GPA: false;Seat: true;WtFeel: false;Cheat: false", input, "Not quite right.", ["gender","height","college GPA","high school GPA","typical seat location","how students feel about their weight","whether students would report cheating"], "a variable", "variables", "You are correct that", "Differences due to", "are not included in Question 3, so", "relevant to addressing the question 'Is there a relationship between students' academic performance in college (i.e., college GPA) and their typical seat location in class?'", "&lt;b&gt;not&lt;/b&gt; relevant to addressing this question.", "There is at least one relevant variable.", "Additionally, there is at least one other relevant variable.")%&gt;</buggyMessage>
+            <buggyMessage>&lt;%=gen_k_of_n_checkbox_feedback("Gender: false;Height: false;GPA: true;HS_GPA: false;Seat: true;WtFeel: false;Cheat: false", input, "Not quite right.", ["gender","height","college GPA","high school GPA","typical seat location","how students feel about their weight","whether students would report cheating"], "a variable", "variables", "You are correct that", "Differences due to", "are not included in Question 2, so", "relevant to addressing the question 'Is there a relationship between students' academic performance in college (i.e., college GPA) and their typical seat location in class?'", "&lt;b&gt;not&lt;/b&gt; relevant to addressing this question.", "There is at least one relevant variable.", "Additionally, there is at least one other relevant variable.")%&gt;</buggyMessage>
             <successMessage></successMessage>
             <callbackFn></callbackFn>
             <actionType>Buggy Action</actionType>
@@ -9151,7 +9151,7 @@
                     <transaction_id>Te7b0d4b1-a6ac-45b8-93b0-767613fa2c45</transaction_id>
                 </properties>
             </message>
-            <buggyMessage>&lt;%=gen_k_of_n_checkbox_feedback("Gender: false;Height: false;GPA: true;HS_GPA: false;Seat: true;WtFeel: false;Cheat: false", input, "Incorrect. Question 3 focuses on the relationship between students' academic performance in college and their typical seat location in class.", ["gender","height","college GPA","high school GPA","typical seat location","how students feel about their weight","whether students would report cheating"], "a variable", "variables", "You are correct that", "Differences due to", "are not included in Question 3, so", "relevant to addressing the question 'Is there a relationship between students' academic performance in college (i.e., college GPA) and their typical seat location in class?'", "&lt;b&gt;not&lt;/b&gt; relevant to addressing this question.", "There is at least one relevant variable.", "Additionally, there is at least one other relevant variable.")%&gt;</buggyMessage>
+            <buggyMessage>&lt;%=gen_k_of_n_checkbox_feedback("Gender: false;Height: false;GPA: true;HS_GPA: false;Seat: true;WtFeel: false;Cheat: false", input, "Incorrect. Question 2 focuses on the relationship between students' academic performance in college and their typical seat location in class.", ["gender","height","college GPA","high school GPA","typical seat location","how students feel about their weight","whether students would report cheating"], "a variable", "variables", "You are correct that", "Differences due to", "are not included in Question 2, so", "relevant to addressing the question 'Is there a relationship between students' academic performance in college (i.e., college GPA) and their typical seat location in class?'", "&lt;b&gt;not&lt;/b&gt; relevant to addressing this question.", "There is at least one relevant variable.", "Additionally, there is at least one other relevant variable.")%&gt;</buggyMessage>
             <successMessage></successMessage>
             <callbackFn></callbackFn>
             <actionType>Buggy Action</actionType>
