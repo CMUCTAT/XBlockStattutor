@@ -5278,7 +5278,7 @@
                         <value>UpdateTextArea</value>
                     </Action>
                     <Input>
-                        <value>&lt;img src="m2_body_image/body_image_q2_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;When comparing distributions across groups, we need to address the issues of center, spread and outliers:&lt;br&gt;&lt;br&gt;&lt;b&gt;Center:&lt;/b&gt; The median GPA of the "F group" (3.33) is higher than that of the two other groups (both of which are 3.0).&lt;br&gt;&lt;br&gt;&lt;b&gt;Spread:&lt;/b&gt; Differences in spread between the three groups are not huge, but still exist. The "M group" has the largest spread (range = 2.47, IQR = .74) followed by the "F group" (range = 2.18, IQR = .7), and then the "B group" (range = 2.06, IQR = .58).&lt;br&gt;&lt;br&gt;&lt;b&gt;Outliers:&lt;/b&gt; There are no outliers.</value>
+                        <value>&lt;img src="m2_body_image/body_image_q3_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;When comparing distributions across groups, we need to address the issues of center, spread and outliers:&lt;br&gt;&lt;br&gt;&lt;b&gt;Center:&lt;/b&gt; The median GPA of the "F group" (3.33) is higher than that of the two other groups (both of which are 3.0).&lt;br&gt;&lt;br&gt;&lt;b&gt;Spread:&lt;/b&gt; Differences in spread between the three groups are not huge, but still exist. The "M group" has the largest spread (range = 2.47, IQR = .74) followed by the "F group" (range = 2.18, IQR = .7), and then the "B group" (range = 2.06, IQR = .58).&lt;br&gt;&lt;br&gt;&lt;b&gt;Outliers:&lt;/b&gt; There are no outliers.</value>
                     </Input>
                     <transaction_id>T67e7c476-09c6-42bb-8b11-e2f984168284</transaction_id>
                 </properties>
@@ -5306,7 +5306,7 @@
                 <Input>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">&lt;img src="m2_body_image/body_image_q2_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;When comparing distributions across groups, we need to address the issues of center, spread and outliers:&lt;br&gt;&lt;br&gt;&lt;b&gt;Center:&lt;/b&gt; The median GPA of the "F group" (3.33) is higher than that of the two other groups (both of which are 3.0).&lt;br&gt;&lt;br&gt;&lt;b&gt;Spread:&lt;/b&gt; Differences in spread between the three groups are not huge, but still exist. The "M group" has the largest spread (range = 2.47, IQR = .74) followed by the "F group" (range = 2.18, IQR = .7), and then the "B group" (range = 2.06, IQR = .58).&lt;br&gt;&lt;br&gt;&lt;b&gt;Outliers:&lt;/b&gt; There are no outliers.</matcherParameter>
+                        <matcherParameter name="single">&lt;img src="m2_body_image/body_image_q3_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;When comparing distributions across groups, we need to address the issues of center, spread and outliers:&lt;br&gt;&lt;br&gt;&lt;b&gt;Center:&lt;/b&gt; The median GPA of the "F group" (3.33) is higher than that of the two other groups (both of which are 3.0).&lt;br&gt;&lt;br&gt;&lt;b&gt;Spread:&lt;/b&gt; Differences in spread between the three groups are not huge, but still exist. The "M group" has the largest spread (range = 2.47, IQR = .74) followed by the "F group" (range = 2.18, IQR = .7), and then the "B group" (range = 2.06, IQR = .58).&lt;br&gt;&lt;br&gt;&lt;b&gt;Outliers:&lt;/b&gt; There are no outliers.</matcherParameter>
                     </matcher>
                 </Input>
                 <Actor linkTriggered="false">Tutor (unevaluated)</Actor>
@@ -9081,7 +9081,7 @@
                 <properties>
                     <MessageType>CorrectAction</MessageType>
                     <Selection>
-                        <value>q3plan_id</value>
+                        <value>q2plan_id</value>
                     </Selection>
                     <Action>
                         <value>UpdateCheckBox</value>
@@ -9092,7 +9092,7 @@
                     <transaction_id>Te7b0d4b1-a6ac-45b8-93b0-767613fa2c45</transaction_id>
                 </properties>
             </message>
-            <buggyMessage>&lt;%=gen_k_of_n_checkbox_feedback("Gender: false;Height: false;GPA: true;HS_GPA: false;Seat: true;WtFeel: false;Cheat: false", input, "Not quite right.", ["gender","height","college GPA","high school GPA","typical seat location","how students feel about their weight","whether students would report cheating"], "a variable", "variables", "You are correct that", "Differences due to", "are not included in Question 3, so", relevant to addressing the question 'Is there a relationship between students' academic performance in college (i.e., college GPA) and their typical seat location in class?', "&lt;b&gt;not&lt;/b&gt; relevant to addressing this question.", "There is at least one relevant variable.", "Additionally, there is at least one other relevant variable.")%&gt;</buggyMessage>
+            <buggyMessage>&lt;%=gen_k_of_n_checkbox_feedback("Gender: false;Height: false;GPA: true;HS_GPA: false;Seat: true;WtFeel: false;Cheat: false", input, "Not quite right.", ["gender","height","college GPA","high school GPA","typical seat location","how students feel about their weight","whether students would report cheating"], "a variable", "variables", "You are correct that", "Differences due to", "are not included in Question 3, so", "relevant to addressing the question 'Is there a relationship between students' academic performance in college (i.e., college GPA) and their typical seat location in class?'", "&lt;b&gt;not&lt;/b&gt; relevant to addressing this question.", "There is at least one relevant variable.", "Additionally, there is at least one other relevant variable.")%&gt;</buggyMessage>
             <successMessage></successMessage>
             <callbackFn></callbackFn>
             <actionType>Buggy Action</actionType>
@@ -9102,7 +9102,7 @@
                 <Selection>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">q3plan_id</matcherParameter>
+                        <matcherParameter name="single">q2plan_id</matcherParameter>
                     </matcher>
                 </Selection>
                 <Action>
@@ -9140,7 +9140,7 @@
                 <properties>
                     <MessageType>CorrectAction</MessageType>
                     <Selection>
-                        <value>q3plan_id</value>
+                        <value>q2plan_id</value>
                     </Selection>
                     <Action>
                         <value>UpdateCheckBox</value>
@@ -9161,7 +9161,7 @@
                 <Selection>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">q3plan_id</matcherParameter>
+                        <matcherParameter name="single">q2plan_id</matcherParameter>
                     </matcher>
                 </Selection>
                 <Action>
@@ -9375,7 +9375,7 @@
                 <properties>
                     <MessageType>CorrectAction</MessageType>
                     <Selection>
-                        <value>q3plan_role0</value>
+                        <value>q2plan_role0</value>
                     </Selection>
                     <Action>
                         <value>UpdateComboBox</value>
@@ -9396,7 +9396,7 @@
                 <Selection>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">q3plan_role0</matcherParameter>
+                        <matcherParameter name="single">q2plan_role0</matcherParameter>
                     </matcher>
                 </Selection>
                 <Action>
@@ -9434,7 +9434,7 @@
                 <properties>
                     <MessageType>CorrectAction</MessageType>
                     <Selection>
-                        <value>q3plan_classify0</value>
+                        <value>q2plan_classify0</value>
                     </Selection>
                     <Action>
                         <value>UpdateComboBox</value>
@@ -9455,7 +9455,7 @@
                 <Selection>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">q3plan_classify0</matcherParameter>
+                        <matcherParameter name="single">q2plan_classify0</matcherParameter>
                     </matcher>
                 </Selection>
                 <Action>
@@ -9493,7 +9493,7 @@
                 <properties>
                     <MessageType>CorrectAction</MessageType>
                     <Selection>
-                        <value>q3plan_role1</value>
+                        <value>q2plan_role1</value>
                     </Selection>
                     <Action>
                         <value>UpdateComboBox</value>
@@ -9514,7 +9514,7 @@
                 <Selection>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">q3plan_role1</matcherParameter>
+                        <matcherParameter name="single">q2plan_role1</matcherParameter>
                     </matcher>
                 </Selection>
                 <Action>
@@ -9552,7 +9552,7 @@
                 <properties>
                     <MessageType>CorrectAction</MessageType>
                     <Selection>
-                        <value>q3plan_classify1</value>
+                        <value>q2plan_classify1</value>
                     </Selection>
                     <Action>
                         <value>UpdateComboBox</value>
@@ -9573,7 +9573,7 @@
                 <Selection>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">q3plan_classify1</matcherParameter>
+                        <matcherParameter name="single">q2plan_classify1</matcherParameter>
                     </matcher>
                 </Selection>
                 <Action>
@@ -9611,13 +9611,13 @@
                 <properties>
                     <MessageType>CorrectAction</MessageType>
                     <Selection>
-                        <value>q3measure_display</value>
+                        <value>q2measure_display</value>
                     </Selection>
                     <Action>
                         <value>UpdateRadioButton</value>
                     </Action>
                     <Input>
-                        <value>q3measure_scatter: Scatterplot</value>
+                        <value>q2measure_scatter: Scatterplot</value>
                     </Input>
                     <transaction_id>Td398a26f-ad7b-48f1-a536-206c7b7b52f0</transaction_id>
                 </properties>
@@ -9632,7 +9632,7 @@
                 <Selection>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">q3measure_display</matcherParameter>
+                        <matcherParameter name="single">q2measure_display</matcherParameter>
                     </matcher>
                 </Selection>
                 <Action>
@@ -9644,7 +9644,7 @@
                 <Input>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">q3measure_scatter: Scatterplot</matcherParameter>
+                        <matcherParameter name="single">q2measure_scatter: Scatterplot</matcherParameter>
                     </matcher>
                 </Input>
                 <Actor linkTriggered="false">Student</Actor>
@@ -9670,13 +9670,13 @@
                 <properties>
                     <MessageType>CorrectAction</MessageType>
                     <Selection>
-                        <value>q3measure_display</value>
+                        <value>q2measure_display</value>
                     </Selection>
                     <Action>
                         <value>UpdateRadioButton</value>
                     </Action>
                     <Input>
-                        <value>q3measure_2table: Two-way Table</value>
+                        <value>q2measure_2table: Two-way Table</value>
                     </Input>
                     <transaction_id>Td398a26f-ad7b-48f1-a536-206c7b7b52f0</transaction_id>
                 </properties>
@@ -9691,7 +9691,7 @@
                 <Selection>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">q3measure_display</matcherParameter>
+                        <matcherParameter name="single">q2measure_display</matcherParameter>
                     </matcher>
                 </Selection>
                 <Action>
@@ -9703,7 +9703,7 @@
                 <Input>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">q3measure_2table: Two-way Table</matcherParameter>
+                        <matcherParameter name="single">q2measure_2table: Two-way Table</matcherParameter>
                     </matcher>
                 </Input>
                 <Actor linkTriggered="false">Student</Actor>
@@ -9729,13 +9729,13 @@
                 <properties>
                     <MessageType>CorrectAction</MessageType>
                     <Selection>
-                        <value>q3measure_display</value>
+                        <value>q2measure_display</value>
                     </Selection>
                     <Action>
                         <value>UpdateRadioButton</value>
                     </Action>
                     <Input>
-                        <value>q3measure_pie: Piechart</value>
+                        <value>q2measure_pie: Piechart</value>
                     </Input>
                     <transaction_id>Td398a26f-ad7b-48f1-a536-206c7b7b52f0</transaction_id>
                 </properties>
@@ -9750,7 +9750,7 @@
                 <Selection>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">q3measure_display</matcherParameter>
+                        <matcherParameter name="single">q2measure_display</matcherParameter>
                     </matcher>
                 </Selection>
                 <Action>
@@ -9762,7 +9762,7 @@
                 <Input>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">q3measure_pie: Piechart</matcherParameter>
+                        <matcherParameter name="single">q2measure_pie: Piechart</matcherParameter>
                     </matcher>
                 </Input>
                 <Actor linkTriggered="false">Student</Actor>
@@ -9788,13 +9788,13 @@
                 <properties>
                     <MessageType>CorrectAction</MessageType>
                     <Selection>
-                        <value>q3measure_display</value>
+                        <value>q2measure_display</value>
                     </Selection>
                     <Action>
                         <value>UpdateRadioButton</value>
                     </Action>
                     <Input>
-                        <value>q3measure_hist: Histogram</value>
+                        <value>q2measure_hist: Histogram</value>
                     </Input>
                     <transaction_id>Td398a26f-ad7b-48f1-a536-206c7b7b52f0</transaction_id>
                 </properties>
@@ -9809,7 +9809,7 @@
                 <Selection>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">q3measure_display</matcherParameter>
+                        <matcherParameter name="single">q2measure_display</matcherParameter>
                     </matcher>
                 </Selection>
                 <Action>
@@ -9821,7 +9821,7 @@
                 <Input>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">q3measure_hist: Histogram</matcherParameter>
+                        <matcherParameter name="single">q2measure_hist: Histogram</matcherParameter>
                     </matcher>
                 </Input>
                 <Actor linkTriggered="false">Student</Actor>
@@ -9847,7 +9847,7 @@
                 <properties>
                     <MessageType>CorrectAction</MessageType>
                     <Selection>
-                        <value>q3measure_num</value>
+                        <value>q2measure_num</value>
                     </Selection>
                     <Action>
                         <value>UpdateComboBox</value>
@@ -9868,7 +9868,7 @@
                 <Selection>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">q3measure_num</matcherParameter>
+                        <matcherParameter name="single">q2measure_num</matcherParameter>
                     </matcher>
                 </Selection>
                 <Action>
@@ -9906,7 +9906,7 @@
                 <properties>
                     <MessageType>CorrectAction</MessageType>
                     <Selection>
-                        <value>q3measure_num</value>
+                        <value>q2measure_num</value>
                     </Selection>
                     <Action>
                         <value>UpdateComboBox</value>
@@ -9927,7 +9927,7 @@
                 <Selection>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">q3measure_num</matcherParameter>
+                        <matcherParameter name="single">q2measure_num</matcherParameter>
                     </matcher>
                 </Selection>
                 <Action>
@@ -9965,7 +9965,7 @@
                 <properties>
                     <MessageType>CorrectAction</MessageType>
                     <Selection>
-                        <value>q3measure_num</value>
+                        <value>q2measure_num</value>
                     </Selection>
                     <Action>
                         <value>UpdateComboBox</value>
@@ -9986,7 +9986,7 @@
                 <Selection>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">q3measure_num</matcherParameter>
+                        <matcherParameter name="single">q2measure_num</matcherParameter>
                     </matcher>
                 </Selection>
                 <Action>
@@ -10024,7 +10024,7 @@
                 <properties>
                     <MessageType>CorrectAction</MessageType>
                     <Selection>
-                        <value>q3measure_plan</value>
+                        <value>q2measure_plan</value>
                     </Selection>
                     <Action>
                         <value>UpdateComboBox</value>
@@ -10045,7 +10045,7 @@
                 <Selection>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">q3measure_plan</matcherParameter>
+                        <matcherParameter name="single">q2measure_plan</matcherParameter>
                     </matcher>
                 </Selection>
                 <Action>
@@ -10083,7 +10083,7 @@
                 <properties>
                     <MessageType>CorrectAction</MessageType>
                     <Selection>
-                        <value>q3measure_plan</value>
+                        <value>q2measure_plan</value>
                     </Selection>
                     <Action>
                         <value>UpdateComboBox</value>
@@ -10104,7 +10104,7 @@
                 <Selection>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">q3measure_plan</matcherParameter>
+                        <matcherParameter name="single">q2measure_plan</matcherParameter>
                     </matcher>
                 </Selection>
                 <Action>
@@ -10142,7 +10142,7 @@
                 <properties>
                     <MessageType>CorrectAction</MessageType>
                     <Selection>
-                        <value>q3measure_plan</value>
+                        <value>q2measure_plan</value>
                     </Selection>
                     <Action>
                         <value>UpdateComboBox</value>
@@ -10163,7 +10163,7 @@
                 <Selection>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">q3measure_plan</matcherParameter>
+                        <matcherParameter name="single">q2measure_plan</matcherParameter>
                     </matcher>
                 </Selection>
                 <Action>
@@ -10201,7 +10201,7 @@
                 <properties>
                     <MessageType>CorrectAction</MessageType>
                     <Selection>
-                        <value>q3measure_plan</value>
+                        <value>q2measure_plan</value>
                     </Selection>
                     <Action>
                         <value>UpdateComboBox</value>
@@ -10222,7 +10222,7 @@
                 <Selection>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">q3measure_plan</matcherParameter>
+                        <matcherParameter name="single">q2measure_plan</matcherParameter>
                     </matcher>
                 </Selection>
                 <Action>
@@ -10333,7 +10333,7 @@
             <link id="225"/>
             <link id="217"/>
             <link id="1004"/></group>
-        <group name="Q2PlanAnalysis" ordered="false" reenterable="true">
+        <group name="Q3PlanAnalysis" ordered="false" reenterable="true">
             <link id="329"/>
             <link id="333"/>
             <link id="348"/>
