@@ -9113,7 +9113,7 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage>Select 'Question 2' in the Work Plan to continue.</successMessage>
+            <successMessage>Select 'Summarize' in the Work Plan to continue.</successMessage>
             <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; How do your expectations regarding the results (from before you looked at the data) compare to the actual results you got?  Also, if practical, discuss how the results could be used and who could use them.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
