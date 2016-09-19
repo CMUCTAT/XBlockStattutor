@@ -2,14 +2,14 @@
 <!DOCTYPE stattutor_problem
     PUBLIC "-//Carnegie Mellon University//DTD Stattutor 3.1//EN"
 	"http://oli.web.cmu.edu/dtd/cmu_stat_stattutor_3_1.dtd">
-<stattutor_problem id="body_image">
+<stattutor_problem id="body_image_2q">
   <title>Body Image and Academic Performance of College Students</title>
-  <dataset package="Minitab">m2_body_image/body_image.mtw</dataset>
-  <dataset package="StatCrunch">m2_body_image/body_image.xls</dataset>
-  <dataset package="Excel">m2_body_image/body_image.xls</dataset>
-  <dataset package="R">m2_body_image/body_image.RData</dataset>
-  <dataset package="TI Calculator">m2_body_image/body_image.8xg</dataset>
-  <dataset package="json">m2_body_image/body_image.json</dataset>
+  <dataset package="Minitab">m2_body_image_2q/body_image.mtw</dataset>
+  <dataset package="StatCrunch">m2_body_image_2q/body_image.xls</dataset>
+  <dataset package="Excel">m2_body_image_2q/body_image.xls</dataset>
+  <dataset package="R">m2_body_image_2q/body_image.RData</dataset>
+  <dataset package="TI Calculator">m2_body_image_2q/body_image.8xg</dataset>
+  <dataset package="json">m2_body_image_2q/body_image.json</dataset>
   <attempts>1</attempts>
   <background>A student survey was conducted at a major university.
   Data were collected from a random sample of 239 undergraduate
@@ -494,7 +494,6 @@
       </reflect_on_conclusions>
     </draw_conclusions>
   </main_question>
-  
   <main_question>
     <text>Is students' academic performance in college related to
     their typical seating location in class?</text>
