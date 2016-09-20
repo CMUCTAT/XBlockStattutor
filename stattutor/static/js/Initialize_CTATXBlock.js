@@ -22,11 +22,23 @@ function Initialize_CTATXBlock(runtime,element) {
 	report_grade: function(correct_step_count, total_step_count) {
 	    $.ajax({type: "POST",
 		    url: runtime.handlerUrl(element, 'ctat_grade'),
-		    data: JSON.stringify({'value': correct_step_count,
-					  'max_value': total_step_count}),
+		    data: JSON.stringify({'value': correct_step_count,'max_value': total_step_count}),
 		    contentType: "application/json; charset=utf-8",
 		    dataType: "json"});
-	}
+	},
+	log_event: function(aMessage) 
+	{
+		//console.log ("log_event :" + aMessage);
+		
+	    $.ajax({type: "POST",
+				url: runtime.handlerUrl(element, 'ctat_log'),
+				data: JSON.stringify({'event_type':'ctat_log',
+					   'action':'logevent', 
+					   'message': aMessage}),
+				contentType: "application/json; charset=utf-8",
+				dataType: "json"
+			   });
+	}	
     };
     $('.stattutor').load(function() { // this is getting fired after initTutor
 	this.contentWindow.CTATTarget = "XBlock"; // needed for ctatloader.js
@@ -46,6 +58,10 @@ function Initialize_CTATXBlock(runtime,element) {
 	lms.gradeStudent = function (correct_step_count, total_step_count) {
 	    post.report_grade(correct_step_count, total_step_count);
 	};
+	lms.logEvent = function (aMessage) 
+	{
+	    post.log_event(aMessage);
+	};	
 	// CTATConfig is from CTATConfig.js which is a template that is filled
 	// out by ctatxblock.py
 	this.contentWindow.initialize_stattutor(CTATConfig);
