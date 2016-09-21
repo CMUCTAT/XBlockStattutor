@@ -19,14 +19,19 @@ function CTATXBlockStudio(runtime, element)
 	    logserver: $(element).find('input#logserver').val(),
 	    logging: $(element).find('input#logging').is(':checked')
 	};
-	runtime.notify('save', {state: 'start'});
+	if (runtime.notify) // SDK does not seem to have runtime.notify
+	    runtime.notify('save', {state: 'start'});
+	else
+	    console.log('WARNING: runtime.notify is not available.');
 	// post form data as JSON to XBlock.
 	$.post(handlerUrl, JSON.stringify(data)).done(function(response) {
-	    runtime.notify('save', {state: 'end'});
+	    if (runtime.notify)
+		runtime.notify('save', {state: 'end'});
 	});
     });
     // Add "Cancel" button click event listener.
     $(element).find('.cancel-button').bind('click', function() {
-	runtime.notify('cancel', {});
+	if (runtime.notify)
+	    runtime.notify('cancel', {});
     });
 }
