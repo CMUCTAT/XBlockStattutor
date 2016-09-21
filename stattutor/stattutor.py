@@ -51,6 +51,14 @@ class StattutorXBlock(XBlock):
         help="Total number of steps",
         scope=Scope.user_state, default=1)
     max_possible_score = 1
+	
+    def _get_unique_id(self):
+        try:
+            unique_id = self.location.name
+        except AttributeError:
+            # workaround for xblock workbench
+            unique_id = 'workbench-workaround-id'
+        return unique_id	
 
     def max_score(self):
         """ The maximum raw score of the problem. """
@@ -102,19 +110,19 @@ class StattutorXBlock(XBlock):
     # log_url should be the url of the logging service.
     # This should probably be hard coded or at least made to be one
     # of a few predefined log servers.
-    log_url = String(help="URL of the logging service",
-                     default="",
+    log_url = String(help="URL of the logging service, used to indicate where the server is that will receive the log messages",
+                     default="edx://localhost",
                      scope=Scope.settings)
 
-    # None, ClientToService, ClientToLogServer, or OLI
+    # None, ClientToService, ClientToLogServer or OLI
     # Set to "ClientToService" to activate logging.
-    logtype = String(help="How should data be logged",
-                     default="None", scope=Scope.settings)
+    logtype = String(help="How should data be logged, used to indicate if logging should be used at all",
+                     default="None", 
+                     scope=Scope.settings)
 
     # This is required by OLI and TutorShop logging services, its value
     # should be determined by contacting the administrator of the log service.
-    dataset = String(help="Dataset name,"
-                     "Used to identify related data for the logging service",
+    dataset = String(help="Dataset name, used to identify related data for the logging service",
                      default="XBlockStattutor",
                      scope=Scope.settings)
     # **** User Information ****
@@ -205,6 +213,20 @@ class StattutorXBlock(XBlock):
             "static/js/Initialize_CTATXBlock.js"))
         frag.initialize_js('Initialize_CTATXBlock')
         return frag
+
+    @XBlock.json_handler
+    def ctat_log(self, data, dummy_suffix=''):
+        """
+        Send an OLI/CTAT formatted log message, translated to JSON into the EdX log file
+        """
+        try:
+            event_type = data.pop('event_type')
+        except KeyError:
+            return {'result': 'error', 'message': 'Missing event_type in JSON data'}		
+        data['user_id'] = self.scope_ids.user_id
+        data['component_id'] = self._get_unique_id()		
+        self.runtime.publish(self, "ctatlog", data)
+        return {'result': 'success'}
 
     @XBlock.json_handler
     def ctat_grade(self, data, dummy_suffix=''):
