@@ -51,14 +51,6 @@ class StattutorXBlock(XBlock):
         help="Total number of steps",
         scope=Scope.user_state, default=1)
     max_possible_score = 1
-	
-    def _get_unique_id(self):
-        try:
-            unique_id = self.location.name
-        except AttributeError:
-            # workaround for xblock workbench
-            unique_id = 'workbench-workaround-id'
-        return unique_id	
 
     def max_score(self):
         """ The maximum raw score of the problem. """
@@ -110,21 +102,17 @@ class StattutorXBlock(XBlock):
     # log_url should be the url of the logging service.
     # This should probably be hard coded or at least made to be one
     # of a few predefined log servers.
-    log_url = String(help="URL of the logging service, used to indicate where the server is that will receive the log messages",
+    log_url = String(help="URL of the logging service, used to indicate " +
+                     "where the server is that will receive the log messages",
                      default="edx://localhost",
                      scope=Scope.settings)
 
     # None, ClientToService, ClientToLogServer or OLI
     # Set to "ClientToService" to activate logging.
-    logtype = String(help="How should data be logged, used to indicate if logging should be used at all",
-                     default="None", 
-                     scope=Scope.settings)
+    logtype = Boolean(help="Enable logging.",
+                      default=True,
+                      scope=Scope.settings)
 
-    # This is required by OLI and TutorShop logging services, its value
-    # should be determined by contacting the administrator of the log service.
-    dataset = String(help="Dataset name, used to identify related data for the logging service",
-                     default="XBlockStattutor",
-                     scope=Scope.settings)
     # **** User Information ****
     # This section includes variables necessary for storing partial
     # student answers so that they can come back and work on a problem
@@ -193,39 +181,59 @@ class StattutorXBlock(XBlock):
             tutor_html=self.get_local_resource_url(self.src),
             width=self.width, height=self.height))
         config = self.resource_string("static/js/CTATConfig.js")
+        usage_id = self.scope_ids.usage_id
+        sdk_usage = isinstance(usage_id, basestring)
         frag.add_javascript(config.format(
-            logtype=self.logtype,
-            log_url=self.log_url,
-            log_dataset=self.dataset,
-            problem_name=self.problem,
-            tutor_html=self.get_local_resource_url(self.src),
-            question_file="data:file/brd;base64," +
-            base64.b64encode(self.resource_string(brd)),
+            # meta
+            guid=str(uuid.uuid4()),
             student_id=self.runtime.anonymous_student_id
             if hasattr(self.runtime, 'anonymous_student_id')
             else 'bogus-sdk-id',
+            # class
+            course=unicode(usage_id.course) if not sdk_usage else usage_id,
+            org=unicode(usage_id.org) if not sdk_usage else usage_id,
+            run=unicode(usage_id.run) if not sdk_usage else usage_id,
+            # dataset
+            course_key=unicode(usage_id.course_key)
+            if not sdk_usage else usage_id,
+            problem_name=self.problem,
+            block_type=unicode(usage_id.block_type)
+            if not sdk_usage else usage_id,
+            # runtime
+            logtype=self.logtype,
+            log_url=self.log_url,
+            question_file="data:file/brd;base64," +
+            base64.b64encode(self.resource_string(brd)),
             saved_state=self.saveandrestore,
             completed=self.completed,
             usage_id=unicode(self.scope_ids.usage_id),
-            problem_description=self.get_local_resource_url(description),
-            guid=str(uuid.uuid4())))
+            problem_description=self.get_local_resource_url(description)
+        ))
+        # Add javascript initialization code
         frag.add_javascript(self.resource_string(
             "static/js/Initialize_CTATXBlock.js"))
+        # Execute javascript initialization code
         frag.initialize_js('Initialize_CTATXBlock')
         return frag
 
     @XBlock.json_handler
     def ctat_log(self, data, dummy_suffix=''):
-        """
-        Send an OLI/CTAT formatted log message, translated to JSON into the EdX log file
-        """
+        """Publish log messages from a CTAT tutor to EdX log."""
+        if data.get('event_type') is None or\
+           data.get('action') is None or\
+           data.get('message') is None:
+            return {'result': 'fail',
+                    'error': 'Log request message is missing required fields.'}
+        data.pop('event_type')
+        # pylint: disable=broad-except
         try:
-            event_type = data.pop('event_type')
-        except KeyError:
-            return {'result': 'error', 'message': 'Missing event_type in JSON data'}		
-        data['user_id'] = self.scope_ids.user_id
-        data['component_id'] = self._get_unique_id()		
-        self.runtime.publish(self, "ctatlog", data)
+            data['user_id'] = self.runtime.user_id
+            data['component_id'] = unicode(self.scope_ids.usage_id)
+            self.runtime.publish(self, "ctatlog", data)
+        # General mechanism to catch a very broad category of errors.
+        except Exception as err:
+            return {'result': 'fail', 'error': unicode(err)}
+        # pylint: enable=broad-except
         return {'result': 'success'}
 
     @XBlock.json_handler
@@ -242,15 +250,19 @@ class StattutorXBlock(XBlock):
         """
         self.attempted = True
         corrects = 0
-        if data.get('value') is not None:
-            corrects = int(data.get('value'))
-            if math.isnan(corrects):
-                corrects = 0  # check for invalid value
-        if data.get('max_value') is not None:
-            max_val = int(data.get('max_value'))
-            if not math.isnan(max_val) and max_val > 0:
-                # only update if a valid number
-                self.max_problem_steps = max_val
+        try:
+            if data.get('value') is not None:
+                corrects = int(data.get('value'))
+                if math.isnan(corrects):
+                    corrects = 0  # check for invalid value
+            if data.get('max_value') is not None:
+                max_val = int(data.get('max_value'))
+                if not math.isnan(max_val) and max_val > 0:
+                    # only update if a valid number
+                    self.max_problem_steps = max_val
+        except ValueError as int_err:
+            return {'result': 'fail', 'error': 'Bad grading values:' +
+                    unicode(int_err)}
         # only change score if it increases.
         # this is done because corrects should only ever increase and
         # it deals with issues EdX has with grading, in particular
@@ -286,8 +298,7 @@ class StattutorXBlock(XBlock):
         problem_dirs.sort()
         frag = Fragment(html.format(
             problems=''.join(problem_dirs),
-            logging='checked' if self.logtype == "ClientToService" else '',
-            dataset=self.dataset,
+            logging='checked' if self.logtype else '',
             logserver=self.log_url))
         studio_js = self.resource_string("static/js/ctatstudio.js")
         frag.add_javascript(unicode(studio_js))
@@ -310,7 +321,6 @@ class StattutorXBlock(XBlock):
         status = 'success'
         messages = []
         statmodule = bleach.clean(data.get('statmodule'), strip=True)
-        dataset = bleach.clean(data.get('dataset').strip(), strip=True)
         logserver = bleach.clean(data.get('logserver').strip(), strip=True)
         logging = bleach.clean(data.get('logging'), strip=True)
         if statmodule in self.problems.keys():
@@ -319,21 +329,11 @@ class StattutorXBlock(XBlock):
             status = 'failure'
             messages.append("invalid module")
         if logging.lower() == "true":
-            self.logtype = "ClientToService"
-            if len(dataset) > 0:
-                self.dataset = dataset
-            else:
-                status = 'failure'
-                messages.append("invalid dataset name")
-                self.logtype = "None"
+            self.logtype = True
             if len(logserver) > 0:
                 self.log_url = logserver
-            else:
-                status = 'failure'
-                messages.append('invalid log server name')
-                self.logtype = "None"
         else:
-            self.logtype = "None"
+            self.logtype = False
         ret = {'result': status}
         if len(messages) > 0:
             ret['message'] = "; ".join(messages)
@@ -355,7 +355,7 @@ class StattutorXBlock(XBlock):
           success status.
         """
         if data.get('state') is not None:
-            self.saveandrestore = data.get('state')
+            self.saveandrestore = bleach.clean(data.get('state'))
             return {'result': 'success'}
         return {'result': 'failure'}
 
