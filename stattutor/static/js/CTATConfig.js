@@ -26,7 +26,7 @@ var CTATConfig = {{
     // runtime
     'connection': "javascript",
 
-    'Logging': "{logtype}"=="True"?"ClientToService":"None",
+    'Logging': window.$$course_id?("{logtype}"=="True"?"ClientToService":"None"):"None",
     'log_service_url': "{log_url}",
 
     'question_file': "{question_file}", // BRD information
