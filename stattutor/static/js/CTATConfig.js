@@ -26,6 +26,8 @@ var CTATConfig = {{
     // runtime
     'connection': "javascript",
 
+    // if window.$$course_id is undefined, then this is in an environment
+    // that should forcibly disable logging (eg) in Studio or in the SDK
     'Logging': window.$$course_id?("{logtype}"=="True"?"ClientToService":"None"):"None",
     'log_service_url': "{log_url}",
 
