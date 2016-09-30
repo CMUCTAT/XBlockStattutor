@@ -104,7 +104,7 @@ class StattutorXBlock(XBlock):
     # of a few predefined log servers.
     log_url = String(help="URL of the logging service, used to indicate " +
                      "where the server is that will receive the log messages",
-                     default="edx://localhost",
+                     default="",
                      scope=Scope.settings)
 
     # None, ClientToService, ClientToLogServer or OLI
