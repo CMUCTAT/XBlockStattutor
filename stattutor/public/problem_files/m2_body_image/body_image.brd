@@ -7185,7 +7185,7 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage>Select 'Question 2' in the Work Plan to continue.</successMessage>
+            <successMessage>Select 'Question 3' in the Work Plan to continue.</successMessage>
             <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; How do your expectations regarding the results (from before you looked at the data) compare to the actual results you got?  Also, if practical, discuss how the results could be used and who could use them.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
@@ -12929,7 +12929,7 @@
                     <transaction_id>Te7b0d4b1-a6ac-45b8-93b0-767613fa2c45</transaction_id>
                 </properties>
             </message>
-            <buggyMessage>&lt;%=gen_k_of_n_checkbox_feedback("Gender: false;Height: false;GPA: true;HS_GPA: false;Seat: true;WtFeel: false;Cheat: false", input, &quot;Not quite right.&quot;, [&quot;gender&quot;,&quot;height&quot;,&quot;college GPA&quot;,&quot;high school GPA&quot;,&quot;typical seat location&quot;,&quot;how students feel about their weight&quot;,&quot;whether students would report cheating&quot;], &quot;a variable&quot;, &quot;variables&quot;, &quot;You are correct that&quot;, &quot;Differences due to&quot;, &quot;are not included in Question 3, so&quot;, relevant to addressing the question 'Is there a relationship between students' academic performance in college (i.e., college GPA) and their typical seat location in class?', &quot;&lt;b&gt;not&lt;/b&gt; relevant to addressing this question.&quot;, &quot;There is at least one relevant variable.&quot;, &quot;Additionally, there is at least one other relevant variable.&quot;)%&gt;</buggyMessage>
+            <buggyMessage>&lt;%=gen_k_of_n_checkbox_feedback("Gender: false;Height: false;GPA: true;HS_GPA: false;Seat: true;WtFeel: false;Cheat: false", input, &quot;Not quite right.&quot;, [&quot;gender&quot;,&quot;height&quot;,&quot;college GPA&quot;,&quot;high school GPA&quot;,&quot;typical seat location&quot;,&quot;how students feel about their weight&quot;,&quot;whether students would report cheating&quot;], &quot;a variable&quot;, &quot;variables&quot;, &quot;You are correct that&quot;, &quot;Differences due to&quot;, &quot;are not included in Question 3, so&quot;, &quot;relevant to addressing the question 'Is there a relationship between students' academic performance in college (i.e., college GPA) and their typical seat location in class?'&quot;, &quot;&lt;b&gt;not&lt;/b&gt; relevant to addressing this question.&quot;, &quot;There is at least one relevant variable.&quot;, &quot;Additionally, there is at least one other relevant variable.&quot;)%&gt;</buggyMessage>
             <successMessage></successMessage>
             <callbackFn></callbackFn>
             <actionType>Buggy Action</actionType>
