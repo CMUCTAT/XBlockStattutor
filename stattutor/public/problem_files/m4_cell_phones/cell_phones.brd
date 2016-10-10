@@ -5943,7 +5943,7 @@
                         <value>UpdateTextArea</value>
                     </Action>
                     <Input>
-                        <value>Both conditions under which we can reliably use the z-test for the population proportion are met:(i) The sample is random (recall that the sampling method used is cluster sampling)(ii) n = 312, and Po = .8 and so 312(.8) = 249.6 ≥ 10 and also 312(1-.8) = 62.4 ≥ 10.</value>
+                        <value>Both conditions under which we can reliably use the z-test for the population proportion are met:(i) The sample is random (recall that the sampling method used is cluster sampling)(ii) n = 312, and Po = .8 and so 312(.8) = 249.6 &ge; 10 and also 312(1-.8) = 62.4 &ge; 10.</value>
                     </Input>
                     <transaction_id>Tafceb1fc-54ab-4ce1-8710-5ebf69525543</transaction_id>
                 </properties>
@@ -5971,7 +5971,7 @@
                 <Input>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">Both conditions under which we can reliably use the z-test for the population proportion are met:(i) The sample is random (recall that the sampling method used is cluster sampling)(ii) n = 312, and Po = .8 and so 312(.8) = 249.6 ≥ 10 and also 312(1-.8) = 62.4 ≥ 10.</matcherParameter>
+                        <matcherParameter name="single">Both conditions under which we can reliably use the z-test for the population proportion are met:(i) The sample is random (recall that the sampling method used is cluster sampling)(ii) n = 312, and Po = .8 and so 312(.8) = 249.6 &ge; 10 and also 312(1-.8) = 62.4 &ge; 10.</matcherParameter>
                     </matcher>
                 </Input>
                 <Actor linkTriggered="true">Tutor (unevaluated)</Actor>
