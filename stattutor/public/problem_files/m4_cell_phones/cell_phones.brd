@@ -6838,7 +6838,7 @@
                         <value>UpdateTextArea</value>
                     </Action>
                     <Input>
-                        <value>It would be reasonable to expect that the mean number of sleep hours of students will be lower due to studying or partying…</value>
+                        <value>It would be reasonable to expect that the mean number of sleep hours of students will be lower due to studying or partying&hellip;</value>
                     </Input>
                     <transaction_id>T18f97d9e-2f77-4126-a77e-eea92aabfab0</transaction_id>
                 </properties>
@@ -6866,7 +6866,7 @@
                 <Input>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">It would be reasonable to expect that the mean number of sleep hours of students will be lower due to studying or partying…</matcherParameter>
+                        <matcherParameter name="single">It would be reasonable to expect that the mean number of sleep hours of students will be lower due to studying or partying&hellip;</matcherParameter>
                     </matcher>
                 </Input>
                 <Actor linkTriggered="false">Tutor (unevaluated)</Actor>
