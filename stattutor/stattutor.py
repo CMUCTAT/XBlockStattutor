@@ -210,8 +210,9 @@ class StattutorXBlock(XBlock):
             problem_description=self.get_local_resource_url(description)
         ))
         # Add javascript initialization code
-        frag.add_javascript(self.resource_string(
-            "static/js/Initialize_CTATXBlock.js"))
+        frag.add_javascript(self.resource_string("static/js/Initialize_CTATXBlock.js"))
+        # Add the xml2json library here because someone has a problem if it lives somewhere else instead
+        frag.add_javascript(self.resource_string("static/js/xml2json.min.js"))		
         # Execute javascript initialization code
         frag.initialize_js('Initialize_CTATXBlock')
         return frag

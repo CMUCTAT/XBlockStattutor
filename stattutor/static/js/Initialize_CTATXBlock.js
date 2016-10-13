@@ -3,7 +3,9 @@
  * @param runtime - provided by EdX
  * @param element - provided by EdX
  */
-function Initialize_CTATXBlock(runtime,element) {
+function Initialize_CTATXBlock(runtime,element) 
+{
+	var JSONDriver=new X2JS(); // Included library originally obtained at: https://github.com/abdmob/x2js
     var post = {
 	save_problem_state: function(state) {
 	    $.ajax({
@@ -30,15 +32,19 @@ function Initialize_CTATXBlock(runtime,element) {
 		contentType: "application/json; charset=utf-8",
 		dataType: "json"});
 	},
-	log_event: function(aMessage) {
-	    $.ajax({
-		type: "POST",
-		url: runtime.handlerUrl(element, 'ctat_log'),
-		data: JSON.stringify({'event_type':'ctat_log',
-				      'action':'CTATlogevent',
-				      'message': aMessage}),
-		contentType: "application/json; charset=utf-8",
-		dataType: "json"
+	log_event: function(aMessage) 
+	{				
+	    $.ajax(
+		{
+			type: "POST",
+			url: runtime.handlerUrl(element, 'ctat_log'),
+			data: JSON.stringify({'event_type':'ctat_log',
+								  'action':'CTATlogevent',
+								  'problem_name' : CTATConfig.problem_name,
+								  'dataset_name' : CTATConfig.dataset_name,								  
+								  'message': JSONDriver.xml_str2json (aMessage)}),
+			contentType: "application/json; charset=utf-8",
+			dataType: "json"
 	    });
 	}
     };
