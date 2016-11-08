@@ -97,7 +97,7 @@
         </dimension>
     </node>
     <node locked="false" doneState="true">
-        <text>Done_2</text>
+        <text>done</text>
         <uniqueID>75</uniqueID>
         <dimension>
             <x>254</x>
@@ -708,7 +708,7 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage>Now click on 'Consider Study Design' under the Work Plan to continue.</successMessage>
+            <successMessage>&lt;%=success_message%&gt; Now click on 'Consider Study Design' under the Work Plan to continue.</successMessage>
             <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
@@ -1670,7 +1670,7 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage>Please click on 'Exploratory Analysis' to continue.</successMessage>
+            <successMessage>&lt;%=success_message%&gt; Please click on 'Exploratory Analysis' to continue.</successMessage>
             <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
@@ -2035,7 +2035,7 @@
                         <value>UpdateTextArea</value>
                     </Action>
                     <Input>
-                        <value>&lt;img src="m4_cell_phones/cell_phones_q1_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;Roughly 78% of the students in the sample own a cell phone.</value>
+                        <value>&lt;img src="m4_cell_phones_1q/cell_phones_q2_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;Roughly 78% of the students in the sample own a cell phone.</value>
                     </Input>
                     <transaction_id>T67e7c476-09c6-42bb-8b11-e2f984168284</transaction_id>
                 </properties>
@@ -2063,7 +2063,7 @@
                 <Input>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">&lt;img src="m4_cell_phones/cell_phones_q1_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;Roughly 78% of the students in the sample own a cell phone.</matcherParameter>
+                        <matcherParameter name="single">&lt;img src="m4_cell_phones_1q/cell_phones_q2_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;Roughly 78% of the students in the sample own a cell phone.</matcherParameter>
                     </matcher>
                 </Input>
                 <Actor linkTriggered="false">Tutor (unevaluated)</Actor>
@@ -2935,7 +2935,7 @@
                         <value>UpdateTextArea</value>
                     </Action>
                     <Input>
-                        <value>&lt;img src="m4_cell_phones/cell_phones_q1_mf_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The test statistic is z = -.71, and the p-value is .239 &amp;gt; .05, indicating that H&lt;sub&gt;0&lt;/sub&gt; cannot be rejected.</value>
+                        <value>&lt;img src="m4_cell_phones_1q/cell_phones_q2_mf_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The test statistic is z = -.71, and the p-value is .239 &amp;gt; .05, indicating that H&lt;sub&gt;0&lt;/sub&gt; cannot be rejected.</value>
                     </Input>
                     <transaction_id>Td0af824d-46f8-4baf-9d63-442afedeb20c</transaction_id>
                 </properties>
@@ -2963,7 +2963,7 @@
                 <Input>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">&lt;img src="m4_cell_phones/cell_phones_q1_mf_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The test statistic is z = -.71, and the p-value is .239 &amp;gt; .05, indicating that H&lt;sub&gt;0&lt;/sub&gt; cannot be rejected.</matcherParameter>
+                        <matcherParameter name="single">&lt;img src="m4_cell_phones_1q/cell_phones_q2_mf_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The test statistic is z = -.71, and the p-value is .239 &amp;gt; .05, indicating that H&lt;sub&gt;0&lt;/sub&gt; cannot be rejected.</matcherParameter>
                     </matcher>
                 </Input>
                 <Actor linkTriggered="false">Tutor (unevaluated)</Actor>

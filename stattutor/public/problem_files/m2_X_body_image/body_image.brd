@@ -385,7 +385,7 @@
         </dimension>
     </node>
     <node locked="false" doneState="true">
-        <text>Done_2</text>
+        <text>done</text>
         <uniqueID>75</uniqueID>
         <dimension>
             <x>414</x>
@@ -1363,7 +1363,7 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage>Now click on 'Question 1' to continue.</successMessage>
+            <successMessage>&lt;%=success_message%&gt; Now click on 'Question 1' to continue.</successMessage>
             <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; </hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
@@ -2384,7 +2384,7 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage>Please click on 'Exploratory Analysis' to continue.</successMessage>
+            <successMessage>&lt;%=success_message%&gt; Please click on 'Exploratory Analysis' to continue.</successMessage>
             <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; </hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
@@ -2767,7 +2767,7 @@
                         <value>UpdateTextArea</value>
                     </Action>
                     <Input>
-                        <value>&lt;img src="m2_body_image/body_image_q1_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The scatterplot displays a positive linear relationship between HS GPA and college GPA. The correlation coefficient r is 0.716, indicating that the positive linear relationship is moderately strong.</value>
+                        <value>&lt;img src="body_image_q1_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The scatterplot displays a positive linear relationship between HS GPA and college GPA. The correlation coefficient r is 0.716, indicating that the positive linear relationship is moderately strong.</value>
                     </Input>
                     <transaction_id>T67e7c476-09c6-42bb-8b11-e2f984168284</transaction_id>
                 </properties>
@@ -2795,7 +2795,7 @@
                 <Input>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">&lt;img src="m2_body_image/body_image_q1_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The scatterplot displays a positive linear relationship between HS GPA and college GPA. The correlation coefficient r is 0.716, indicating that the positive linear relationship is moderately strong.</matcherParameter>
+                        <matcherParameter name="single">&lt;img src="body_image_q1_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The scatterplot displays a positive linear relationship between HS GPA and college GPA. The correlation coefficient r is 0.716, indicating that the positive linear relationship is moderately strong.</matcherParameter>
                     </matcher>
                 </Input>
                 <Actor linkTriggered="false">Tutor (unevaluated)</Actor>
@@ -4025,7 +4025,7 @@
                         <value>UpdateTextArea</value>
                     </Action>
                     <Input>
-                        <value>&lt;b&gt;(a)&lt;/b&gt; The regression equation is given in the following output: &lt;br/&gt;&lt;img src="m2_body_image/body_image_q1_consider_results_thought_question_statcrunch.jpg"&gt;&lt;br/&gt;&lt;b&gt;(b)&lt;/b&gt; The graph displays a pretty good fit of the regression line to the data.&lt;br&gt;&lt;br&gt;&lt;b&gt;(c)&lt;/b&gt; The predicted GPA for a student whose HS GPA is 3.45 is: 1.073 + 0.6192 * 3.45 = 3.21.</value>
+                        <value>&lt;b&gt;(a)&lt;/b&gt; The regression equation is given in the following output: &lt;br/&gt;&lt;img src="body_image_q1_consider_results_thought_question_statcrunch.jpg"&gt;&lt;br/&gt;&lt;b&gt;(b)&lt;/b&gt; The graph displays a pretty good fit of the regression line to the data.&lt;br&gt;&lt;br&gt;&lt;b&gt;(c)&lt;/b&gt; The predicted GPA for a student whose HS GPA is 3.45 is: 1.073 + 0.6192 * 3.45 = 3.21.</value>
                     </Input>
                     <transaction_id>Tafceb1fc-54ab-4ce1-8710-5ebf69525543</transaction_id>
                 </properties>
@@ -4053,7 +4053,7 @@
                 <Input>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">&lt;b&gt;(a)&lt;/b&gt; The regression equation is given in the following output: &lt;br/&gt;&lt;img src="m2_body_image/body_image_q1_consider_results_thought_question_statcrunch.jpg"&gt;&lt;br/&gt;&lt;b&gt;(b)&lt;/b&gt; The graph displays a pretty good fit of the regression line to the data.&lt;br&gt;&lt;br&gt;&lt;b&gt;(c)&lt;/b&gt; The predicted GPA for a student whose HS GPA is 3.45 is: 1.073 + 0.6192 * 3.45 = 3.21.</matcherParameter>
+                        <matcherParameter name="single">&lt;b&gt;(a)&lt;/b&gt; The regression equation is given in the following output: &lt;br/&gt;&lt;img src="body_image_q1_consider_results_thought_question_statcrunch.jpg"&gt;&lt;br/&gt;&lt;b&gt;(b)&lt;/b&gt; The graph displays a pretty good fit of the regression line to the data.&lt;br&gt;&lt;br&gt;&lt;b&gt;(c)&lt;/b&gt; The predicted GPA for a student whose HS GPA is 3.45 is: 1.073 + 0.6192 * 3.45 = 3.21.</matcherParameter>
                     </matcher>
                 </Input>
                 <Actor linkTriggered="true">Tutor (unevaluated)</Actor>
@@ -4873,7 +4873,7 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage>Please click on 'Exploratory Analysis' to continue.</successMessage>
+            <successMessage>&lt;%=success_message%&gt; Please click on 'Exploratory Analysis' to continue.</successMessage>
             <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
@@ -5256,7 +5256,7 @@
                         <value>UpdateTextArea</value>
                     </Action>
                     <Input>
-                        <value>The counts and conditional percents are summarized in the following tables. &lt;br/&gt;&lt;img src="m2_body_image/body_image_q2_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The percentages for About Right, Overweight, and Underweight for females are 73.79%, 22.07%, and 4.138%, respectively. The same percentages for males are: 66.67%, 17.86%, 15.48%.</value>
+                        <value>The counts and conditional percents are summarized in the following tables. &lt;br/&gt;&lt;img src="body_image_q2_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The percentages for About Right, Overweight, and Underweight for females are 73.79%, 22.07%, and 4.138%, respectively. The same percentages for males are: 66.67%, 17.86%, 15.48%.</value>
                     </Input>
                     <transaction_id>T67e7c476-09c6-42bb-8b11-e2f984168284</transaction_id>
                 </properties>
@@ -5284,7 +5284,7 @@
                 <Input>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">The counts and conditional percents are summarized in the following tables. &lt;br/&gt;&lt;img src="m2_body_image/body_image_q2_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The percentages for About Right, Overweight, and Underweight for females are 73.79%, 22.07%, and 4.138%, respectively. The same percentages for males are: 66.67%, 17.86%, 15.48%.</matcherParameter>
+                        <matcherParameter name="single">The counts and conditional percents are summarized in the following tables. &lt;br/&gt;&lt;img src="body_image_q2_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;The percentages for About Right, Overweight, and Underweight for females are 73.79%, 22.07%, and 4.138%, respectively. The same percentages for males are: 66.67%, 17.86%, 15.48%.</matcherParameter>
                     </matcher>
                 </Input>
                 <Actor linkTriggered="false">Tutor (unevaluated)</Actor>
@@ -7362,7 +7362,7 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage>Please click on 'Exploratory Analysis' to continue.</successMessage>
+            <successMessage>&lt;%=success_message%&gt; Please click on 'Exploratory Analysis' to continue.</successMessage>
             <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
@@ -7745,7 +7745,7 @@
                         <value>UpdateTextArea</value>
                     </Action>
                     <Input>
-                        <value>&lt;img src="m2_body_image/body_image_q3_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;When comparing distributions across groups, we need to address the issues of center, spread and outliers:&lt;br&gt;&lt;br&gt;&lt;b&gt;Center:&lt;/b&gt; The median GPA of the &quot;F group&quot; (3.33) is higher than that of the two other groups (both of which are 3.0).&lt;br&gt;&lt;br&gt;&lt;b&gt;Spread:&lt;/b&gt; Differences in spread between the three groups are not huge, but still exist. The &quot;M group&quot; has the largest spread (range = 2.47, IQR = .74) followed by the &quot;F group&quot; (range = 2.18, IQR = .7), and then the &quot;B group&quot; (range = 2.06, IQR = .58).&lt;br&gt;&lt;br&gt;&lt;b&gt;Outliers:&lt;/b&gt; There are no outliers.</value>
+                        <value>&lt;img src="body_image_q3_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;When comparing distributions across groups, we need to address the issues of center, spread and outliers:&lt;br&gt;&lt;br&gt;&lt;b&gt;Center:&lt;/b&gt; The median GPA of the &quot;F group&quot; (3.33) is higher than that of the two other groups (both of which are 3.0).&lt;br&gt;&lt;br&gt;&lt;b&gt;Spread:&lt;/b&gt; Differences in spread between the three groups are not huge, but still exist. The &quot;M group&quot; has the largest spread (range = 2.47, IQR = .74) followed by the &quot;F group&quot; (range = 2.18, IQR = .7), and then the &quot;B group&quot; (range = 2.06, IQR = .58).&lt;br&gt;&lt;br&gt;&lt;b&gt;Outliers:&lt;/b&gt; There are no outliers.</value>
                     </Input>
                     <transaction_id>T67e7c476-09c6-42bb-8b11-e2f984168284</transaction_id>
                 </properties>
@@ -7773,7 +7773,7 @@
                 <Input>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">&lt;img src="m2_body_image/body_image_q3_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;When comparing distributions across groups, we need to address the issues of center, spread and outliers:&lt;br&gt;&lt;br&gt;&lt;b&gt;Center:&lt;/b&gt; The median GPA of the &quot;F group&quot; (3.33) is higher than that of the two other groups (both of which are 3.0).&lt;br&gt;&lt;br&gt;&lt;b&gt;Spread:&lt;/b&gt; Differences in spread between the three groups are not huge, but still exist. The &quot;M group&quot; has the largest spread (range = 2.47, IQR = .74) followed by the &quot;F group&quot; (range = 2.18, IQR = .7), and then the &quot;B group&quot; (range = 2.06, IQR = .58).&lt;br&gt;&lt;br&gt;&lt;b&gt;Outliers:&lt;/b&gt; There are no outliers.</matcherParameter>
+                        <matcherParameter name="single">&lt;img src="body_image_q3_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;When comparing distributions across groups, we need to address the issues of center, spread and outliers:&lt;br&gt;&lt;br&gt;&lt;b&gt;Center:&lt;/b&gt; The median GPA of the &quot;F group&quot; (3.33) is higher than that of the two other groups (both of which are 3.0).&lt;br&gt;&lt;br&gt;&lt;b&gt;Spread:&lt;/b&gt; Differences in spread between the three groups are not huge, but still exist. The &quot;M group&quot; has the largest spread (range = 2.47, IQR = .74) followed by the &quot;F group&quot; (range = 2.18, IQR = .7), and then the &quot;B group&quot; (range = 2.06, IQR = .58).&lt;br&gt;&lt;br&gt;&lt;b&gt;Outliers:&lt;/b&gt; There are no outliers.</matcherParameter>
                     </matcher>
                 </Input>
                 <Actor linkTriggered="false">Tutor (unevaluated)</Actor>
@@ -9129,7 +9129,7 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage>Select 'Question 2' in the Work Plan to continue.</successMessage>
+            <successMessage>Select 'Summarize' in the Work Plan to continue.</successMessage>
             <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; How do your expectations regarding the results (from before you looked at the data) compare to the actual results you got?  Also, if practical, discuss how the results could be used and who could use them.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
