@@ -385,7 +385,7 @@
         </dimension>
     </node>
     <node locked="false" doneState="true">
-        <text>Done_2</text>
+        <text>done</text>
         <uniqueID>75</uniqueID>
         <dimension>
             <x>414</x>
@@ -1364,7 +1364,7 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage>Now click on 'Consider Study Design' under the Work Plan to continue.</successMessage>
+            <successMessage>&lt;%=success_message%&gt; Now click on 'Consider Study Design' under the Work Plan to continue.</successMessage>
             <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
@@ -2385,7 +2385,7 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage>Please click on 'Exploratory Analysis' to continue.</successMessage>
+            <successMessage>&lt;%=success_message%&gt; Please click on 'Exploratory Analysis' to continue.</successMessage>
             <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
@@ -4874,7 +4874,7 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage>Please click on 'Exploratory Analysis' to continue.</successMessage>
+            <successMessage>&lt;%=success_message%&gt; Please click on 'Exploratory Analysis' to continue.</successMessage>
             <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
@@ -7363,7 +7363,7 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage>Please click on 'Exploratory Analysis' to continue.</successMessage>
+            <successMessage>&lt;%=success_message%&gt; Please click on 'Exploratory Analysis' to continue.</successMessage>
             <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>

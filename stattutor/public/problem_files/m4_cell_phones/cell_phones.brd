@@ -385,7 +385,7 @@
         </dimension>
     </node>
     <node locked="false" doneState="true">
-        <text>Done_2</text>
+        <text>done</text>
         <uniqueID>75</uniqueID>
         <dimension>
             <x>414</x>
@@ -1364,7 +1364,7 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage>Now click on 'Consider Study Design' under the Work Plan to continue.</successMessage>
+            <successMessage>&lt;%=success_message%&gt; Now click on 'Consider Study Design' under the Work Plan to continue.</successMessage>
             <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
@@ -2385,7 +2385,7 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage>Please click on 'Exploratory Analysis' to continue.</successMessage>
+            <successMessage>&lt;%=success_message%&gt; Please click on 'Exploratory Analysis' to continue.</successMessage>
             <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
@@ -4857,7 +4857,7 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage>Please click on 'Exploratory Analysis' to continue.</successMessage>
+            <successMessage>&lt;%=success_message%&gt; Please click on 'Exploratory Analysis' to continue.</successMessage>
             <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
@@ -5943,7 +5943,7 @@
                         <value>UpdateTextArea</value>
                     </Action>
                     <Input>
-                        <value>Both conditions under which we can reliably use the z-test for the population proportion are met:(i) The sample is random (recall that the sampling method used is cluster sampling)(ii) n = 312, and Po = .8 and so 312(.8) = 249.6 &amp;ge; 10 and also 312(1-.8) = 62.4 &amp;ge; 10.</value>
+                        <value>Both conditions under which we can reliably use the z-test for the population proportion are met:(i) The sample is random (recall that the sampling method used is cluster sampling)(ii) n = 312, and Po = .8 and so 312(.8) = 249.6 &amp;#x2265; 10 and also 312(1-.8) = 62.4 &amp;#x2265;10.</value>
                     </Input>
                     <transaction_id>Tafceb1fc-54ab-4ce1-8710-5ebf69525543</transaction_id>
                 </properties>
@@ -5971,7 +5971,7 @@
                 <Input>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">Both conditions under which we can reliably use the z-test for the population proportion are met:(i) The sample is random (recall that the sampling method used is cluster sampling)(ii) n = 312, and Po = .8 and so 312(.8) = 249.6 &amp;ge; 10 and also 312(1-.8) = 62.4 &amp;ge; 10.</matcherParameter>
+                        <matcherParameter name="single">Both conditions under which we can reliably use the z-test for the population proportion are met:(i) The sample is random (recall that the sampling method used is cluster sampling)(ii) n = 312, and Po = .8 and so 312(.8) = 249.6 &amp;#x2265;10 and also 312(1-.8) = 62.4 &amp;#x2265;10.</matcherParameter>
                     </matcher>
                 </Input>
                 <Actor linkTriggered="true">Tutor (unevaluated)</Actor>
@@ -6606,7 +6606,7 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage>Select 'Question 2' in the Work Plan to continue.</successMessage>
+            <successMessage>Select 'Question 3' in the Work Plan to continue.</successMessage>
             <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; How do your expectations regarding the results (from before you looked at the data) compare to the actual results you got?  Also, if practical, discuss how the results could be used and who could use them.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
@@ -6838,7 +6838,7 @@
                         <value>UpdateTextArea</value>
                     </Action>
                     <Input>
-                        <value>It would be reasonable to expect that the mean number of sleep hours of students will be lower due to studying or partying&amp;hellip;</value>
+                        <value>It would be reasonable to expect that the mean number of sleep hours of students will be lower due to studying or partying&amp;#x2026;</value>
                     </Input>
                     <transaction_id>T18f97d9e-2f77-4126-a77e-eea92aabfab0</transaction_id>
                 </properties>
@@ -6866,7 +6866,7 @@
                 <Input>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">It would be reasonable to expect that the mean number of sleep hours of students will be lower due to studying or partying&amp;hellip;</matcherParameter>
+                        <matcherParameter name="single">It would be reasonable to expect that the mean number of sleep hours of students will be lower due to studying or partying&amp;#x2026;</matcherParameter>
                     </matcher>
                 </Input>
                 <Actor linkTriggered="false">Tutor (unevaluated)</Actor>
@@ -7328,7 +7328,7 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage>Please click on 'Exploratory Analysis' to continue.</successMessage>
+            <successMessage>&lt;%=success_message%&gt; Please click on 'Exploratory Analysis' to continue.</successMessage>
             <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
