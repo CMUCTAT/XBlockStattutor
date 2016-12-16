@@ -209,10 +209,10 @@ class StattutorXBlock(XBlock):
             usage_id=unicode(self.scope_ids.usage_id),
             problem_description=self.get_local_resource_url(description)
         ))
-        # Add javascript initialization code
-        frag.add_javascript(self.resource_string("static/js/Initialize_CTATXBlock.js"))
         # Add the xml2json library here because someone has a problem if it lives somewhere else instead
         frag.add_javascript(self.resource_string("static/js/xml2json.min.js"))		
+        # Add javascript initialization code
+        frag.add_javascript(self.resource_string("static/js/Initialize_CTATXBlock.js"))
         # Execute javascript initialization code
         frag.initialize_js('Initialize_CTATXBlock')
         return frag
@@ -331,8 +331,7 @@ class StattutorXBlock(XBlock):
             messages.append("invalid module")
         if logging.lower() == "true":
             self.logtype = True
-            if len(logserver) > 0:
-                self.log_url = logserver
+            self.log_url = logserver
         else:
             self.logtype = False
         ret = {'result': status}
