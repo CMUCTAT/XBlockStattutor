@@ -34,7 +34,7 @@ var CTATConfig = {{
     'question_file': "{question_file}", // BRD information
     'tutoring_service_communication': 'javascript',
 
-    'saveandrestore': "{saved_state}",
-    'problem_state_status': "{completed}"!=="False"?'complete':"{saved_state}"!==""?'incomplete':'empty',
+    'saveandrestore': "{saved_state_len}",
+    'problem_state_status': "{completed}"!=="False"?'complete':{saved_state_len}>0?'incomplete':'empty',
     'problem_description': "{problem_description}"
 }};

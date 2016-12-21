@@ -202,9 +202,8 @@ class StattutorXBlock(XBlock):
             # runtime
             logtype=self.logtype,
             log_url=self.log_url,
-            question_file="data:file/brd;base64," +
-            base64.b64encode(self.resource_string(brd)),
-            saved_state=self.saveandrestore,
+            question_file=self.get_local_resource_url(brd),
+            saved_state_len=len(self.saveandrestore),
             completed=self.completed,
             usage_id=unicode(self.scope_ids.usage_id),
             problem_description=self.get_local_resource_url(description)
