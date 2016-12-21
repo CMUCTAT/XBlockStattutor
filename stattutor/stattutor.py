@@ -203,7 +203,7 @@ class StattutorXBlock(XBlock):
             logtype=self.logtype,
             log_url=self.log_url,
             question_file=self.get_local_resource_url(brd),
-            saved_state=self.saveandrestore,
+            saved_state_len=len(self.saveandrestore),
             completed=self.completed,
             usage_id=unicode(self.scope_ids.usage_id),
             problem_description=self.get_local_resource_url(description)
