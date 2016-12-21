@@ -1,13 +1,13 @@
 # StatTutor XBlock
 
-This is the [XBlock](https://github.com/edx/XBlock) implimentation of
-the StatTutor exercises origionally developed for the
+This is the [XBlock](https://github.com/edx/XBlock) implementation of
+the StatTutor exercises originally developed for the
 [Open Learning Initiative](http://oli.cmu.edu/) at
 [Carnegie Mellon University](http://www.cmu.edu/) using the
 [Cognitive Tutor Authoring Tools](http://ctat.pact.cs.cmu.edu).
 
 StatTutor is a learning tool that provides students with a data analysis
-problem, supports them as they attempt to solve it, and gives hints
+problem and supports them as they attempt to solve it, giving hints
 and feedback along the way. It assumes that the relevant data set is
 open in the background.
 
