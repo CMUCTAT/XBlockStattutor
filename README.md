@@ -41,17 +41,18 @@ first exercise. To change the exercise, click on `Edit` and use the
 drop down to select the desired exercise. A preview of the exercise
 will be displayed in Studio.
 
-### Configuring data download types
+### Configuring download types
 
-Students can use various statistical packages to answer questions
-posed by StatTutor.  It provides data files for several different
-statistical packages which can be downloaded through tutor; however,
-OpenEdX does not recognize some of these files by default.  To register
-the various data file types as valid mime types in OpenEdX, administrators
-can add them explicitly in /edx/app/edxapp/edx-platform/[cms,lms]/startup.py
-in the add_mimetypes() function by adding the following code:
+The tutoring behavior is specified in a CTAT behavior recorder diagram (.brd)
+file. Also, students can use data files for various statistical packages to
+answer questions posed by StatTutor.  However, OpenEdX
+does not recognize some of these file types by default.  To register
+the various file types as valid mime types in OpenEdX, administrators must
+list them explicitly in the add_mimetypes() function defined in
+/edx/app/edxapp/edx-platform/[cms,lms]/startup.py by adding the following code:
 
 ```python
+    mimetypes.add_type('text/xml', '.brd')  # CTAT behavior recorder diagram
     mimetypes.add_type('application/octet-stream', '.8xg')  # TI Calculator
     mimetypes.add_type('application/octet-stream', '.mtw')  # Minitab workbook
     mimetypes.add_type('application/octet-stream', '.RData')  # R uses .RData
