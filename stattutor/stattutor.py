@@ -17,6 +17,10 @@ from xblock.fields import Scope, Integer, String, Float, Boolean
 from xblock.fragment import Fragment
 # pylint: enable=import-error
 
+import logging
+
+log = logging.getLogger(__name__)
+
 
 class StattutorXBlock(XBlock):
     """
@@ -263,6 +267,21 @@ class StattutorXBlock(XBlock):
         except ValueError as int_err:
             return {'result': 'fail', 'error': 'Bad grading values:' +
                     unicode(int_err)}
+
+        # Send a problem_check event on each student submission for the OLI event handler.
+        if corrects > self.score:
+            correct = 1
+        else:
+            correct = 0
+
+        problem_check_event_data = {'grade': correct, 'max_grade': 1.0, 'problem_question_name' : self.problem+'_'+data.get('last_selection'),}
+        try:
+            self.runtime.publish(self, 'problem_check', problem_check_event_data)
+        except Exception as err:
+            log.error(
+                'Error on sending problem_check event from StatTutor Xblock',
+            )
+
         # only change score if it increases.
         # this is done because corrects should only ever increase and
         # it deals with issues EdX has with grading, in particular

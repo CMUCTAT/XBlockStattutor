@@ -29,17 +29,28 @@ function Initialize_CTATXBlock(runtime,element)
 			contentType: "application/json; charset=utf-8",
 			dataType: "json"});
 		},
-		report_grade: function(correct_step_count, total_step_count) 
-		{
-			$.ajax(
-			{
-				type: "POST",
-				url: runtime.handlerUrl(element, 'ctat_grade'),
-				data: JSON.stringify({'value': correct_step_count,
-									  'max_value': total_step_count}),
-								      contentType: "application/json; charset=utf-8",
-									  dataType: "json"});
-		},
+        report_grade: function(correct_step_count, total_step_count)
+        {
+            xblockFrame=document.getElementById("ctatxblockframe");
+            ll=xblockFrame.contentWindow.commLoggingLibrary;
+            
+            var lastSelection="sessionstart";
+            
+            if (ll.getLastSAI ()!=null)
+            {
+                lastSelection=ll.getLastSAI ().getSelection();
+            }
+
+            $.ajax(
+            {
+                type: "POST",
+                url: runtime.handlerUrl(element, 'ctat_grade'),
+                data: JSON.stringify({'value': correct_step_count,
+                                      'max_value': total_step_count,
+                                      'last_selection': lastSelection}),
+                                      contentType: "application/json; charset=utf-8",
+                                      dataType: "json"});
+        },
 		log_event: function(aMessage) 
 		{			
 			xblockFrame=document.getElementById("ctatxblockframe");
