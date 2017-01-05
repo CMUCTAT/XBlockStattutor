@@ -229,7 +229,7 @@ class StattutorXBlock(XBlock):
         try:
             data['user_id'] = self.runtime.user_id
             data['component_id'] = unicode(self.scope_ids.usage_id)
-            self.runtime.publish(self, "ctatlog", data)
+            self.runtime.publish(self, "problem_check", data)
         # General mechanism to catch a very broad category of errors.
         except Exception as err:
             return {'result': 'fail', 'error': unicode(err)}
