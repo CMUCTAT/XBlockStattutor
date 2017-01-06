@@ -3,12 +3,13 @@ This is a XBlock used to serve the CTAT based StatTutor problems originally
 implemented for OLI (http://oli.cmu.edu/).
 """
 
-import re
-import uuid
 import base64
+import bleach
+import logging
 import math
 import pkg_resources
-import bleach
+import re
+import uuid
 
 # pylint: disable=import-error
 # The xblock packages are available in the runtime environment.
@@ -17,7 +18,6 @@ from xblock.fields import Scope, Integer, String, Float, Boolean
 from xblock.fragment import Fragment
 # pylint: enable=import-error
 
-import logging
 
 log = logging.getLogger(__name__)
 
@@ -77,26 +77,13 @@ class StattutorXBlock(XBlock):
     # not exist.
 
     # **** Basic interface variables ****
-    # All of the variable in this section are required to get the tutors to run
+
     src = "public/html/StatTutor.html"  # this is static in StatTutor
     # src can not be hard coded into static/html/ctatxblock.html because of the
     # relative path issues discussed elsewhere in this file.
 
-    # Generate and store a dictionary of the available problems.
-    # (AKA the problem whitelist)
-    problems = {}
-    for pf_dir in pkg_resources.resource_listdir(__name__,
-                                                 'public/problem_files/'):
-        pdir = 'public/problem_files/{}'.format(pf_dir)
-        if pkg_resources.resource_isdir(__name__, pdir):
-            pdir_files = [f for f in
-                          pkg_resources.resource_listdir(__name__, pdir)]
-            brds = [brd for brd in pdir_files if '.brd' in brd]
-            desc = [dsc for dsc in pdir_files if '.xml' in dsc]
-            if len(brds) > 0 and len(desc) > 0:
-                problems[pf_dir] = {'name': pf_dir,
-                                    'brd': pdir + '/' + brds[0],
-                                    'description': pdir + '/' + desc[0]}
+    problems = create_problem_dict(pkg_resources)
+
     problem = String(help="The selected problem from problems",
                      default="m1_survey", scope=Scope.settings)
 
@@ -111,9 +98,8 @@ class StattutorXBlock(XBlock):
                      default="",
                      scope=Scope.settings)
 
-    # None, ClientToService, ClientToLogServer or OLI
-    # Set to "ClientToService" to activate logging.
-    logtype = Boolean(help="Enable logging.",
+    # Flat to enable or disable logging
+    logging_enabled = Boolean(help="Enable logging.",
                       default=True,
                       scope=Scope.settings)
 
@@ -125,6 +111,25 @@ class StattutorXBlock(XBlock):
                             default="", scope=Scope.user_state)
 
     # **** Utility functions and methods ****
+
+    @staticmethod
+    def create_problem_dict(pkg_resources):
+        """ Generate and store a dictionary of the available problems. """
+        problems = {}
+        for pf_dir in pkg_resources.resource_listdir(__name__,
+                                             'public/problem_files/'):
+            pdir = 'public/problem_files/{}'.format(pf_dir)
+            if pkg_resources.resource_isdir(__name__, pdir):
+                pdir_files = [f for f in
+                              pkg_resources.resource_listdir(__name__, pdir)]
+                brds = [brd for brd in pdir_files if '.brd' in brd]
+                desc = [dsc for dsc in pdir_files if '.xml' in dsc]
+                if len(brds) > 0 and len(desc) > 0:
+                    problems[pf_dir] = {'name': pf_dir,
+                                        'brd': pdir + '/' + brds[0],
+                                        'description': pdir + '/' + desc[0]}
+        return problems
+
     @staticmethod
     def resource_string(path):
         """ Read in the contents of a resource file. """
@@ -142,8 +147,6 @@ class StattutorXBlock(XBlock):
         # prepends "//localhost:(port)" which makes accessing the Xblock in EdX
         # from a remote machine fail completely.
         return self.strip_local(self.runtime.local_resource_url(self, url))
-
-    # **** XBlock methods ****
 
     # -------------------------------------------------------------------
     # Here we construct the tutor html page from various resources. This
@@ -204,7 +207,7 @@ class StattutorXBlock(XBlock):
             block_type=unicode(usage_id.block_type)
             if not sdk_usage else usage_id,
             # runtime
-            logtype=self.logtype,
+            logtype=self.logging_enabled,
             log_url=self.log_url,
             question_file=self.get_local_resource_url(brd),
             saved_state_len=len(self.saveandrestore),
@@ -213,7 +216,7 @@ class StattutorXBlock(XBlock):
             problem_description=self.get_local_resource_url(description)
         ))
         # Add the xml2json library here because someone has a problem if it lives somewhere else instead
-        frag.add_javascript(self.resource_string("static/js/xml2json.min.js"))		
+        frag.add_javascript(self.resource_string("static/js/xml2json.min.js"))
         # Add javascript initialization code
         frag.add_javascript(self.resource_string("static/js/Initialize_CTATXBlock.js"))
         # Execute javascript initialization code
@@ -223,11 +226,12 @@ class StattutorXBlock(XBlock):
     @XBlock.json_handler
     def ctat_log(self, data, dummy_suffix=''):
         """Publish log messages from a CTAT tutor to EdX log."""
-        if data.get('event_type') is None or\
-           data.get('action') is None or\
-           data.get('message') is None:
+
+        data_missing = 'event_type' in data and 'action' in data and 'message' in data
+        if data_missing:
             return {'result': 'fail',
                     'error': 'Log request message is missing required fields.'}
+
         data.pop('event_type')
         # pylint: disable=broad-except
         try:
@@ -254,19 +258,23 @@ class StattutorXBlock(XBlock):
         """
         self.attempted = True
         corrects = 0
-        try:
-            if data.get('value') is not None:
+
+        if 'value' in data:
+            try:
                 corrects = int(data.get('value'))
-                if math.isnan(corrects):
-                    corrects = 0  # check for invalid value
-            if data.get('max_value') is not None:
+            except ValueError as int_err:
+                return {'result': 'fail', 'error': 'Bad grading values:' +
+                        unicode(int_err)}
+
+        if 'max_value' in data:
+            try:
                 max_val = int(data.get('max_value'))
-                if not math.isnan(max_val) and max_val > 0:
-                    # only update if a valid number
-                    self.max_problem_steps = max_val
-        except ValueError as int_err:
-            return {'result': 'fail', 'error': 'Bad grading values:' +
-                    unicode(int_err)}
+            except ValueError as int_err:
+                return {'result': 'fail', 'error': 'Bad grading values:' +
+                        unicode(int_err)}
+            if max_val > 0:
+                # only update if a valid number
+                self.max_problem_steps = max_val
 
         # Send a problem_check event on each student submission for the OLI event handler.
         if corrects > self.score:
@@ -317,7 +325,7 @@ class StattutorXBlock(XBlock):
         problem_dirs.sort()
         frag = Fragment(html.format(
             problems=''.join(problem_dirs),
-            logging='checked' if self.logtype else '',
+            logging='checked' if self.logging_enabled else '',
             logserver=self.log_url))
         studio_js = self.resource_string("static/js/ctatstudio.js")
         frag.add_javascript(unicode(studio_js))
@@ -348,10 +356,10 @@ class StattutorXBlock(XBlock):
             status = 'failure'
             messages.append("invalid module")
         if logging.lower() == "true":
-            self.logtype = True
+            self.logging_enabled = True
             self.log_url = logserver
         else:
-            self.logtype = False
+            self.logging_enabled = False
         ret = {'result': status}
         if len(messages) > 0:
             ret['message'] = "; ".join(messages)
@@ -374,8 +382,12 @@ class StattutorXBlock(XBlock):
         """
         if data.get('state') is not None:
             self.saveandrestore = bleach.clean(data.get('state'))
-            return {'result': 'success'}
-        return {'result': 'failure'}
+            return {
+                'result': 'success'
+            }
+        return {
+            'result': 'failure'
+        }
 
     @XBlock.json_handler
     def ctat_get_problem_state(self, dummy_data, dummy_suffix=''):
@@ -389,7 +401,10 @@ class StattutorXBlock(XBlock):
         Returns:
           A JSON object with a 'result' and a 'state' field.
         """
-        return {'result': 'success', 'state': self.saveandrestore}
+        return {
+            'result': 'success',
+            'state': self.saveandrestore
+        }
 
     @staticmethod
     def workbench_scenarios():
