@@ -227,8 +227,8 @@ class StattutorXBlock(XBlock):
     def ctat_log(self, data, dummy_suffix=''):
         """Publish log messages from a CTAT tutor to EdX log."""
 
-        data_missing = 'event_type' in data and 'action' in data and 'message' in data
-        if data_missing:
+        data_present = 'event_type' in data and 'action' in data and 'message' in data
+        if not data_present:
             return {'result': 'fail',
                     'error': 'Log request message is missing required fields.'}
 
