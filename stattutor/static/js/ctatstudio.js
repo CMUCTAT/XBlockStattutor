@@ -30,7 +30,8 @@ function CTATXBlockStudio(runtime, element)
     });
     // Add "Cancel" button click event listener.
     $(element).find('.cancel-button').bind('click', function() {
-	if (runtime.notify)
-	    runtime.notify('cancel', {});
+    	if (runtime.notify) {
+    	    runtime.notify('cancel', {});
+        }
     });
 }
