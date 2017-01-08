@@ -56,6 +56,23 @@ class StattutorXBlock(XBlock):
         scope=Scope.user_state, default=1)
     max_possible_score = 1
 
+    def create_problem_dict(pkg_resources):
+        """ Generate and store a dictionary of the available problems. """
+        problems = {}
+        for pf_dir in pkg_resources.resource_listdir(__name__,
+                                             'public/problem_files/'):
+            pdir = 'public/problem_files/{}'.format(pf_dir)
+            if pkg_resources.resource_isdir(__name__, pdir):
+                pdir_files = [f for f in
+                              pkg_resources.resource_listdir(__name__, pdir)]
+                brds = [brd for brd in pdir_files if '.brd' in brd]
+                desc = [dsc for dsc in pdir_files if '.xml' in dsc]
+                if len(brds) > 0 and len(desc) > 0:
+                    problems[pf_dir] = {'name': pf_dir,
+                                        'brd': pdir + '/' + brds[0],
+                                        'description': pdir + '/' + desc[0]}
+        return problems
+
     def max_score(self):
         """ The maximum raw score of the problem. """
         # For some unknown reason, errors are thrown if the return value is
@@ -111,24 +128,6 @@ class StattutorXBlock(XBlock):
                             default="", scope=Scope.user_state)
 
     # **** Utility functions and methods ****
-
-    @staticmethod
-    def create_problem_dict(pkg_resources):
-        """ Generate and store a dictionary of the available problems. """
-        problems = {}
-        for pf_dir in pkg_resources.resource_listdir(__name__,
-                                             'public/problem_files/'):
-            pdir = 'public/problem_files/{}'.format(pf_dir)
-            if pkg_resources.resource_isdir(__name__, pdir):
-                pdir_files = [f for f in
-                              pkg_resources.resource_listdir(__name__, pdir)]
-                brds = [brd for brd in pdir_files if '.brd' in brd]
-                desc = [dsc for dsc in pdir_files if '.xml' in dsc]
-                if len(brds) > 0 and len(desc) > 0:
-                    problems[pf_dir] = {'name': pf_dir,
-                                        'brd': pdir + '/' + brds[0],
-                                        'description': pdir + '/' + desc[0]}
-        return problems
 
     @staticmethod
     def resource_string(path):
