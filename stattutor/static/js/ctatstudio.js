@@ -15,7 +15,6 @@ function CTATXBlockStudio(runtime, element)
 	// compose form data
 	var data = {
 	    statmodule: $(element).find('select#statmodule').val(),
-	    logserver: $(element).find('input#logserver').val(),
 	    logging: $(element).find('input#logging').is(':checked')
 	};
 	if (runtime.notify) // SDK does not seem to have runtime.notify
