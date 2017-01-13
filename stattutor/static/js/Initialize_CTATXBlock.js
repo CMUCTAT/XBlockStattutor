@@ -66,17 +66,31 @@ function Initialize_CTATXBlock(runtime,element)
 			if (ll!=null)
 			{
 				var lastSAI=ll.getLastSAI ();
+
+				var stepGrade = null;
+				var actionEval = aMessage.match(/%3Caction_evaluation[%0-9A-Za-z_]*%3E([A-Za-z ]+)%3C%2Faction_evaluation[%0-9A-F]*%3E/);
+				if(actionEval && actionEval.length>1)
+				{
+					var ae = actionEval[1].toLowerCase();
+					stepGrade=(ae.indexOf("hint") >= 0 ? null : (ae.indexOf("incorrect") >= 0 ? 0.0 : 1.0));
+				}
+				var postData = {event_type: 'ctat_log',
+						action: 'CTATlogevent',
+						problem_name: CTATConfig.problem_name,
+						dataset_name: CTATConfig.dataset_name,
+						problem_question_name: (CTATConfig.problem_name+'_'+lastSelection),
+						message: JSONDriver.xml_str2json (aMessage)};
+				if(stepGrade !== null)
+				{
+				    postData.event = {grade: stepGrade,
+						      max_grade: 1.0};
+				}
 					
 				$.ajax(
 				{
 					type: "POST",
 					url: runtime.handlerUrl(element, 'ctat_log'),
-					data: JSON.stringify({'event_type':'ctat_log',
-										'action':'CTATlogevent',
-										'problem_name' : CTATConfig.problem_name,
-										'dataset_name' : CTATConfig.dataset_name,
-										'problem_question_name' : (CTATConfig.problem_name+'_'+lastSelection),
-										'message': JSONDriver.xml_str2json (aMessage)}),
+					data: JSON.stringify(postData),
 					contentType: "application/json; charset=utf-8",
 					dataType: "json"
 				});
