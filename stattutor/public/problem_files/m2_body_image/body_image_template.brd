@@ -2618,7 +2618,7 @@
                         <value>set_classify_variables</value>
                     </Action>
                     <Input>
-                        <value>q1;Midterm1: false;Midterm2: false;Diff.Mid: false;Extra credit: true;Final: true;Class: true</value>
+                        <value>q1;%(q1plan_id_ok1_input)%</value>
                     </Input>
                     <transaction_id>T27c4851f-4399-4c53-bcd3-d5894a581553</transaction_id>
                 </properties>
@@ -2646,7 +2646,7 @@
                 <Input>
                     <matcher replacementFormula="concat(&quot;q1;&quot;,q1plan_id)">
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">q1;Midterm1: false;Midterm2: false;Diff.Mid: false;Extra credit: true;Final: true;Class: true</matcherParameter>
+                        <matcherParameter name="single">q1;%(q1plan_id_ok1_input)%</matcherParameter>
                     </matcher>
                 </Input>
                 <Actor linkTriggered="true">Tutor (unevaluated)</Actor>
@@ -2744,8 +2744,7 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage>&lt;span class="CTAT-correct"&gt;&amp;#x2713;&lt;/span&gt; %(q1plan_classify1_ok1_successmsg)%
-</successMessage>
+            <successMessage>&lt;span class="CTAT-correct"&gt;&amp;#x2713;&lt;/span&gt; %(q1plan_classify1_ok1_successmsg)%</successMessage>
             <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Quantitative variables take numerical values for which arithmetic operations make sense (example: age, GPA, weight).  Categorical variables place an individual into one of several groups (example: race, eye color, handedness).</hintMessage>
             <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Is the variable, GPA, quantitative or categorical?</hintMessage>
             <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please select 'quantitative' in the highlighted element.</hintMessage>
@@ -5108,7 +5107,7 @@
                         <value>set_classify_variables</value>
                     </Action>
                     <Input>
-                        <value>q2;Gender: true;Height: false;GPA: false;HS_GPA: false;Seat: false;WtFeel: true;Cheat: false</value>
+                        <value>q2;%(q2plan_id_ok1_input)%</value>
                     </Input>
                     <transaction_id>T27c4851f-4399-4c53-bcd3-d5894a581553</transaction_id>
                 </properties>
@@ -5136,7 +5135,7 @@
                 <Input>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">q2;Gender: true;Height: false;GPA: false;HS_GPA: false;Seat: false;WtFeel: true;Cheat: false</matcherParameter>
+                        <matcherParameter name="single">q2;%(q2plan_id_ok1_input)%</matcherParameter>
                     </matcher>
                 </Input>
                 <Actor linkTriggered="true">Tutor (unevaluated)</Actor>
@@ -7597,7 +7596,7 @@
                         <value>set_classify_variables</value>
                     </Action>
                     <Input>
-                        <value>q3;Gender: false;Height: false;GPA: true;HS_GPA: false;Seat: true;WtFeel: false;Cheat: false</value>
+                        <value>q3;%(q3plan_id_ok1_input)%</value>
                     </Input>
                     <transaction_id>T27c4851f-4399-4c53-bcd3-d5894a581553</transaction_id>
                 </properties>
@@ -7625,7 +7624,7 @@
                 <Input>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">q3;Gender: false;Height: false;GPA: true;HS_GPA: false;Seat: true;WtFeel: false;Cheat: false</matcherParameter>
+                        <matcherParameter name="single">q3;%(q3plan_id_ok1_input)%</matcherParameter>
                     </matcher>
                 </Input>
                 <Actor linkTriggered="true">Tutor (unevaluated)</Actor>
@@ -7839,7 +7838,7 @@
                         <value>UpdateComboBox</value>
                     </Action>
                     <Input>
-                        <value>categorical</value>
+                        <value>%(q3plan_classify3_ok1_input)%</value>
                     </Input>
                     <transaction_id>T4967f959-27f9-4545-9530-33c1e2e9ba95</transaction_id>
                 </properties>
@@ -7847,8 +7846,8 @@
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage>&lt;span class="CTAT-correct"&gt;&amp;#x2713;&lt;/span&gt; %(q3plan_classify3_ok1_successmsg)%</successMessage>
             <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Quantitative variables take numerical values for which arithmetic operations make sense (example: age, GPA, weight).  Categorical variables place an individual into one of several groups (example: race, eye color, handedness).</hintMessage>
-            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Is the variable, Final, quantitative or categorical?</hintMessage>
-            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please select 'quantitative' in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Is the variable, Seat, quantitative or categorical?</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please select '%(q3plan_classify3_ok1_input)%' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -7869,7 +7868,7 @@
                 <Input>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">categorical</matcherParameter>
+                        <matcherParameter name="single">%(q3plan_classify3_ok1_input)%</matcherParameter>
                     </matcher>
                 </Input>
                 <Actor linkTriggered="false">Student</Actor>

@@ -2618,7 +2618,7 @@
                         <value>set_classify_variables</value>
                     </Action>
                     <Input>
-                        <value>q1;Midterm1: false;Midterm2: false;Diff.Mid: false;Extra credit: true;Final: true;Class: true</value>
+                        <value>q1;Gender: false;Height: false;GPA: true;HS_GPA: true;Seat: false;WtFeel: false;Cheat: false</value>
                     </Input>
                     <transaction_id>T27c4851f-4399-4c53-bcd3-d5894a581553</transaction_id>
                 </properties>
@@ -2646,7 +2646,7 @@
                 <Input>
                     <matcher replacementFormula="concat(&quot;q1;&quot;,q1plan_id)">
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">q1;Midterm1: false;Midterm2: false;Diff.Mid: false;Extra credit: true;Final: true;Class: true</matcherParameter>
+                        <matcherParameter name="single">q1;Gender: false;Height: false;GPA: true;HS_GPA: true;Seat: false;WtFeel: false;Cheat: false</matcherParameter>
                     </matcher>
                 </Input>
                 <Actor linkTriggered="true">Tutor (unevaluated)</Actor>
@@ -2744,8 +2744,7 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage>&lt;span class="CTAT-correct"&gt;&amp;#x2713;&lt;/span&gt; Correct. College GPA is a quantitative variable in that it has numerical values and represents some kind of measurement, in this case the student's college grade point average.
-</successMessage>
+            <successMessage>&lt;span class="CTAT-correct"&gt;&amp;#x2713;&lt;/span&gt; Correct. College GPA is a quantitative variable in that it has numerical values and represents some kind of measurement, in this case the student's college grade point average.</successMessage>
             <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Quantitative variables take numerical values for which arithmetic operations make sense (example: age, GPA, weight).  Categorical variables place an individual into one of several groups (example: race, eye color, handedness).</hintMessage>
             <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Is the variable, GPA, quantitative or categorical?</hintMessage>
             <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please select 'quantitative' in the highlighted element.</hintMessage>
@@ -7847,8 +7846,8 @@
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage>&lt;span class="CTAT-correct"&gt;&amp;#x2713;&lt;/span&gt; Correct. Seat is a categorical variable in that it has label values and places an individual into one of several groups (Front, Middle, and Back).</successMessage>
             <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Quantitative variables take numerical values for which arithmetic operations make sense (example: age, GPA, weight).  Categorical variables place an individual into one of several groups (example: race, eye color, handedness).</hintMessage>
-            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Is the variable, Final, quantitative or categorical?</hintMessage>
-            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please select 'quantitative' in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Is the variable, Seat, quantitative or categorical?</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please select 'categorical' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -11396,7 +11395,7 @@
                     <transaction_id>Td398a26f-ad7b-48f1-a536-206c7b7b52f0</transaction_id>
                 </properties>
             </message>
-            <buggyMessage>Incorrect. Side-by-side boxplots is the appropriate graphical display for comparing and contrasting distributions from &lt;/b&gt;two or more groups&lt;/b&gt; for a &lt;b&gt;single&lt;/b&gt; quantitative variable. In this case, we have &lt;b&gt;two&lt;/b&gt; quantitative variables, GPA and HS_GPA.</buggyMessage>
+            <buggyMessage>Incorrect. Side-by-side boxplots is the appropriate graphical display for comparing and contrasting distributions from &lt;b&gt;two or more groups&lt;/b&gt; for a &lt;b&gt;single&lt;/b&gt; quantitative variable. In this case, we have &lt;b&gt;two&lt;/b&gt; quantitative variables, GPA and HS_GPA.</buggyMessage>
             <successMessage></successMessage>
             <callbackFn></callbackFn>
             <actionType>Buggy Action</actionType>

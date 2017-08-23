@@ -6034,7 +6034,7 @@
                         <value>UpdateTextArea</value>
                     </Action>
                     <Input>
-                        <value>&lt;img src="m6_low_birth_weight/low_birth_weight_q2_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;23.96% of the white mothers had a low birth weight baby.  42.31% of black mothers had a low birth weight baby.  37.31% of mothers in the &amp;quot;other&amp;quot; group had a low birth weight baby.</value>
+                        <value>&lt;img src="m6_low_birth_weight/low_birth_weight_q2_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;23.96% of the white mothers had a low birth weight baby.  42.31% of black mothers had a low birth weight baby.  37.31% of mothers in the &quot;other&quot; group had a low birth weight baby.</value>
                     </Input>
                     <transaction_id>T67e7c476-09c6-42bb-8b11-e2f984168284</transaction_id>
                 </properties>
@@ -6062,7 +6062,7 @@
                 <Input>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">&lt;img src="m6_low_birth_weight/low_birth_weight_q2_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;23.96% of the white mothers had a low birth weight baby.  42.31% of black mothers had a low birth weight baby.  37.31% of mothers in the &amp;quot;other&amp;quot; group had a low birth weight baby.</matcherParameter>
+                        <matcherParameter name="single">&lt;img src="m6_low_birth_weight/low_birth_weight_q2_ea_report_results_statcrunch.jpg"&gt;&lt;br/&gt;23.96% of the white mothers had a low birth weight baby.  42.31% of black mothers had a low birth weight baby.  37.31% of mothers in the &quot;other&quot; group had a low birth weight baby.</matcherParameter>
                     </matcher>
                 </Input>
                 <Actor linkTriggered="false">Tutor (unevaluated)</Actor>
