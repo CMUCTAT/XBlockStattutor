@@ -2618,7 +2618,7 @@
                         <value>set_classify_variables</value>
                     </Action>
                     <Input>
-                        <value>q1;Midterm1: false;Midterm2: false;Diff.Mid: false;Extra credit: true;Final: true;Class: true</value>
+                        <value>q1;Gender: false;Height: false;GPA: true;HS_GPA: true;Seat: false;WtFeel: false;Cheat: false</value>
                     </Input>
                     <transaction_id>T27c4851f-4399-4c53-bcd3-d5894a581553</transaction_id>
                 </properties>
@@ -2646,7 +2646,7 @@
                 <Input>
                     <matcher replacementFormula="concat(&quot;q1;&quot;,q1plan_id)">
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">q1;Midterm1: false;Midterm2: false;Diff.Mid: false;Extra credit: true;Final: true;Class: true</matcherParameter>
+                        <matcherParameter name="single">q1;Gender: false;Height: false;GPA: true;HS_GPA: true;Seat: false;WtFeel: false;Cheat: false</matcherParameter>
                     </matcher>
                 </Input>
                 <Actor linkTriggered="true">Tutor (unevaluated)</Actor>
@@ -2744,8 +2744,7 @@
                 </properties>
             </message>
             <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage>&lt;span class="CTAT-correct"&gt;&amp;#x2713;&lt;/span&gt; Correct. College GPA is a quantitative variable in that it has numerical values and represents some kind of measurement, in this case the student's college grade point average.
-</successMessage>
+            <successMessage>&lt;span class="CTAT-correct"&gt;&amp;#x2713;&lt;/span&gt; Correct. College GPA is a quantitative variable in that it has numerical values and represents some kind of measurement, in this case the student's college grade point average.</successMessage>
             <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Quantitative variables take numerical values for which arithmetic operations make sense (example: age, GPA, weight).  Categorical variables place an individual into one of several groups (example: race, eye color, handedness).</hintMessage>
             <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Is the variable, GPA, quantitative or categorical?</hintMessage>
             <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please select 'quantitative' in the highlighted element.</hintMessage>
@@ -7847,8 +7846,8 @@
             <buggyMessage>No, this is not correct.</buggyMessage>
             <successMessage>&lt;span class="CTAT-correct"&gt;&amp;#x2713;&lt;/span&gt; Correct. Seat is a categorical variable in that it has label values and places an individual into one of several groups (Front, Middle, and Back).</successMessage>
             <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Quantitative variables take numerical values for which arithmetic operations make sense (example: age, GPA, weight).  Categorical variables place an individual into one of several groups (example: race, eye color, handedness).</hintMessage>
-            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Is the variable, Final, quantitative or categorical?</hintMessage>
-            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please select 'quantitative' in the highlighted element.</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Is the variable, Seat, quantitative or categorical?</hintMessage>
+            <hintMessage>&lt;span class="CTAT-hint"&gt;&amp;#128161;&lt;/span&gt; Please select 'categorical' in the highlighted element.</hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -10328,7 +10327,7 @@
                     <transaction_id>T711a2bff-e8ac-4930-9854-1181709a2eb9</transaction_id>
                 </properties>
             </message>
-            <buggyMessage>Incorrect. This is the number of students who typically sit in the &lt;b&gt;front&lt;/b&gt; of the classroom out of the first ten students.  You want the number of students who typically sit in the &lt;/b&gt;back&lt;/b&gt; of the classroom out of the first ten students.</buggyMessage>
+            <buggyMessage>Incorrect. This is the number of students who typically sit in the &lt;b&gt;front&lt;/b&gt; of the classroom out of the first ten students.  You want the number of students who typically sit in the &lt;b&gt;back&lt;/b&gt; of the classroom out of the first ten students.</buggyMessage>
             <successMessage></successMessage>
             <callbackFn></callbackFn>
             <actionType>Buggy Action</actionType>
@@ -10563,12 +10562,12 @@
                         <value>UpdateTextField</value>
                     </Action>
                     <Input>
-                        <value>%(cdf1_bug5_input)%</value>
+                        <value></value>
                     </Input>
                     <transaction_id>T711a2bff-e8ac-4930-9854-1181709a2eb9</transaction_id>
                 </properties>
             </message>
-            <buggyMessage>%(cdf1_bug5_bugmsg)%</buggyMessage>
+            <buggyMessage></buggyMessage>
             <successMessage></successMessage>
             <callbackFn></callbackFn>
             <actionType>Buggy Action</actionType>
@@ -10590,7 +10589,7 @@
                 <Input>
                     <matcher>
                         <matcherType>ExpressionMatcher</matcherType>
-                        <matcherParameter name="InputExpression">%(cdf1_bug5_input)%</matcherParameter>
+                        <matcherParameter name="InputExpression"></matcherParameter>
                         <matcherParameter name="relation">=</matcherParameter>
                     </matcher>
                 </Input>
@@ -10686,7 +10685,7 @@
                     <transaction_id>T711a2bff-e8ac-4930-9854-1181709a2eb9</transaction_id>
                 </properties>
             </message>
-            <buggyMessage>Incorrect. This is the number of students out of the first ten students in the data file who have a college GPA that is &lt;b&gt;lower&lt;/b&gt; than their high school GPA.  You want the number of students out of the first ten students in the data file who have a college GPA that is &lt;/b&gt;higher&lt;/b&gt; than their high school GPA.</buggyMessage>
+            <buggyMessage>Incorrect. This is the number of students out of the first ten students in the data file who have a college GPA that is &lt;b&gt;lower&lt;/b&gt; than their high school GPA.  You want the number of students out of the first ten students in the data file who have a college GPA that is &lt;b&gt;higher&lt;/b&gt; than their high school GPA.</buggyMessage>
             <successMessage></successMessage>
             <callbackFn></callbackFn>
             <actionType>Buggy Action</actionType>
@@ -10861,12 +10860,12 @@
                         <value>UpdateTextField</value>
                     </Action>
                     <Input>
-                        <value>%(cdf2_bug4_input)%</value>
+                        <value></value>
                     </Input>
                     <transaction_id>T711a2bff-e8ac-4930-9854-1181709a2eb9</transaction_id>
                 </properties>
             </message>
-            <buggyMessage>%(cdf2_bug4_bugmsg)%</buggyMessage>
+            <buggyMessage></buggyMessage>
             <successMessage></successMessage>
             <callbackFn></callbackFn>
             <actionType>Buggy Action</actionType>
@@ -10888,7 +10887,7 @@
                 <Input>
                     <matcher>
                         <matcherType>ExpressionMatcher</matcherType>
-                        <matcherParameter name="InputExpression">%(cdf2_bug4_input)%</matcherParameter>
+                        <matcherParameter name="InputExpression"></matcherParameter>
                         <matcherParameter name="relation">=</matcherParameter>
                     </matcher>
                 </Input>
@@ -11097,12 +11096,12 @@
                         <value>UpdateTextField</value>
                     </Action>
                     <Input>
-                        <value>%(cdf3_bug3_input)%</value>
+                        <value>F</value>
                     </Input>
                     <transaction_id>T711a2bff-e8ac-4930-9854-1181709a2eb9</transaction_id>
                 </properties>
             </message>
-            <buggyMessage>%(cdf3_bug3_bugmsg)%</buggyMessage>
+            <buggyMessage>Incorrect. The back of the room is the typical seat for the student with the &lt;b&gt;highest high school GPA&lt;/b&gt; out of the first ten students.  You want the typical seat for the student with the highest &lt;b&gt;college GPA&lt;/b&gt; (GPA variable) out of the first ten students in the datafile.</buggyMessage>
             <successMessage></successMessage>
             <callbackFn></callbackFn>
             <actionType>Buggy Action</actionType>
@@ -11156,12 +11155,12 @@
                         <value>UpdateTextField</value>
                     </Action>
                     <Input>
-                        <value>%(cdf3_bug4_input)%</value>
+                        <value>f</value>
                     </Input>
                     <transaction_id>T711a2bff-e8ac-4930-9854-1181709a2eb9</transaction_id>
                 </properties>
             </message>
-            <buggyMessage>%(cdf3_bug4_bugmsg)%</buggyMessage>
+            <buggyMessage>Incorrect. The back of the room is the typical seat for the student with the &lt;b&gt;highest high school GPA&lt;/b&gt; out of the first ten students.  You want the typical seat for the student with the highest &lt;b&gt;college GPA&lt;/b&gt; (GPA variable) out of the first ten students in the datafile.</buggyMessage>
             <successMessage></successMessage>
             <callbackFn></callbackFn>
             <actionType>Buggy Action</actionType>
@@ -11215,12 +11214,12 @@
                         <value>UpdateTextField</value>
                     </Action>
                     <Input>
-                        <value>%(cdf3_bug5_input)%</value>
+                        <value></value>
                     </Input>
                     <transaction_id>T711a2bff-e8ac-4930-9854-1181709a2eb9</transaction_id>
                 </properties>
             </message>
-            <buggyMessage>%(cdf3_bug5_bugmsg)%</buggyMessage>
+            <buggyMessage></buggyMessage>
             <successMessage></successMessage>
             <callbackFn></callbackFn>
             <actionType>Buggy Action</actionType>
@@ -11396,7 +11395,7 @@
                     <transaction_id>Td398a26f-ad7b-48f1-a536-206c7b7b52f0</transaction_id>
                 </properties>
             </message>
-            <buggyMessage>Incorrect. Side-by-side boxplots is the appropriate graphical display for comparing and contrasting distributions from &lt;/b&gt;two or more groups&lt;/b&gt; for a &lt;b&gt;single&lt;/b&gt; quantitative variable. In this case, we only have &lt;b&gt;two&lt;/b&gt; quantitative variables, GPA and HS_GPA.</buggyMessage>
+            <buggyMessage>Incorrect. Side-by-side boxplots is the appropriate graphical display for comparing and contrasting distributions from &lt;b&gt;two or more groups&lt;/b&gt; for a &lt;b&gt;single&lt;/b&gt; quantitative variable. In this case, we have &lt;b&gt;two&lt;/b&gt; quantitative variables, GPA and HS_GPA.</buggyMessage>
             <successMessage></successMessage>
             <callbackFn></callbackFn>
             <actionType>Buggy Action</actionType>
@@ -11455,7 +11454,7 @@
                     <transaction_id>Td398a26f-ad7b-48f1-a536-206c7b7b52f0</transaction_id>
                 </properties>
             </message>
-            <buggyMessage>Incorrect. A two-way table is the appropriate graphical display for examining the relationship between two &lt;b&gt;categorical variables.&lt;/b&gt; In this case, we only have two &lt;b&gt;quantitative&lt;/b&gt; variables, GPA and HS_GPA.</buggyMessage>
+            <buggyMessage>Incorrect. A two-way table is the appropriate graphical display for examining the relationship between two &lt;b&gt;categorical variables.&lt;/b&gt; In this case, we have two &lt;b&gt;quantitative&lt;/b&gt; variables, GPA and HS_GPA.</buggyMessage>
             <successMessage></successMessage>
             <callbackFn></callbackFn>
             <actionType>Buggy Action</actionType>
@@ -11514,7 +11513,7 @@
                     <transaction_id>Td398a26f-ad7b-48f1-a536-206c7b7b52f0</transaction_id>
                 </properties>
             </message>
-            <buggyMessage>Incorrect. A piechart is the appropriate graphical display for representing the distribution of one &lt;b&gt;categorical&lt;/b&gt; variable as either counts or percentages. In this case, we have &lt;b&gt;two quantitative&lt;/b&gt; variables, GPA and HS_GPA.</buggyMessage>
+            <buggyMessage>Incorrect. A piechart is the appropriate graphical display for representing the distribution of &lt;b&gt;one categorical&lt;/b&gt; variable as either counts or percentages. In this case, we have &lt;b&gt;two quantitative&lt;/b&gt; variables, GPA and HS_GPA.</buggyMessage>
             <successMessage></successMessage>
             <callbackFn></callbackFn>
             <actionType>Buggy Action</actionType>
@@ -11691,7 +11690,7 @@
                     <transaction_id>T47e78181-6ceb-4d56-9f08-4215bdb42ee0</transaction_id>
                 </properties>
             </message>
-            <buggyMessage>Incorrect. Group (category) percentage is the appropriate numerical summary for representing the distribution of one &lt;b&gt;categorical&lt;/b&gt; variable. In this case, we have &lt;b&gt;two quantitative&lt;/b&gt; variables, GPA and HS_GPA.</buggyMessage>
+            <buggyMessage>Incorrect. Group (category) percentage is the appropriate numerical summary for representing the distribution of &lt;b&gt;categorical&lt;/b&gt; variable. In this case, we have &lt;b&gt;two quantitative&lt;/b&gt; variables, GPA and HS_GPA.</buggyMessage>
             <successMessage></successMessage>
             <callbackFn></callbackFn>
             <actionType>Buggy Action</actionType>
@@ -12221,7 +12220,7 @@
                     <transaction_id>Td398a26f-ad7b-48f1-a536-206c7b7b52f0</transaction_id>
                 </properties>
             </message>
-            <buggyMessage>Incorrect. Side-by-side boxplots is the appropriate graphical display for comparing and contrasting distributions from &lt;b&gt;two or more groups&lt;/b&gt; for a &lt;b&gt;single quantitative&lt;/b&gt; variable. In this case, we have &lt;/b&gt;two categorical&lt;/b&gt; variables, Gender and WtFeel.</buggyMessage>
+            <buggyMessage>Incorrect. Side-by-side boxplots is the appropriate graphical display for comparing and contrasting distributions from &lt;b&gt;two or more groups&lt;/b&gt; for a &lt;b&gt;single quantitative&lt;/b&gt; variable. In this case, we have &lt;b&gt;two categorical&lt;/b&gt; variables, Gender and WtFeel.</buggyMessage>
             <successMessage></successMessage>
             <callbackFn></callbackFn>
             <actionType>Buggy Action</actionType>
@@ -12951,7 +12950,7 @@
                 <Input>
                     <matcher>
                         <matcherType>RegexMatcher</matcherType>
-                        <matcherParameter name="single">.*((GPA: true;)|(Seat: true;)).*</matcherParameter>
+                        <matcherParameter name="single">.*((;GPA: true;)|(Seat: true;)).*</matcherParameter>
                     </matcher>
                 </Input>
                 <Actor linkTriggered="false">Student</Actor>
@@ -13164,7 +13163,7 @@
                     <transaction_id>Ta4643ba8-4af5-4243-8d14-cd4f807946c1</transaction_id>
                 </properties>
             </message>
-            <buggyMessage>Incorrect. A categorical variable has label values and places an individual into one of several groups. High School GPA has &lt;b&gt;numerical values&lt;/b&gt; as it &lt;b&gt;measures&lt;/b&gt; the student's college grade point average, therefore is it &lt;b&gt;not&lt;/b&gt; categorical.</buggyMessage>
+            <buggyMessage>Incorrect. A categorical variable has label values and places an individual into one of several groups. High School GPA has &lt;b&gt;numerical values&lt;/b&gt; as it &lt;b&gt;measures&lt;/b&gt; the student's high school grade point average, therefore is it &lt;b&gt;not&lt;/b&gt; categorical.</buggyMessage>
             <successMessage></successMessage>
             <callbackFn></callbackFn>
             <actionType>Buggy Action</actionType>
@@ -13577,7 +13576,7 @@
                     <transaction_id>Ta4643ba8-4af5-4243-8d14-cd4f807946c1</transaction_id>
                 </properties>
             </message>
-            <buggyMessage>Incorrect. A quantitative variable has numerical values and represents some kind of measurement. Seat has&lt;b&gt;label values&lt;/b&gt; and places an individual into &lt;b&gt;one of several groups&lt;/b&gt; (Front, Middle, Back), therefore is it &lt;b&gt;not&lt;/b&gt; quantitative.</buggyMessage>
+            <buggyMessage>Incorrect. A quantitative variable has numerical values and represents some kind of measurement. Seat has &lt;b&gt;label values&lt;/b&gt; and places an individual into &lt;b&gt;one of several groups&lt;/b&gt; (Front, Middle, Back), therefore is it &lt;b&gt;not&lt;/b&gt; quantitative.</buggyMessage>
             <successMessage></successMessage>
             <callbackFn></callbackFn>
             <actionType>Buggy Action</actionType>
@@ -13636,7 +13635,7 @@
                     <transaction_id>Td398a26f-ad7b-48f1-a536-206c7b7b52f0</transaction_id>
                 </properties>
             </message>
-            <buggyMessage>Incorrect. A scatterplot is the appropriate graphical display for examining the relationship between &lt;b&gt;two quantitative&lt;/b&gt; variables. In this case, we have &lt;/b&gt;one quantitative variable broken into several groups (i.e. by levels of one categorical variable)&lt;/b&gt;, GPA and Seat.</buggyMessage>
+            <buggyMessage>Incorrect. A scatterplot is the appropriate graphical display for examining the relationship between &lt;b&gt;two quantitative&lt;/b&gt; variables. In this case, we have &lt;b&gt;one quantitative variable broken into several groups (i.e. by levels of one categorical variable)&lt;/b&gt;, GPA and Seat.</buggyMessage>
             <successMessage></successMessage>
             <callbackFn></callbackFn>
             <actionType>Buggy Action</actionType>

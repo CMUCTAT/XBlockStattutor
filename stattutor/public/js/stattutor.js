@@ -647,6 +647,37 @@ function gen_k_of_n_checkbox_feedback(exp, act, intro, studentTerms, itemName, i
     result += (wantedA.length>=nNeeded ? "" : (wantedA.length>0 ? " "+existOtherSf : (nNeeded>0 ? " "+exist1Sf : "")));	    return result;
 }
 /**
+ * Generate a feedback message for a choose-one-of-N question about selecting a statistical test.
+ * @param {string} act student's answer
+ * @param {Array<string>} tests all answers available; act must be one of these
+ * @param {Array<string>} studentTests student-friendly names for each statistical test
+ * @param {Array<string>} descTests descriptions of when to use each test
+ * @param {Array<string>} useTests short statement of the use of each test
+ * @param {string} intro prefix to all responses
+ * @param {string} finish suffix to all responses
+ * @return {string} feedback message
+ */
+function gen_1_of_n_stat_test_feedback(act, tests, studentTests, descTests, useTests, intro, finish) {
+	var i=0;
+	while(i<tests.length && act != tests[i]) ++i;
+	if(i>=tests.length) return intro;
+	return intro+" "+studentTests[i]+" is used when you "+descTests[i]+" We are <b>not</b> testing "+useTests[i]+" "+finish;
+}
+/**
+ * Generate a feedback message for a choose-one-of-N question.
+ * @param {string} act student's answer
+ * @param {Array<string>} answers all inputs available to the student; act must be one of these
+ * @param {Array<string>} msgs feedback message for each element in answers
+ * @param {string} defaultMsg return this if nothing matches
+ * @return {string} feedback message
+ */
+function gen_1_of_n_feedback(act, answers, msgs, defaultMsg) {
+	var i=0;
+	while(i<answers.length && act != answers[i]) ++i;
+	if(i>=answers.length) return defaultMsg;
+	return msgs[i];
+}
+/**
  * Reveal the given our_answer section.
  * @param id [String]	id of the our_* to reveal
  */

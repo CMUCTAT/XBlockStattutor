@@ -12257,7 +12257,7 @@
                     <transaction_id>Td398a26f-ad7b-48f1-a536-206c7b7b52f0</transaction_id>
                 </properties>
             </message>
-            <buggyMessage>A two-way table is the appropriate graphical display for &lt;em&gt;examining the relationship between &lt;b&gt;two categorical variables&lt;/b&gt;. &lt;/em&gt;In this case, we only have &lt;b&gt;one&lt;/b&gt; &lt;b&gt;quantitative&lt;/b&gt; variable, Alcohol.</buggyMessage>
+            <buggyMessage>A two-way table is the appropriate graphical display for examining the relationship between &lt;b&gt;two categorical variables&lt;/b&gt;. In this case, we only have &lt;b&gt;one&lt;/b&gt; &lt;b&gt;quantitative&lt;/b&gt; variable, Alcohol.</buggyMessage>
             <successMessage></successMessage>
             <callbackFn></callbackFn>
             <actionType>Buggy Action</actionType>
@@ -13791,7 +13791,7 @@
                     <transaction_id>Td398a26f-ad7b-48f1-a536-206c7b7b52f0</transaction_id>
                 </properties>
             </message>
-            <buggyMessage>A two-way table is the appropriate graphical display for &lt;em&gt;&lt;span style='font-family:&quot;Arial&quot;,&quot;sans-serif&quot;;font-style:normal'&gt;examining the relationship between &lt;b&gt;two &lt;/b&gt;categorical variables. </buggyMessage>
+            <buggyMessage>Incorrect. A two-way table is the appropriate graphical display for examining the relationship between &lt;b&gt;two &lt;/b&gt;categorical variables. In this case, we only have &lt;b&gt;one&lt;/b&gt; categorical variable, Cheat.</buggyMessage>
             <successMessage></successMessage>
             <callbackFn></callbackFn>
             <actionType>Buggy Action</actionType>
