@@ -1,4 +1,4 @@
-# StatTutor problem files
+# StatTutor problem_files
 Each subdirectory of this directory represents a individual StatTutor
 problem.
 
@@ -11,3 +11,7 @@ conventions.
 New problems from OLI should be added here and should need no
 modification as long as the single .brd and single .xml file
 restriction is observed.
+
+To maintain the .brd files here, use the CTAT mass production
+_template.brd and table (.xlsx) files found in the OLI subdirectory
+content/webcontent/massProduction/.
